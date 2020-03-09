@@ -17,3 +17,4 @@
     * [Intervals](Miscellaneous/Intervals.md)
     * [Interesting Miscellaneous](Miscellaneous/InterestingMiscellaneous.md)
 * [Pythonic Tricks](PythonicTricks/README.md)
+* [Behavioral Questions](BehavioralQuestions.md)
