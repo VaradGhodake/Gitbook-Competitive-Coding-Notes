@@ -1,0 +1,447 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Subarrays · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Trees/" />
+    
+    
+    <link rel="prev" href="TwoPointers.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Data Structures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Arrays
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.1" data-path="TwoPointers.html">
+            
+                <a href="TwoPointers.html">
+            
+                    
+                    Two Pointers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.1.2" data-path="Subarrays.html">
+            
+                <a href="Subarrays.html">
+            
+                    
+                    Subarrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../Trees/">
+            
+                <a href="../Trees/">
+            
+                    
+                    Trees
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../Trees/LevelWise.html">
+            
+                <a href="../Trees/LevelWise.html">
+            
+                    
+                    Level-wise Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../Trees/DivideAndConquer.html">
+            
+                <a href="../Trees/DivideAndConquer.html">
+            
+                    
+                    Divide and Conquer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../Algorithms/">
+            
+                <a href="../../Algorithms/">
+            
+                    
+                    Algorithms
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../Algorithms/DynamicProgramming/">
+            
+                <a href="../../Algorithms/DynamicProgramming/">
+            
+                    
+                    Dynamic Programming
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../Algorithms/BacktrackingAndCompleteSearch/">
+            
+                <a href="../../Algorithms/BacktrackingAndCompleteSearch/">
+            
+                    
+                    Backtracking and Complete Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../Miscellaneous/">
+            
+                <a href="../../Miscellaneous/">
+            
+                    
+                    Miscellaneous
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../PythonicTricks/">
+            
+                <a href="../../PythonicTricks/">
+            
+                    
+                    Pythonic Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Subarrays</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h4 id="subarrays">Subarrays</h4>
+<h5 id="optimization-checks-">Optimization checks: <br></h5>
+<ol>
+<li>Two pointers </li>
+<li>Sliding window with running values </li>
+<li>Prefix array: if we need to apply brute force at any point </li>
+</ol>
+<h5 id="from-all-subarrays-of-size-k">From all subarrays of size K:</h5>
+<p>Requires all subarrays of all sizes and find all where a constraint is matched: <br>
+<a href="https://www.geeksforgeeks.org/number-subarrays-product-less-k/" target="_blank">https://www.geeksforgeeks.org/number-subarrays-product-less-k/</a></p>
+<p>Sliding window with two pointers <br>
+Left move: if product is more than the constraint <br>
+Right move: everytime unless the product is more than the constraint </p>
+<p>Catch: Each addition of the element produces <code>(end_index - (start_index - 1))</code> more subarrays <br>
+Catch: Which implies -- subarray of size d produces <code>d * (d + 1)/2</code> different subarrays</p>
+<p><a href="https://www.geeksforgeeks.org/maximum-subarray-size-subarrays-size-sum-less-k/" target="_blank">https://www.geeksforgeeks.org/maximum-subarray-size-subarrays-size-sum-less-k/</a></p>
+<p>Prefix array to store constraint related data (sorted) <br>
+Binary search + two pointers to find ALL subarrays of that size satisfying the constraint</p>
+<p><a href="https://www.geeksforgeeks.org/number-of-subarrays-with-odd-sum/" target="_blank">https://www.geeksforgeeks.org/number-of-subarrays-with-odd-sum/</a></p>
+<p>Prefix array but instead of sum, store <code>sum modulo 2</code> <br>
+<code>final_answer = prefix_arr[0] * prefix_arr[1]</code></p>
+<h5 id="operation-on-all-of-subarrays">Operation on all of subarrays:</h5>
+<p><a href="https://www.geeksforgeeks.org/xor-subarray-xors/" target="_blank">https://www.geeksforgeeks.org/xor-subarray-xors/</a></p>
+<p>Catch: ith element frequency in all subarrays: <code>(i + 1) * (n - i)</code> <br>
+Desired quantity at the end of the whole domain traversal </p>
+<p><a href="https://leetcode.com/problems/maximum-subarray/" target="_blank">https://leetcode.com/problems/maximum-subarray/</a></p>
+<p>Keep current value running and max/min: <br></p>
+<ul>
+<li>Including the element <br></li>
+<li>Excluding the element: basically new subsequence start <br></li>
+</ul>
+<p>Looks like DP question but we don&#x2019;t have to refer older values as we are dealing subarrays, not subsequences. Answer till  previous is stored in the comparison step of current and absolute max/min.</p>
+<p><a href="https://www.geeksforgeeks.org/maximum-product-subarray-set-3/" target="_blank">https://www.geeksforgeeks.org/maximum-product-subarray-set-3/</a></p>
+<p>maxVal and minVal at each value during iteration. If negative, swap them before multi, other things similar to maximum subarray sum</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="TwoPointers.html" class="navigation navigation-prev " aria-label="Previous page: Two Pointers">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Trees/" class="navigation navigation-next " aria-label="Next page: Trees">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Subarrays","level":"1.2.1.2","depth":3,"next":{"title":"Trees","level":"1.2.2","depth":2,"path":"DataStructures/Trees/README.md","ref":"DataStructures/Trees/README.md","articles":[{"title":"Level-wise Traversal","level":"1.2.2.1","depth":3,"path":"DataStructures/Trees/LevelWise.md","ref":"DataStructures/Trees/LevelWise.md","articles":[]},{"title":"Divide and Conquer","level":"1.2.2.2","depth":3,"path":"DataStructures/Trees/DivideAndConquer.md","ref":"DataStructures/Trees/DivideAndConquer.md","articles":[]}]},"previous":{"title":"Two Pointers","level":"1.2.1.1","depth":3,"path":"DataStructures/Arrays/TwoPointers.md","ref":"DataStructures/Arrays/TwoPointers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Arrays/Subarrays.md","mtime":"2020-03-09T11:42:02.610Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-09T11:56:28.192Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
