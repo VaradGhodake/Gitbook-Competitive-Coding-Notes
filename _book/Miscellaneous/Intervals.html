@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Pythonic Tricks · GitBook</title>
+        <title>Intervals · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="InterestingMiscellaneous.html" />
     
-    <link rel="prev" href="../Miscellaneous/InterestingMiscellaneous.html" />
+    
+    <link rel="prev" href="Stocks.html" />
     
 
     </head>
@@ -254,9 +256,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../Miscellaneous/">
+        <li class="chapter " data-level="1.4" data-path="./">
             
-                <a href="../Miscellaneous/">
+                <a href="./">
             
                     
                     Miscellaneous
@@ -268,9 +270,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../Miscellaneous/Stocks.html">
+        <li class="chapter " data-level="1.4.1" data-path="Stocks.html">
             
-                <a href="../Miscellaneous/Stocks.html">
+                <a href="Stocks.html">
             
                     
                     Stocks
@@ -281,9 +283,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../Miscellaneous/Intervals.html">
+        <li class="chapter active" data-level="1.4.2" data-path="Intervals.html">
             
-                <a href="../Miscellaneous/Intervals.html">
+                <a href="Intervals.html">
             
                     
                     Intervals
@@ -294,9 +296,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../Miscellaneous/InterestingMiscellaneous.html">
+        <li class="chapter " data-level="1.4.3" data-path="InterestingMiscellaneous.html">
             
-                <a href="../Miscellaneous/InterestingMiscellaneous.html">
+                <a href="InterestingMiscellaneous.html">
             
                     
                     Interesting Miscellaneous
@@ -312,9 +314,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5" data-path="./">
+        <li class="chapter " data-level="1.5" data-path="../PythonicTricks/">
             
-                <a href="./">
+                <a href="../PythonicTricks/">
             
                     
                     Pythonic Tricks
@@ -355,7 +357,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Pythonic Tricks</a>
+        <a href=".." >Intervals</a>
     </h1>
 </div>
 
@@ -370,14 +372,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="pythonic-tricks">Pythonic Tricks</h1>
-<h4 id="sort-dictionary-by-value">Sort dictionary by value</h4>
-<pre><code>{k: v for k, v in sorted(x.items(), key=lambda item: item[1])}
-</code></pre><h4 id="most-frequent-in-an-array-or-a-string">Most frequent in an array or a string</h4>
-<pre><code>from collections import Counter
-C = Counter(list/string)
-C.most_common(n) #returns a list of top n
-</code></pre>
+                                <h3 id="interval-problems">Interval problems</h3>
+<p><a href="https://www.geeksforgeeks.org/merging-intervals/" target="_blank">https://www.geeksforgeeks.org/merging-intervals/</a> <br>
+Merge one by one after sorting based on starting time</p>
+<p><a href="https://leetcode.com/discuss/interview-question/356520" target="_blank">https://leetcode.com/discuss/interview-question/356520</a> <br>
+Keep a running count of the number of overlapping intervals</p>
+
                                 
                                 </section>
                             
@@ -404,10 +404,14 @@ C.most_common(n) #returns a list of top n
 
             
                 
-                <a href="../Miscellaneous/InterestingMiscellaneous.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Interesting Miscellaneous">
+                <a href="Stocks.html" class="navigation navigation-prev " aria-label="Previous page: Stocks">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="InterestingMiscellaneous.html" class="navigation navigation-next " aria-label="Next page: Interesting Miscellaneous">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -416,7 +420,7 @@ C.most_common(n) #returns a list of top n
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Pythonic Tricks","level":"1.5","depth":1,"previous":{"title":"Interesting Miscellaneous","level":"1.4.3","depth":2,"path":"Miscellaneous/InterestingMiscellaneous.md","ref":"Miscellaneous/InterestingMiscellaneous.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"PythonicTricks/README.md","mtime":"2020-03-09T11:53:09.339Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-09T12:49:58.339Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Intervals","level":"1.4.2","depth":2,"next":{"title":"Interesting Miscellaneous","level":"1.4.3","depth":2,"path":"Miscellaneous/InterestingMiscellaneous.md","ref":"Miscellaneous/InterestingMiscellaneous.md","articles":[]},"previous":{"title":"Stocks","level":"1.4.1","depth":2,"path":"Miscellaneous/Stocks.md","ref":"Miscellaneous/Stocks.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Miscellaneous/Intervals.md","mtime":"2020-03-09T12:24:17.967Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-09T12:49:58.339Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

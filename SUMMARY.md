@@ -12,4 +12,7 @@
     * [Dynamic Programming](Algorithms/DynamicProgramming/README.md)
     * [Backtracking and Complete Search](Algorithms/BacktrackingAndCompleteSearch/README.md)
 * [Miscellaneous](Miscellaneous/README.md)
+    * [Stocks](Miscellaneous/Stocks.md)
+    * [Intervals](Miscellaneous/Intervals.md)
+    * [Interesting Miscellaneous](Miscellaneous/InterestingMiscellaneous.md)
 * [Pythonic Tricks](PythonicTricks/README.md)
