@@ -102,7 +102,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../">
+        <li class="chapter " data-level="1.2" data-path="../../GeneralInstructions.html">
+            
+                <a href="../../GeneralInstructions.html">
+            
+                    
+                    General Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
             
                 <a href="../">
             
@@ -116,7 +129,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../Arrays/">
+        <li class="chapter " data-level="1.3.1" data-path="../Arrays/">
             
                 <a href="../Arrays/">
             
@@ -130,7 +143,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1.1" data-path="../Arrays/TwoPointers.html">
+        <li class="chapter " data-level="1.3.1.1" data-path="../Arrays/TwoPointers.html">
             
                 <a href="../Arrays/TwoPointers.html">
             
@@ -143,7 +156,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.2" data-path="../Arrays/Subarrays.html">
+        <li class="chapter " data-level="1.3.1.2" data-path="../Arrays/Subarrays.html">
             
                 <a href="../Arrays/Subarrays.html">
             
@@ -161,7 +174,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="./">
+        <li class="chapter " data-level="1.3.2" data-path="./">
             
                 <a href="./">
             
@@ -175,7 +188,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.2.1" data-path="LevelWise.html">
+        <li class="chapter " data-level="1.3.2.1" data-path="LevelWise.html">
             
                 <a href="LevelWise.html">
             
@@ -188,7 +201,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2.2" data-path="DivideAndConquer.html">
+        <li class="chapter active" data-level="1.3.2.2" data-path="DivideAndConquer.html">
             
                 <a href="DivideAndConquer.html">
             
@@ -211,7 +224,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../../Algorithms/">
+        <li class="chapter " data-level="1.4" data-path="../../Algorithms/">
             
                 <a href="../../Algorithms/">
             
@@ -225,7 +238,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../../Algorithms/DynamicProgramming/">
+        <li class="chapter " data-level="1.4.1" data-path="../../Algorithms/DynamicProgramming/">
             
                 <a href="../../Algorithms/DynamicProgramming/">
             
@@ -238,7 +251,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../../Algorithms/BacktrackingAndCompleteSearch/">
+        <li class="chapter " data-level="1.4.2" data-path="../../Algorithms/BacktrackingAndCompleteSearch/">
             
                 <a href="../../Algorithms/BacktrackingAndCompleteSearch/">
             
@@ -256,7 +269,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../../Miscellaneous/">
+        <li class="chapter " data-level="1.5" data-path="../../Miscellaneous/">
             
                 <a href="../../Miscellaneous/">
             
@@ -270,7 +283,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../../Miscellaneous/Stocks.html">
+        <li class="chapter " data-level="1.5.1" data-path="../../Miscellaneous/Stocks.html">
             
                 <a href="../../Miscellaneous/Stocks.html">
             
@@ -283,7 +296,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../../Miscellaneous/Intervals.html">
+        <li class="chapter " data-level="1.5.2" data-path="../../Miscellaneous/Intervals.html">
             
                 <a href="../../Miscellaneous/Intervals.html">
             
@@ -296,7 +309,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../../Miscellaneous/InterestingMiscellaneous.html">
+        <li class="chapter " data-level="1.5.3" data-path="../../Miscellaneous/InterestingMiscellaneous.html">
             
                 <a href="../../Miscellaneous/InterestingMiscellaneous.html">
             
@@ -314,7 +327,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../../PythonicTricks/">
+        <li class="chapter " data-level="1.6" data-path="../../PythonicTricks/">
             
                 <a href="../../PythonicTricks/">
             
@@ -372,7 +385,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="divide-and-conquer">Divide and Conquer</h1>
+                                <h3 id="divide-and-conquer">Divide and Conquer</h3>
 <p>eg. Kth smallest, LCA</p>
 <p>Remember:</p>
 <ul>
@@ -382,27 +395,28 @@
 <li>Look for the Pivot (distinguishing characteristics of that particular point)</li>
 </ul>
 <p>The general solution template:</p>
-<pre><code>class solution:
-    def __init__(self):
-        #some props that we need pass down the tree
-        #some props that we want to maintain values of
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment">#some props that we need pass down the tree</span>
+        <span class="hljs-comment">#some props that we want to maintain values of</span>
 
-    def actual_solver(self, root):
-        #if some props needed to be passed per node, use helper here
-        #additional param needs to be passed for the helper
-        If root == None:
-            return
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">actual_solver</span><span class="hljs-params">(self, root)</span>:</span>
+        <span class="hljs-comment">#if some props needed to be passed per node, use helper here</span>
+        <span class="hljs-comment">#additional param needs to be passed for the helper</span>
+        If root == <span class="hljs-keyword">None</span>:
+            <span class="hljs-keyword">return</span>
         left_solution  = actual_solver(root.left)
 
-        #Node processing using global/local values
-        #updation of those global/local values
-        #if found:
-        return answer
+        <span class="hljs-comment">#Node processing using global/local values</span>
+        <span class="hljs-comment">#updation of those global/local values</span>
+        <span class="hljs-comment">#if found:</span>
+        <span class="hljs-keyword">return</span> answer
 
         Right_solution = actual_solver(root.right)
-        #return answer based on left_solution and right_solution
-        #imagine the stack after recursion
+        <span class="hljs-comment">#return answer based on left_solution and right_solution</span>
+        <span class="hljs-comment">#imagine the stack after recursion</span>
 </code></pre>
+
                                 
                                 </section>
                             
@@ -445,7 +459,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Divide and Conquer","level":"1.2.2.2","depth":3,"next":{"title":"Algorithms","level":"1.3","depth":1,"path":"Algorithms/README.md","ref":"Algorithms/README.md","articles":[{"title":"Dynamic Programming","level":"1.3.1","depth":2,"path":"Algorithms/DynamicProgramming/README.md","ref":"Algorithms/DynamicProgramming/README.md","articles":[]},{"title":"Backtracking and Complete Search","level":"1.3.2","depth":2,"path":"Algorithms/BacktrackingAndCompleteSearch/README.md","ref":"Algorithms/BacktrackingAndCompleteSearch/README.md","articles":[]}]},"previous":{"title":"Level-wise Traversal","level":"1.2.2.1","depth":3,"path":"DataStructures/Trees/LevelWise.md","ref":"DataStructures/Trees/LevelWise.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Trees/DivideAndConquer.md","mtime":"2020-03-09T11:09:04.826Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-09T12:49:58.339Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Divide and Conquer","level":"1.3.2.2","depth":3,"next":{"title":"Algorithms","level":"1.4","depth":1,"path":"Algorithms/README.md","ref":"Algorithms/README.md","articles":[{"title":"Dynamic Programming","level":"1.4.1","depth":2,"path":"Algorithms/DynamicProgramming/README.md","ref":"Algorithms/DynamicProgramming/README.md","articles":[]},{"title":"Backtracking and Complete Search","level":"1.4.2","depth":2,"path":"Algorithms/BacktrackingAndCompleteSearch/README.md","ref":"Algorithms/BacktrackingAndCompleteSearch/README.md","articles":[]}]},"previous":{"title":"Level-wise Traversal","level":"1.3.2.1","depth":3,"path":"DataStructures/Trees/LevelWise.md","ref":"DataStructures/Trees/LevelWise.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Trees/DivideAndConquer.md","mtime":"2020-03-09T14:44:56.679Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-09T14:23:41.535Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

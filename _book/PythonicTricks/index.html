@@ -100,7 +100,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../DataStructures/">
+        <li class="chapter " data-level="1.2" data-path="../GeneralInstructions.html">
+            
+                <a href="../GeneralInstructions.html">
+            
+                    
+                    General Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../DataStructures/">
             
                 <a href="../DataStructures/">
             
@@ -114,7 +127,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../DataStructures/Arrays/">
+        <li class="chapter " data-level="1.3.1" data-path="../DataStructures/Arrays/">
             
                 <a href="../DataStructures/Arrays/">
             
@@ -128,7 +141,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1.1" data-path="../DataStructures/Arrays/TwoPointers.html">
+        <li class="chapter " data-level="1.3.1.1" data-path="../DataStructures/Arrays/TwoPointers.html">
             
                 <a href="../DataStructures/Arrays/TwoPointers.html">
             
@@ -141,7 +154,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.2" data-path="../DataStructures/Arrays/Subarrays.html">
+        <li class="chapter " data-level="1.3.1.2" data-path="../DataStructures/Arrays/Subarrays.html">
             
                 <a href="../DataStructures/Arrays/Subarrays.html">
             
@@ -159,7 +172,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../DataStructures/Trees/">
+        <li class="chapter " data-level="1.3.2" data-path="../DataStructures/Trees/">
             
                 <a href="../DataStructures/Trees/">
             
@@ -173,7 +186,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.2.1" data-path="../DataStructures/Trees/LevelWise.html">
+        <li class="chapter " data-level="1.3.2.1" data-path="../DataStructures/Trees/LevelWise.html">
             
                 <a href="../DataStructures/Trees/LevelWise.html">
             
@@ -186,7 +199,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.2" data-path="../DataStructures/Trees/DivideAndConquer.html">
+        <li class="chapter " data-level="1.3.2.2" data-path="../DataStructures/Trees/DivideAndConquer.html">
             
                 <a href="../DataStructures/Trees/DivideAndConquer.html">
             
@@ -209,7 +222,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../Algorithms/">
+        <li class="chapter " data-level="1.4" data-path="../Algorithms/">
             
                 <a href="../Algorithms/">
             
@@ -223,7 +236,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../Algorithms/DynamicProgramming/">
+        <li class="chapter " data-level="1.4.1" data-path="../Algorithms/DynamicProgramming/">
             
                 <a href="../Algorithms/DynamicProgramming/">
             
@@ -236,7 +249,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../Algorithms/BacktrackingAndCompleteSearch/">
+        <li class="chapter " data-level="1.4.2" data-path="../Algorithms/BacktrackingAndCompleteSearch/">
             
                 <a href="../Algorithms/BacktrackingAndCompleteSearch/">
             
@@ -254,7 +267,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../Miscellaneous/">
+        <li class="chapter " data-level="1.5" data-path="../Miscellaneous/">
             
                 <a href="../Miscellaneous/">
             
@@ -268,7 +281,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../Miscellaneous/Stocks.html">
+        <li class="chapter " data-level="1.5.1" data-path="../Miscellaneous/Stocks.html">
             
                 <a href="../Miscellaneous/Stocks.html">
             
@@ -281,7 +294,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../Miscellaneous/Intervals.html">
+        <li class="chapter " data-level="1.5.2" data-path="../Miscellaneous/Intervals.html">
             
                 <a href="../Miscellaneous/Intervals.html">
             
@@ -294,7 +307,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../Miscellaneous/InterestingMiscellaneous.html">
+        <li class="chapter " data-level="1.5.3" data-path="../Miscellaneous/InterestingMiscellaneous.html">
             
                 <a href="../Miscellaneous/InterestingMiscellaneous.html">
             
@@ -312,7 +325,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5" data-path="./">
+        <li class="chapter active" data-level="1.6" data-path="./">
             
                 <a href="./">
             
@@ -372,12 +385,14 @@
                                 
                                 <h1 id="pythonic-tricks">Pythonic Tricks</h1>
 <h4 id="sort-dictionary-by-value">Sort dictionary by value</h4>
-<pre><code>{k: v for k, v in sorted(x.items(), key=lambda item: item[1])}
-</code></pre><h4 id="most-frequent-in-an-array-or-a-string">Most frequent in an array or a string</h4>
-<pre><code>from collections import Counter
-C = Counter(list/string)
-C.most_common(n) #returns a list of top n
+<pre><code class="lang-py">{k: v <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> sorted(x.items(), key=<span class="hljs-keyword">lambda</span> item: item[<span class="hljs-number">1</span>])}
 </code></pre>
+<h4 id="most-frequent-in-an-array-or-a-string">Most frequent in an array or a string</h4>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter
+C = Counter(list/string)
+C.most_common(n) <span class="hljs-comment">#returns a list of top n</span>
+</code></pre>
+
                                 
                                 </section>
                             
@@ -416,7 +431,7 @@ C.most_common(n) #returns a list of top n
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Pythonic Tricks","level":"1.5","depth":1,"previous":{"title":"Interesting Miscellaneous","level":"1.4.3","depth":2,"path":"Miscellaneous/InterestingMiscellaneous.md","ref":"Miscellaneous/InterestingMiscellaneous.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"PythonicTricks/README.md","mtime":"2020-03-09T11:53:09.339Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-09T12:49:58.339Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Pythonic Tricks","level":"1.6","depth":1,"previous":{"title":"Interesting Miscellaneous","level":"1.5.3","depth":2,"path":"Miscellaneous/InterestingMiscellaneous.md","ref":"Miscellaneous/InterestingMiscellaneous.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"PythonicTricks/README.md","mtime":"2020-03-09T14:10:59.736Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-09T14:23:41.535Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1,4 +1,4 @@
-# Divide and Conquer 
+### Divide and Conquer 
 
 eg. Kth smallest, LCA
 
@@ -9,7 +9,7 @@ Remember:
 * Look for the Pivot (distinguishing characteristics of that particular point)
 
 The general solution template:
-```
+```py
 class solution:
 	def __init__(self):
 		#some props that we need pass down the tree

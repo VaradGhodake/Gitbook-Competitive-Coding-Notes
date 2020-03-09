@@ -1,4 +1,4 @@
-# Level-wise traversal problems
+### Level-wise traversal problems
 
 eg. Top-view, Bottom-view, Thickness of the tree, etc
 
@@ -7,7 +7,7 @@ eg. Top-view, Bottom-view, Thickness of the tree, etc
 
 General solution template:
 
-```
+```py
 from collections import deque, defaultdict
 
 class Solution:

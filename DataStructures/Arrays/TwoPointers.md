@@ -1,4 +1,4 @@
-#### 2 Pointers technique
+### 2 Pointers technique
 
 https://leetcode.com/problems/container-with-most-water/ <br /> 
 https://leetcode.com/problems/two-sum/<br />

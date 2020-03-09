@@ -1,5 +1,5 @@
+### Subarrays
 
-#### Subarrays
 ##### Optimization checks: <br />
 1. Two pointers 
 2. Sliding window with running values 

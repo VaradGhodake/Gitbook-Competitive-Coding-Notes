@@ -102,7 +102,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../../DataStructures/">
+        <li class="chapter " data-level="1.2" data-path="../../GeneralInstructions.html">
+            
+                <a href="../../GeneralInstructions.html">
+            
+                    
+                    General Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../DataStructures/">
             
                 <a href="../../DataStructures/">
             
@@ -116,7 +129,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="../../DataStructures/Arrays/">
+        <li class="chapter " data-level="1.3.1" data-path="../../DataStructures/Arrays/">
             
                 <a href="../../DataStructures/Arrays/">
             
@@ -130,7 +143,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1.1" data-path="../../DataStructures/Arrays/TwoPointers.html">
+        <li class="chapter " data-level="1.3.1.1" data-path="../../DataStructures/Arrays/TwoPointers.html">
             
                 <a href="../../DataStructures/Arrays/TwoPointers.html">
             
@@ -143,7 +156,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.2" data-path="../../DataStructures/Arrays/Subarrays.html">
+        <li class="chapter " data-level="1.3.1.2" data-path="../../DataStructures/Arrays/Subarrays.html">
             
                 <a href="../../DataStructures/Arrays/Subarrays.html">
             
@@ -161,7 +174,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="../../DataStructures/Trees/">
+        <li class="chapter " data-level="1.3.2" data-path="../../DataStructures/Trees/">
             
                 <a href="../../DataStructures/Trees/">
             
@@ -175,7 +188,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.2.1" data-path="../../DataStructures/Trees/LevelWise.html">
+        <li class="chapter " data-level="1.3.2.1" data-path="../../DataStructures/Trees/LevelWise.html">
             
                 <a href="../../DataStructures/Trees/LevelWise.html">
             
@@ -188,7 +201,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2.2" data-path="../../DataStructures/Trees/DivideAndConquer.html">
+        <li class="chapter " data-level="1.3.2.2" data-path="../../DataStructures/Trees/DivideAndConquer.html">
             
                 <a href="../../DataStructures/Trees/DivideAndConquer.html">
             
@@ -211,7 +224,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../">
+        <li class="chapter " data-level="1.4" data-path="../">
             
                 <a href="../">
             
@@ -225,7 +238,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="./">
+        <li class="chapter active" data-level="1.4.1" data-path="./">
             
                 <a href="./">
             
@@ -238,7 +251,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../BacktrackingAndCompleteSearch/">
+        <li class="chapter " data-level="1.4.2" data-path="../BacktrackingAndCompleteSearch/">
             
                 <a href="../BacktrackingAndCompleteSearch/">
             
@@ -256,7 +269,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../../Miscellaneous/">
+        <li class="chapter " data-level="1.5" data-path="../../Miscellaneous/">
             
                 <a href="../../Miscellaneous/">
             
@@ -270,7 +283,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../../Miscellaneous/Stocks.html">
+        <li class="chapter " data-level="1.5.1" data-path="../../Miscellaneous/Stocks.html">
             
                 <a href="../../Miscellaneous/Stocks.html">
             
@@ -283,7 +296,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../../Miscellaneous/Intervals.html">
+        <li class="chapter " data-level="1.5.2" data-path="../../Miscellaneous/Intervals.html">
             
                 <a href="../../Miscellaneous/Intervals.html">
             
@@ -296,7 +309,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../../Miscellaneous/InterestingMiscellaneous.html">
+        <li class="chapter " data-level="1.5.3" data-path="../../Miscellaneous/InterestingMiscellaneous.html">
             
                 <a href="../../Miscellaneous/InterestingMiscellaneous.html">
             
@@ -314,7 +327,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../../PythonicTricks/">
+        <li class="chapter " data-level="1.6" data-path="../../PythonicTricks/">
             
                 <a href="../../PythonicTricks/">
             
@@ -372,7 +385,68 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="dynamic-programming">Dynamic Programming</h1>
+                                <h3 id="dynamic-programming">Dynamic Programming</h3>
+<p>Dynamic programming is a technique that combines the correctness of complete search and the efficiency of greedy algorithms. Dynamic programming can be applied if the problem can be divided into overlapping subproblems that can be solved independently.</p>
+<p>There are two uses for dynamic programming:</p>
+<ul>
+<li>Finding an optimal solution: We want to find a solution that is as large as possible or as small as possible.</li>
+<li>Counting the number of solutions: We want to calculate the total number of possible solutions.</li>
+</ul>
+<h4 id="optimal-solution">Optimal Solution</h4>
+<p>eg. 0/1 Knapsack, partitions: exact sum, minimum sum difference</p>
+<p>Knapsack program:</p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">knapsack</span><span class="hljs-params">(self, weights, values, bag_weight)</span>:</span>
+        table = [[<span class="hljs-number">0</span>] * (bag_weight + <span class="hljs-number">1</span>)] <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> (len(values) + <span class="hljs-number">1</span>)]
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(values)+ <span class="hljs-number">1</span>):
+            <span class="hljs-keyword">for</span> weight <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, bag_weight + <span class="hljs-number">1</span>):
+                <span class="hljs-keyword">if</span>(i == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> weight == <span class="hljs-number">0</span>):
+                    table[i][weight] = <span class="hljs-number">0</span>
+                <span class="hljs-keyword">elif</span>(weight &lt; weights[i - <span class="hljs-number">1</span>]):
+                    table[i][weight] = max(
+                    weights[i - <span class="hljs-number">1</span>] + table[i - <span class="hljs-number">1</span>][w - weights[w - <span class="hljs-number">1</span>]],
+                    table[i - <span class="hljs-number">1</span>][w]
+                    )
+                <span class="hljs-keyword">else</span>:
+                    table[i][weight] = table[i - <span class="hljs-number">1</span>][weight]
+
+         <span class="hljs-keyword">return</span> table[len(values)][bag_weight]
+</code></pre>
+<p>For exact sum subarray and minimum difference subarrays: <br>
+<code>True</code> or <code>False</code> for each cell. Use or instead of <code>max(include, exclude)</code>
+Need to have another loop over the table to find the &apos;pivot&apos;
+For minimum difference, find a True cell and that causes the least difference 
+<code>(total_sum - 2 * cell_column)</code></p>
+<p>For the minimum number of squares required to get the sum, similar to the exact sum subarray. Rather than <code>True</code> or <code>False</code>, maintain the number of squares required for the sum</p>
+<h4 id="number-of-solutions">Number of solutions</h4>
+<p>eg. Climbing stairs (LeetCode 70)</p>
+<p>For each step, there are multiple choices, generally 2. <br>
+Brute force solution goes something like this:</p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solution_function</span><span class="hljs-params">(self, n)</span>:</span>
+        <span class="hljs-keyword">if</span>(success_base_case):
+           <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+        <span class="hljs-keyword">if</span>(failure_base_case):
+           <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">return</span> self.solution_function(case_one, n) + self.solution_function(case_two, n)
+</code></pre>
+<p>Time Complexity: O(2^n) - tree size</p>
+<p>Check if the problem satisfies Optimal Substructure Property <br>
+Find an equation for the answer <br>
+Here,</p>
+<pre><code class="lang-py">dp[n] = dp[n  -  <span class="hljs-number">1</span>] + dp[n - <span class="hljs-number">2</span>] <span class="hljs-comment">#(climb stairs case)</span>
+
+dp = [<span class="hljs-number">0</span>] * (n + <span class="hljs-number">1</span>)
+dp[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>
+dp[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>
+dp[<span class="hljs-number">2</span>] = <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>, n):
+            dp[i] = dp[i - <span class="hljs-number">1</span>] + dp[i - <span class="hljs-number">2</span>]
+<span class="hljs-keyword">return</span> dp[n]
+</code></pre>
 
                                 
                                 </section>
@@ -416,7 +490,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Dynamic Programming","level":"1.3.1","depth":2,"next":{"title":"Backtracking and Complete Search","level":"1.3.2","depth":2,"path":"Algorithms/BacktrackingAndCompleteSearch/README.md","ref":"Algorithms/BacktrackingAndCompleteSearch/README.md","articles":[]},"previous":{"title":"Algorithms","level":"1.3","depth":1,"path":"Algorithms/README.md","ref":"Algorithms/README.md","articles":[{"title":"Dynamic Programming","level":"1.3.1","depth":2,"path":"Algorithms/DynamicProgramming/README.md","ref":"Algorithms/DynamicProgramming/README.md","articles":[]},{"title":"Backtracking and Complete Search","level":"1.3.2","depth":2,"path":"Algorithms/BacktrackingAndCompleteSearch/README.md","ref":"Algorithms/BacktrackingAndCompleteSearch/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/DynamicProgramming/README.md","mtime":"2020-03-09T10:16:15.717Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-09T12:49:58.339Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Dynamic Programming","level":"1.4.1","depth":2,"next":{"title":"Backtracking and Complete Search","level":"1.4.2","depth":2,"path":"Algorithms/BacktrackingAndCompleteSearch/README.md","ref":"Algorithms/BacktrackingAndCompleteSearch/README.md","articles":[]},"previous":{"title":"Algorithms","level":"1.4","depth":1,"path":"Algorithms/README.md","ref":"Algorithms/README.md","articles":[{"title":"Dynamic Programming","level":"1.4.1","depth":2,"path":"Algorithms/DynamicProgramming/README.md","ref":"Algorithms/DynamicProgramming/README.md","articles":[]},{"title":"Backtracking and Complete Search","level":"1.4.2","depth":2,"path":"Algorithms/BacktrackingAndCompleteSearch/README.md","ref":"Algorithms/BacktrackingAndCompleteSearch/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/DynamicProgramming/README.md","mtime":"2020-03-09T14:46:08.914Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-09T14:23:41.535Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

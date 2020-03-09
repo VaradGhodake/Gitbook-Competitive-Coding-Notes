@@ -1,4 +1,4 @@
-# Backtracking and Complete Search
+### Backtracking and Complete Search
 
 #### Subsets
 Reference: CC Cheat sheet book <br />
@@ -11,7 +11,7 @@ Two choices:
     2. Go to the next depth
     3. Pop out so that we don't have to instantiate the bucket
 
-```
+```py
 class SolutionGenerator:
     def solution_search(self, k : int, domain: list) -> None:
         if (k == self.n):
@@ -38,7 +38,7 @@ No need to add a ‘reject’ scenario <br />
 Accept, make changes and revert after going a level deep <br />
 Filter right after the loop using a helper array used for tracking <br />
 
-```
+```py
 class Permutation:
     def perm_recur(self, k : int, domain: list) -> None:
         if(k == self.n):

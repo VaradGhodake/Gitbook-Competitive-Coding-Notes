@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* [General Instructions](GeneralInstructions.md)
 * [Data Structures](DataStructures/README.md)
     * [Arrays](DataStructures/Arrays/README.md)
         * [Two Pointers](DataStructures/Arrays/TwoPointers.md)
