@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../../Miscellaneous/" />
+    <link rel="next" href="../DynamicProgramming/" />
     
     
-    <link rel="prev" href="../DynamicProgramming/" />
+    <link rel="prev" href="../" />
     
 
     </head>
@@ -238,12 +238,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../DynamicProgramming/">
+        <li class="chapter active" data-level="1.4.1" data-path="./">
             
-                <a href="../DynamicProgramming/">
+                <a href="./">
             
                     
-                    Dynamic Programming
+                    Backtracking and Complete Search
             
                 </a>
             
@@ -251,12 +251,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.2" data-path="./">
+        <li class="chapter " data-level="1.4.2" data-path="../DynamicProgramming/">
             
-                <a href="./">
+                <a href="../DynamicProgramming/">
             
                     
-                    Backtracking and Complete Search
+                    Dynamic Programming
             
                 </a>
             
@@ -460,6 +460,31 @@ Filter right after the loop using a helper array used for tracking <br></p>
 <a href="https://leetcode.com/problems/combination-sum/discuss/16510/Python-dfs-solution" target="_blank">https://leetcode.com/problems/combination-sum/discuss/16510/Python-dfs-solution</a>.</p>
 <p>To allow repetition, go to the same node after select. <br>
 <code>self.recurse(k, domain)</code></p>
+<h4 id="exhaustive-search-for-an-answer">Exhaustive search for an answer:</h4>
+<p>Check every possible option and see if a solution exists: (very similar to permutation problems) <br>
+<a href="https://leetcode.com/problems/jump-game" target="_blank">https://leetcode.com/problems/jump-game</a> <br>
+Accept one of the options at each step <br>
+Emptying the bucket is not necessary </p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canJumpFromPosition</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position, <span class="hljs-keyword">int</span>[] nums)</span> </span>{
+        <span class="hljs-keyword">if</span> (position == nums.length - <span class="hljs-number">1</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+
+        <span class="hljs-keyword">int</span> furthestJump = Math.min(position + nums[position], nums.length - <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> nextPosition = position + <span class="hljs-number">1</span>; nextPosition &lt;= furthestJump; nextPosition++) {
+            <span class="hljs-keyword">if</span> (canJumpFromPosition(nextPosition, nums)) {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canJump</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
+        <span class="hljs-keyword">return</span> canJumpFromPosition(<span class="hljs-number">0</span>, nums);
+    }
+}
+</code></pre>
 
                                 
                                 </section>
@@ -487,12 +512,12 @@ Filter right after the loop using a helper array used for tracking <br></p>
 
             
                 
-                <a href="../DynamicProgramming/" class="navigation navigation-prev " aria-label="Previous page: Dynamic Programming">
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Algorithms">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../../Miscellaneous/" class="navigation navigation-next " aria-label="Next page: Miscellaneous">
+                <a href="../DynamicProgramming/" class="navigation navigation-next " aria-label="Next page: Dynamic Programming">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -503,7 +528,7 @@ Filter right after the loop using a helper array used for tracking <br></p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Backtracking and Complete Search","level":"1.4.2","depth":2,"next":{"title":"Miscellaneous","level":"1.5","depth":1,"path":"Miscellaneous/README.md","ref":"Miscellaneous/README.md","articles":[{"title":"Stocks","level":"1.5.1","depth":2,"path":"Miscellaneous/Stocks.md","ref":"Miscellaneous/Stocks.md","articles":[]},{"title":"Intervals","level":"1.5.2","depth":2,"path":"Miscellaneous/Intervals.md","ref":"Miscellaneous/Intervals.md","articles":[]},{"title":"Interesting Miscellaneous","level":"1.5.3","depth":2,"path":"Miscellaneous/InterestingMiscellaneous.md","ref":"Miscellaneous/InterestingMiscellaneous.md","articles":[]}]},"previous":{"title":"Dynamic Programming","level":"1.4.1","depth":2,"path":"Algorithms/DynamicProgramming/README.md","ref":"Algorithms/DynamicProgramming/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/BacktrackingAndCompleteSearch/README.md","mtime":"2020-03-09T14:45:57.119Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-09T15:05:07.926Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Backtracking and Complete Search","level":"1.4.1","depth":2,"next":{"title":"Dynamic Programming","level":"1.4.2","depth":2,"path":"Algorithms/DynamicProgramming/README.md","ref":"Algorithms/DynamicProgramming/README.md","articles":[]},"previous":{"title":"Algorithms","level":"1.4","depth":1,"path":"Algorithms/README.md","ref":"Algorithms/README.md","articles":[{"title":"Backtracking and Complete Search","level":"1.4.1","depth":2,"path":"Algorithms/BacktrackingAndCompleteSearch/README.md","ref":"Algorithms/BacktrackingAndCompleteSearch/README.md","articles":[]},{"title":"Dynamic Programming","level":"1.4.2","depth":2,"path":"Algorithms/DynamicProgramming/README.md","ref":"Algorithms/DynamicProgramming/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/BacktrackingAndCompleteSearch/README.md","mtime":"2020-03-10T13:12:15.568Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-10T13:24:57.436Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
