@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Interesting Miscellaneous · GitBook</title>
+        <title>Backtracking and Complete Search · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../PythonicTricks/" />
+    <link rel="next" href="DynamicProgramming.html" />
     
     
-    <link rel="prev" href="Intervals.html" />
+    <link rel="prev" href="Combinatorics.html" />
     
 
     </head>
@@ -224,9 +224,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../Algorithms/">
+        <li class="chapter " data-level="1.4" data-path="./">
             
-                <a href="../Algorithms/">
+                <a href="./">
             
                     
                     Algorithms
@@ -238,9 +238,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../Algorithms/Combinatorics.html">
+        <li class="chapter " data-level="1.4.1" data-path="Combinatorics.html">
             
-                <a href="../Algorithms/Combinatorics.html">
+                <a href="Combinatorics.html">
             
                     
                     Combinatorics
@@ -251,9 +251,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../Algorithms/Backtracking.html">
+        <li class="chapter active" data-level="1.4.2" data-path="Backtracking.html">
             
-                <a href="../Algorithms/Backtracking.html">
+                <a href="Backtracking.html">
             
                     
                     Backtracking and Complete Search
@@ -264,9 +264,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../Algorithms/DynamicProgramming.html">
+        <li class="chapter " data-level="1.4.3" data-path="DynamicProgramming.html">
             
-                <a href="../Algorithms/DynamicProgramming.html">
+                <a href="DynamicProgramming.html">
             
                     
                     Dynamic Programming
@@ -282,9 +282,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="./">
+        <li class="chapter " data-level="1.5" data-path="../Miscellaneous/">
             
-                <a href="./">
+                <a href="../Miscellaneous/">
             
                     
                     Miscellaneous
@@ -296,9 +296,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="Stocks.html">
+        <li class="chapter " data-level="1.5.1" data-path="../Miscellaneous/Stocks.html">
             
-                <a href="Stocks.html">
+                <a href="../Miscellaneous/Stocks.html">
             
                     
                     Stocks
@@ -309,9 +309,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="Intervals.html">
+        <li class="chapter " data-level="1.5.2" data-path="../Miscellaneous/Intervals.html">
             
-                <a href="Intervals.html">
+                <a href="../Miscellaneous/Intervals.html">
             
                     
                     Intervals
@@ -322,9 +322,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.3" data-path="InterestingMiscellaneous.html">
+        <li class="chapter " data-level="1.5.3" data-path="../Miscellaneous/InterestingMiscellaneous.html">
             
-                <a href="InterestingMiscellaneous.html">
+                <a href="../Miscellaneous/InterestingMiscellaneous.html">
             
                     
                     Interesting Miscellaneous
@@ -396,7 +396,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Interesting Miscellaneous</a>
+        <a href=".." >Backtracking and Complete Search</a>
     </h1>
 </div>
 
@@ -411,8 +411,32 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h4 id="need-to-find-nth-smallest-or-largest">Need to find nth smallest or largest</h4>
-<p>Use max or min-heap or partial sort: quicksort variation</p>
+                                <h3 id="backtracking-and-complete-search">Backtracking and Complete Search</h3>
+<h4 id="exhaustive-search-for-an-answer">Exhaustive search for an answer:</h4>
+<p>Check every possible option and see if a solution exists: (very similar to permutation problems) <br>
+<a href="https://leetcode.com/problems/jump-game" target="_blank">https://leetcode.com/problems/jump-game</a> <br>
+Accept one of the options at each step <br>
+Emptying the bucket is not necessary </p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canJumpFromPosition</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position, <span class="hljs-keyword">int</span>[] nums)</span> </span>{
+        <span class="hljs-keyword">if</span> (position == nums.length - <span class="hljs-number">1</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+
+        <span class="hljs-keyword">int</span> furthestJump = Math.min(position + nums[position], nums.length - <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> nextPosition = position + <span class="hljs-number">1</span>; nextPosition &lt;= furthestJump; nextPosition++) {
+            <span class="hljs-keyword">if</span> (canJumpFromPosition(nextPosition, nums)) {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canJump</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
+        <span class="hljs-keyword">return</span> canJumpFromPosition(<span class="hljs-number">0</span>, nums);
+    }
+}
+</code></pre>
 
                                 
                                 </section>
@@ -440,12 +464,12 @@
 
             
                 
-                <a href="Intervals.html" class="navigation navigation-prev " aria-label="Previous page: Intervals">
+                <a href="Combinatorics.html" class="navigation navigation-prev " aria-label="Previous page: Combinatorics">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../PythonicTricks/" class="navigation navigation-next " aria-label="Next page: Pythonic Tricks">
+                <a href="DynamicProgramming.html" class="navigation navigation-next " aria-label="Next page: Dynamic Programming">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -456,7 +480,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Interesting Miscellaneous","level":"1.5.3","depth":2,"next":{"title":"Pythonic Tricks","level":"1.6","depth":1,"path":"PythonicTricks/README.md","ref":"PythonicTricks/README.md","articles":[]},"previous":{"title":"Intervals","level":"1.5.2","depth":2,"path":"Miscellaneous/Intervals.md","ref":"Miscellaneous/Intervals.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Miscellaneous/InterestingMiscellaneous.md","mtime":"2020-03-09T14:25:57.993Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-11T13:15:35.147Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Backtracking and Complete Search","level":"1.4.2","depth":2,"next":{"title":"Dynamic Programming","level":"1.4.3","depth":2,"path":"Algorithms/DynamicProgramming.md","ref":"Algorithms/DynamicProgramming.md","articles":[]},"previous":{"title":"Combinatorics","level":"1.4.1","depth":2,"path":"Algorithms/Combinatorics.md","ref":"Algorithms/Combinatorics.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/Backtracking.md","mtime":"2020-03-11T13:03:37.318Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-11T13:15:35.147Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
