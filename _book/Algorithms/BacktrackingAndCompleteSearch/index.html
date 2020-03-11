@@ -460,6 +460,60 @@ Filter right after the loop using a helper array used for tracking <br></p>
 <a href="https://leetcode.com/problems/combination-sum/discuss/16510/Python-dfs-solution" target="_blank">https://leetcode.com/problems/combination-sum/discuss/16510/Python-dfs-solution</a>.</p>
 <p>To allow repetition, go to the same node after select. <br>
 <code>self.recurse(k, domain)</code></p>
+<h4 id="combinations-select-r-out-of-n-ncr">Combinations: select r out of n (nCr)</h4>
+<ul>
+<li>Recursion base case change (==r)</li>
+<li>range inside the recursive function should go over n (should start from i + 1)</li>
+<li>Similar to normal permutation</li>
+</ul>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.minsAccepted = [<span class="hljs-keyword">False</span>] * <span class="hljs-number">4</span>
+        self.hoursAccepted = [<span class="hljs-keyword">False</span>] * <span class="hljs-number">6</span>
+        self.mins = <span class="hljs-number">0</span>
+        self.hours = <span class="hljs-number">0</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_helperBinaryHours</span><span class="hljs-params">(self, num: int, start: int)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+        <span class="hljs-keyword">if</span>(num == <span class="hljs-number">0</span>):
+            <span class="hljs-comment"># print(self.hoursAccepted)</span>
+            self.hours += <span class="hljs-number">1</span>
+            <span class="hljs-keyword">return</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(start, <span class="hljs-number">6</span>):
+            <span class="hljs-keyword">if</span> self.hoursAccepted[i]:
+                <span class="hljs-keyword">continue</span>
+            self.hoursAccepted[i] = <span class="hljs-keyword">True</span>
+            self._helperBinaryHours(num - <span class="hljs-number">1</span>, i + <span class="hljs-number">1</span>)
+            self.hoursAccepted[i] = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_helperBinaryMins</span><span class="hljs-params">(self, num: int, start: int)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+        <span class="hljs-keyword">if</span>(num == <span class="hljs-number">0</span>):
+            <span class="hljs-comment"># print(self.minsAccepted)</span>
+            self.mins += <span class="hljs-number">1</span>
+            <span class="hljs-keyword">return</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(start, <span class="hljs-number">4</span>):
+            <span class="hljs-keyword">if</span> self.minsAccepted[i]:
+                <span class="hljs-keyword">continue</span>
+            self.minsAccepted[i] = <span class="hljs-keyword">True</span>
+            self._helperBinaryMins(num - <span class="hljs-number">1</span>, i + <span class="hljs-number">1</span>)
+            self.minsAccepted[i] = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">readBinary</span><span class="hljs-params">(self, num: int)</span> -&gt; int:</span>
+        total_permutations = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">if</span>(num == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> num == <span class="hljs-number">10</span>):
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+        <span class="hljs-keyword">if</span>(num &gt; <span class="hljs-number">10</span>):
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, num + <span class="hljs-number">1</span>):
+            self._helperBinaryMins(i, <span class="hljs-number">0</span>)
+            self._helperBinaryHours(num - i, <span class="hljs-number">0</span>)
+            total_permutations += self.mins * self.hours
+            self.mins = <span class="hljs-number">0</span>
+            self.hours = <span class="hljs-number">0</span>
+            print(<span class="hljs-string">&quot;\n&quot;</span>)
+
+        <span class="hljs-keyword">return</span> total_permutations
+</code></pre>
 <h4 id="exhaustive-search-for-an-answer">Exhaustive search for an answer:</h4>
 <p>Check every possible option and see if a solution exists: (very similar to permutation problems) <br>
 <a href="https://leetcode.com/problems/jump-game" target="_blank">https://leetcode.com/problems/jump-game</a> <br>
@@ -528,7 +582,7 @@ Emptying the bucket is not necessary </p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Backtracking and Complete Search","level":"1.4.1","depth":2,"next":{"title":"Dynamic Programming","level":"1.4.2","depth":2,"path":"Algorithms/DynamicProgramming/README.md","ref":"Algorithms/DynamicProgramming/README.md","articles":[]},"previous":{"title":"Algorithms","level":"1.4","depth":1,"path":"Algorithms/README.md","ref":"Algorithms/README.md","articles":[{"title":"Backtracking and Complete Search","level":"1.4.1","depth":2,"path":"Algorithms/BacktrackingAndCompleteSearch/README.md","ref":"Algorithms/BacktrackingAndCompleteSearch/README.md","articles":[]},{"title":"Dynamic Programming","level":"1.4.2","depth":2,"path":"Algorithms/DynamicProgramming/README.md","ref":"Algorithms/DynamicProgramming/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/BacktrackingAndCompleteSearch/README.md","mtime":"2020-03-10T13:12:15.568Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-10T13:24:57.436Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Backtracking and Complete Search","level":"1.4.1","depth":2,"next":{"title":"Dynamic Programming","level":"1.4.2","depth":2,"path":"Algorithms/DynamicProgramming/README.md","ref":"Algorithms/DynamicProgramming/README.md","articles":[]},"previous":{"title":"Algorithms","level":"1.4","depth":1,"path":"Algorithms/README.md","ref":"Algorithms/README.md","articles":[{"title":"Backtracking and Complete Search","level":"1.4.1","depth":2,"path":"Algorithms/BacktrackingAndCompleteSearch/README.md","ref":"Algorithms/BacktrackingAndCompleteSearch/README.md","articles":[]},{"title":"Dynamic Programming","level":"1.4.2","depth":2,"path":"Algorithms/DynamicProgramming/README.md","ref":"Algorithms/DynamicProgramming/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/BacktrackingAndCompleteSearch/README.md","mtime":"2020-03-11T09:09:28.614Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-11T09:09:33.097Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -69,6 +69,62 @@ https://leetcode.com/problems/combination-sum/discuss/16510/Python-dfs-solution.
 To allow repetition, go to the same node after select. <br />
 ```self.recurse(k, domain)```
 
+
+#### Combinations: select r out of n (nCr)
+
+* Recursion base case change (==r)
+* range inside the recursive function should go over n (should start from i + 1)
+* Similar to normal permutation
+
+```py
+class T:
+    def __init__(self):
+        self.minsAccepted = [False] * 4
+        self.hoursAccepted = [False] * 6
+        self.mins = 0
+        self.hours = 0
+    
+    def _helperBinaryHours(self, num: int, start: int) -> None:
+        if(num == 0):
+            # print(self.hoursAccepted)
+            self.hours += 1
+            return
+        for i in range(start, 6):
+            if self.hoursAccepted[i]:
+                continue
+            self.hoursAccepted[i] = True
+            self._helperBinaryHours(num - 1, i + 1)
+            self.hoursAccepted[i] = False
+    
+    def _helperBinaryMins(self, num: int, start: int) -> None:
+        if(num == 0):
+            # print(self.minsAccepted)
+            self.mins += 1
+            return
+        for i in range(start, 4):
+            if self.minsAccepted[i]:
+                continue
+            self.minsAccepted[i] = True
+            self._helperBinaryMins(num - 1, i + 1)
+            self.minsAccepted[i] = False
+    
+    def readBinary(self, num: int) -> int:
+        total_permutations = 0
+        if(num == 0 or num == 10):
+            return 1
+        if(num > 10):
+            return 0
+        
+        for i in range(0, num + 1):
+            self._helperBinaryMins(i, 0)
+            self._helperBinaryHours(num - i, 0)
+            total_permutations += self.mins * self.hours
+            self.mins = 0
+            self.hours = 0
+            print("\n")
+        
+        return total_permutations```
+
 #### Exhaustive search for an answer:
 Check every possible option and see if a solution exists: (very similar to permutation problems) <br />
 https://leetcode.com/problems/jump-game <br />
