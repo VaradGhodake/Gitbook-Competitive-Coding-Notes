@@ -26,3 +26,31 @@ public class Solution {
     }
 }
 ```
+
+#### Grid DFS
+
+Solution of https://leetcode.com/problems/path-with-maximum-gold/ :
+```py
+def dfs(self, i: int, j: int, sum: int, seen: set) -> int:
+    # constraints
+    if(i < 0 or i >= m or j < 0 or j >= n or not grid[i][j] or (i, j) in seen):
+        return sum
+    # add to the 'visited' set
+    seen.add((i, j))
+    # update current target
+    sum += grid[i][j]
+    # set maximum target
+    maximumSum = 0
+
+    # directions to move in
+    for x, y in ((i, j + 1), (i , j - 1), (i + 1, j), (i - 1, j)):
+    # The actual recursion step
+        maximumSum = max(self.dfs(x, y, sum, seen), maximumSum)
+    # remove from the 'visited' set after recursion 
+    seen.discard((i, j))
+    return maximumSum
+
+def getMaximumGold(self, grid: List[List[int]]) -> int:
+    m, n = len(grid), len(grid[0])
+    return max(self.dfs(i, j, 0, set()) for j in range(n) for i in range(m))
+```

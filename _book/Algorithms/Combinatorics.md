@@ -127,4 +127,3 @@ class T:
         
         return total_permutations
 ```
-
