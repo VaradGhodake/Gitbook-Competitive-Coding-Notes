@@ -127,3 +127,41 @@ class T:
         
         return total_permutations
 ```
+
+#### Permutation over a limited set of values (with repeatition)
+
+* Select one option and de-select it
+* Similar for other options 
+* There are finite number of options at each step
+* Recurse based on your selection
+
+https://leetcode.com/problems/generate-parentheses/
+
+```py
+class Solution:
+    def generateParenthesis(self, n: int) -> int:
+        def backtracker(bucket: list, openCount: int) -> None:
+            if((len(bucket) - openCount) > openCount or \
+               openCount > self.n):
+                return
+            
+            if(len(bucket) == self.n * 2):
+                if(openCount == self.n):
+                    self.permutations.append(''.join(bucket))
+                return
+            
+            bucket.append('(')
+            backtracker(bucket, openCount + 1)
+            bucket.pop()
+            bucket.append(')')
+            backtracker(bucket, openCount)
+            bucket.pop()
+
+        self.permutations = []
+        self.n = n
+        if n == 0:
+            return 0
+
+        backtracker([], 0)
+        return self.permutations
+```

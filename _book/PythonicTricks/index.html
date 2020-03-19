@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Data Structures · GitBook</title>
+        <title>Pythonic Tricks · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Arrays/" />
+    <link rel="next" href="../BehavioralQuestions.html" />
     
     
-    <link rel="prev" href="../GeneralInstructions.html" />
+    <link rel="prev" href="../Miscellaneous/InterestingMiscellaneous.html" />
     
 
     </head>
@@ -115,9 +115,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="../DataStructures/">
             
-                <a href="./">
+                <a href="../DataStructures/">
             
                     
                     Data Structures
@@ -129,9 +129,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="Arrays/">
+        <li class="chapter " data-level="1.3.1" data-path="../DataStructures/Arrays/">
             
-                <a href="Arrays/">
+                <a href="../DataStructures/Arrays/">
             
                     
                     Arrays
@@ -143,9 +143,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1.1" data-path="Arrays/TwoPointers.html">
+        <li class="chapter " data-level="1.3.1.1" data-path="../DataStructures/Arrays/TwoPointers.html">
             
-                <a href="Arrays/TwoPointers.html">
+                <a href="../DataStructures/Arrays/TwoPointers.html">
             
                     
                     Two Pointers
@@ -156,9 +156,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.1.2" data-path="Arrays/Subarrays.html">
+        <li class="chapter " data-level="1.3.1.2" data-path="../DataStructures/Arrays/Subarrays.html">
             
-                <a href="Arrays/Subarrays.html">
+                <a href="../DataStructures/Arrays/Subarrays.html">
             
                     
                     Subarrays
@@ -174,9 +174,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="Trees/">
+        <li class="chapter " data-level="1.3.2" data-path="../DataStructures/Trees/">
             
-                <a href="Trees/">
+                <a href="../DataStructures/Trees/">
             
                     
                     Trees
@@ -188,9 +188,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.2.1" data-path="Trees/DepthFirst.html">
+        <li class="chapter " data-level="1.3.2.1" data-path="../DataStructures/Trees/DepthFirst.html">
             
-                <a href="Trees/DepthFirst.html">
+                <a href="../DataStructures/Trees/DepthFirst.html">
             
                     
                     Depth-First
@@ -201,9 +201,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2.2" data-path="Trees/LevelWise.html">
+        <li class="chapter " data-level="1.3.2.2" data-path="../DataStructures/Trees/LevelWise.html">
             
-                <a href="Trees/LevelWise.html">
+                <a href="../DataStructures/Trees/LevelWise.html">
             
                     
                     Level-wise Traversal
@@ -214,9 +214,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2.3" data-path="Trees/DivideAndConquer.html">
+        <li class="chapter " data-level="1.3.2.3" data-path="../DataStructures/Trees/DivideAndConquer.html">
             
-                <a href="Trees/DivideAndConquer.html">
+                <a href="../DataStructures/Trees/DivideAndConquer.html">
             
                     
                     Divide and Conquer
@@ -366,9 +366,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="../PythonicTricks/">
+        <li class="chapter active" data-level="1.6" data-path="./">
             
-                <a href="../PythonicTricks/">
+                <a href="./">
             
                     
                     Pythonic Tricks
@@ -422,7 +422,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Data Structures</a>
+        <a href=".." >Pythonic Tricks</a>
     </h1>
 </div>
 
@@ -437,7 +437,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="data-structures--standard-questions">Data Structures &amp; standard questions</h1>
+                                <h1 id="pythonic-tricks">Pythonic Tricks</h1>
+<h4 id="convert-list-into-a-dictionary">Convert list into a dictionary</h4>
+<pre><code class="lang-py">{item[<span class="hljs-number">0</span>]: item[<span class="hljs-number">1</span>:] <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> list}
+</code></pre>
+<h4 id="sort-dictionary-by-value">Sort dictionary by value</h4>
+<pre><code class="lang-py">{k: v <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> sorted(x.items(), key=<span class="hljs-keyword">lambda</span> item: item[<span class="hljs-number">1</span>])}
+</code></pre>
+<h4 id="most-frequent-in-an-array-or-a-string">Most frequent in an array or a string</h4>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter
+C = Counter(list/string)
+C.most_common(n) <span class="hljs-comment">#returns a list of top n</span>
+</code></pre>
 
                                 
                                 </section>
@@ -465,12 +476,12 @@
 
             
                 
-                <a href="../GeneralInstructions.html" class="navigation navigation-prev " aria-label="Previous page: General Instructions">
+                <a href="../Miscellaneous/InterestingMiscellaneous.html" class="navigation navigation-prev " aria-label="Previous page: Interesting Miscellaneous">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Arrays/" class="navigation navigation-next " aria-label="Next page: Arrays">
+                <a href="../BehavioralQuestions.html" class="navigation navigation-next " aria-label="Next page: Behavioral Questions">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -481,7 +492,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Data Structures","level":"1.3","depth":1,"next":{"title":"Arrays","level":"1.3.1","depth":2,"path":"DataStructures/Arrays/README.md","ref":"DataStructures/Arrays/README.md","articles":[{"title":"Two Pointers","level":"1.3.1.1","depth":3,"path":"DataStructures/Arrays/TwoPointers.md","ref":"DataStructures/Arrays/TwoPointers.md","articles":[]},{"title":"Subarrays","level":"1.3.1.2","depth":3,"path":"DataStructures/Arrays/Subarrays.md","ref":"DataStructures/Arrays/Subarrays.md","articles":[]}]},"previous":{"title":"General Instructions","level":"1.2","depth":1,"path":"GeneralInstructions.md","ref":"GeneralInstructions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/README.md","mtime":"2020-03-09T06:50:00.249Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-18T15:16:19.859Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Pythonic Tricks","level":"1.6","depth":1,"next":{"title":"Behavioral Questions","level":"1.7","depth":1,"path":"BehavioralQuestions.md","ref":"BehavioralQuestions.md","articles":[]},"previous":{"title":"Interesting Miscellaneous","level":"1.5.3","depth":2,"path":"Miscellaneous/InterestingMiscellaneous.md","ref":"Miscellaneous/InterestingMiscellaneous.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"PythonicTricks/README.md","mtime":"2020-03-15T06:55:04.185Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-18T15:16:19.859Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

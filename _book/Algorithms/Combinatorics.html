@@ -1,0 +1,675 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Combinatorics · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Backtracking.html" />
+    
+    
+    <link rel="prev" href="DFS.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../GeneralInstructions.html">
+            
+                <a href="../GeneralInstructions.html">
+            
+                    
+                    General Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../DataStructures/Arrays/">
+            
+                <a href="../DataStructures/Arrays/">
+            
+                    
+                    Arrays
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../DataStructures/Arrays/TwoPointers.html">
+            
+                <a href="../DataStructures/Arrays/TwoPointers.html">
+            
+                    
+                    Two Pointers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../DataStructures/Arrays/Subarrays.html">
+            
+                <a href="../DataStructures/Arrays/Subarrays.html">
+            
+                    
+                    Subarrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../DataStructures/Trees/">
+            
+                <a href="../DataStructures/Trees/">
+            
+                    
+                    Trees
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../DataStructures/Trees/DepthFirst.html">
+            
+                <a href="../DataStructures/Trees/DepthFirst.html">
+            
+                    
+                    Depth-First
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../DataStructures/Trees/LevelWise.html">
+            
+                <a href="../DataStructures/Trees/LevelWise.html">
+            
+                    
+                    Level-wise Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../DataStructures/Trees/DivideAndConquer.html">
+            
+                <a href="../DataStructures/Trees/DivideAndConquer.html">
+            
+                    
+                    Divide and Conquer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Algorithms
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="DFS.html">
+            
+                <a href="DFS.html">
+            
+                    
+                    DFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="Combinatorics.html">
+            
+                <a href="Combinatorics.html">
+            
+                    
+                    Combinatorics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="Backtracking.html">
+            
+                <a href="Backtracking.html">
+            
+                    
+                    Backtracking and Complete Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="DynamicProgramming.html">
+            
+                <a href="DynamicProgramming.html">
+            
+                    
+                    Dynamic Programming
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Miscellaneous/">
+            
+                <a href="../Miscellaneous/">
+            
+                    
+                    Miscellaneous
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Miscellaneous/Stocks.html">
+            
+                <a href="../Miscellaneous/Stocks.html">
+            
+                    
+                    Stocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Miscellaneous/Intervals.html">
+            
+                <a href="../Miscellaneous/Intervals.html">
+            
+                    
+                    Intervals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../Miscellaneous/InterestingMiscellaneous.html">
+            
+                <a href="../Miscellaneous/InterestingMiscellaneous.html">
+            
+                    
+                    Interesting Miscellaneous
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../PythonicTricks/">
+            
+                <a href="../PythonicTricks/">
+            
+                    
+                    Pythonic Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../BehavioralQuestions.html">
+            
+                <a href="../BehavioralQuestions.html">
+            
+                    
+                    Behavioral Questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Combinatorics</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="combinatorics">Combinatorics</h3>
+<h4 id="subsets">Subsets</h4>
+<p>Reference: CC Cheat sheet book <br>
+Note the number of recursive calls made</p>
+<p>Two choices:</p>
+<ul>
+<li>Don&apos;t choose the element: Just make a recursive call </li>
+<li>Choose the element<ol>
+<li>Select step</li>
+<li>Go to the next depth</li>
+<li>Pop out so that we don&apos;t have to instantiate the bucket</li>
+</ol>
+</li>
+</ul>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SolutionGenerator</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solution_search</span><span class="hljs-params">(self, k : int, domain: list)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+        <span class="hljs-keyword">if</span> (k == self.n):
+            self.powerset.append(self.subset[:])
+            <span class="hljs-keyword">return</span>
+        self.solution_search(k + <span class="hljs-number">1</span>, domain)
+        self.subset.append(domain[k])
+        self.solution_search(k + <span class="hljs-number">1</span>, domain)
+        self.subset.pop()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_helper_generator</span><span class="hljs-params">(self, domain: list)</span> -&gt; list:</span>
+        self.powerset = []
+        self.subset = []
+        self.n = len(domain)
+        self.solution_search(<span class="hljs-number">0</span>, domain)
+        <span class="hljs-keyword">return</span> self.powerset
+</code></pre>
+<h4 id="permutations">Permutations</h4>
+<p>Recursive calls for every element in the loop <br>
+No need to add a &#x2018;reject&#x2019; scenario <br>
+Accept, make changes and revert after going a level deep <br>
+Filter right after the loop using a helper array used for tracking <br></p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Permutation</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">perm_recur</span><span class="hljs-params">(self, k : int, domain: list)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+        <span class="hljs-keyword">if</span>(k == self.n):
+            self.permutations.append(self.bucket[:])
+            <span class="hljs-keyword">return</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.n):
+            <span class="hljs-keyword">if</span>(self.accepted[i]):
+                <span class="hljs-keyword">continue</span>
+            self.accepted[i] = <span class="hljs-keyword">True</span>
+            self.bucket.append(domain[i])
+            self.perm_recur(k + <span class="hljs-number">1</span>, domain)
+            self.accepted[i] = <span class="hljs-keyword">False</span>
+            self.bucket.pop()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_helper</span><span class="hljs-params">(self, domain: list)</span> -&gt; list:</span>
+        self.n = len(domain)
+        self.accepted = [<span class="hljs-keyword">False</span>] * self.n
+        self.permutations = []
+        self.bucket = []
+        self.perm_recur(<span class="hljs-number">0</span>, domain)
+        <span class="hljs-keyword">return</span> self.permutations
+</code></pre>
+<p>Additional questions:
+<a href="https://leetcode.com/problems/combination-sum/discuss/16510/Python-dfs-solution" target="_blank">https://leetcode.com/problems/combination-sum/discuss/16510/Python-dfs-solution</a>.</p>
+<p>To allow repetition, go to the same node after select. <br>
+<code>self.recurse(k, domain)</code></p>
+<h4 id="combinations-select-r-out-of-n-ncr">Combinations: select r out of n (nCr)</h4>
+<ul>
+<li>Recursion base case change (==r)</li>
+<li>range inside the recursive function should go over n (should start from i + 1)</li>
+<li>Similar to normal permutation</li>
+</ul>
+<p><em>Incomplete</em> solution of <a href="https://leetcode.com/problems/binary-watch/" target="_blank">https://leetcode.com/problems/binary-watch/</a> :</p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">T</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.minsAccepted = [<span class="hljs-keyword">False</span>] * <span class="hljs-number">4</span>
+        self.hoursAccepted = [<span class="hljs-keyword">False</span>] * <span class="hljs-number">6</span>
+        self.mins = <span class="hljs-number">0</span>
+        self.hours = <span class="hljs-number">0</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_helperBinaryHours</span><span class="hljs-params">(self, num: int, start: int)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+        <span class="hljs-keyword">if</span>(num == <span class="hljs-number">0</span>):
+            <span class="hljs-comment"># print(self.hoursAccepted)</span>
+            self.hours += <span class="hljs-number">1</span>
+            <span class="hljs-keyword">return</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(start, <span class="hljs-number">6</span>):
+            <span class="hljs-keyword">if</span> self.hoursAccepted[i]:
+                <span class="hljs-keyword">continue</span>
+            self.hoursAccepted[i] = <span class="hljs-keyword">True</span>
+            self._helperBinaryHours(num - <span class="hljs-number">1</span>, i + <span class="hljs-number">1</span>)
+            self.hoursAccepted[i] = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_helperBinaryMins</span><span class="hljs-params">(self, num: int, start: int)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+        <span class="hljs-keyword">if</span>(num == <span class="hljs-number">0</span>):
+            <span class="hljs-comment"># print(self.minsAccepted)</span>
+            self.mins += <span class="hljs-number">1</span>
+            <span class="hljs-keyword">return</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(start, <span class="hljs-number">4</span>):
+            <span class="hljs-keyword">if</span> self.minsAccepted[i]:
+                <span class="hljs-keyword">continue</span>
+            self.minsAccepted[i] = <span class="hljs-keyword">True</span>
+            self._helperBinaryMins(num - <span class="hljs-number">1</span>, i + <span class="hljs-number">1</span>)
+            self.minsAccepted[i] = <span class="hljs-keyword">False</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">readBinary</span><span class="hljs-params">(self, num: int)</span> -&gt; int:</span>
+        total_permutations = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">if</span>(num == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> num == <span class="hljs-number">10</span>):
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+        <span class="hljs-keyword">if</span>(num &gt; <span class="hljs-number">10</span>):
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, num + <span class="hljs-number">1</span>):
+            self._helperBinaryMins(i, <span class="hljs-number">0</span>)
+            self._helperBinaryHours(num - i, <span class="hljs-number">0</span>)
+            total_permutations += self.mins * self.hours
+            self.mins = <span class="hljs-number">0</span>
+            self.hours = <span class="hljs-number">0</span>
+            print(<span class="hljs-string">&quot;\n&quot;</span>)
+
+        <span class="hljs-keyword">return</span> total_permutations
+</code></pre>
+<h4 id="permutation-over-a-limited-set-of-values-with-repeatition">Permutation over a limited set of values (with repeatition)</h4>
+<ul>
+<li>Select one option and de-select it</li>
+<li>Similar for other options </li>
+<li>There are finite number of options at each step</li>
+<li>Recurse based on your selection</li>
+</ul>
+<p><a href="https://leetcode.com/problems/generate-parentheses/" target="_blank">https://leetcode.com/problems/generate-parentheses/</a></p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">generateParenthesis</span><span class="hljs-params">(self, n: int)</span> -&gt; int:</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">backtracker</span><span class="hljs-params">(bucket: list, openCount: int)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+            <span class="hljs-keyword">if</span>((len(bucket) - openCount) &gt; openCount <span class="hljs-keyword">or</span> \
+               openCount &gt; self.n):
+                <span class="hljs-keyword">return</span>
+
+            <span class="hljs-keyword">if</span>(len(bucket) == self.n * <span class="hljs-number">2</span>):
+                <span class="hljs-keyword">if</span>(openCount == self.n):
+                    self.permutations.append(<span class="hljs-string">&apos;&apos;</span>.join(bucket))
+                <span class="hljs-keyword">return</span>
+
+            bucket.append(<span class="hljs-string">&apos;(&apos;</span>)
+            backtracker(bucket, openCount + <span class="hljs-number">1</span>)
+            bucket.pop()
+            bucket.append(<span class="hljs-string">&apos;)&apos;</span>)
+            backtracker(bucket, openCount)
+            bucket.pop()
+
+        self.permutations = []
+        self.n = n
+        <span class="hljs-keyword">if</span> n == <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+        backtracker([], <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> self.permutations
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="DFS.html" class="navigation navigation-prev " aria-label="Previous page: DFS">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Backtracking.html" class="navigation navigation-next " aria-label="Next page: Backtracking and Complete Search">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Combinatorics","level":"1.4.2","depth":2,"next":{"title":"Backtracking and Complete Search","level":"1.4.3","depth":2,"path":"Algorithms/Backtracking.md","ref":"Algorithms/Backtracking.md","articles":[]},"previous":{"title":"DFS","level":"1.4.1","depth":2,"path":"Algorithms/DFS.md","ref":"Algorithms/DFS.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/Combinatorics.md","mtime":"2020-03-16T05:59:18.409Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-18T15:16:19.859Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

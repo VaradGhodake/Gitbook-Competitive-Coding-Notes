@@ -1,5 +1,11 @@
 # Pythonic Tricks
 
+
+#### Convert list into a dictionary
+```py
+{item[0]: item[1:] for item in list}
+```
+
 #### Sort dictionary by value
 ```py
 {k: v for k, v in sorted(x.items(), key=lambda item: item[1])}

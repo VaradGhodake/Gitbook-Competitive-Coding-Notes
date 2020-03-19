@@ -1,0 +1,664 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Dynamic Programming · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Miscellaneous/" />
+    
+    
+    <link rel="prev" href="Backtracking.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../GeneralInstructions.html">
+            
+                <a href="../GeneralInstructions.html">
+            
+                    
+                    General Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../DataStructures/Arrays/">
+            
+                <a href="../DataStructures/Arrays/">
+            
+                    
+                    Arrays
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../DataStructures/Arrays/TwoPointers.html">
+            
+                <a href="../DataStructures/Arrays/TwoPointers.html">
+            
+                    
+                    Two Pointers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../DataStructures/Arrays/Subarrays.html">
+            
+                <a href="../DataStructures/Arrays/Subarrays.html">
+            
+                    
+                    Subarrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../DataStructures/Trees/">
+            
+                <a href="../DataStructures/Trees/">
+            
+                    
+                    Trees
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../DataStructures/Trees/DepthFirst.html">
+            
+                <a href="../DataStructures/Trees/DepthFirst.html">
+            
+                    
+                    Depth-First
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../DataStructures/Trees/LevelWise.html">
+            
+                <a href="../DataStructures/Trees/LevelWise.html">
+            
+                    
+                    Level-wise Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../DataStructures/Trees/DivideAndConquer.html">
+            
+                <a href="../DataStructures/Trees/DivideAndConquer.html">
+            
+                    
+                    Divide and Conquer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Algorithms
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="DFS.html">
+            
+                <a href="DFS.html">
+            
+                    
+                    DFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="Combinatorics.html">
+            
+                <a href="Combinatorics.html">
+            
+                    
+                    Combinatorics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="Backtracking.html">
+            
+                <a href="Backtracking.html">
+            
+                    
+                    Backtracking and Complete Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.4" data-path="DynamicProgramming.html">
+            
+                <a href="DynamicProgramming.html">
+            
+                    
+                    Dynamic Programming
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Miscellaneous/">
+            
+                <a href="../Miscellaneous/">
+            
+                    
+                    Miscellaneous
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Miscellaneous/Stocks.html">
+            
+                <a href="../Miscellaneous/Stocks.html">
+            
+                    
+                    Stocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Miscellaneous/Intervals.html">
+            
+                <a href="../Miscellaneous/Intervals.html">
+            
+                    
+                    Intervals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../Miscellaneous/InterestingMiscellaneous.html">
+            
+                <a href="../Miscellaneous/InterestingMiscellaneous.html">
+            
+                    
+                    Interesting Miscellaneous
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../PythonicTricks/">
+            
+                <a href="../PythonicTricks/">
+            
+                    
+                    Pythonic Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../BehavioralQuestions.html">
+            
+                <a href="../BehavioralQuestions.html">
+            
+                    
+                    Behavioral Questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Dynamic Programming</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="dynamic-programming">Dynamic Programming</h3>
+<p>Dynamic programming is a technique that combines the correctness of complete search and the efficiency of greedy algorithms. Dynamic programming can be applied if the problem can be divided into overlapping subproblems that can be solved independently.</p>
+<p>There are two uses for dynamic programming:</p>
+<ul>
+<li>Finding an optimal solution: We want to find a solution that is as large as possible or as small as possible.</li>
+<li>Counting the number of solutions: We want to calculate the total number of possible solutions.</li>
+</ul>
+<h4 id="optimal-solution">Optimal Solution</h4>
+<p>eg. 0/1 Knapsack, partitions: exact sum, minimum sum difference</p>
+<p>Knapsack program:</p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">knapsack</span><span class="hljs-params">(self, weights, values, bag_weight)</span>:</span>
+        table = [[<span class="hljs-number">0</span>] * (bag_weight + <span class="hljs-number">1</span>)] <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> (len(values) + <span class="hljs-number">1</span>)]
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(values)+ <span class="hljs-number">1</span>):
+            <span class="hljs-keyword">for</span> weight <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, bag_weight + <span class="hljs-number">1</span>):
+                <span class="hljs-keyword">if</span>(i == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> weight == <span class="hljs-number">0</span>):
+                    table[i][weight] = <span class="hljs-number">0</span>
+                <span class="hljs-keyword">elif</span>(weight &lt; weights[i - <span class="hljs-number">1</span>]):
+                    table[i][weight] = max(
+                    weights[i - <span class="hljs-number">1</span>] + table[i - <span class="hljs-number">1</span>][w - weights[w - <span class="hljs-number">1</span>]],
+                    table[i - <span class="hljs-number">1</span>][w]
+                    )
+                <span class="hljs-keyword">else</span>:
+                    table[i][weight] = table[i - <span class="hljs-number">1</span>][weight]
+
+         <span class="hljs-keyword">return</span> table[len(values)][bag_weight]
+</code></pre>
+<p>For exact sum subarray and minimum difference subarrays: <br>
+<code>True</code> or <code>False</code> for each cell. Use or instead of <code>max(include, exclude)</code>
+Need to have another loop over the table to find the &apos;pivot&apos;
+For minimum difference, find a True cell and that causes the least difference 
+<code>(total_sum - 2 * cell_column)</code></p>
+<p>For the minimum number of squares required to get the sum, similar to the exact sum subarray. Rather than <code>True</code> or <code>False</code>, maintain the number of squares required for the sum</p>
+<h4 id="number-of-solutions">Number of solutions</h4>
+<p>eg. Climbing stairs (LeetCode 70)</p>
+<p>For each step, there are multiple choices, generally 2. <br>
+Brute force solution goes something like this:</p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solution_function</span><span class="hljs-params">(self, n)</span>:</span>
+        <span class="hljs-keyword">if</span>(success_base_case):
+           <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+        <span class="hljs-keyword">if</span>(failure_base_case):
+           <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">return</span> self.solution_function(case_one, n) + self.solution_function(case_two, n)
+</code></pre>
+<p>Time Complexity: O(2^n) - tree size</p>
+<p>Check if the problem satisfies Optimal Substructure Property <br>
+Find an equation for the answer <br>
+Here,</p>
+<pre><code class="lang-py">dp[n] = dp[n  -  <span class="hljs-number">1</span>] + dp[n - <span class="hljs-number">2</span>] <span class="hljs-comment">#(climb stairs case)</span>
+
+dp = [<span class="hljs-number">0</span>] * (n + <span class="hljs-number">1</span>)
+dp[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>
+dp[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>
+dp[<span class="hljs-number">2</span>] = <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>, n):
+            dp[i] = dp[i - <span class="hljs-number">1</span>] + dp[i - <span class="hljs-number">2</span>]
+<span class="hljs-keyword">return</span> dp[n]
+</code></pre>
+<p>From Leetcode:</p>
+<blockquote>
+<p>Usually, solving and fully understanding a dynamic programming problem is a 4 step process: <br></p>
+<ol>
+<li>Start with the recursive backtracking solution</li>
+<li>Optimize by using a memoization table (top-down dynamic programming)</li>
+<li>Remove the need for recursion (bottom-up dynamic programming)</li>
+<li>Apply final tricks to reduce the time / memory complexity</li>
+</ol>
+</blockquote>
+<p>eg. <a href="https://leetcode.com/problems/jump-game" target="_blank">https://leetcode.com/problems/jump-game</a> <br></p>
+<ol>
+<li>Refer <a href="../BacktrackingAndCompleteSearch/README.md">backtracking solution</a></li>
+</ol>
+<h5 id="2-top-down-dynamic-programming">2. Top-down Dynamic Programming</h5>
+<p>Top-down Dynamic Programming can be thought of as optimized backtracking. It relies on the observation that once we determine that a certain subproblem solution, this result will never change. <br>
+If the solution is not known, perform backtracking again.</p>
+<pre><code class="lang-java"><span class="hljs-keyword">enum</span> Index {
+    GOOD, BAD, UNKNOWN
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    Index[] memo;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canJumpFromPosition</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position, <span class="hljs-keyword">int</span>[] nums)</span> </span>{
+        <span class="hljs-keyword">if</span> (memo[position] != Index.UNKNOWN) {
+            <span class="hljs-keyword">return</span> memo[position] == Index.GOOD ? <span class="hljs-keyword">true</span> : <span class="hljs-keyword">false</span>;
+        }
+
+        <span class="hljs-keyword">int</span> furthestJump = Math.min(position + nums[position], nums.length - <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> nextPosition = position + <span class="hljs-number">1</span>; nextPosition &lt;= furthestJump; nextPosition++) {
+            <span class="hljs-keyword">if</span> (canJumpFromPosition(nextPosition, nums)) {
+                memo[position] = Index.GOOD;
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+        }
+
+        memo[position] = Index.BAD;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canJump</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
+        memo = <span class="hljs-keyword">new</span> Index[nums.length];
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; memo.length; i++) {
+            memo[i] = Index.UNKNOWN;
+        }
+        memo[memo.length - <span class="hljs-number">1</span>] = Index.GOOD;
+        <span class="hljs-keyword">return</span> canJumpFromPosition(<span class="hljs-number">0</span>, nums);
+    }
+}
+</code></pre>
+<h5 id="3-bottom-up-dynamic-programming">3. Bottom-up Dynamic Programming</h5>
+<p>Top-down to bottom-up conversion is done by eliminating recursion. In practice, this achieves better performance as we no longer have the method stack overhead and might even benefit from some caching. More importantly, this step opens up possibilities for future optimization. The recursion is usually eliminated by trying to reverse the order of the steps from the top-down approach.</p>
+<pre><code class="lang-java"><span class="hljs-keyword">enum</span> Index {
+    GOOD, BAD, UNKNOWN
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canJump</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
+        Index[] memo = <span class="hljs-keyword">new</span> Index[nums.length];
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; memo.length; i++) {
+            memo[i] = Index.UNKNOWN;
+        }
+        memo[memo.length - <span class="hljs-number">1</span>] = Index.GOOD;
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = nums.length - <span class="hljs-number">2</span>; i &gt;= <span class="hljs-number">0</span>; i--) {
+            <span class="hljs-keyword">int</span> furthestJump = Math.min(i + nums[i], nums.length - <span class="hljs-number">1</span>);
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j &lt;= furthestJump; j++) {
+                <span class="hljs-keyword">if</span> (memo[j] == Index.GOOD) {
+                    memo[i] = Index.GOOD;
+                    <span class="hljs-keyword">break</span>;
+                }
+            }
+        }
+
+        <span class="hljs-keyword">return</span> memo[<span class="hljs-number">0</span>] == Index.GOOD;
+    }
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Backtracking.html" class="navigation navigation-prev " aria-label="Previous page: Backtracking and Complete Search">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Miscellaneous/" class="navigation navigation-next " aria-label="Next page: Miscellaneous">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Dynamic Programming","level":"1.4.4","depth":2,"next":{"title":"Miscellaneous","level":"1.5","depth":1,"path":"Miscellaneous/README.md","ref":"Miscellaneous/README.md","articles":[{"title":"Stocks","level":"1.5.1","depth":2,"path":"Miscellaneous/Stocks.md","ref":"Miscellaneous/Stocks.md","articles":[]},{"title":"Intervals","level":"1.5.2","depth":2,"path":"Miscellaneous/Intervals.md","ref":"Miscellaneous/Intervals.md","articles":[]},{"title":"Interesting Miscellaneous","level":"1.5.3","depth":2,"path":"Miscellaneous/InterestingMiscellaneous.md","ref":"Miscellaneous/InterestingMiscellaneous.md","articles":[]}]},"previous":{"title":"Backtracking and Complete Search","level":"1.4.3","depth":2,"path":"Algorithms/Backtracking.md","ref":"Algorithms/Backtracking.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/DynamicProgramming.md","mtime":"2020-03-11T12:58:15.595Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-18T15:16:19.859Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

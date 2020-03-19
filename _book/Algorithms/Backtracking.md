@@ -54,3 +54,26 @@ def getMaximumGold(self, grid: List[List[int]]) -> int:
     m, n = len(grid), len(grid[0])
     return max(self.dfs(i, j, 0, set()) for j in range(n) for i in range(m))
 ```
+
+https://leetcode.com/problems/2-keys-keyboard/submissions/ <br />
+Return types should be taken care of. <br  />
+
+* Base condition
+* Limiting condition if required (Use INTMAX for min recursion, INTMIN for max recursion)
+* Actual recursion
+
+```py
+class Solution:
+    def _helperCopyPaste(self, n: int, current: int, copied: int) -> int:
+        if(current == n):
+            return 0
+        if(current > n):
+            return 3000
+        return min(2 + self._helperCopyPaste(n, current + current, current),
+                   1 + self._helperCopyPaste(n, current + copied, copied))
+
+    def minSteps(self, n: int) -> int:
+        if(n == 1):
+            return 0
+        return 1 + self._helperCopyPaste(n, 1, 1)
+```

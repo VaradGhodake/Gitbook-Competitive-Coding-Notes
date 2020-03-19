@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Trees · GitBook</title>
+        <title>Depth-First · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="DepthFirst.html" />
+    <link rel="next" href="LevelWise.html" />
     
     
-    <link rel="prev" href="../Arrays/Subarrays.html" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -174,7 +174,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.2" data-path="./">
+        <li class="chapter " data-level="1.3.2" data-path="./">
             
                 <a href="./">
             
@@ -188,7 +188,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.2.1" data-path="DepthFirst.html">
+        <li class="chapter active" data-level="1.3.2.1" data-path="DepthFirst.html">
             
                 <a href="DepthFirst.html">
             
@@ -422,7 +422,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Trees</a>
+        <a href="../.." >Depth-First</a>
     </h1>
 </div>
 
@@ -437,16 +437,48 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="trees">Trees</h1>
-<h4 id="general-tips">General tips:</h4>
-<ul>
-<li>Need to brave and innovative: find the crux or a pattern of append</li>
-<li>The answer is always very simple. Imagine a simple tree with a root node with a left and right child</li>
-<li>Check if a helper function can make life easier.</li>
-<li>Recursion. Recursion. Recursion.</li>
-<li>Tweaks here and there, go for the simplest solution first. Don&#x2019;t just jump to recursion.</li>
-<li>Check which kind of traversal might be the best. Inorder DFS or level-wise BFS.</li>
-</ul>
+                                <h1 id="depth-first-traversals">Depth-First traversals</h1>
+<p>Inorder</p>
+<pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inorder</span><span class="hljs-params">(root: TreeNode)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+    <span class="hljs-keyword">if</span> root:
+        inorder(root.left)
+        print(root.value)
+        inorder(root.right)
+</code></pre>
+<h6 id="solutions-are-generally-some-varients-of-inorder-code">Solutions are generally some varients of inorder code</h6>
+<h4 id="leaf-related-problems-">Leaf-related problems: <br></h4>
+<p><a href="https://leetcode.com/problems/leaf-similar-trees/submissions/" target="_blank">https://leetcode.com/problems/leaf-similar-trees/submissions/</a> </p>
+<pre><code class="lang-py"><span class="hljs-comment"># Definition for a binary tree node.</span>
+<span class="hljs-comment"># class TreeNode:</span>
+<span class="hljs-comment">#     def __init__(self, x):</span>
+<span class="hljs-comment">#         self.val = x</span>
+<span class="hljs-comment">#         self.left = None</span>
+<span class="hljs-comment">#         self.right = None</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">leafSimilar</span><span class="hljs-params">(self, root1: TreeNode, root2: TreeNode)</span> -&gt; bool:</span>
+        leaves = []
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">seqBuilder</span><span class="hljs-params">(root)</span>:</span>
+            <span class="hljs-keyword">if</span> root:
+                <span class="hljs-keyword">if</span> root.left == <span class="hljs-keyword">None</span> <span class="hljs-keyword">and</span> root.right == <span class="hljs-keyword">None</span>:
+                    leaves.append(root.val)
+                seqBuilder(root.left)
+                seqBuilder(root.right)
+
+        seqBuilder(root1)
+        leaves1 = leaves[<span class="hljs-number">0</span>:]
+        leaves = []
+        seqBuilder(root2)
+
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> (len(leaves) == len(leaves1)):
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(leaves)):
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> (leaves[i] == leaves1[i]):
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+</code></pre>
 
                                 
                                 </section>
@@ -474,12 +506,12 @@
 
             
                 
-                <a href="../Arrays/Subarrays.html" class="navigation navigation-prev " aria-label="Previous page: Subarrays">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Trees">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="DepthFirst.html" class="navigation navigation-next " aria-label="Next page: Depth-First">
+                <a href="LevelWise.html" class="navigation navigation-next " aria-label="Next page: Level-wise Traversal">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -490,7 +522,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Trees","level":"1.3.2","depth":2,"next":{"title":"Depth-First","level":"1.3.2.1","depth":3,"path":"DataStructures/Trees/DepthFirst.md","ref":"DataStructures/Trees/DepthFirst.md","articles":[]},"previous":{"title":"Subarrays","level":"1.3.1.2","depth":3,"path":"DataStructures/Arrays/Subarrays.md","ref":"DataStructures/Arrays/Subarrays.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Trees/README.md","mtime":"2020-03-09T14:49:44.369Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-18T15:16:19.859Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Depth-First","level":"1.3.2.1","depth":3,"next":{"title":"Level-wise Traversal","level":"1.3.2.2","depth":3,"path":"DataStructures/Trees/LevelWise.md","ref":"DataStructures/Trees/LevelWise.md","articles":[]},"previous":{"title":"Trees","level":"1.3.2","depth":2,"path":"DataStructures/Trees/README.md","ref":"DataStructures/Trees/README.md","articles":[{"title":"Depth-First","level":"1.3.2.1","depth":3,"path":"DataStructures/Trees/DepthFirst.md","ref":"DataStructures/Trees/DepthFirst.md","articles":[]},{"title":"Level-wise Traversal","level":"1.3.2.2","depth":3,"path":"DataStructures/Trees/LevelWise.md","ref":"DataStructures/Trees/LevelWise.md","articles":[]},{"title":"Divide and Conquer","level":"1.3.2.3","depth":3,"path":"DataStructures/Trees/DivideAndConquer.md","ref":"DataStructures/Trees/DivideAndConquer.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Trees/DepthFirst.md","mtime":"2020-03-15T11:23:05.707Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-18T15:16:19.859Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
