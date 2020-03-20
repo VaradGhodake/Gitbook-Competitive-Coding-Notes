@@ -31,7 +31,7 @@ class Solution:
          return table[len(values)][bag_weight]
 ```
 
-For exact sum subarray and minimum difference subarrays: <br />
+For exact sum subsets and minimum difference subsets: <br />
 `True` or `False` for each cell. Use or instead of `max(include, exclude)`
 Need to have another loop over the table to find the 'pivot'
 For minimum difference, find a True cell and that causes the least difference 

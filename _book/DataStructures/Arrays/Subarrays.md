@@ -6,7 +6,7 @@
 3. Prefix array: if we need to apply brute force at any point
 4. Pre and Post arrays
 
-##### From all subarrays of size K:
+##### Find subarray size K:
 
 Requires all subarrays of all sizes and find all where a constraint is matched: <br />
 https://www.geeksforgeeks.org/number-subarrays-product-less-k/
