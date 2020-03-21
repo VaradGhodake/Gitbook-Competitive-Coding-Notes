@@ -2,7 +2,10 @@
 
 Geeks for Geeks archives: https://www.geeksforgeeks.org/tag/subset/ <br />
 
-For each element, there are 2 choices: 1. Take or 2. leave <br />
+Optimization checks:
+1. Sorting the whole array
+
+For each element, there are 2 choices: Take or leave <br />
 Two ways to implement this: <br />
 1. Recursion
 2. DP

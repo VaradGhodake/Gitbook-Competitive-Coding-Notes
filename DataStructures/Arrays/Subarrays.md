@@ -3,8 +3,7 @@
 ##### Optimization checks: <br />
 1. Two pointers 
 2. Sliding window with running values 
-3. Prefix array: if we need to apply brute force at any point
-4. Pre and Post arrays
+3. Pre and Post arrays
 
 ##### Find subarray size K:
 
