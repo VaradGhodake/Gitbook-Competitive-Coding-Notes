@@ -45,3 +45,6 @@ Looks like DP question but we don’t have to refer older values as we are deali
 https://www.geeksforgeeks.org/maximum-product-subarray-set-3/
 
 maxVal and minVal at each value during iteration. If negative, swap them before multi, other things similar to maximum subarray sum
+
+Pre and post array
+https://www.geeksforgeeks.org/maximum-length-of-strictly-increasing-sub-array-after-removing-at-most-one-element/
