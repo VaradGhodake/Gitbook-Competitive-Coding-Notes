@@ -1,5 +1,14 @@
 # Pythonic Tricks
 
+INT_MAX:
+```py
+INT_MAX = float('inf')
+```
+
+INT_MIN:
+```py
+INT_MIN = float('-inf')
+```
 
 #### Convert list into a dictionary
 ```py

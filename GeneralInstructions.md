@@ -10,3 +10,4 @@
 * Use docstrings if possible
 * Helper functions to maintain some level of abstraction
 * Property, getters-setters to decorate code further
+* Use brackets where ever possible: avoids stupid mistakes and improves code readability

@@ -31,6 +31,36 @@ class SolutionGenerator:
 ```
 
 
+#### Combinations: select r out of n (nCr)
+
+* Recursion base case change (==r)
+* Params of recursion: s: number of selected so far; k: array item index to be processed in that call
+* Similar to normal combinations
+
+
+```py
+class T:
+    def normalSubset(self, arr: list, r: int) -> list:
+        nCr = []
+        bucket = []
+        n = len(arr)
+        
+        def helperNCR(s: int, k: int) -> None:
+            if(s == r):
+                nCr.append(bucket[:])
+                return
+            
+            if(s > r or k == n):
+                return
+            
+            helperNCR(s, k + 1)
+            bucket.append(arr[k])
+            helperNCR(s + 1, k + 1)
+            bucket.pop()
+        
+        helperNCR(0, 0)
+        return nCr```
+
 #### Permutations
 
 Recursive calls for every element in the loop <br />
@@ -70,65 +100,7 @@ To allow repetition, go to the same node after select. <br />
 ```self.recurse(k, domain)```
 
 
-#### Combinations: select r out of n (nCr)
-
-* Recursion base case change (==r)
-* range inside the recursive function should go over n (should start from i + 1)
-* Similar to normal permutation
-
-*Incomplete* solution of https://leetcode.com/problems/binary-watch/ :
-
-```py
-class T:
-    def __init__(self):
-        self.minsAccepted = [False] * 4
-        self.hoursAccepted = [False] * 6
-        self.mins = 0
-        self.hours = 0
-    
-    def _helperBinaryHours(self, num: int, start: int) -> None:
-        if(num == 0):
-            # print(self.hoursAccepted)
-            self.hours += 1
-            return
-        for i in range(start, 6):
-            if self.hoursAccepted[i]:
-                continue
-            self.hoursAccepted[i] = True
-            self._helperBinaryHours(num - 1, i + 1)
-            self.hoursAccepted[i] = False
-    
-    def _helperBinaryMins(self, num: int, start: int) -> None:
-        if(num == 0):
-            # print(self.minsAccepted)
-            self.mins += 1
-            return
-        for i in range(start, 4):
-            if self.minsAccepted[i]:
-                continue
-            self.minsAccepted[i] = True
-            self._helperBinaryMins(num - 1, i + 1)
-            self.minsAccepted[i] = False
-    
-    def readBinary(self, num: int) -> int:
-        total_permutations = 0
-        if(num == 0 or num == 10):
-            return 1
-        if(num > 10):
-            return 0
-        
-        for i in range(0, num + 1):
-            self._helperBinaryMins(i, 0)
-            self._helperBinaryHours(num - i, 0)
-            total_permutations += self.mins * self.hours
-            self.mins = 0
-            self.hours = 0
-            print("\n")
-        
-        return total_permutations
-```
-
-#### Permutation over a limited set of values (with repeatition)
+#### Permutation over a limited set of values (with repetition)
 
 * Select one option and de-select it
 * Similar for other options 

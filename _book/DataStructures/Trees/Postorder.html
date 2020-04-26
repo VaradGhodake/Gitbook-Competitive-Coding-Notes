@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Divide and Conquer · GitBook</title>
+        <title>Postorder Traversal · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../../Algorithms/" />
+    <link rel="next" href="LevelWise.html" />
     
     
-    <link rel="prev" href="LevelWise.html" />
+    <link rel="prev" href="Preorder.html" />
     
 
     </head>
@@ -233,12 +233,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.3.1" data-path="DepthFirst.html">
+        <li class="chapter " data-level="1.3.3.1" data-path="Inorder.html">
             
-                <a href="DepthFirst.html">
+                <a href="Inorder.html">
             
                     
-                    Depth-First
+                    Inorder Traversal
             
                 </a>
             
@@ -246,7 +246,33 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3.2" data-path="LevelWise.html">
+        <li class="chapter " data-level="1.3.3.2" data-path="Preorder.html">
+            
+                <a href="Preorder.html">
+            
+                    
+                    Preorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3.3" data-path="Postorder.html">
+            
+                <a href="Postorder.html">
+            
+                    
+                    Postorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="LevelWise.html">
             
                 <a href="LevelWise.html">
             
@@ -259,12 +285,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.3.3" data-path="DivideAndConquer.html">
+        <li class="chapter " data-level="1.3.3.5" data-path="ConstructTree.html">
             
-                <a href="DivideAndConquer.html">
+                <a href="ConstructTree.html">
             
                     
-                    Divide and Conquer
+                    Construct Trees
             
                 </a>
             
@@ -296,12 +322,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../../Algorithms/DFS.html">
+        <li class="chapter " data-level="1.4.1" data-path="../../Algorithms/DFSandBFS.html">
             
-                <a href="../../Algorithms/DFS.html">
+                <a href="../../Algorithms/DFSandBFS.html">
             
                     
-                    DFS
+                    DFS and BFS
             
                 </a>
             
@@ -467,7 +493,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Divide and Conquer</a>
+        <a href="../.." >Postorder Traversal</a>
     </h1>
 </div>
 
@@ -482,36 +508,91 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="divide-and-conquer">Divide and Conquer</h3>
-<p>eg. Kth smallest, LCA</p>
-<p>Remember:</p>
-<ul>
-<li>In-order of binary gives a sorted list</li>
-<li>Result from left and right -&gt; need to be taken care of</li>
-<li>Recursive calls just call left and right. They do not traverse the whole depth in one go. The basic principle of recursion.</li>
-<li>Look for the Pivot (distinguishing characteristics of that particular point)</li>
-</ul>
-<p>The general solution template:</p>
-<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">solution</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
-        <span class="hljs-comment">#some props that we need pass down the tree</span>
-        <span class="hljs-comment">#some props that we want to maintain values of</span>
+                                <h3 id="postorder-traversal">Postorder traversal</h3>
+<p>Sometimes we need to pass some values back up the tree. <br>
+e.g. node&apos;s position from the bottom, max from right and left, check if the node exists in the left or right subtree. sum of the left subtree and right subtree <br>
+Based on these properties, we need to find values of some other properties; use globals/ class attributes to record/update their value.</p>
+<h4 id="general-solution">General solution:</h4>
+<p><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank">https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/</a></p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">lowestCommonAncestor</span><span class="hljs-params">(self, root: <span class="hljs-string">&apos;TreeNode&apos;</span>, p: <span class="hljs-string">&apos;TreeNode&apos;</span>, q: <span class="hljs-string">&apos;TreeNode&apos;</span>)</span> -&gt; &apos;TreeNode&apos;:</span>
+        self.lca = <span class="hljs-keyword">None</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">actual_solver</span><span class="hljs-params">(self, root)</span>:</span>
-        <span class="hljs-comment">#if some props needed to be passed per node, use helper here</span>
-        <span class="hljs-comment">#additional param needs to be passed for the helper</span>
-        If root == <span class="hljs-keyword">None</span>:
-            <span class="hljs-keyword">return</span>
-        left_solution  = actual_solver(root.left)
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">traverse</span><span class="hljs-params">(node)</span>:</span>
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
 
-        <span class="hljs-comment">#Node processing using global/local values</span>
-        <span class="hljs-comment">#updation of those global/local values</span>
-        <span class="hljs-comment">#if found:</span>
-        <span class="hljs-keyword">return</span> answer
+            L = traverse(node.left)
+            R = traverse(node.right)
 
-        Right_solution = actual_solver(root.right)
-        <span class="hljs-comment">#return answer based on left_solution and right_solution</span>
-        <span class="hljs-comment">#imagine the stack after recursion</span>
+            <span class="hljs-keyword">if</span> (L + R + (node.val <span class="hljs-keyword">in</span> [p.val, q.val])) == <span class="hljs-number">2</span>:
+                self.lca = node
+
+            <span class="hljs-keyword">return</span> L <span class="hljs-keyword">or</span> R <span class="hljs-keyword">or</span> (node.val <span class="hljs-keyword">in</span> [p.val, q.val])
+
+        traverse(root)
+        <span class="hljs-keyword">return</span> self.lca
+</code></pre>
+<p><a href="https://leetcode.com/problems/most-frequent-subtree-sum/" target="_blank">https://leetcode.com/problems/most-frequent-subtree-sum/</a> <br>
+<em>Note:</em> Recording max_count while inserting so that finding max will be easier afterwards.</p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque, defaultdict
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">findFrequentTreeSum</span><span class="hljs-params">(self, root: TreeNode)</span> -&gt; List[int]:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root:
+            <span class="hljs-keyword">return</span> []
+
+        sums = defaultdict(int)
+        self.max_count = <span class="hljs-number">0</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">traverse</span><span class="hljs-params">(node)</span>:</span>
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node:
+                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+            L = traverse(node.left)
+            R = traverse(node.right)
+
+            sums[L + R + node.val] += <span class="hljs-number">1</span>
+            self.max_count = max(self.max_count, sums[L + R + node.val])
+
+            <span class="hljs-keyword">return</span>(L + R + node.val)
+
+        traverse(root)
+        result = []
+
+        <span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> sums.items():
+            <span class="hljs-keyword">if</span> self.max_count == value:
+                result.append(key)
+
+        <span class="hljs-keyword">return</span> result
+</code></pre>
+<p><a href="https://leetcode.com/problems/validate-binary-search-tree/" target="_blank">https://leetcode.com/problems/validate-binary-search-tree/</a></p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isValidBST</span><span class="hljs-params">(self, root: TreeNode)</span> -&gt; bool:</span>
+        self.valid = <span class="hljs-keyword">True</span>
+
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root:
+            <span class="hljs-keyword">return</span> self.valid
+
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root.left <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> root.right:
+            <span class="hljs-keyword">return</span> self.valid
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">recurse</span><span class="hljs-params">(node: TreeNode)</span> -&gt; int:</span>
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node:
+                <span class="hljs-keyword">return</span> (float(<span class="hljs-string">&apos;-inf&apos;</span>), float(<span class="hljs-string">&apos;inf&apos;</span>))
+
+            left_max, left_min = recurse(node.left)
+            right_max, right_min = recurse(node.right)
+
+            <span class="hljs-keyword">if</span> (left_max &gt;= node.val) <span class="hljs-keyword">or</span> (right_min &lt;= node.val):
+                self.valid = <span class="hljs-keyword">False</span>
+
+
+            <span class="hljs-keyword">return</span> (max(node.val, left_max, right_max), \
+                    min(node.val, right_min, left_min))
+
+        recurse(root)
+        <span class="hljs-keyword">return</span> self.valid
 </code></pre>
 
                                 
@@ -540,12 +621,12 @@
 
             
                 
-                <a href="LevelWise.html" class="navigation navigation-prev " aria-label="Previous page: Level-wise Traversal">
+                <a href="Preorder.html" class="navigation navigation-prev " aria-label="Previous page: Preorder Traversal">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../../Algorithms/" class="navigation navigation-next " aria-label="Next page: Algorithms">
+                <a href="LevelWise.html" class="navigation navigation-next " aria-label="Next page: Level-wise Traversal">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -556,7 +637,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Divide and Conquer","level":"1.3.3.3","depth":3,"next":{"title":"Algorithms","level":"1.4","depth":1,"path":"Algorithms/README.md","ref":"Algorithms/README.md","articles":[{"title":"DFS","level":"1.4.1","depth":2,"path":"Algorithms/DFS.md","ref":"Algorithms/DFS.md","articles":[]},{"title":"Combinatorics","level":"1.4.2","depth":2,"path":"Algorithms/Combinatorics.md","ref":"Algorithms/Combinatorics.md","articles":[]},{"title":"Backtracking and Complete Search","level":"1.4.3","depth":2,"path":"Algorithms/Backtracking.md","ref":"Algorithms/Backtracking.md","articles":[]},{"title":"Dynamic Programming","level":"1.4.4","depth":2,"path":"Algorithms/DynamicProgramming.md","ref":"Algorithms/DynamicProgramming.md","articles":[]}]},"previous":{"title":"Level-wise Traversal","level":"1.3.3.2","depth":3,"path":"DataStructures/Trees/LevelWise.md","ref":"DataStructures/Trees/LevelWise.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Trees/DivideAndConquer.md","mtime":"2020-03-09T14:44:56.679Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-21T09:00:16.357Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Postorder Traversal","level":"1.3.3.3","depth":3,"next":{"title":"Level-wise Traversal","level":"1.3.3.4","depth":3,"path":"DataStructures/Trees/LevelWise.md","ref":"DataStructures/Trees/LevelWise.md","articles":[]},"previous":{"title":"Preorder Traversal","level":"1.3.3.2","depth":3,"path":"DataStructures/Trees/Preorder.md","ref":"DataStructures/Trees/Preorder.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Trees/Postorder.md","mtime":"2020-04-26T11:52:31.576Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-26T11:52:35.994Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

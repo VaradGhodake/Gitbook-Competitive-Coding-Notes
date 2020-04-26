@@ -4,6 +4,7 @@ Geeks for Geeks archives: https://www.geeksforgeeks.org/tag/subset/ <br />
 
 Optimization checks:
 1. Sorting the whole array
+2. Priority queues (check `Miscellaneous Problems` section)
 
 For each element, there are 2 choices: Take or leave <br />
 Two ways to implement this: <br />

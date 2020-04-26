@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Depth-First · GitBook</title>
+        <title>Inorder Traversal · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="LevelWise.html" />
+    <link rel="next" href="Preorder.html" />
     
     
     <link rel="prev" href="./" />
@@ -233,12 +233,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.3.1" data-path="DepthFirst.html">
+        <li class="chapter active" data-level="1.3.3.1" data-path="Inorder.html">
             
-                <a href="DepthFirst.html">
+                <a href="Inorder.html">
             
                     
-                    Depth-First
+                    Inorder Traversal
             
                 </a>
             
@@ -246,7 +246,33 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3.2" data-path="LevelWise.html">
+        <li class="chapter " data-level="1.3.3.2" data-path="Preorder.html">
+            
+                <a href="Preorder.html">
+            
+                    
+                    Preorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="Postorder.html">
+            
+                <a href="Postorder.html">
+            
+                    
+                    Postorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="LevelWise.html">
             
                 <a href="LevelWise.html">
             
@@ -259,12 +285,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3.3" data-path="DivideAndConquer.html">
+        <li class="chapter " data-level="1.3.3.5" data-path="ConstructTree.html">
             
-                <a href="DivideAndConquer.html">
+                <a href="ConstructTree.html">
             
                     
-                    Divide and Conquer
+                    Construct Trees
             
                 </a>
             
@@ -296,12 +322,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../../Algorithms/DFS.html">
+        <li class="chapter " data-level="1.4.1" data-path="../../Algorithms/DFSandBFS.html">
             
-                <a href="../../Algorithms/DFS.html">
+                <a href="../../Algorithms/DFSandBFS.html">
             
                     
-                    DFS
+                    DFS and BFS
             
                 </a>
             
@@ -467,7 +493,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Depth-First</a>
+        <a href="../.." >Inorder Traversal</a>
     </h1>
 </div>
 
@@ -482,47 +508,52 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="depth-first-traversals">Depth-First traversals</h1>
-<p>Inorder</p>
-<pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inorder</span><span class="hljs-params">(root: TreeNode)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
-    <span class="hljs-keyword">if</span> root:
-        inorder(root.left)
-        print(root.value)
-        inorder(root.right)
+                                <h3 id="inorder-traversal">Inorder Traversal</h3>
+<p>It is useful when you just want to traverse the tree, if you find what you are looking for, set up a flag to make sure you don&apos;t recur unnecessary paths. Just return in the case of iterative <br>
+Particularly useful in the case of BST as inorder will give you a sorted list</p>
+<h4 id="iterative">Iterative</h4>
+<p><a href="https://leetcode.com/problems/sum-of-left-leaves/" target="_blank">https://leetcode.com/problems/sum-of-left-leaves/</a></p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sumOfLeftLeaves</span><span class="hljs-params">(self, root: TreeNode)</span> -&gt; int:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root:
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+        stack = []
+        current = root
+        total_sum = <span class="hljs-number">0</span>
+
+        <span class="hljs-keyword">while</span> stack <span class="hljs-keyword">or</span> current:
+            <span class="hljs-keyword">while</span> current:
+                stack.append(current)
+                current = current.left
+                <span class="hljs-keyword">if</span> current <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> current.left <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> current.right:
+                    total_sum += current.val
+
+            current = stack.pop()
+            current = current.right
+
+        <span class="hljs-keyword">return</span> total_sum
 </code></pre>
-<h6 id="solutions-are-generally-some-varients-of-inorder-code">Solutions are generally some varients of inorder code</h6>
-<h4 id="leaf-related-problems-">Leaf-related problems: <br></h4>
-<p><a href="https://leetcode.com/problems/leaf-similar-trees/submissions/" target="_blank">https://leetcode.com/problems/leaf-similar-trees/submissions/</a> </p>
-<pre><code class="lang-py"><span class="hljs-comment"># Definition for a binary tree node.</span>
-<span class="hljs-comment"># class TreeNode:</span>
-<span class="hljs-comment">#     def __init__(self, x):</span>
-<span class="hljs-comment">#         self.val = x</span>
-<span class="hljs-comment">#         self.left = None</span>
-<span class="hljs-comment">#         self.right = None</span>
+<h4 id="recursive">Recursive</h4>
+<p><a href="https://leetcode.com/problems/binary-tree-paths/" target="_blank">https://leetcode.com/problems/binary-tree-paths/</a> <br>
+Return <code>False</code> only in the case of not satisfying the criteria, do not return <code>True</code> until the base case</p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">binaryTreePaths</span><span class="hljs-params">(self, root: TreeNode)</span> -&gt; List[str]:</span>
+        result = []
 
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">leafSimilar</span><span class="hljs-params">(self, root1: TreeNode, root2: TreeNode)</span> -&gt; bool:</span>
-        leaves = []
-        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">seqBuilder</span><span class="hljs-params">(root)</span>:</span>
-            <span class="hljs-keyword">if</span> root:
-                <span class="hljs-keyword">if</span> root.left == <span class="hljs-keyword">None</span> <span class="hljs-keyword">and</span> root.right == <span class="hljs-keyword">None</span>:
-                    leaves.append(root.val)
-                seqBuilder(root.left)
-                seqBuilder(root.right)
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">traverse</span><span class="hljs-params">(node, path)</span>:</span>
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node:
+                <span class="hljs-keyword">return</span>
 
-        seqBuilder(root1)
-        leaves1 = leaves[<span class="hljs-number">0</span>:]
-        leaves = []
-        seqBuilder(root2)
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node.left <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> node.right:
+                result.append(path + str(node.val))
+                <span class="hljs-keyword">return</span>            
 
-        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> (len(leaves) == len(leaves1)):
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+            traverse(node.left, path + str(node.val) + <span class="hljs-string">&quot;-&gt;&quot;</span>)
+            traverse(node.right, path + str(node.val) + <span class="hljs-string">&quot;-&gt;&quot;</span>)
 
-        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(leaves)):
-            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> (leaves[i] == leaves1[i]):
-                <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
-
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+        traverse(root, <span class="hljs-string">&quot;&quot;</span>)
+        <span class="hljs-keyword">return</span> result
 </code></pre>
 
                                 
@@ -556,7 +587,7 @@
                 </a>
                 
                 
-                <a href="LevelWise.html" class="navigation navigation-next " aria-label="Next page: Level-wise Traversal">
+                <a href="Preorder.html" class="navigation navigation-next " aria-label="Next page: Preorder Traversal">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -567,7 +598,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Depth-First","level":"1.3.3.1","depth":3,"next":{"title":"Level-wise Traversal","level":"1.3.3.2","depth":3,"path":"DataStructures/Trees/LevelWise.md","ref":"DataStructures/Trees/LevelWise.md","articles":[]},"previous":{"title":"Trees","level":"1.3.3","depth":2,"path":"DataStructures/Trees/README.md","ref":"DataStructures/Trees/README.md","articles":[{"title":"Depth-First","level":"1.3.3.1","depth":3,"path":"DataStructures/Trees/DepthFirst.md","ref":"DataStructures/Trees/DepthFirst.md","articles":[]},{"title":"Level-wise Traversal","level":"1.3.3.2","depth":3,"path":"DataStructures/Trees/LevelWise.md","ref":"DataStructures/Trees/LevelWise.md","articles":[]},{"title":"Divide and Conquer","level":"1.3.3.3","depth":3,"path":"DataStructures/Trees/DivideAndConquer.md","ref":"DataStructures/Trees/DivideAndConquer.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Trees/DepthFirst.md","mtime":"2020-03-15T11:23:05.707Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-21T09:00:16.357Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Inorder Traversal","level":"1.3.3.1","depth":3,"next":{"title":"Preorder Traversal","level":"1.3.3.2","depth":3,"path":"DataStructures/Trees/Preorder.md","ref":"DataStructures/Trees/Preorder.md","articles":[]},"previous":{"title":"Trees","level":"1.3.3","depth":2,"path":"DataStructures/Trees/README.md","ref":"DataStructures/Trees/README.md","articles":[{"title":"Inorder Traversal","level":"1.3.3.1","depth":3,"path":"DataStructures/Trees/Inorder.md","ref":"DataStructures/Trees/Inorder.md","articles":[]},{"title":"Preorder Traversal","level":"1.3.3.2","depth":3,"path":"DataStructures/Trees/Preorder.md","ref":"DataStructures/Trees/Preorder.md","articles":[]},{"title":"Postorder Traversal","level":"1.3.3.3","depth":3,"path":"DataStructures/Trees/Postorder.md","ref":"DataStructures/Trees/Postorder.md","articles":[]},{"title":"Level-wise Traversal","level":"1.3.3.4","depth":3,"path":"DataStructures/Trees/LevelWise.md","ref":"DataStructures/Trees/LevelWise.md","articles":[]},{"title":"Construct Trees","level":"1.3.3.5","depth":3,"path":"DataStructures/Trees/ConstructTree.md","ref":"DataStructures/Trees/ConstructTree.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Trees/Inorder.md","mtime":"2020-04-26T06:18:13.329Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-26T11:52:35.994Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

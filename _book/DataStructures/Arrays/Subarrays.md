@@ -3,8 +3,7 @@
 ##### Optimization checks: <br />
 1. Two pointers 
 2. Sliding window with running values 
-3. Prefix array: if we need to apply brute force at any point
-4. Pre and Post arrays
+3. Pre and Post arrays
 
 ##### Find subarray size K:
 
@@ -46,3 +45,6 @@ Looks like DP question but we don’t have to refer older values as we are deali
 https://www.geeksforgeeks.org/maximum-product-subarray-set-3/
 
 maxVal and minVal at each value during iteration. If negative, swap them before multi, other things similar to maximum subarray sum
+
+Pre and post array
+https://www.geeksforgeeks.org/maximum-length-of-strictly-increasing-sub-array-after-removing-at-most-one-element/

@@ -1,34 +1,82 @@
-### Level-wise traversal problems
-
-eg. Top-view, Bottom-view, Thickness of the tree, etc
-
-* Can maintain the left-most node and right-most node or related data 
-* Helper functions or helper data structures (especially collections.deque) for data transfer or retrieval (i.e. depth value or width value) can help
-
-General solution template:
-
+### Levelwise traversals
+General solution: <br />
+https://leetcode.com/problems/deepest-leaves-sum/
 ```py
-from collections import deque, defaultdict
+from collections import deque
 
 class Solution:
-    def __init__(self):
-        self.queue = deque()
-        self.level_sum = defaultdict(int)
-    
-    def _helperMaxLevelSum(self) -> None:
-        while(len(self.queue)):
-            node, level = self.queue.popleft()
-            if(not node):
-                continue
-            
-            self.level_sum[level] += node.val
-            
-            self.queue.append((node.left, level + 1))
-            self.queue.append((node.right, level + 1))
+    def deepestLeavesSum(self, root: TreeNode) -> int:
+        if not root:
+            return 0
         
-    def maxLevelSum(self, root: TreeNode) -> int:
-        self.queue.append((root, 0))
-        self._helperMaxLevelSum()
+        queue = deque()
+        queue.append(root)
+        current = root
+        level_sum = 0
         
-        return max(self.level_sum, key=self.level_sum.get) + 1
+        while queue:
+            size = len(queue)
+            level_sum = 0
+            
+            while size:
+                current = queue.popleft()
+                level_sum += current.val
+                
+                if current.left:
+                    queue.append(current.left)
+                    
+                if current.right:
+                    queue.append(current.right)
+                    
+                size -= 1
+        
+        return level_sum
+```
+Append more values into the queue node <br />
+https://leetcode.com/problems/cousins-in-binary-tree/
+```py
+from collections import deque
+
+
+class Solution:
+    def isCousins(self, root: TreeNode, x: int, y: int) -> bool:
+        if not root:
+            return False
+        
+        queue = deque()
+        queue.append((root, -1))
+        current = root
+        
+        
+        while queue:
+            size = len(queue)
+            
+            x_found = -1
+            y_found = -1
+            
+            while size:
+                
+                current, parent = queue.popleft()
+                
+                if current.val == x:
+                    x_found = parent
+                
+                if current.val == y:
+                    y_found = parent
+                
+                if (x_found != -1) and (y_found != -1) and (x_found != y_found):
+                    return True
+                
+                if (x_found == y_found) and (x_found != -1):
+                    return False
+                    
+                if current.left:
+                    queue.append((current.left, current.val))
+                    
+                if current.right:
+                    queue.append((current.right, current.val))
+                
+                size -= 1
+                
+        return False
 ```

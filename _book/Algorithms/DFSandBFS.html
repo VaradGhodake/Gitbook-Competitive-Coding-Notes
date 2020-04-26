@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>DFS · GitBook</title>
+        <title>DFS and BFS · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -233,12 +233,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.3.1" data-path="../DataStructures/Trees/DepthFirst.html">
+        <li class="chapter " data-level="1.3.3.1" data-path="../DataStructures/Trees/Inorder.html">
             
-                <a href="../DataStructures/Trees/DepthFirst.html">
+                <a href="../DataStructures/Trees/Inorder.html">
             
                     
-                    Depth-First
+                    Inorder Traversal
             
                 </a>
             
@@ -246,7 +246,33 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3.2" data-path="../DataStructures/Trees/LevelWise.html">
+        <li class="chapter " data-level="1.3.3.2" data-path="../DataStructures/Trees/Preorder.html">
+            
+                <a href="../DataStructures/Trees/Preorder.html">
+            
+                    
+                    Preorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../DataStructures/Trees/Postorder.html">
+            
+                <a href="../DataStructures/Trees/Postorder.html">
+            
+                    
+                    Postorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../DataStructures/Trees/LevelWise.html">
             
                 <a href="../DataStructures/Trees/LevelWise.html">
             
@@ -259,12 +285,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3.3" data-path="../DataStructures/Trees/DivideAndConquer.html">
+        <li class="chapter " data-level="1.3.3.5" data-path="../DataStructures/Trees/ConstructTree.html">
             
-                <a href="../DataStructures/Trees/DivideAndConquer.html">
+                <a href="../DataStructures/Trees/ConstructTree.html">
             
                     
-                    Divide and Conquer
+                    Construct Trees
             
                 </a>
             
@@ -296,12 +322,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.4.1" data-path="DFS.html">
+        <li class="chapter active" data-level="1.4.1" data-path="DFSandBFS.html">
             
-                <a href="DFS.html">
+                <a href="DFSandBFS.html">
             
                     
-                    DFS
+                    DFS and BFS
             
                 </a>
             
@@ -467,7 +493,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >DFS</a>
+        <a href=".." >DFS and BFS</a>
     </h1>
 </div>
 
@@ -482,39 +508,114 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="dfs">DFS</h1>
-<p>Process current node and then process its children <br>
-<a href="https://leetcode.com/problems/employee-importance/" target="_blank">https://leetcode.com/problems/employee-importance/</a></p>
-<pre><code class="lang-py"><span class="hljs-string">&quot;&quot;&quot;
-# Employee info
-class Employee:
-    def __init__(self, id: int, importance: int, subordinates: List[int]):
-        # It&apos;s the unique id of each node.
-        # unique id of this employee
-        self.id = id
-        # the importance value of this employee
-        self.importance = importance
-        # the id of direct subordinates
-        self.subordinates = subordinates
-&quot;&quot;&quot;</span>
+                                <h1 id="dfs-and-bfs">DFS and BFS</h1>
+<h5 id="few-notes">Few notes:</h5>
+<ul>
+<li>Use BFS if there&apos;s a need to go somewhere optimally. <br><blockquote>
+<p>eg. Minimum steps required to reach from A to B type questions, jump game questions</p>
+</blockquote>
+</li>
+<li>Use DFS for exhaustive search in the grid where you have search everywhere, not optimal condition <br><blockquote>
+<p>eg. Find if you can create word X from the grid </p>
+</blockquote>
+</li>
+<li>Do not forget the <code>visited</code> grid</li>
+</ul>
+<p>General solutions:</p>
+<h4 id="bfs">BFS</h4>
+<ul>
+<li>collections.deque is extremely useful: use <code>apend</code> and <code>popleft</code> for queue operations</li>
+<li>Run operations as long as the queue is not empty</li>
+<li>visited array is an important part of the solution to avoid repetition</li>
+</ul>
+<p><a href="https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/" target="_blank">https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/</a></p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque
+
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shortestPath</span><span class="hljs-params">(self, grid: List[List[int]], k: int)</span> -&gt; int:</span>
+        X = len(grid)
+        Y = len(grid[<span class="hljs-number">0</span>])
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">recursiveImportance</span><span class="hljs-params">(self, employee_data: dict, id: int)</span> -&gt; int:</span>     
-        current = employee_data[id][<span class="hljs-string">&quot;importance&quot;</span>]
+        visited = [[[<span class="hljs-number">-1</span>, float(<span class="hljs-string">&apos;inf&apos;</span>)] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, Y)] <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, X)]
+        <span class="hljs-comment"># x, y, steps, k-left</span>
+        queue = deque([[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, k]])
 
-        <span class="hljs-keyword">for</span> subordinate <span class="hljs-keyword">in</span> employee_data[id][<span class="hljs-string">&quot;subordinates&quot;</span>]:
-            current += self.recursiveImportance(employee_data, subordinate)
+        <span class="hljs-keyword">while</span> queue:
+            x, y, steps, k_left = queue.popleft()
 
-        <span class="hljs-keyword">return</span> current
+            <span class="hljs-keyword">if</span> x &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> x &gt;= X <span class="hljs-keyword">or</span> y &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> y &gt;= Y:
+                <span class="hljs-keyword">continue</span>
 
+            <span class="hljs-keyword">if</span> grid[x][y]:
+                k_left -= <span class="hljs-number">1</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getImportance</span><span class="hljs-params">(self, employees: List[<span class="hljs-string">&apos;Employee&apos;</span>], id: int)</span> -&gt; int:</span>
-        employee_data = {item.id : \
-                        {<span class="hljs-string">&apos;importance&apos;</span>: item.importance, \
-                         <span class="hljs-string">&apos;subordinates&apos;</span>: item.subordinates} \
-                        <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> employees}
+            <span class="hljs-keyword">if</span> k_left &lt; <span class="hljs-number">0</span>:
+                <span class="hljs-keyword">continue</span>
 
-        <span class="hljs-keyword">return</span> self.recursiveImportance(employee_data, id)
+            <span class="hljs-keyword">if</span> visited[x][y][<span class="hljs-number">0</span>] &gt;= k_left <span class="hljs-keyword">and</span> visited[x][y][<span class="hljs-number">1</span>] &lt;= steps:
+                <span class="hljs-keyword">continue</span>
+
+            visited[x][y][<span class="hljs-number">0</span>] = k_left
+            visited[x][y][<span class="hljs-number">1</span>] = steps
+
+            <span class="hljs-keyword">if</span> x == (X - <span class="hljs-number">1</span>) <span class="hljs-keyword">and</span> y == (Y - <span class="hljs-number">1</span>):
+                <span class="hljs-keyword">return</span> steps
+
+            queue.append([x - <span class="hljs-number">1</span>, y, steps + <span class="hljs-number">1</span>, k_left])
+            queue.append([x + <span class="hljs-number">1</span>, y, steps + <span class="hljs-number">1</span>, k_left])
+            queue.append([x, y - <span class="hljs-number">1</span>, steps + <span class="hljs-number">1</span>, k_left])
+            queue.append([x, y + <span class="hljs-number">1</span>, steps + <span class="hljs-number">1</span>, k_left])
+
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>
+</code></pre>
+<h4 id="dfs">DFS</h4>
+<ul>
+<li>Do not forget the visited array (you&apos;ll end up with stack limit exceeded error otherwise)</li>
+</ul>
+<p><a href="https://leetcode.com/problems/word-search" target="_blank">https://leetcode.com/problems/word-search</a></p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">exist</span><span class="hljs-params">(self, board: List[List[str]], word: str)</span> -&gt; bool:</span>
+        X = len(board)
+        Y = len(board[<span class="hljs-number">0</span>])
+
+        visited = [[<span class="hljs-keyword">False</span> <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, Y))] <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(X)]
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dfs</span><span class="hljs-params">(letter, x, y)</span> -&gt; bool:</span>
+        <span class="hljs-comment"># base case should be first</span>
+            <span class="hljs-keyword">if</span> letter == len(word):
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+            <span class="hljs-keyword">if</span> x &gt;= X <span class="hljs-keyword">or</span> x &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> y &gt;= Y <span class="hljs-keyword">or</span> y &lt; <span class="hljs-number">0</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+            <span class="hljs-keyword">if</span> visited[x][y]:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+            <span class="hljs-keyword">if</span> word[letter] == board[x][y]:
+            <span class="hljs-comment"># make sure you don&apos;t visit the already visited cell</span>
+                visited[x][y] = <span class="hljs-keyword">True</span>
+
+                <span class="hljs-keyword">if</span>(
+                    dfs(letter + <span class="hljs-number">1</span>, x + <span class="hljs-number">1</span>, y) <span class="hljs-keyword">or</span>
+                    dfs(letter + <span class="hljs-number">1</span>, x - <span class="hljs-number">1</span>, y) <span class="hljs-keyword">or</span>
+                    dfs(letter + <span class="hljs-number">1</span>, x, y + <span class="hljs-number">1</span>) <span class="hljs-keyword">or</span>
+                    dfs(letter + <span class="hljs-number">1</span>, x, y - <span class="hljs-number">1</span>)
+                ):
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+                visited[x][y] = <span class="hljs-keyword">False</span>
+
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(board)):
+            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(board[i])):
+                <span class="hljs-keyword">if</span> word[<span class="hljs-number">0</span>] == board[i][j]:
+                    <span class="hljs-keyword">if</span> dfs(<span class="hljs-number">0</span>, i, j):
+                        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+                <span class="hljs-keyword">else</span>:
+                    <span class="hljs-keyword">continue</span>
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
 </code></pre>
 
                                 
@@ -559,7 +660,7 @@ class Employee:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"DFS","level":"1.4.1","depth":2,"next":{"title":"Combinatorics","level":"1.4.2","depth":2,"path":"Algorithms/Combinatorics.md","ref":"Algorithms/Combinatorics.md","articles":[]},"previous":{"title":"Algorithms","level":"1.4","depth":1,"path":"Algorithms/README.md","ref":"Algorithms/README.md","articles":[{"title":"DFS","level":"1.4.1","depth":2,"path":"Algorithms/DFS.md","ref":"Algorithms/DFS.md","articles":[]},{"title":"Combinatorics","level":"1.4.2","depth":2,"path":"Algorithms/Combinatorics.md","ref":"Algorithms/Combinatorics.md","articles":[]},{"title":"Backtracking and Complete Search","level":"1.4.3","depth":2,"path":"Algorithms/Backtracking.md","ref":"Algorithms/Backtracking.md","articles":[]},{"title":"Dynamic Programming","level":"1.4.4","depth":2,"path":"Algorithms/DynamicProgramming.md","ref":"Algorithms/DynamicProgramming.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/DFS.md","mtime":"2020-03-15T06:52:11.865Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-21T09:00:16.357Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"DFS and BFS","level":"1.4.1","depth":2,"next":{"title":"Combinatorics","level":"1.4.2","depth":2,"path":"Algorithms/Combinatorics.md","ref":"Algorithms/Combinatorics.md","articles":[]},"previous":{"title":"Algorithms","level":"1.4","depth":1,"path":"Algorithms/README.md","ref":"Algorithms/README.md","articles":[{"title":"DFS and BFS","level":"1.4.1","depth":2,"path":"Algorithms/DFSandBFS.md","ref":"Algorithms/DFSandBFS.md","articles":[]},{"title":"Combinatorics","level":"1.4.2","depth":2,"path":"Algorithms/Combinatorics.md","ref":"Algorithms/Combinatorics.md","articles":[]},{"title":"Backtracking and Complete Search","level":"1.4.3","depth":2,"path":"Algorithms/Backtracking.md","ref":"Algorithms/Backtracking.md","articles":[]},{"title":"Dynamic Programming","level":"1.4.4","depth":2,"path":"Algorithms/DynamicProgramming.md","ref":"Algorithms/DynamicProgramming.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/DFSandBFS.md","mtime":"2020-04-06T14:44:18.776Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-26T11:52:35.994Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
