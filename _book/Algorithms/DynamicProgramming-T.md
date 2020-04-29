@@ -6,6 +6,7 @@ We should always go: `recursive solution` -> `memoization` -> `Dynamic Programmi
 There are a lot of memoization solved problems in leetcode -> Top interview questions -> DP <br />
 Memoization basically insures that we solve a particular subproblem only once to improve runtime
 
+Recursive solution: For problems with structure of `take or leave`, check how it depends on previous values and recurse conditionally: make except and include cases and take max or min. eg. coin-change, LIS, perfect squares, word break, etc  
 #### Half the problem is solved once you figure out that the problem is a DP one
 
 There are two uses for dynamic programming:
@@ -202,79 +203,3 @@ From Leetcode:
 >2. Optimize by using a memoization table (top-down dynamic programming)
 >3. Remove the need for recursion (bottom-up dynamic programming)
 >4. Apply final tricks to reduce the time / memory complexity
-
-eg. https://leetcode.com/problems/jump-game <br />
-1. Refer [backtracking solution](../BacktrackingAndCompleteSearch/README.md)
-
-##### 2. Top-down Dynamic Programming 
-
-Top-down Dynamic Programming can be thought of as optimized backtracking. It relies on the observation that once we determine that a certain subproblem solution, this result will never change. <br />
-If the solution is not known, perform backtracking again.
-
-```java
-enum Index {
-    GOOD, BAD, UNKNOWN
-}
-
-public class Solution {
-    Index[] memo;
-
-    public boolean canJumpFromPosition(int position, int[] nums) {
-        if (memo[position] != Index.UNKNOWN) {
-            return memo[position] == Index.GOOD ? true : false;
-        }
-
-        int furthestJump = Math.min(position + nums[position], nums.length - 1);
-        for (int nextPosition = position + 1; nextPosition <= furthestJump; nextPosition++) {
-            if (canJumpFromPosition(nextPosition, nums)) {
-                memo[position] = Index.GOOD;
-                return true;
-            }
-        }
-
-        memo[position] = Index.BAD;
-        return false;
-    }
-
-    public boolean canJump(int[] nums) {
-        memo = new Index[nums.length];
-        for (int i = 0; i < memo.length; i++) {
-            memo[i] = Index.UNKNOWN;
-        }
-        memo[memo.length - 1] = Index.GOOD;
-        return canJumpFromPosition(0, nums);
-    }
-}
-```
-
-##### 3. Bottom-up Dynamic Programming
-
-Top-down to bottom-up conversion is done by eliminating recursion. In practice, this achieves better performance as we no longer have the method stack overhead and might even benefit from some caching. More importantly, this step opens up possibilities for future optimization. The recursion is usually eliminated by trying to reverse the order of the steps from the top-down approach.
-
-```java
-enum Index {
-    GOOD, BAD, UNKNOWN
-}
-
-public class Solution {
-    public boolean canJump(int[] nums) {
-        Index[] memo = new Index[nums.length];
-        for (int i = 0; i < memo.length; i++) {
-            memo[i] = Index.UNKNOWN;
-        }
-        memo[memo.length - 1] = Index.GOOD;
-
-        for (int i = nums.length - 2; i >= 0; i--) {
-            int furthestJump = Math.min(i + nums[i], nums.length - 1);
-            for (int j = i + 1; j <= furthestJump; j++) {
-                if (memo[j] == Index.GOOD) {
-                    memo[i] = Index.GOOD;
-                    break;
-                }
-            }
-        }
-
-        return memo[0] == Index.GOOD;
-    }
-}
-```

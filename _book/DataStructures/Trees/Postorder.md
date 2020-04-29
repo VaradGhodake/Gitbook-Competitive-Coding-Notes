@@ -83,7 +83,6 @@ class Solution:
             if (left_max >= node.val) or (right_min <= node.val):
                 self.valid = False
                 
-                
             return (max(node.val, left_max, right_max), \
                     min(node.val, right_min, left_min))
         

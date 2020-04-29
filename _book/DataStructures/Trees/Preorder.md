@@ -2,6 +2,8 @@
 
 Perfect for process node and pass value down the tree. <br />
 Sometimes replacement for levelwise (NOT ALWAYS, OF COURSE) <br />
+If we do not want to cover `not root.left` or `not root.right`, check if they exist and go down the tree. 
+
 #### General solution:
 https://leetcode.com/problems/sum-root-to-leaf-numbers/
 ```py

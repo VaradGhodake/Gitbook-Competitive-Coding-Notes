@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Dynamic Programming · GitBook</title>
+        <title>Theory: Dynamic Programming · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../Miscellaneous/" />
+    <link rel="next" href="DynamicProgramming-E.html" />
     
     
     <link rel="prev" href="Backtracking.html" />
@@ -361,12 +361,25 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.4" data-path="DynamicProgramming.html">
+        <li class="chapter active" data-level="1.4.4" data-path="DynamicProgramming-T.html">
             
-                <a href="DynamicProgramming.html">
+                <a href="DynamicProgramming-T.html">
             
                     
-                    Dynamic Programming
+                    Theory: Dynamic Programming
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="DynamicProgramming-E.html">
+            
+                <a href="DynamicProgramming-E.html">
+            
+                    
+                    Examples: Dynamic Programming
             
                 </a>
             
@@ -493,7 +506,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Dynamic Programming</a>
+        <a href=".." >Theory: Dynamic Programming</a>
     </h1>
 </div>
 
@@ -513,6 +526,7 @@
 <p>We should always go: <code>recursive solution</code> -&gt; <code>memoization</code> -&gt; <code>Dynamic Programming</code> <br>
 There are a lot of memoization solved problems in leetcode -&gt; Top interview questions -&gt; DP <br>
 Memoization basically insures that we solve a particular subproblem only once to improve runtime</p>
+<p>Recursive solution: For problems with structure of <code>take or leave</code>, check how it depends on previous values and recurse conditionally: make except and include cases and take max or min. eg. coin-change, LIS, perfect squares, word break, etc  </p>
 <h4 id="half-the-problem-is-solved-once-you-figure-out-that-the-problem-is-a-dp-one">Half the problem is solved once you figure out that the problem is a DP one</h4>
 <p>There are two uses for dynamic programming:</p>
 <ul>
@@ -693,75 +707,6 @@ dp[<span class="hljs-number">2</span>] = <span class="hljs-number">2</span>
 <li>Apply final tricks to reduce the time / memory complexity</li>
 </ol>
 </blockquote>
-<p>eg. <a href="https://leetcode.com/problems/jump-game" target="_blank">https://leetcode.com/problems/jump-game</a> <br></p>
-<ol>
-<li>Refer <a href="../BacktrackingAndCompleteSearch/README.md">backtracking solution</a></li>
-</ol>
-<h5 id="2-top-down-dynamic-programming">2. Top-down Dynamic Programming</h5>
-<p>Top-down Dynamic Programming can be thought of as optimized backtracking. It relies on the observation that once we determine that a certain subproblem solution, this result will never change. <br>
-If the solution is not known, perform backtracking again.</p>
-<pre><code class="lang-java"><span class="hljs-keyword">enum</span> Index {
-    GOOD, BAD, UNKNOWN
-}
-
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
-    Index[] memo;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canJumpFromPosition</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position, <span class="hljs-keyword">int</span>[] nums)</span> </span>{
-        <span class="hljs-keyword">if</span> (memo[position] != Index.UNKNOWN) {
-            <span class="hljs-keyword">return</span> memo[position] == Index.GOOD ? <span class="hljs-keyword">true</span> : <span class="hljs-keyword">false</span>;
-        }
-
-        <span class="hljs-keyword">int</span> furthestJump = Math.min(position + nums[position], nums.length - <span class="hljs-number">1</span>);
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> nextPosition = position + <span class="hljs-number">1</span>; nextPosition &lt;= furthestJump; nextPosition++) {
-            <span class="hljs-keyword">if</span> (canJumpFromPosition(nextPosition, nums)) {
-                memo[position] = Index.GOOD;
-                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
-            }
-        }
-
-        memo[position] = Index.BAD;
-        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
-    }
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canJump</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
-        memo = <span class="hljs-keyword">new</span> Index[nums.length];
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; memo.length; i++) {
-            memo[i] = Index.UNKNOWN;
-        }
-        memo[memo.length - <span class="hljs-number">1</span>] = Index.GOOD;
-        <span class="hljs-keyword">return</span> canJumpFromPosition(<span class="hljs-number">0</span>, nums);
-    }
-}
-</code></pre>
-<h5 id="3-bottom-up-dynamic-programming">3. Bottom-up Dynamic Programming</h5>
-<p>Top-down to bottom-up conversion is done by eliminating recursion. In practice, this achieves better performance as we no longer have the method stack overhead and might even benefit from some caching. More importantly, this step opens up possibilities for future optimization. The recursion is usually eliminated by trying to reverse the order of the steps from the top-down approach.</p>
-<pre><code class="lang-java"><span class="hljs-keyword">enum</span> Index {
-    GOOD, BAD, UNKNOWN
-}
-
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canJump</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
-        Index[] memo = <span class="hljs-keyword">new</span> Index[nums.length];
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; memo.length; i++) {
-            memo[i] = Index.UNKNOWN;
-        }
-        memo[memo.length - <span class="hljs-number">1</span>] = Index.GOOD;
-
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = nums.length - <span class="hljs-number">2</span>; i &gt;= <span class="hljs-number">0</span>; i--) {
-            <span class="hljs-keyword">int</span> furthestJump = Math.min(i + nums[i], nums.length - <span class="hljs-number">1</span>);
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j &lt;= furthestJump; j++) {
-                <span class="hljs-keyword">if</span> (memo[j] == Index.GOOD) {
-                    memo[i] = Index.GOOD;
-                    <span class="hljs-keyword">break</span>;
-                }
-            }
-        }
-
-        <span class="hljs-keyword">return</span> memo[<span class="hljs-number">0</span>] == Index.GOOD;
-    }
-}
-</code></pre>
 
                                 
                                 </section>
@@ -794,7 +739,7 @@ If the solution is not known, perform backtracking again.</p>
                 </a>
                 
                 
-                <a href="../Miscellaneous/" class="navigation navigation-next " aria-label="Next page: Miscellaneous">
+                <a href="DynamicProgramming-E.html" class="navigation navigation-next " aria-label="Next page: Examples: Dynamic Programming">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -805,7 +750,7 @@ If the solution is not known, perform backtracking again.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Dynamic Programming","level":"1.4.4","depth":2,"next":{"title":"Miscellaneous","level":"1.5","depth":1,"path":"Miscellaneous/README.md","ref":"Miscellaneous/README.md","articles":[{"title":"Stocks","level":"1.5.1","depth":2,"path":"Miscellaneous/Stocks.md","ref":"Miscellaneous/Stocks.md","articles":[]},{"title":"Intervals","level":"1.5.2","depth":2,"path":"Miscellaneous/Intervals.md","ref":"Miscellaneous/Intervals.md","articles":[]},{"title":"Interesting Miscellaneous","level":"1.5.3","depth":2,"path":"Miscellaneous/InterestingMiscellaneous.md","ref":"Miscellaneous/InterestingMiscellaneous.md","articles":[]}]},"previous":{"title":"Backtracking and Complete Search","level":"1.4.3","depth":2,"path":"Algorithms/Backtracking.md","ref":"Algorithms/Backtracking.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/DynamicProgramming.md","mtime":"2020-04-12T06:20:47.202Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-26T11:52:35.994Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Theory: Dynamic Programming","level":"1.4.4","depth":2,"next":{"title":"Examples: Dynamic Programming","level":"1.4.5","depth":2,"path":"Algorithms/DynamicProgramming-E.md","ref":"Algorithms/DynamicProgramming-E.md","articles":[]},"previous":{"title":"Backtracking and Complete Search","level":"1.4.3","depth":2,"path":"Algorithms/Backtracking.md","ref":"Algorithms/Backtracking.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/DynamicProgramming-T.md","mtime":"2020-04-29T11:50:54.594Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-29T11:54:52.092Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
