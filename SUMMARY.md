@@ -15,6 +15,8 @@
         * [Postorder Traversal](DataStructures/Trees/Postorder.md)
         * [Level-wise Traversal](DataStructures/Trees/LevelWise.md)
         * [Construct Trees](DataStructures/Trees/ConstructTree.md)
+    * [Graphs](DataStructures/Graphs/README.md)
+        * [Coloring](DataStructures/Graphs/Coloring.md)
 * [Algorithms](Algorithms/README.md)
     * [DFS and BFS](Algorithms/DFSandBFS.md)
     * [Combinatorics](Algorithms/Combinatorics.md)

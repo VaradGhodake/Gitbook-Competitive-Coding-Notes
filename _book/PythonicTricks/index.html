@@ -303,6 +303,38 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.4" data-path="../DataStructures/Graphs/">
+            
+                <a href="../DataStructures/Graphs/">
+            
+                    
+                    Graphs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../DataStructures/Graphs/Coloring.html">
+            
+                <a href="../DataStructures/Graphs/Coloring.html">
+            
+                    
+                    Coloring
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
             </ul>
             
@@ -532,14 +564,19 @@
 <pre><code class="lang-py">{item[<span class="hljs-number">0</span>]: item[<span class="hljs-number">1</span>:] <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> list}
 </code></pre>
 <h4 id="sort-dictionary-by-value">Sort dictionary by value</h4>
-<pre><code class="lang-py">{k: v <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> sorted(x.items(), key=<span class="hljs-keyword">lambda</span> item: item[<span class="hljs-number">1</span>])}
+<pre><code class="lang-py">{k: v fo r k, v <span class="hljs-keyword">in</span> sorted(x.items(), key=<span class="hljs-keyword">lambda</span> item: item[<span class="hljs-number">1</span>])}
 </code></pre>
 <h4 id="most-frequent-in-an-array-or-a-string">Most frequent in an array or a string</h4>
 <pre><code class="lang-py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter
 C = Counter(list/string)
 C.most_common(n) <span class="hljs-comment">#returns a list of top n</span>
 </code></pre>
-
+<p>Or we can just keep track of the most frequent element while going throught the list</p>
+<h4 id="heapq-insert-with-priority">heapq insert with priority</h4>
+<pre><code>import heapq
+heap = []
+heapq.heappush(heap, (priority, item))
+</code></pre>
                                 
                                 </section>
                             
@@ -582,7 +619,7 @@ C.most_common(n) <span class="hljs-comment">#returns a list of top n</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Pythonic Tricks","level":"1.6","depth":1,"next":{"title":"Behavioral Questions","level":"1.7","depth":1,"path":"BehavioralQuestions.md","ref":"BehavioralQuestions.md","articles":[]},"previous":{"title":"Interesting Miscellaneous","level":"1.5.3","depth":2,"path":"Miscellaneous/InterestingMiscellaneous.md","ref":"Miscellaneous/InterestingMiscellaneous.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"PythonicTricks/README.md","mtime":"2020-03-23T12:13:41.840Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-04-29T11:54:52.092Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Pythonic Tricks","level":"1.6","depth":1,"next":{"title":"Behavioral Questions","level":"1.7","depth":1,"path":"BehavioralQuestions.md","ref":"BehavioralQuestions.md","articles":[]},"previous":{"title":"Interesting Miscellaneous","level":"1.5.3","depth":2,"path":"Miscellaneous/InterestingMiscellaneous.md","ref":"Miscellaneous/InterestingMiscellaneous.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"PythonicTricks/README.md","mtime":"2020-05-03T13:37:55.247Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-12T04:42:11.138Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

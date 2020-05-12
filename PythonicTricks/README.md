@@ -17,7 +17,7 @@ INT_MIN = float('-inf')
 
 #### Sort dictionary by value
 ```py
-{k: v for k, v in sorted(x.items(), key=lambda item: item[1])}
+{k: v fo r k, v in sorted(x.items(), key=lambda item: item[1])}
 ```
 
 #### Most frequent in an array or a string
@@ -25,4 +25,12 @@ INT_MIN = float('-inf')
 from collections import Counter
 C = Counter(list/string)
 C.most_common(n) #returns a list of top n
+```
+Or we can just keep track of the most frequent element while going throught the list
+
+#### heapq insert with priority
+```
+import heapq
+heap = []
+heapq.heappush(heap, (priority, item))
 ```

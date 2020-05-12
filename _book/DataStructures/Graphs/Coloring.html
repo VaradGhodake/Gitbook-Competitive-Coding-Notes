@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Preorder Traversal · GitBook</title>
+        <title>Coloring · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Postorder.html" />
+    <link rel="next" href="../../Algorithms/" />
     
     
-    <link rel="prev" href="Inorder.html" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -219,9 +219,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="./">
+        <li class="chapter " data-level="1.3.3" data-path="../Trees/">
             
-                <a href="./">
+                <a href="../Trees/">
             
                     
                     Trees
@@ -233,9 +233,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.3.1" data-path="Inorder.html">
+        <li class="chapter " data-level="1.3.3.1" data-path="../Trees/Inorder.html">
             
-                <a href="Inorder.html">
+                <a href="../Trees/Inorder.html">
             
                     
                     Inorder Traversal
@@ -246,9 +246,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.3.2" data-path="Preorder.html">
+        <li class="chapter " data-level="1.3.3.2" data-path="../Trees/Preorder.html">
             
-                <a href="Preorder.html">
+                <a href="../Trees/Preorder.html">
             
                     
                     Preorder Traversal
@@ -259,9 +259,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3.3" data-path="Postorder.html">
+        <li class="chapter " data-level="1.3.3.3" data-path="../Trees/Postorder.html">
             
-                <a href="Postorder.html">
+                <a href="../Trees/Postorder.html">
             
                     
                     Postorder Traversal
@@ -272,9 +272,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3.4" data-path="LevelWise.html">
+        <li class="chapter " data-level="1.3.3.4" data-path="../Trees/LevelWise.html">
             
-                <a href="LevelWise.html">
+                <a href="../Trees/LevelWise.html">
             
                     
                     Level-wise Traversal
@@ -285,9 +285,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3.5" data-path="ConstructTree.html">
+        <li class="chapter " data-level="1.3.3.5" data-path="../Trees/ConstructTree.html">
             
-                <a href="ConstructTree.html">
+                <a href="../Trees/ConstructTree.html">
             
                     
                     Construct Trees
@@ -303,9 +303,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../Graphs/">
+        <li class="chapter " data-level="1.3.4" data-path="./">
             
-                <a href="../Graphs/">
+                <a href="./">
             
                     
                     Graphs
@@ -317,9 +317,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.4.1" data-path="../Graphs/Coloring.html">
+        <li class="chapter active" data-level="1.3.4.1" data-path="Coloring.html">
             
-                <a href="../Graphs/Coloring.html">
+                <a href="Coloring.html">
             
                     
                     Coloring
@@ -538,7 +538,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Preorder Traversal</a>
+        <a href="../.." >Coloring</a>
     </h1>
 </div>
 
@@ -553,84 +553,83 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="preorder-traversal">Preorder traversal</h3>
-<p>Perfect for process node and pass value down the tree. <br>
-Sometimes replacement for levelwise (NOT ALWAYS, OF COURSE) <br>
-If we do not want to cover <code>not root.left</code> or <code>not root.right</code>, check if they exist and go down the tree. </p>
-<h4 id="general-solution">General solution:</h4>
-<p><a href="https://leetcode.com/problems/sum-root-to-leaf-numbers/" target="_blank">https://leetcode.com/problems/sum-root-to-leaf-numbers/</a></p>
-<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sumNumbers</span><span class="hljs-params">(self, root: TreeNode)</span> -&gt; int:</span>
-        self.total = <span class="hljs-number">0</span>
+                                <h3 id="graph-coloring">Graph coloring</h3>
+<p>Basically, bifurcation problems</p>
+<ul>
+<li><a href="https://leetcode.com/problems/flower-planting-with-no-adjacent/" target="_blank">https://leetcode.com/problems/flower-planting-with-no-adjacent/</a> <br>
+These set of problems are extremely similar with a code-changing difference <br>
+The first one is solved with keeping in mind that the solution exists, we just have to find it <br>
+For the these, we want to see if the solution exists: (use BFS)</li>
+<li><a href="https://leetcode.com/problems/is-graph-bipartite/" target="_blank">https://leetcode.com/problems/is-graph-bipartite/</a></li>
+<li><a href="https://leetcode.com/problems/possible-bipartition/" target="_blank">https://leetcode.com/problems/possible-bipartition/</a> <br></li>
+</ul>
+<p><em>Tips:</em> <br>
+Make sure you have a proper representation of graph <br>
+Run the first loop over all vertices so that you don&apos;t miss disconnected sections.</p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque
 
-        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root:
-            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">isBipartite</span><span class="hljs-params">(self, graph: List[List[int]])</span> -&gt; bool:</span>
+        visited = [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(graph))]
 
-        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">addNums</span><span class="hljs-params">(node, current)</span>:</span>
-            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node.left <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> node.right:
-                self.total += (current * <span class="hljs-number">10</span> + node.val)
-                <span class="hljs-keyword">return</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bfs</span><span class="hljs-params">(i)</span>:</span>
+            queue = deque()
+            queue.append((i, <span class="hljs-number">1</span>))
 
-            <span class="hljs-keyword">if</span> node.left:
-                addNums(node.left, current * <span class="hljs-number">10</span> + node.val)
+            <span class="hljs-keyword">while</span> queue:
+                node, color = queue.popleft()
 
-            <span class="hljs-keyword">if</span> node.right:
-                addNums(node.right, current * <span class="hljs-number">10</span> + node.val)
+                <span class="hljs-keyword">if</span> visited[node] <span class="hljs-keyword">and</span> visited[node] != color:
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
 
-        addNums(root, <span class="hljs-number">0</span>)
-        <span class="hljs-keyword">return</span> self.total
+                <span class="hljs-keyword">if</span> visited[node]:
+                    <span class="hljs-keyword">continue</span>
+
+                visited[node] = color
+
+                colors = set([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>])
+                colors.remove(color)
+                color_left = colors.pop()
+
+                <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> graph[node]:
+                    queue.append((v, color_left))
+
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+        <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(graph)):
+            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> visited[s]:
+                <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> bfs(s):
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
 </code></pre>
-<p><a href="https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/" target="_blank">https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/</a></p>
-<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">longestZigZag</span><span class="hljs-params">(self, root: TreeNode)</span> -&gt; int:</span>
-        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> root:
-            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+<p>Solution for the first one: 
+Just filling up colors</p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict
 
-        self.max_length = <span class="hljs-number">0</span>
-        left = <span class="hljs-number">-1</span>
-        right = <span class="hljs-number">1</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">gardenNoAdj</span><span class="hljs-params">(self, N: int, paths: List[List[int]])</span> -&gt; List[int]:</span>
+        graph = defaultdict(list)
 
-        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">traverse</span><span class="hljs-params">(node, direction, length)</span>:</span>
-            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node:
-                <span class="hljs-keyword">return</span>
+        <span class="hljs-keyword">for</span> start, end <span class="hljs-keyword">in</span> paths:
+            graph[start].append(end)
+            graph[end].append(start)
 
-            self.max_length  = max(self.max_length, length)
+        planted = [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, N)]
 
-            <span class="hljs-keyword">if</span> direction == left:
-                traverse(node.left, left, <span class="hljs-number">1</span>)
-                traverse(node.right, right, length + <span class="hljs-number">1</span>)
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, N + <span class="hljs-number">1</span>):
+            neigh = graph[i]
+            <span class="hljs-keyword">if</span> planted[i - <span class="hljs-number">1</span>]:
+                <span class="hljs-keyword">continue</span>
 
-            <span class="hljs-keyword">elif</span> direction == right:
-                traverse(node.left, left, length + <span class="hljs-number">1</span>)
-                traverse(node.right, right, <span class="hljs-number">1</span>)
+            flowers = set([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>])
+            <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> neigh:
+                <span class="hljs-keyword">if</span> planted[n - <span class="hljs-number">1</span>] <span class="hljs-keyword">in</span> flowers:
+                    flowers.remove(planted[n - <span class="hljs-number">1</span>])
 
-            <span class="hljs-keyword">else</span>:
-                traverse(node.left, left, <span class="hljs-number">1</span>)
-                traverse(node.right, right, <span class="hljs-number">1</span>)
+            planted[i - <span class="hljs-number">1</span>] = flowers.pop()
 
-        traverse(root, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
-        <span class="hljs-keyword">return</span> self.max_length
-</code></pre>
-<p><a href="https://leetcode.com/problems/path-sum-ii/" target="_blank">https://leetcode.com/problems/path-sum-ii/</a></p>
-<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
-    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pathSum</span><span class="hljs-params">(self, root: TreeNode, sum: int)</span> -&gt; List[List[int]]:</span>
-        result = []
-
-        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">traverse</span><span class="hljs-params">(node, path, current_sum)</span>:</span>
-            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node:
-                <span class="hljs-keyword">return</span>
-
-            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> node.left <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> node.right:
-                <span class="hljs-keyword">if</span> current_sum == (sum - node.val):
-                    path.append(node.val)
-                    result.append(path)
-                <span class="hljs-keyword">return</span>
-
-            traverse(node.left, path + [node.val], current_sum + node.val)
-            traverse(node.right, path + [node.val], current_sum + node.val)
-
-        traverse(root, [], <span class="hljs-number">0</span>)
-        <span class="hljs-keyword">return</span> result
+        <span class="hljs-keyword">return</span> planted
 </code></pre>
 
                                 
@@ -659,12 +658,12 @@ If we do not want to cover <code>not root.left</code> or <code>not root.right</c
 
             
                 
-                <a href="Inorder.html" class="navigation navigation-prev " aria-label="Previous page: Inorder Traversal">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Graphs">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Postorder.html" class="navigation navigation-next " aria-label="Next page: Postorder Traversal">
+                <a href="../../Algorithms/" class="navigation navigation-next " aria-label="Next page: Algorithms">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -675,7 +674,7 @@ If we do not want to cover <code>not root.left</code> or <code>not root.right</c
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Preorder Traversal","level":"1.3.3.2","depth":3,"next":{"title":"Postorder Traversal","level":"1.3.3.3","depth":3,"path":"DataStructures/Trees/Postorder.md","ref":"DataStructures/Trees/Postorder.md","articles":[]},"previous":{"title":"Inorder Traversal","level":"1.3.3.1","depth":3,"path":"DataStructures/Trees/Inorder.md","ref":"DataStructures/Trees/Inorder.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Trees/Preorder.md","mtime":"2020-04-26T12:50:18.572Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-12T04:42:11.138Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Coloring","level":"1.3.4.1","depth":3,"next":{"title":"Algorithms","level":"1.4","depth":1,"path":"Algorithms/README.md","ref":"Algorithms/README.md","articles":[{"title":"DFS and BFS","level":"1.4.1","depth":2,"path":"Algorithms/DFSandBFS.md","ref":"Algorithms/DFSandBFS.md","articles":[]},{"title":"Combinatorics","level":"1.4.2","depth":2,"path":"Algorithms/Combinatorics.md","ref":"Algorithms/Combinatorics.md","articles":[]},{"title":"Backtracking and Complete Search","level":"1.4.3","depth":2,"path":"Algorithms/Backtracking.md","ref":"Algorithms/Backtracking.md","articles":[]},{"title":"Theory: Dynamic Programming","level":"1.4.4","depth":2,"path":"Algorithms/DynamicProgramming-T.md","ref":"Algorithms/DynamicProgramming-T.md","articles":[]},{"title":"Examples: Dynamic Programming","level":"1.4.5","depth":2,"path":"Algorithms/DynamicProgramming-E.md","ref":"Algorithms/DynamicProgramming-E.md","articles":[]}]},"previous":{"title":"Graphs","level":"1.3.4","depth":2,"path":"DataStructures/Graphs/README.md","ref":"DataStructures/Graphs/README.md","articles":[{"title":"Coloring","level":"1.3.4.1","depth":3,"path":"DataStructures/Graphs/Coloring.md","ref":"DataStructures/Graphs/Coloring.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Graphs/Coloring.md","mtime":"2020-05-10T18:20:55.222Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-12T04:42:11.138Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
