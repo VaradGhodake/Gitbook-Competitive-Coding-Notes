@@ -330,6 +330,45 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.4.2" data-path="../Graphs/GraphBFS.html">
+            
+                <a href="../Graphs/GraphBFS.html">
+            
+                    
+                    Graph BFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="../Graphs/GraphDFS.html">
+            
+                <a href="../Graphs/GraphDFS.html">
+            
+                    
+                    Graph DFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="../Graphs/TopologySort.html">
+            
+                <a href="../Graphs/TopologySort.html">
+            
+                    
+                    Topology Sort
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -569,6 +608,56 @@
 
         <span class="hljs-keyword">return</span> node
 </code></pre>
+<h3 id="construction-from-preorder">Construction from preorder</h3>
+<p><a href="https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/" target="_blank">https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/</a></p>
+<pre><code class="lang-py"><span class="hljs-comment"># Definition for a binary tree node.</span>
+<span class="hljs-comment"># class TreeNode:</span>
+<span class="hljs-comment">#     def __init__(self, val=0, left=None, right=None):</span>
+<span class="hljs-comment">#         self.val = val</span>
+<span class="hljs-comment">#         self.left = left</span>
+<span class="hljs-comment">#         self.right = right</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bstFromPreorder</span><span class="hljs-params">(self, preorder: List[int])</span> -&gt; TreeNode:</span>
+
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> preorder:
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">binarySearch</span><span class="hljs-params">(start, end, key)</span> -&gt; int:</span>
+
+            <span class="hljs-keyword">if</span> start &gt; end:
+                <span class="hljs-keyword">return</span> end + <span class="hljs-number">1</span>
+
+            mid = start + (end - start) // <span class="hljs-number">2</span>
+
+            <span class="hljs-keyword">if</span> preorder[start] &gt; key <span class="hljs-keyword">and</span> preorder[start - <span class="hljs-number">1</span>] &lt; key:
+                <span class="hljs-keyword">return</span> start
+
+            <span class="hljs-keyword">if</span> preorder[end] &gt; key <span class="hljs-keyword">and</span> preorder[end - <span class="hljs-number">1</span>] &lt; key:
+                <span class="hljs-keyword">return</span> end        
+
+            <span class="hljs-keyword">if</span> preorder[mid] &gt; key <span class="hljs-keyword">and</span> preorder[mid - <span class="hljs-number">1</span>] &lt; key:
+                <span class="hljs-keyword">return</span> mid
+
+            <span class="hljs-keyword">if</span> preorder[mid] &lt; key:
+                <span class="hljs-keyword">return</span> binarySearch(mid + <span class="hljs-number">1</span>, end, key)
+
+            <span class="hljs-keyword">if</span> preorder[mid] &gt; key:
+                <span class="hljs-keyword">return</span> binarySearch(start, mid - <span class="hljs-number">1</span>, key)
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">constructTree</span><span class="hljs-params">(start, end)</span> -&gt; TreeNode:</span>
+            <span class="hljs-keyword">if</span> start &gt; end:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+            node = TreeNode(preorder[start])
+
+            pivot = binarySearch(start + <span class="hljs-number">1</span>, end, preorder[start])
+            node.left = constructTree(start + <span class="hljs-number">1</span>, pivot - <span class="hljs-number">1</span>)
+            node.right = constructTree(pivot, end)
+
+            <span class="hljs-keyword">return</span> node
+
+        <span class="hljs-keyword">return</span> constructTree(<span class="hljs-number">0</span>, len(preorder) - <span class="hljs-number">1</span>)
+</code></pre>
 <h4 id="some-other-constructions">Some other constructions</h4>
 <p><a href="https://leetcode.com/problems/maximum-binary-tree/" target="_blank">https://leetcode.com/problems/maximum-binary-tree/</a></p>
 <pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
@@ -638,7 +727,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Construct Trees","level":"1.3.3.5","depth":3,"next":{"title":"Graphs","level":"1.3.4","depth":2,"path":"DataStructures/Graphs/README.md","ref":"DataStructures/Graphs/README.md","articles":[{"title":"Coloring","level":"1.3.4.1","depth":3,"path":"DataStructures/Graphs/Coloring.md","ref":"DataStructures/Graphs/Coloring.md","articles":[]}]},"previous":{"title":"Level-wise Traversal","level":"1.3.3.4","depth":3,"path":"DataStructures/Trees/LevelWise.md","ref":"DataStructures/Trees/LevelWise.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Trees/ConstructTree.md","mtime":"2020-04-26T12:53:27.909Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-12T04:42:11.138Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Construct Trees","level":"1.3.3.5","depth":3,"next":{"title":"Graphs","level":"1.3.4","depth":2,"path":"DataStructures/Graphs/README.md","ref":"DataStructures/Graphs/README.md","articles":[{"title":"Coloring","level":"1.3.4.1","depth":3,"path":"DataStructures/Graphs/Coloring.md","ref":"DataStructures/Graphs/Coloring.md","articles":[]},{"title":"Graph BFS","level":"1.3.4.2","depth":3,"path":"DataStructures/Graphs/GraphBFS.md","ref":"DataStructures/Graphs/GraphBFS.md","articles":[]},{"title":"Graph DFS","level":"1.3.4.3","depth":3,"path":"DataStructures/Graphs/GraphDFS.md","ref":"DataStructures/Graphs/GraphDFS.md","articles":[]},{"title":"Topology Sort","level":"1.3.4.4","depth":3,"path":"DataStructures/Graphs/TopologySort.md","ref":"DataStructures/Graphs/TopologySort.md","articles":[]}]},"previous":{"title":"Level-wise Traversal","level":"1.3.3.4","depth":3,"path":"DataStructures/Trees/LevelWise.md","ref":"DataStructures/Trees/LevelWise.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Trees/ConstructTree.md","mtime":"2020-05-19T13:59:52.777Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-20T05:54:40.302Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

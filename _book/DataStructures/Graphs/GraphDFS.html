@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Subsets · GitBook</title>
+        <title>Graph DFS · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../Strings/" />
+    <link rel="next" href="TopologySort.html" />
     
     
-    <link rel="prev" href="Subarrays.html" />
+    <link rel="prev" href="GraphBFS.html" />
     
 
     </head>
@@ -129,9 +129,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="./">
+        <li class="chapter " data-level="1.3.1" data-path="../Arrays/">
             
-                <a href="./">
+                <a href="../Arrays/">
             
                     
                     Arrays
@@ -143,9 +143,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1.1" data-path="TwoPointers.html">
+        <li class="chapter " data-level="1.3.1.1" data-path="../Arrays/TwoPointers.html">
             
-                <a href="TwoPointers.html">
+                <a href="../Arrays/TwoPointers.html">
             
                     
                     Two Pointers
@@ -156,9 +156,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.1.2" data-path="Subarrays.html">
+        <li class="chapter " data-level="1.3.1.2" data-path="../Arrays/Subarrays.html">
             
-                <a href="Subarrays.html">
+                <a href="../Arrays/Subarrays.html">
             
                     
                     Subarrays
@@ -169,9 +169,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3.1.3" data-path="Subsets.html">
+        <li class="chapter " data-level="1.3.1.3" data-path="../Arrays/Subsets.html">
             
-                <a href="Subsets.html">
+                <a href="../Arrays/Subsets.html">
             
                     
                     Subsets
@@ -303,9 +303,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="../Graphs/">
+        <li class="chapter " data-level="1.3.4" data-path="./">
             
-                <a href="../Graphs/">
+                <a href="./">
             
                     
                     Graphs
@@ -317,9 +317,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.4.1" data-path="../Graphs/Coloring.html">
+        <li class="chapter " data-level="1.3.4.1" data-path="Coloring.html">
             
-                <a href="../Graphs/Coloring.html">
+                <a href="Coloring.html">
             
                     
                     Coloring
@@ -330,9 +330,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4.2" data-path="../Graphs/GraphBFS.html">
+        <li class="chapter " data-level="1.3.4.2" data-path="GraphBFS.html">
             
-                <a href="../Graphs/GraphBFS.html">
+                <a href="GraphBFS.html">
             
                     
                     Graph BFS
@@ -343,9 +343,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4.3" data-path="../Graphs/GraphDFS.html">
+        <li class="chapter active" data-level="1.3.4.3" data-path="GraphDFS.html">
             
-                <a href="../Graphs/GraphDFS.html">
+                <a href="GraphDFS.html">
             
                     
                     Graph DFS
@@ -356,9 +356,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4.4" data-path="../Graphs/TopologySort.html">
+        <li class="chapter " data-level="1.3.4.4" data-path="TopologySort.html">
             
-                <a href="../Graphs/TopologySort.html">
+                <a href="TopologySort.html">
             
                     
                     Topology Sort
@@ -577,7 +577,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Subsets</a>
+        <a href="../.." >Graph DFS</a>
     </h1>
 </div>
 
@@ -592,28 +592,93 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="subsets">Subsets</h3>
-<p>Geeks for Geeks archives: <a href="https://www.geeksforgeeks.org/tag/subset/" target="_blank">https://www.geeksforgeeks.org/tag/subset/</a> <br></p>
-<p>Optimization checks:</p>
-<ol>
-<li>Sorting the whole array</li>
-<li>Priority queues (check <code>Miscellaneous Problems</code> section)</li>
-</ol>
-<p>For each element, there are 2 choices: Take or leave <br>
-Two ways to implement this: <br></p>
-<ol>
-<li>Recursion</li>
-<li>DP</li>
-</ol>
-<h4 id="standard-questions">Standard questions</h4>
-<p><a href="https://www.geeksforgeeks.org/partition-problem-dp-18/" target="_blank">https://www.geeksforgeeks.org/partition-problem-dp-18/</a></p>
-<ol>
-<li><p><code>isSubsetSum(list, n, sum / 2) = isSubsetSum(list, n - 1, sum / 2) or isSubsetSum(list, n - 1, sum / 2 - list[n - 1])</code></p>
-</li>
-<li><p><br> 
-<img src="../../static/dp1.png" alt="partition-problem-dp"></p>
-</li>
-</ol>
+                                <h3 id="graph-dfs">Graph DFS</h3>
+<p>One path at a time type questions eg. Course Scheduling <br>
+Visit the node -&gt; process children -&gt; unvisit it <br>
+If there&apos;s a cycle, we visit the already locally visited node again <br>
+If we have visited the node before globally, just exit with <code>True</code> as we have already checked and didn&apos;t find any cycle <br>
+<a href="https://leetcode.com/problems/course-schedule/" target="_blank">https://leetcode.com/problems/course-schedule/</a></p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">canFinish</span><span class="hljs-params">(self, numCourses: int, prerequisites: List[List[int]])</span> -&gt; bool:</span>
+        graph = defaultdict(list)
+        g_visited = set()
+
+        <span class="hljs-keyword">for</span> c, p <span class="hljs-keyword">in</span> prerequisites:
+            graph[c].append(p)
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dfs</span><span class="hljs-params">(i)</span>:</span>
+            <span class="hljs-keyword">if</span> i <span class="hljs-keyword">in</span> visited:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+            <span class="hljs-keyword">if</span> i <span class="hljs-keyword">in</span> g_visited:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+            <span class="hljs-keyword">if</span> i <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> g_visited:
+                g_visited.add(i)
+
+            visited.add(i)
+
+            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> graph[i]:
+                <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> dfs(j):
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+            visited.remove(i)
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, numCourses):
+            <span class="hljs-keyword">if</span> i <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> g_visited:
+                visited = set()
+                <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> dfs(i):
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+</code></pre>
+<p><a href="https://leetcode.com/problems/reconstruct-itinerary/" target="_blank">https://leetcode.com/problems/reconstruct-itinerary/</a> <br>
+We need to store visited edges instead of visited nodes. <br>
+Edges are stored as defaultdicts because the possibility of them repeating <br>
+Edges are sorted because we need to return the result that comes first lexographically</p>
+<pre><code class="lang-py"><span class="hljs-keyword">import</span> heapq
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">findItinerary</span><span class="hljs-params">(self, tickets: List[List[str]])</span> -&gt; List[str]:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> tickets:
+            <span class="hljs-keyword">return</span> []
+
+        graph = defaultdict(list)
+        self.result = []
+        edges = defaultdict(int)
+
+        <span class="hljs-keyword">for</span> d, a <span class="hljs-keyword">in</span> tickets:
+            graph[d].append(a)
+            edges[d, a] += <span class="hljs-number">1</span>
+
+        <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> graph:
+            graph[s] = sorted(graph[s])
+
+        edges[(<span class="hljs-keyword">None</span>, <span class="hljs-string">&quot;JFK&quot;</span>)] += <span class="hljs-number">1</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dfs</span><span class="hljs-params">(start, end, result, selected)</span>:</span>
+            <span class="hljs-keyword">if</span> edges[(start, end)] &lt;= <span class="hljs-number">0</span>:
+                <span class="hljs-keyword">return</span>
+
+            <span class="hljs-keyword">if</span> selected == (len(tickets) + <span class="hljs-number">1</span>) <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> self.result:
+                self.result = result[:]
+                <span class="hljs-keyword">return</span>
+
+            edges[(start, end)] -= <span class="hljs-number">1</span>
+
+            <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> graph[end]:
+                <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self.result:
+                    dfs(end, v, result + [v], selected + <span class="hljs-number">1</span>)
+
+            edges[(start, end)] += <span class="hljs-number">1</span>
+
+        dfs(<span class="hljs-keyword">None</span>, <span class="hljs-string">&quot;JFK&quot;</span>, [<span class="hljs-string">&quot;JFK&quot;</span>], <span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> self.result
+</code></pre>
 
                                 
                                 </section>
@@ -641,12 +706,12 @@ Two ways to implement this: <br></p>
 
             
                 
-                <a href="Subarrays.html" class="navigation navigation-prev " aria-label="Previous page: Subarrays">
+                <a href="GraphBFS.html" class="navigation navigation-prev " aria-label="Previous page: Graph BFS">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../Strings/" class="navigation navigation-next " aria-label="Next page: Strings">
+                <a href="TopologySort.html" class="navigation navigation-next " aria-label="Next page: Topology Sort">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -657,7 +722,7 @@ Two ways to implement this: <br></p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Subsets","level":"1.3.1.3","depth":3,"next":{"title":"Strings","level":"1.3.2","depth":2,"path":"DataStructures/Strings/README.md","ref":"DataStructures/Strings/README.md","articles":[{"title":"Standard Questions","level":"1.3.2.1","depth":3,"path":"DataStructures/Strings/StandardQuestions.md","ref":"DataStructures/Strings/StandardQuestions.md","articles":[]}]},"previous":{"title":"Subarrays","level":"1.3.1.2","depth":3,"path":"DataStructures/Arrays/Subarrays.md","ref":"DataStructures/Arrays/Subarrays.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Arrays/Subsets.md","mtime":"2020-03-23T11:54:55.802Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-20T05:54:40.302Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Graph DFS","level":"1.3.4.3","depth":3,"next":{"title":"Topology Sort","level":"1.3.4.4","depth":3,"path":"DataStructures/Graphs/TopologySort.md","ref":"DataStructures/Graphs/TopologySort.md","articles":[]},"previous":{"title":"Graph BFS","level":"1.3.4.2","depth":3,"path":"DataStructures/Graphs/GraphBFS.md","ref":"DataStructures/Graphs/GraphBFS.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Graphs/GraphDFS.md","mtime":"2020-05-17T18:06:22.045Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-20T05:54:40.302Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1,16 +1,26 @@
 # Algorithms
 
 #### To Do:
-1. Matrix traversal questions
-https://leetcode.com/contest/weekly-contest-180/problems/lucky-numbers-in-a-matrix
 
-2. Tree traversal questions
+1. Palindrome questions
 
-3. Priority queues and heapq python implementation
+2. String questions: Alien dictionary
 
-4. Next greater, next smaller, greatest rightmost, smallest rightmost in an array
+3. Kadane questions* <br />
+May weekly contest <br />
+K repetition maximum sum <br />
 
-5. BFS questions
+4. Paranthesis, stocks and intervals
+
+5. Matrix traversal questions <br />
+https://leetcode.com/contest/weekly-contest-180/problems/lucky-numbers-in-a-matrix <br />
+Understand zip function
+
+6. 
+https://leetcode.com/explore/challenge/card/may-leetcoding-challenge/535/week-2-may-8th-may-14th/3328/ <br />
+https://leetcode.com/problems/sliding-window-maximum/discuss/111560/Python-O(n)-solution-using-deque-with-comments
+
+7. Next greater, next smaller, greatest rightmost, smallest rightmost in an array
 
 
 #### Binary search 
