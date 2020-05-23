@@ -7,6 +7,7 @@
         * [Two Pointers](DataStructures/Arrays/TwoPointers.md)
         * [Subarrays](DataStructures/Arrays/Subarrays.md)
         * [Subsets](DataStructures/Arrays/Subsets.md)
+        * [Deque Trick](DataStructures/Arrays/DequeTrick.md)
     * [Strings](DataStructures/Strings/README.md)
         * [Standard Questions](DataStructures/Strings/StandardQuestions.md)
     * [Trees](DataStructures/Trees/README.md)

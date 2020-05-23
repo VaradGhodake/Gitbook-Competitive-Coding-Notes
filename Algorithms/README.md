@@ -2,26 +2,31 @@
 
 #### To Do:
 
-1. Palindrome questions
+Palindrome questions, Linked lists
 
-2. String questions: Alien dictionary
+Memoization to DP jump
 
-3. Kadane questions* <br />
+String questions: Alien dictionary
+Trie: https://leetcode.com/discuss/interview-question/643158/google-phone-faulty-keyboard
+https://leetcode.com/discuss/interview-question/281470/
+
+
+Kadane questions* <br />
 May weekly contest <br />
 K repetition maximum sum <br />
 
-4. Paranthesis, stocks and intervals
+Paranthesis, stocks and intervals
 
-5. Matrix traversal questions <br />
+Matrix traversal questions <br />
 https://leetcode.com/contest/weekly-contest-180/problems/lucky-numbers-in-a-matrix <br />
 Understand zip function
 
-6. 
 https://leetcode.com/explore/challenge/card/may-leetcoding-challenge/535/week-2-may-8th-may-14th/3328/ <br />
 https://leetcode.com/problems/sliding-window-maximum/discuss/111560/Python-O(n)-solution-using-deque-with-comments
 
-7. Next greater, next smaller, greatest rightmost, smallest rightmost in an array
+Design input class (Trees, LL especially) or think about inputs (arrays, graphs, etc) 
 
+Habit of dict.get(key, default)
 
 #### Binary search 
 
