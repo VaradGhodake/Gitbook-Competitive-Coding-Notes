@@ -2,6 +2,14 @@
 
 #### To Do:
 
+Runtimes: why heap is O(n)?
+
+Addition questions-> strings, lists, linked lists
+
+stocks
+
+Bitwise
+
 Palindrome questions, Linked lists
 
 Memoization to DP jump
@@ -15,14 +23,11 @@ Kadane questions* <br />
 May weekly contest <br />
 K repetition maximum sum <br />
 
-Paranthesis, stocks and intervals
-
 Matrix traversal questions <br />
 https://leetcode.com/contest/weekly-contest-180/problems/lucky-numbers-in-a-matrix <br />
 Understand zip function
 
 https://leetcode.com/explore/challenge/card/may-leetcoding-challenge/535/week-2-may-8th-may-14th/3328/ <br />
-https://leetcode.com/problems/sliding-window-maximum/discuss/111560/Python-O(n)-solution-using-deque-with-comments
 
 Design input class (Trees, LL especially) or think about inputs (arrays, graphs, etc) 
 

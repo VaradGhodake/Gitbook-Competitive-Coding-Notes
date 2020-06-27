@@ -77,3 +77,16 @@ class Solution:
             return 0
         return 1 + self._helperCopyPaste(n, 1, 1)
 ```
+
+https://leetcode.com/problems/number-of-ways-to-wear-different-hats-to-each-other/ <br />
+For selected param, we can use bits. For memo array, we can use `functools.lru_cache` 
+
+#### Generate parentheses
+Keep a count of open and closed ones. <br />
+Success cases: string length 2 * n and stack == 0 <br />
+Failure cases: string length 2 * n and stack != 0 OR stack < 0 OR stack > n <br />
+We just backtrack:
+```py
+            backtrack(current + '(', stack + 1)
+            backtrack(current + ')', stack - 1)
+```

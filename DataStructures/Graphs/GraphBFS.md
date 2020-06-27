@@ -69,36 +69,36 @@ class Solution:
 
         return max_time if len(visited) == N else -1
 ```
-https://leetcode.com/problems/water-and-jug-problem
+https://leetcode.com/problems/cheapest-flights-within-k-stops/ <br />
+Two variables at play here. There's similar question for grid as well.
 ```py
-from collections import deque
+import heapq
+from collections import defaultdict
 
 class Solution:
-    def canMeasureWater(self, x: int, y: int, z: int) -> bool:
-        queue = deque([(0, 0)])
-        seen = set()
+    def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, K: int) -> int:
+        graph = defaultdict(list)
+        visited = [float('inf') for i in range(0, n)]
+        heap = []
         
-        if (x + y) < z:
-            return False
+        for u, v, w in flights:
+            graph[u].append((v, w))
         
-        while queue:
-            first, second = queue.popleft()
-            if (first, second) in seen:
-                continue 
-            seen.add((first, second))
+        heapq.heappush(heap, (0, src, 0))
+        
+        while heap:
+            d, c, k = heapq.heappop(heap)
             
-            if z in [first, second, first + second]:
-                return True
+            if k >= visited[c] or k > (K + 1):
+                continue
             
-            queue.append((first, y))
-            queue.append((x, second))
-            queue.append((0, second))
-            queue.append((first, 0))
+            if c == dst:
+                return d
             
-            total = (first + second)
+            visited[c] = d
             
-            queue.append((min(total, x), total - min(total, x)))
-            queue.append((total - min(total, y), min(total, y)))
-                
-        return False
+            for n, n_d in graph[c]:
+                heapq.heappush(heap, (d + n_d, n, k + 1))
+            
+        return -1
 ```

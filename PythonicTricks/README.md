@@ -34,3 +34,25 @@ import heapq
 heap = []
 heapq.heappush(heap, (priority, item))
 ```
+
+#### Efficient looping:
+`s` can be a list or a string
+```py
+for i, c in enumerate(s):
+    # i is index
+    # c is s[i]
+```
+
+#### Memoization 
+We can use `LRU cache` to store function results <br />
+https://dbader.org/blog/python-memoization <br />
+Use `functools.lru_cache` 
+```py
+import functools
+
+@functools.lru_cache(maxsize=None)
+def fib_lru_cache(n):
+```
+
+#### list.insert(index, elem)
+The last one gets the priority

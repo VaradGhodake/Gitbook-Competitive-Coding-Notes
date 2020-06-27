@@ -67,30 +67,32 @@ Recursive calls for every element in the loop <br />
 No need to add a ‘reject’ scenario <br />
 Accept, make changes and revert after going a level deep <br />
 Filter right after the loop using a helper array used for tracking <br />
-
+https://leetcode.com/problems/permutations/
 ```py
-class Permutation:
-    def perm_recur(self, k : int, domain: list) -> None:
-        if(k == self.n):
-            self.permutations.append(self.bucket[:])
-            return
-        for i in range(0, self.n):
-            if(self.accepted[i]):
-                continue
-            self.accepted[i] = True
-            self.bucket.append(domain[i])
-            self.perm_recur(k + 1, domain)
-            self.accepted[i] = False
-            self.bucket.pop()
-
-    def _helper(self, domain: list) -> list:
-        self.n = len(domain)
-        self.accepted = [False] * self.n
-        self.permutations = []
-        self.bucket = []
-        self.perm_recur(0, domain)
-        return self.permutations
-
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        if not nums:
+            return []
+        
+        result = []
+        visited = [False for i in range(0, len(nums))]
+        
+        def backtrack(bucket):
+            if len(bucket) == len(nums):
+                result.append(bucket[:])
+                return 
+            
+            for j in range(0, len(nums)):
+                if visited[j]:
+                    continue
+                
+                visited[j] = True
+                backtrack(bucket + [nums[j]])
+                visited[j] = False
+                
+        
+        backtrack([])
+        return result
 ```
 
 Additional questions:
@@ -99,41 +101,29 @@ https://leetcode.com/problems/combination-sum/discuss/16510/Python-dfs-solution.
 To allow repetition, go to the same node after select. <br />
 ```self.recurse(k, domain)```
 
-
-#### Permutation over a limited set of values (with repetition)
-
-* Select one option and de-select it
-* Similar for other options 
-* There are finite number of options at each step
-* Recurse based on your selection
-
-https://leetcode.com/problems/generate-parentheses/
-
+#### Unique permutations
+https://leetcode.com/problems/permutations-ii/
 ```py
+from collections import Counter
+
 class Solution:
-    def generateParenthesis(self, n: int) -> int:
-        def backtracker(bucket: list, openCount: int) -> None:
-            if((len(bucket) - openCount) > openCount or \
-               openCount > self.n):
+    def permuteUnique(self, nums: List[int]) -> List[List[int]]:
+        counter = Counter(nums)
+        result = []
+        
+        def backtrack(bucket, counter):
+            if len(bucket) == len(nums):
+                result.append(bucket[:])
                 return
             
-            if(len(bucket) == self.n * 2):
-                if(openCount == self.n):
-                    self.permutations.append(''.join(bucket))
-                return
-            
-            bucket.append('(')
-            backtracker(bucket, openCount + 1)
-            bucket.pop()
-            bucket.append(')')
-            backtracker(bucket, openCount)
-            bucket.pop()
-
-        self.permutations = []
-        self.n = n
-        if n == 0:
-            return 0
-
-        backtracker([], 0)
-        return self.permutations
+            for num in counter:
+                if not counter[num]:
+                    continue
+                    
+                counter[num] -= 1
+                backtrack(bucket + [num], counter)
+                counter[num] += 1
+        
+        backtrack([], counter)
+        return result
 ```

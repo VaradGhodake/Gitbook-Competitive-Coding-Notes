@@ -1,9 +1,10 @@
-### Deque trick
+### Deque trick / monoqueue technique
 
 Extremely useful to find next greater or previous greater, etc
 * https://leetcode.com/problems/next-greater-element-i/
 * https://leetcode.com/problems/online-stock-span/
 * https://leetcode.com/problems/sliding-window-maximum/
+* https://leetcode.com/explore/challenge/card/may-leetcoding-challenge/536/week-3-may-15th-may-21st/3330/
 
 The idea is to maitain a queue or stack based on our requirements that has this structure: <br />
 <img src="../../static/deque.png" height=300 width=500 /> <br />

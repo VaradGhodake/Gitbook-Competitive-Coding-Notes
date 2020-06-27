@@ -17,9 +17,14 @@ Excellent questions:
 * https://leetcode.com/problems/jump-game/ <br />
 DFS is a little bit slower but gets the job done <br />
 Being greedy from the end to start works well 
-* https://leetcode.com/problems/jump-game-ii/
-* Rotten oranges
+* https://leetcode.com/problems/jump-game-ii/ <br />
+* Rotten oranges <br />
+Tip: <br />
+In such problems, implied visited through input modification is faster than visited set and step through queue element is faster than looping over queue size <br />
+eg. https://leetcode.com/problems/shortest-path-in-binary-matrix/ <br />
+
 https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/
+* Water and jug problem
 ```py
 from collections import deque
 
@@ -61,6 +66,39 @@ class Solution:
         return -1
 ```
 
+https://leetcode.com/problems/water-and-jug-problem
+```py
+from collections import deque
+
+class Solution:
+    def canMeasureWater(self, x: int, y: int, z: int) -> bool:
+        queue = deque([(0, 0)])
+        seen = set()
+        
+        if (x + y) < z:
+            return False
+        
+        while queue:
+            first, second = queue.popleft()
+            if (first, second) in seen:
+                continue 
+            seen.add((first, second))
+            
+            if z in [first, second, first + second]:
+                return True
+            
+            queue.append((first, y))
+            queue.append((x, second))
+            queue.append((0, second))
+            queue.append((first, 0))
+            
+            total = (first + second)
+            
+            queue.append((min(total, x), total - min(total, x)))
+            queue.append((total - min(total, y), min(total, y)))
+                
+        return False
+```
 
 #### DFS
 

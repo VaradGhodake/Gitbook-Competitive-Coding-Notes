@@ -9,6 +9,8 @@ Memoization basically insures that we solve a particular subproblem only once to
 Recursive solution: For problems with structure of `take or leave`, check how it depends on previous values and recurse conditionally: make except and include cases and take max or min. eg. coin-change, LIS, perfect squares, word break, etc  
 #### Half the problem is solved once you figure out that the problem is a DP one
 
+Template: https://leetcode.com/discuss/general-discussion/651719/how-to-solve-dp-string-template-and-4-steps-to-be-followed
+
 There are two uses for dynamic programming:
 * Finding an optimal solution: We want to find a solution that is as large as possible or as small as possible.
 * Counting the number of solutions: We want to calculate the total number of possible solutions.

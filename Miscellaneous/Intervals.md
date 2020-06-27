@@ -4,7 +4,8 @@ Template for simple questions like: <br />
 * 435 Non-overlapping Intervals 
 * 56 Merge Intervals 
 * 252 Meeting Rooms
-* 253 Meeting Rooms II <br />
+* 253 Meeting Rooms II 
+* https://leetcode.com/problems/interval-list-intersections/solution/ <br />
 
 https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/
 ```py
@@ -45,3 +46,5 @@ https://leetcode.com/problems/course-schedule-iii/ <br>
 Sorting + max_heap <br />
 Sort based on ending times, accept courses if possible <br />
 If we can't check if we can remove something from the accepted set and select the one which makes our time compact
+
+https://leetcode.com/problems/insert-interval/
