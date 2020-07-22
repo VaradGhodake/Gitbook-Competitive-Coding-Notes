@@ -48,3 +48,6 @@ maxVal and minVal at each value during iteration. If negative, swap them before 
 
 Pre and post array
 https://www.geeksforgeeks.org/maximum-length-of-strictly-increasing-sub-array-after-removing-at-most-one-element/
+
+#### complex subarray problems
+https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/

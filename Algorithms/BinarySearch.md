@@ -3,59 +3,88 @@
 Iterative solutions are quicker than the recursive ones. <br />
 Recursive are cleaner though <br />
 
-It's necessary to understand where BS terminates. This can answer a lot of questions.
+It's necessary to understand where BS terminates. This can answer a lot of questions. It's the start when you want to check the appropriate place for a num in sorted array <br />
+Use an auxillary variable to store the results at mid. Decide what direction we have to go in case of equality. Minimum of such solutions or maximum, etc.
 
-Good problem sets:
+Good problem set:
 * https://leetcode.com/discuss/general-discussion/691825/binary-search-for-beginners-problems-patterns-sample-solutions
-* https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/discuss/686316/JavaC%2B%2BPython-Binary-Search
 
 https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets
 ```py
-from functools import lru_cache
-
 class Solution:
     def minDays(self, bloomDay: List[int], m: int, k: int) -> int:
-        if len(bloomDay) < (m * k):
+        n = len(bloomDay)
+        start = bloomDay[0]
+        end = bloomDay[0]
+        result = -1
+        
+        if m * k > n:
             return -1
         
-        small = float('inf')
-        large = float('-inf')
-        
         for day in bloomDay:
-            small = min(small, day)
-            large = max(large, day)
-        
-        @lru_cache(maxsize=None)
-        def verify(current):
-            print(current)
-            window = 0
-            b_req = m
+            start = min(start, day)
+            end = max(end, day)
+            
+        def verify(mid):
+            streak = 0
+            req = m
             
             for i, day in enumerate(bloomDay):
-                if day <= current:
-                    window += 1
-                if day > current or i == (len(bloomDay) - 1):
-                    b_req -= (window // k)
-
-                    if b_req <= 0:
+                if mid >= day:
+                    streak += 1
+                
+                if mid < day or i == (n - 1):
+                    req -= (streak // k)
+                    streak = 0
+                    
+                    if req <= 0:
                         return True
                     
-                    window = 0
             return False
-        
-        def binarySearch(start, end):
-            if start > end:
-                return -1
             
+        while start <= end:
             mid = start + (end - start) // 2
             
-            if verify(mid) and not verify(mid - 1):
-                return mid
-            
-            if verify(mid) and verify(mid - 1):
-                return binarySearch(start, mid - 1)
-            
-            return binarySearch(mid + 1, end)
+            if verify(mid):
+                end = mid - 1
+                result = mid
+            else:
+                start = mid + 1
+                
+        return result
+```
+https://leetcode.com/problems/sum-of-mutated-array-closest-to-target/
+```py
+class Solution:
+    def findBestValue(self, arr: List[int], target: int) -> int:
+        start = 0
+        end = arr[0]
+        diff = float('inf')
+        result = float('inf')
         
-        return binarySearch(small, large)
+        for num in arr:
+            end = max(end, num)
+            
+        def calc_sum(mid):
+            return sum(i if i < mid else mid for i in arr)
+        
+        while start <= end:
+            mid = start + (end - start) // 2
+            
+            current_diff = calc_sum(mid) - target
+            
+            if abs(current_diff) < diff:
+                result = mid
+                diff = abs(current_diff)
+                
+            if abs(current_diff) == diff:
+                result = min(result, mid)
+            
+            if current_diff >= 0:
+                end = mid - 1
+            else:
+                start = mid + 1
+                
+        return result
+        
 ```

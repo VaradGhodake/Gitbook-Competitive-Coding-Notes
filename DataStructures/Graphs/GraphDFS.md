@@ -49,43 +49,35 @@ We need to store visited edges instead of visited nodes. <br />
 Edges are stored as defaultdicts because the possibility of them repeating <br />
 Edges are sorted because we need to return the result that comes first lexographically
 ```py
-import heapq
 from collections import defaultdict
 
 class Solution:
     def findItinerary(self, tickets: List[List[str]]) -> List[str]:
-        if not tickets:
-            return []
-        
         graph = defaultdict(list)
-        self.result = []
         edges = defaultdict(int)
         
-        for d, a in tickets:
-            graph[d].append(a)
-            edges[d, a] += 1
+        self.itinerary = []
         
+        for s, d in tickets:
+            graph[s].append(d)
+            edges[(s, d)] += 1
+            
         for s in graph:
             graph[s] = sorted(graph[s])
         
-        edges[(None, "JFK")] += 1
-
-        def dfs(start, end, result, selected):
-            if edges[(start, end)] <= 0:
+        def traverse(current, path):
+            if self.itinerary:
                 return
             
-            if selected == (len(tickets) + 1) and not self.result:
-                self.result = result[:]
-                return
+            if len(path) == (len(tickets) + 1):
+                self.itinerary = path[:]
             
-            edges[(start, end)] -= 1
-
-            for v in graph[end]:
-                if not self.result:
-                    dfs(end, v, result + [v], selected + 1)
-                
-            edges[(start, end)] += 1
+            for n in graph[current]:
+                if edges[(current, n)]:
+                    edges[(current, n)] -= 1
+                    traverse(n, path + [n])
+                    edges[(current, n)] += 1
         
-        dfs(None, "JFK", ["JFK"], 1)
-        return self.result
+        traverse('JFK', ['JFK'])
+        return self.itinerary
 ```

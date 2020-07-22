@@ -1,5 +1,7 @@
 #### Need to find nth smallest or largest
-Use max or min-heap or partial sort: quicksort variation
+Use max or min-heap or partial sort: quicksort variation <br />
+A better way to achieve this is to create a heap of size `k` (target) first. For finding max k, use min-heap and vice-versa. <br />
+https://leetcode.com/explore/challenge/card/july-leetcoding-challenge/546/week-3-july-15th-july-21st/3393/
 
 LRU cache:  <br /> https://leetcode.com/problems/lru-cache/ <br />
 Simple dict py-3

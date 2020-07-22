@@ -6,6 +6,8 @@ Runtimes: why heap is O(n)?
 
 Addition questions-> strings, lists, linked lists
 
+Factors/divisors questions
+
 stocks
 
 Bitwise

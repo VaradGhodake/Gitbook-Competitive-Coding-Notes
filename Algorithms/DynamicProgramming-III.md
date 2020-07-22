@@ -22,7 +22,7 @@ for j in range(i, len(coins)):
 Success cases should return `0` <br />
 Failure cases (out of bounds): `(i == n or current > amount)` should return `float('inf')` <br /> 
 
-If you want to read the total number of ways to reach at the amount/sum: <br />
+If you want to know the total number of ways to reach at the amount/sum: <br />
 ```py
 total_steps = 0
 for j in range(i, len(coins)):
