@@ -12,6 +12,59 @@ Simple dict py-3
 
 *857:* https://leetcode.com/problems/minimum-cost-to-hire-k-workers/
 
+*621:* https://leetcode.com/problems/task-scheduler/ <br />
+A really good question. Used 3 different data structures. <br />
+First of all, we need an always sorted list of tasks and their remaining frequency. <br />
+`dict + max-heap` is the best combo here <br />
+Then, the general algo for each cycle of steps (n + 1) is as follows: <br />
+1. Pop from the heap and schedule it.
+2. Push this to queue if it's remaining freq is > 1 (careful with the negative sign as it's a max-heap)
+3. Increase the count by 1
+4. If there's nothing in the heap AND the queue, return the result count
+
+```py
+import heapq
+
+class Solution:
+    def leastInterval(self, tasks: List[str], n: int) -> int:
+        freq = dict()
+        heap = []
+        queue = []
+        count = 0
+        result = []
+        
+        for T in tasks:
+            if freq.get(T, 0):
+                freq[T] += 1
+            else:
+                freq[T] = 1
+                
+        for t, c in freq.items():
+            heapq.heappush(heap, (-c, t))
+        
+        while heap:
+            for i in range(0, n + 1):
+                if heap:
+                    c, t = heapq.heappop(heap)
+                    result.append(t)
+                    
+                    if c != -1:    
+                        queue.append((c + 1, t))
+                    count += 1
+                    
+                    if not heap and not queue:
+                        print(">> loop exit")
+                        return count
+                else:
+                    count += 1
+                    result.append('-')
+            
+            while queue:
+                heapq.heappush(heap, queue.pop())
+            
+        return count
+```
+
 #### Sort colors
 https://leetcode.com/explore/challenge/card/june-leetcoding-challenge/540/week-2-june-8th-june-14th/3357/ <br />
 The trick is to maintain all-red pointer on its left, all-blue on its right and an iterator to just swap with red one if it's red and same for blue. Stop if you encounter the blue one.

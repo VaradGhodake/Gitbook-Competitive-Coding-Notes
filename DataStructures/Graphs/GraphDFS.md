@@ -81,3 +81,43 @@ class Solution:
         traverse('JFK', ['JFK'])
         return self.itinerary
 ```
+Great question: Looks like a tree question but it's not! <br />
+Realized that the edges can be bidirectional. Just needed to add `visited` array and augment the graph init loop <br />
+_Trees are just graphs minus the posibility of looping_ <br />
+Thought process similar to that of tree DFS. Fetch consolidated data from the leaves and calculate the current one (postorder).
+https://leetcode.com/contest/weekly-contest-198/problems/number-of-nodes-in-the-sub-tree-with-the-same-label/
+
+```py
+from collections import defaultdict
+
+class Solution:
+    def countSubTrees(self, n: int, edges: List[List[int]], labels: str) -> List[int]:
+        result = [1] * n
+        graph = defaultdict(list)
+        visited = set()
+        
+        for s, d in edges:
+            graph[s].append(d)
+            graph[d].append(s)
+        
+        def traverse(node):
+            if node in visited:
+                return {}
+            
+            visited.add(node)
+            
+            if not graph[node]:
+                return {labels[node]: 1}
+            
+            info = defaultdict(int)
+            for v in graph[node]:
+                for L, F in traverse(v).items():
+                    info[L] += F
+            
+            info[labels[node]] += 1
+            result[node] = info[labels[node]]
+            return info
+        
+        traverse(0)
+        return result
+```

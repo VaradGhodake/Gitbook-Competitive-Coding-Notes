@@ -5,7 +5,8 @@ e.g. node's position from the bottom, max from right and left, check if the node
 Based on these properties, we need to find values of some other properties; use globals/ class attributes to record/update their value.
 
 Optimization for BST: <br />
-Check if the target value is greater than current, go right; no need to go left. Vice versa.
+Check if the target value is greater than current, go right; no need to go left. Vice versa. <br />
+Also need to do the same sometimes to handle the nodes that don't have either left child or the right one. Don't forget to initialize L or R before calling postorder. Look at the solution of good leaf nodes.
 
 #### General solution:
 https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
@@ -127,4 +128,48 @@ class Solution:
         
         traverse(0)
         return self.walk
+```
+https://leetcode.com/contest/weekly-contest-199/problems/number-of-good-leaf-nodes-pairs/ <br />
+We send to send consolidated data up the tree; kinda of tricky and complex
+```py
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+from collections import defaultdict
+
+class Solution:
+    def countPairs(self, root: TreeNode, distance: int) -> int:
+        self.total = 0
+        
+        def postorder(node):
+            if not node.left and not node.right:
+                return {1: 1}
+            
+            L, R = {0 : 0}, {0: 0}
+            if node.left:
+                L = postorder(node.left)
+            if node.right:
+                R = postorder(node.right)
+        
+            for d1, lc in L.items():
+                for d2, rc in R.items():
+                    if d1 + d2 <= distance and d1 and d2:
+                        self.total += (lc * rc)
+            
+            leaves = defaultdict(int)
+            for d, c in L.items():
+                if d <= distance:
+                    leaves[d + 1] += c
+            
+            for d, c in R.items():
+                if d <= distance:
+                    leaves[d + 1] += c
+            
+            return leaves
+        
+        postorder(root)
+        return self.total
 ```
