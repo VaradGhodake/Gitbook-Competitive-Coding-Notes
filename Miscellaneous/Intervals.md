@@ -7,6 +7,24 @@ Template for simple questions like: <br />
 * 253 Meeting Rooms II 
 * https://leetcode.com/problems/interval-list-intersections/solution/ <br />
 
+For trivial questions, we sort based on the starting time. <br />
+https://leetcode.com/problems/non-overlapping-intervals/
+```py
+class Solution:
+    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
+        intervals = sorted(intervals, key = lambda x: x[0])
+        min_end = float('-inf')
+        removed = 0
+        
+        for start, end in intervals:
+            if start >= min_end:
+                min_end = end 
+            else:
+                removed += 1
+                min_end = min(min_end, end)
+        
+        return removed
+```
 https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/
 ```py
 class Solution:

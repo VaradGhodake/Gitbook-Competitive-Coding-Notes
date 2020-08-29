@@ -1,13 +1,16 @@
 ### Binary Search
 
+
+Good article: https://leetcode.com/discuss/general-discussion/786126/python-powerful-ultimate-binary-search-template-solved-many-problems
+
 Iterative solutions are quicker than the recursive ones. <br />
 
 It's necessary to understand where BS terminates. This can answer a lot of questions. It's the start when you want to check the appropriate place for a num in sorted array <br />
 Decide what direction we have to go in case of equality. Minimum of such solutions or maximum, etc <br />
 
 One of these things should be done: <br />
-_Remember:_ we should never have a case where `start <= end` and somehow start and end do not change.
-1. (`start < end` loop>) include `mid` in the next iteration. i.e. instead of `end = mid - 1`, use `end = mid`; same thing for start.
+_Remember:_ we should never have a case where `start <= end` and somehow start or end do not change.
+1. (`start < end` loop) include `mid` in the next iteration. i.e. instead of `end = mid - 1`, use `end = mid`; same thing for start.
 2. (`start <= end` loop) somehow get the equality thing sorted; decrement end or start: LeetCode 154
 
 Good problem set:
@@ -130,4 +133,42 @@ class Solution:
                 end -= 1
             
         return nums[start]
+```
+https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/
+```py
+class Solution:
+    def shipWithinDays(self, weights: List[int], D: int) -> int:
+        start = float('-inf')
+        end = 0
+        
+        for i, w in enumerate(weights):
+            start = max(start, w)
+            end += w
+            
+        def can_carry(capacity):
+            current = 0
+            days = 1
+            
+            for w in weights:
+                current += w
+                if current <= capacity:
+                    continue
+                
+                days += 1
+                current = w
+                
+                if days > D:
+                    return False
+            
+            return days <= D
+        
+        while start < end:
+            mid = start + (end - start) // 2
+            
+            if can_carry(mid):
+                end = mid
+            else:
+                start = mid + 1
+        
+        return start
 ```

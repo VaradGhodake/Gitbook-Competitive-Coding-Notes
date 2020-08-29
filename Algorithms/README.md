@@ -35,18 +35,4 @@ Design input class (Trees, LL especially) or think about inputs (arrays, graphs,
 
 Habit of dict.get(key, default)
 
-#### Binary search 
-
-```py
-def binarySearch(start, end):
-    if end >= start:
-        mid = start + (end - start) // 2
-        if arr[mid] == k:
-            return mid
-        if arr[mid] > k:
-            return binarySearch(start, mid - 1)
-        if arr[mid] < k:
-            return binarySearch(mid + 1, end)
-    else:
-        return -1
-```
+Streaming data questions: https://www.geeksforgeeks.org/tag/array-stream/

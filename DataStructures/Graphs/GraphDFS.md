@@ -99,7 +99,7 @@ class Solution:
         for s, d in edges:
             graph[s].append(d)
             graph[d].append(s)
-        
+     
         def traverse(node):
             if node in visited:
                 return {}

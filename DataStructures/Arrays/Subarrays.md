@@ -3,7 +3,8 @@
 ##### Optimization checks: <br />
 1. Two pointers 
 2. Sliding window with running values 
-3. Pre and Post arrays
+3. Pre and Post arrays <br />
+There can be complex problems outside these as well
 
 ##### Find subarray size K:
 
@@ -51,3 +52,27 @@ https://www.geeksforgeeks.org/maximum-length-of-strictly-increasing-sub-array-af
 
 #### complex subarray problems
 https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/
+
+
+https://leetcode.com/problems/maximum-number-of-non-overlapping-subarrays-with-sum-equals-target/
+```py
+class Solution:
+    def maxNonOverlapping(self, nums: List[int], target: int) -> int:
+        prefix = [0]
+        sum_pos = {0: 0}
+        intervals = 0
+        
+        for i, n in enumerate(nums):
+            prefix.append(prefix[-1] + n)
+    
+        for i, p in enumerate(prefix):
+            if i == 0: continue
+            
+            if p - target in sum_pos:
+                intervals += 1
+                sum_pos = {}
+            
+            sum_pos[p] = i
+        
+        return intervals
+```

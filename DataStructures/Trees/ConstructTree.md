@@ -97,3 +97,39 @@ class Solution:
         
         return construct(0, len(nums))
 ```
+Important questions: <br />
+https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/ <br />
+Notice how we're using a static variable for construct function. <br />
+Root is always the last unused element present in the postorder array. This element divides the inorder array in 2 parts. <br />
+_Make sure you construct the right subtree before the left one!!_
+```py
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
+        
+        def construct(i_s, i_e):
+            if i_s > i_e:
+                return None
+            
+            root = TreeNode(postorder[construct.postorder_index])
+            construct.postorder_index -= 1
+            
+            pivot = 0
+            for i, e in enumerate(inorder):
+                if e == root.val:
+                    pivot = i
+                    break
+            
+            root.right = construct(pivot + 1, i_e)
+            root.left = construct(i_s, pivot - 1)
+            
+            return root
+        
+        construct.postorder_index = len(postorder) - 1
+        return construct(0, len(inorder) - 1)
+```

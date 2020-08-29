@@ -82,3 +82,38 @@ class Solution:
         traverse(root, [], 0)
         return result
 ```
+https://leetcode.com/problems/path-sum-iii/
+```py
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def pathSum(self, root: TreeNode, sum: int) -> int:
+        self.result = 0
+        
+        def traverse(node, path_sum):
+            if not node:
+                return 
+            
+            if node.val == sum:
+                self.result += 1
+            
+            new_path_sum = []
+            for s in path_sum:
+                new_sum = s + node.val
+                
+                if new_sum == sum:
+                    self.result += 1
+                    
+                new_path_sum.append(new_sum)
+            
+            traverse(node.left, new_path_sum + [node.val])
+            traverse(node.right, new_path_sum + [node.val])            
+        
+        traverse(root, [])
+        return self.result
+```

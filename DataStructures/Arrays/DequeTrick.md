@@ -102,3 +102,45 @@ class Solution:
             
         return result
 ```
+https://leetcode.com/problems/largest-rectangle-in-histogram/
+```py
+from collections import deque
+from enum import IntEnum
+
+class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        class Direction(IntEnum):
+            L = 0
+            R = 1
+        
+        n = len(heights)
+        
+        smaller = [[i, i] for i in range(0, n)]
+        queue = deque()
+        queue.append((-1, -1))
+        
+        for i, h in enumerate(heights):
+            while queue and h <= queue[-1][1]:
+                queue.pop()
+            
+            smaller[i][Direction.L] = queue[-1][0]
+            queue.append((i, h))
+        
+        queue = deque()
+        queue.append((n, -1))
+        for i in range(len(heights) - 1, -1, -1):
+            while queue and heights[i] <= queue[-1][1]:
+                queue.pop()
+            
+            smaller[i][Direction.R] = queue[-1][0]
+            queue.append((i, heights[i]))
+        
+        print(smaller)
+        max_area = 0
+        for i, w in enumerate(smaller):
+            max_area = max(max_area, \
+                           (w[Direction.R] - w[Direction.L] - 1) \
+                           * heights[i])
+            
+        return max_area
+```

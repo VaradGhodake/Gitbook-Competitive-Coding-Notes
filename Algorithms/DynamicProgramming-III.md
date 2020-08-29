@@ -52,6 +52,39 @@ for all the coins, we want to take `min` or `add` <br />
 ```
 For coin change 2, we need to run these loops in the reverse order as we have to eliminate duplicate combinations and we don't necessarily need to find a "complete" answer for a previous target.
 
+Similar idea: <br />
+https://leetcode.com/problems/word-break-ii/ 
+```py
+class Solution:
+    def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
+        dp = [[] for i in range(0, len(s) + 1)]
+        
+        # check of there's any character in the 
+        # string that's just 
+        # not present in wordDict
+        s_set = set(s)
+        for word in wordDict:
+            s_set -= set(word)
+            
+        if s_set:
+            return []
+        
+        for i in range(0, len(dp)):
+            for word in wordDict:
+                if not s[:i].endswith(word):
+                    continue
+                
+                if len(word) == i:
+                    dp[i].append(word)
+                    continue
+                
+                for match in dp[i - len(word)]:
+                    dp[i].append(match + " " + word)
+        
+        return dp[-1]
+```
+
+
 https://leetcode.com/problems/knight-dialer/ <br />
 We need to store current dp; which represents the state after given hop. <br />
 For a given hop, we jump to the possible destinations; this value needs to be preserved as the updated one will change destination's calculations. So, we save that state and compute.
@@ -73,4 +106,26 @@ class Solution:
             dp = dp1
             
         return sum(dp) % mod
+```
+https://leetcode.com/problems/sqrtx/
+Binary Search will take us to the closest point of the answer
+```py
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        start = 0
+        end = x
+        
+        while start <= end:
+            mid = start + (end - start) // 2
+            
+            mid_sq = mid * mid
+            if mid_sq == x:
+                return mid
+            
+            if mid_sq > x:
+                end = mid - 1
+            else:
+                start = mid + 1
+        
+        return start if start * start < x else start - 1
 ```

@@ -89,3 +89,19 @@ class Solution:
             
         return nums
 ```
+https://leetcode.com/problems/find-all-duplicates-in-an-array/ <br />
+One of those questions where you'd have to read question description properly.
+```py
+class Solution:
+    def findDuplicates(self, nums: List[int]) -> List[int]:
+        result = []
+        
+        for i, n in enumerate(nums):
+            if nums[abs(n) - 1] < 0:
+                result.append(abs(n))
+                continue
+            
+            nums[abs(n) - 1] = -nums[abs(n) - 1]
+        
+        return result
+```
