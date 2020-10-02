@@ -1,0 +1,968 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Deque Trick · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Strings/" />
+    
+    
+    <link rel="prev" href="Triplets.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../GeneralInstructions.html">
+            
+                <a href="../../GeneralInstructions.html">
+            
+                    
+                    General Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Data Structures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Arrays
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="TwoPointers.html">
+            
+                <a href="TwoPointers.html">
+            
+                    
+                    Two Pointers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="Subarrays.html">
+            
+                <a href="Subarrays.html">
+            
+                    
+                    Subarrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="Subsets.html">
+            
+                <a href="Subsets.html">
+            
+                    
+                    Subsets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="Triplets.html">
+            
+                <a href="Triplets.html">
+            
+                    
+                    Triplets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.1.5" data-path="DequeTrick.html">
+            
+                <a href="DequeTrick.html">
+            
+                    
+                    Deque Trick
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Strings/">
+            
+                <a href="../Strings/">
+            
+                    
+                    Strings
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../Strings/StandardQuestions.html">
+            
+                <a href="../Strings/StandardQuestions.html">
+            
+                    
+                    Standard Questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Trees/">
+            
+                <a href="../Trees/">
+            
+                    
+                    Trees
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../Trees/Inorder.html">
+            
+                <a href="../Trees/Inorder.html">
+            
+                    
+                    Inorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../Trees/Preorder.html">
+            
+                <a href="../Trees/Preorder.html">
+            
+                    
+                    Preorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../Trees/Postorder.html">
+            
+                <a href="../Trees/Postorder.html">
+            
+                    
+                    Postorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../Trees/LevelWise.html">
+            
+                <a href="../Trees/LevelWise.html">
+            
+                    
+                    Level-wise Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="../Trees/TreeToGraph.html">
+            
+                <a href="../Trees/TreeToGraph.html">
+            
+                    
+                    Tree to Graph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.6" data-path="../Trees/ConstructTree.html">
+            
+                <a href="../Trees/ConstructTree.html">
+            
+                    
+                    Construct Trees
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Graphs/">
+            
+                <a href="../Graphs/">
+            
+                    
+                    Graphs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../Graphs/Coloring.html">
+            
+                <a href="../Graphs/Coloring.html">
+            
+                    
+                    Coloring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../Graphs/GraphBFS.html">
+            
+                <a href="../Graphs/GraphBFS.html">
+            
+                    
+                    Graph BFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="../Graphs/GraphDFS.html">
+            
+                <a href="../Graphs/GraphDFS.html">
+            
+                    
+                    Graph DFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="../Graphs/TopologySort.html">
+            
+                <a href="../Graphs/TopologySort.html">
+            
+                    
+                    Topology Sort
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../Algorithms/">
+            
+                <a href="../../Algorithms/">
+            
+                    
+                    Algorithms
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../Algorithms/TrickySorting.html">
+            
+                <a href="../../Algorithms/TrickySorting.html">
+            
+                    
+                    Tricky Sorting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../Algorithms/DFSandBFS.html">
+            
+                <a href="../../Algorithms/DFSandBFS.html">
+            
+                    
+                    DFS and BFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../Algorithms/Combinatorics.html">
+            
+                <a href="../../Algorithms/Combinatorics.html">
+            
+                    
+                    Combinatorics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../Algorithms/Backtracking.html">
+            
+                <a href="../../Algorithms/Backtracking.html">
+            
+                    
+                    Backtracking and Complete Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../../Algorithms/BinarySearch.html">
+            
+                <a href="../../Algorithms/BinarySearch.html">
+            
+                    
+                    Binary Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../../Algorithms/BucketTrick.html">
+            
+                <a href="../../Algorithms/BucketTrick.html">
+            
+                    
+                    Bucket Trick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../../Algorithms/Bitwise.html">
+            
+                <a href="../../Algorithms/Bitwise.html">
+            
+                    
+                    Bitwise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../../Algorithms/DynamicProgramming-I.html">
+            
+                <a href="../../Algorithms/DynamicProgramming-I.html">
+            
+                    
+                    Dynamic Programming I
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../../Algorithms/DynamicProgramming-II.html">
+            
+                <a href="../../Algorithms/DynamicProgramming-II.html">
+            
+                    
+                    Dynamic Programming II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../../Algorithms/DynamicProgramming-III.html">
+            
+                <a href="../../Algorithms/DynamicProgramming-III.html">
+            
+                    
+                    Dynamic Programming III
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../../Algorithms/DynamicProgramming-IV.html">
+            
+                <a href="../../Algorithms/DynamicProgramming-IV.html">
+            
+                    
+                    Dynamic Programming IV
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../Miscellaneous/">
+            
+                <a href="../../Miscellaneous/">
+            
+                    
+                    Miscellaneous
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../Miscellaneous/Stocks.html">
+            
+                <a href="../../Miscellaneous/Stocks.html">
+            
+                    
+                    Stocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../Miscellaneous/Intervals.html">
+            
+                <a href="../../Miscellaneous/Intervals.html">
+            
+                    
+                    Intervals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../Miscellaneous/Parenthesis.html">
+            
+                <a href="../../Miscellaneous/Parenthesis.html">
+            
+                    
+                    Parenthesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../Miscellaneous/InterestingMiscellaneous.html">
+            
+                <a href="../../Miscellaneous/InterestingMiscellaneous.html">
+            
+                    
+                    Interesting Miscellaneous
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../PythonicTricks/">
+            
+                <a href="../../PythonicTricks/">
+            
+                    
+                    Pythonic Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../BehavioralQuestions.html">
+            
+                <a href="../../BehavioralQuestions.html">
+            
+                    
+                    Behavioral Questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Deque Trick</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="deque-trick--monoqueue-technique">Deque trick / monoqueue technique</h3>
+<p>Extremely useful to find next greater or previous greater, etc</p>
+<ul>
+<li><a href="https://leetcode.com/problems/next-greater-element-i/" target="_blank">https://leetcode.com/problems/next-greater-element-i/</a></li>
+<li><a href="https://leetcode.com/problems/online-stock-span/" target="_blank">https://leetcode.com/problems/online-stock-span/</a></li>
+<li><a href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank">https://leetcode.com/problems/sliding-window-maximum/</a></li>
+<li><a href="https://leetcode.com/explore/challenge/card/may-leetcoding-challenge/536/week-3-may-15th-may-21st/3330/" target="_blank">https://leetcode.com/explore/challenge/card/may-leetcoding-challenge/536/week-3-may-15th-may-21st/3330/</a></li>
+</ul>
+<p>The idea is to maitain a queue or stack based on our requirements that has this structure: <br>
+<img src="../../static/deque.png" height="300" width="500"> <br>
+We might want to add some more info (eg. location) <br>
+Each incoming element will be compared with the last element: <br></p>
+<ul>
+<li>Keep on popping if stack/queue and the last element is smaller than the current one</li>
+<li>Go ahead and append it to the stack/queue</li>
+</ul>
+<p>For next greater, run the loop backwards and for the sliding window question, <br>
+pop the first one if it&apos;s outside of the window boundaries (&lt; <code>(i - k + 1)</code>)</p>
+<p>General solution: </p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StockSpanner</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.queue = deque()
+        self.counter = <span class="hljs-number">0</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">next</span><span class="hljs-params">(self, price: int)</span> -&gt; int:</span>
+        self.counter += <span class="hljs-number">1</span>
+        result = self.counter
+
+        <span class="hljs-keyword">while</span> self.queue <span class="hljs-keyword">and</span> self.queue[<span class="hljs-number">-1</span>][<span class="hljs-number">0</span>] &lt;= price:
+            self.queue.pop()
+
+        <span class="hljs-keyword">if</span> self.queue:
+            result = self.counter - self.queue[<span class="hljs-number">-1</span>][<span class="hljs-number">1</span>]
+
+        self.queue.append((price, self.counter))
+        <span class="hljs-keyword">return</span> result
+</code></pre>
+<p>Next greater</p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">nextGreaterElement</span><span class="hljs-params">(self, nums1: List[int], nums2: List[int])</span> -&gt; List[int]:</span>
+        store = defaultdict(int)
+        stack = []
+        result = []
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(nums2) - <span class="hljs-number">1</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>):
+            store[nums2[i]] = <span class="hljs-number">-1</span>
+
+            <span class="hljs-keyword">while</span> stack <span class="hljs-keyword">and</span> stack[<span class="hljs-number">-1</span>] &lt; nums2[i]:
+                stack.pop()
+
+            <span class="hljs-keyword">if</span> stack:
+                store[nums2[i]] = stack[<span class="hljs-number">-1</span>]
+
+            stack.append(nums2[i])
+
+        <span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> nums1:
+            <span class="hljs-keyword">if</span> store[num]:
+                result.append(store[num])
+            <span class="hljs-keyword">else</span>:
+                result.append(<span class="hljs-number">-1</span>)
+
+        <span class="hljs-keyword">return</span> result
+</code></pre>
+<p>Sliding window solution: <br> 
+A simple question first- <br>
+Our target is very similar here: <br>
+<a href="https://leetcode.com/problems/number-of-recent-calls/" target="_blank">https://leetcode.com/problems/number-of-recent-calls/</a></p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RecentCounter</span>:</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self.window = deque()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ping</span><span class="hljs-params">(self, t: int)</span> -&gt; int:</span>
+        <span class="hljs-keyword">while</span> self.window <span class="hljs-keyword">and</span> self.window[<span class="hljs-number">0</span>] &lt; (t - <span class="hljs-number">3000</span>):
+            self.window.popleft()
+
+        self.window.append(t)
+        <span class="hljs-keyword">return</span> len(self.window)
+</code></pre>
+<p>Now the original question with sliding window</p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">maxSlidingWindow</span><span class="hljs-params">(self, nums: List[int], k: int)</span> -&gt; List[int]:</span>
+        queue = deque()
+        result = []
+
+        <span class="hljs-keyword">if</span> k == <span class="hljs-number">1</span>:
+            <span class="hljs-keyword">return</span> nums
+
+        <span class="hljs-keyword">if</span> k == len(nums):
+            <span class="hljs-keyword">return</span> [max(nums)]
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, k):
+            <span class="hljs-keyword">while</span> queue <span class="hljs-keyword">and</span> nums[queue[<span class="hljs-number">-1</span>]] &lt; nums[i]:
+                queue.pop()
+            queue.append(i)
+
+        result.append(nums[queue[<span class="hljs-number">0</span>]])
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(k, len(nums)):            
+            <span class="hljs-keyword">if</span> queue[<span class="hljs-number">0</span>] &lt; (i - k + <span class="hljs-number">1</span>):
+                queue.popleft()
+
+            <span class="hljs-keyword">while</span> queue <span class="hljs-keyword">and</span> nums[queue[<span class="hljs-number">-1</span>]] &lt; nums[i]:
+                queue.pop()
+
+            queue.append(i)
+            result.append(nums[queue[<span class="hljs-number">0</span>]])
+
+        <span class="hljs-keyword">return</span> result
+</code></pre>
+<p><a href="https://leetcode.com/problems/largest-rectangle-in-histogram/" target="_blank">https://leetcode.com/problems/largest-rectangle-in-histogram/</a></p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque
+<span class="hljs-keyword">from</span> enum <span class="hljs-keyword">import</span> IntEnum
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">largestRectangleArea</span><span class="hljs-params">(self, heights: List[int])</span> -&gt; int:</span>
+        <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Direction</span><span class="hljs-params">(IntEnum)</span>:</span>
+            L = <span class="hljs-number">0</span>
+            R = <span class="hljs-number">1</span>
+
+        n = len(heights)
+
+        smaller = [[i, i] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, n)]
+        queue = deque()
+        queue.append((<span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>))
+
+        <span class="hljs-keyword">for</span> i, h <span class="hljs-keyword">in</span> enumerate(heights):
+            <span class="hljs-keyword">while</span> queue <span class="hljs-keyword">and</span> h &lt;= queue[<span class="hljs-number">-1</span>][<span class="hljs-number">1</span>]:
+                queue.pop()
+
+            smaller[i][Direction.L] = queue[<span class="hljs-number">-1</span>][<span class="hljs-number">0</span>]
+            queue.append((i, h))
+
+        queue = deque()
+        queue.append((n, <span class="hljs-number">-1</span>))
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(heights) - <span class="hljs-number">1</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>):
+            <span class="hljs-keyword">while</span> queue <span class="hljs-keyword">and</span> heights[i] &lt;= queue[<span class="hljs-number">-1</span>][<span class="hljs-number">1</span>]:
+                queue.pop()
+
+            smaller[i][Direction.R] = queue[<span class="hljs-number">-1</span>][<span class="hljs-number">0</span>]
+            queue.append((i, heights[i]))
+
+        print(smaller)
+        max_area = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">for</span> i, w <span class="hljs-keyword">in</span> enumerate(smaller):
+            max_area = max(max_area, \
+                           (w[Direction.R] - w[Direction.L] - <span class="hljs-number">1</span>) \
+                           * heights[i])
+
+        <span class="hljs-keyword">return</span> max_area
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Triplets.html" class="navigation navigation-prev " aria-label="Previous page: Triplets">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Strings/" class="navigation navigation-next " aria-label="Next page: Strings">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Deque Trick","level":"1.3.1.5","depth":3,"next":{"title":"Strings","level":"1.3.2","depth":2,"path":"DataStructures/Strings/README.md","ref":"DataStructures/Strings/README.md","articles":[{"title":"Standard Questions","level":"1.3.2.1","depth":3,"path":"DataStructures/Strings/StandardQuestions.md","ref":"DataStructures/Strings/StandardQuestions.md","articles":[]}]},"previous":{"title":"Triplets","level":"1.3.1.4","depth":3,"path":"DataStructures/Arrays/Triplets.md","ref":"DataStructures/Arrays/Triplets.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Arrays/DequeTrick.md","mtime":"2020-10-01T08:16:17.402Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-02T06:04:24.927Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

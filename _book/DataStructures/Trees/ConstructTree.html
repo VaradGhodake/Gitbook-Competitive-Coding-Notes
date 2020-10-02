@@ -1,0 +1,935 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Construct Trees · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Graphs/" />
+    
+    
+    <link rel="prev" href="TreeToGraph.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../GeneralInstructions.html">
+            
+                <a href="../../GeneralInstructions.html">
+            
+                    
+                    General Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Data Structures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../Arrays/">
+            
+                <a href="../Arrays/">
+            
+                    
+                    Arrays
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../Arrays/TwoPointers.html">
+            
+                <a href="../Arrays/TwoPointers.html">
+            
+                    
+                    Two Pointers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../Arrays/Subarrays.html">
+            
+                <a href="../Arrays/Subarrays.html">
+            
+                    
+                    Subarrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../Arrays/Subsets.html">
+            
+                <a href="../Arrays/Subsets.html">
+            
+                    
+                    Subsets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../Arrays/Triplets.html">
+            
+                <a href="../Arrays/Triplets.html">
+            
+                    
+                    Triplets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.5" data-path="../Arrays/DequeTrick.html">
+            
+                <a href="../Arrays/DequeTrick.html">
+            
+                    
+                    Deque Trick
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../Strings/">
+            
+                <a href="../Strings/">
+            
+                    
+                    Strings
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../Strings/StandardQuestions.html">
+            
+                <a href="../Strings/StandardQuestions.html">
+            
+                    
+                    Standard Questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Trees
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="Inorder.html">
+            
+                <a href="Inorder.html">
+            
+                    
+                    Inorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="Preorder.html">
+            
+                <a href="Preorder.html">
+            
+                    
+                    Preorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="Postorder.html">
+            
+                <a href="Postorder.html">
+            
+                    
+                    Postorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="LevelWise.html">
+            
+                <a href="LevelWise.html">
+            
+                    
+                    Level-wise Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.5" data-path="TreeToGraph.html">
+            
+                <a href="TreeToGraph.html">
+            
+                    
+                    Tree to Graph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.3.6" data-path="ConstructTree.html">
+            
+                <a href="ConstructTree.html">
+            
+                    
+                    Construct Trees
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../Graphs/">
+            
+                <a href="../Graphs/">
+            
+                    
+                    Graphs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../Graphs/Coloring.html">
+            
+                <a href="../Graphs/Coloring.html">
+            
+                    
+                    Coloring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../Graphs/GraphBFS.html">
+            
+                <a href="../Graphs/GraphBFS.html">
+            
+                    
+                    Graph BFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="../Graphs/GraphDFS.html">
+            
+                <a href="../Graphs/GraphDFS.html">
+            
+                    
+                    Graph DFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="../Graphs/TopologySort.html">
+            
+                <a href="../Graphs/TopologySort.html">
+            
+                    
+                    Topology Sort
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../Algorithms/">
+            
+                <a href="../../Algorithms/">
+            
+                    
+                    Algorithms
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../Algorithms/TrickySorting.html">
+            
+                <a href="../../Algorithms/TrickySorting.html">
+            
+                    
+                    Tricky Sorting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../Algorithms/DFSandBFS.html">
+            
+                <a href="../../Algorithms/DFSandBFS.html">
+            
+                    
+                    DFS and BFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../Algorithms/Combinatorics.html">
+            
+                <a href="../../Algorithms/Combinatorics.html">
+            
+                    
+                    Combinatorics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../Algorithms/Backtracking.html">
+            
+                <a href="../../Algorithms/Backtracking.html">
+            
+                    
+                    Backtracking and Complete Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../../Algorithms/BinarySearch.html">
+            
+                <a href="../../Algorithms/BinarySearch.html">
+            
+                    
+                    Binary Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../../Algorithms/BucketTrick.html">
+            
+                <a href="../../Algorithms/BucketTrick.html">
+            
+                    
+                    Bucket Trick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../../Algorithms/Bitwise.html">
+            
+                <a href="../../Algorithms/Bitwise.html">
+            
+                    
+                    Bitwise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../../Algorithms/DynamicProgramming-I.html">
+            
+                <a href="../../Algorithms/DynamicProgramming-I.html">
+            
+                    
+                    Dynamic Programming I
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../../Algorithms/DynamicProgramming-II.html">
+            
+                <a href="../../Algorithms/DynamicProgramming-II.html">
+            
+                    
+                    Dynamic Programming II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../../Algorithms/DynamicProgramming-III.html">
+            
+                <a href="../../Algorithms/DynamicProgramming-III.html">
+            
+                    
+                    Dynamic Programming III
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../../Algorithms/DynamicProgramming-IV.html">
+            
+                <a href="../../Algorithms/DynamicProgramming-IV.html">
+            
+                    
+                    Dynamic Programming IV
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../Miscellaneous/">
+            
+                <a href="../../Miscellaneous/">
+            
+                    
+                    Miscellaneous
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../Miscellaneous/Stocks.html">
+            
+                <a href="../../Miscellaneous/Stocks.html">
+            
+                    
+                    Stocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../Miscellaneous/Intervals.html">
+            
+                <a href="../../Miscellaneous/Intervals.html">
+            
+                    
+                    Intervals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../Miscellaneous/Parenthesis.html">
+            
+                <a href="../../Miscellaneous/Parenthesis.html">
+            
+                    
+                    Parenthesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../Miscellaneous/InterestingMiscellaneous.html">
+            
+                <a href="../../Miscellaneous/InterestingMiscellaneous.html">
+            
+                    
+                    Interesting Miscellaneous
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../PythonicTricks/">
+            
+                <a href="../../PythonicTricks/">
+            
+                    
+                    Pythonic Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../BehavioralQuestions.html">
+            
+                <a href="../../BehavioralQuestions.html">
+            
+                    
+                    Behavioral Questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Construct Trees</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="tree-construction-questions">Tree construction questions</h3>
+<h4 id="balanced-tree-construction">Balanced tree construction</h4>
+<p><a href="https://leetcode.com/problems/balance-a-binary-search-tree/discuss/540038/python-3-easy-to-understand" target="_blank">https://leetcode.com/problems/balance-a-binary-search-tree/discuss/540038/python-3-easy-to-understand</a></p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">constructTree</span><span class="hljs-params">(arr: list)</span> -&gt; TreeNode:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> len(list):
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+        mid = len(arr) // <span class="hljs-number">2</span>
+
+        node = TreeNode(arr[mid])
+        node.left = self.constructTree(arr[:mid])
+        node.right = self.constructTree(arr[mid + <span class="hljs-number">1</span>: ])
+
+        <span class="hljs-keyword">return</span> node
+</code></pre>
+<h3 id="construction-from-preorder">Construction from preorder</h3>
+<p><a href="https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/" target="_blank">https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/</a></p>
+<pre><code class="lang-py"><span class="hljs-comment"># Definition for a binary tree node.</span>
+<span class="hljs-comment"># class TreeNode:</span>
+<span class="hljs-comment">#     def __init__(self, val=0, left=None, right=None):</span>
+<span class="hljs-comment">#         self.val = val</span>
+<span class="hljs-comment">#         self.left = left</span>
+<span class="hljs-comment">#         self.right = right</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">bstFromPreorder</span><span class="hljs-params">(self, preorder: List[int])</span> -&gt; TreeNode:</span>
+
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> preorder:
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">binarySearch</span><span class="hljs-params">(start, end, key)</span> -&gt; int:</span>
+
+            <span class="hljs-keyword">if</span> start &gt; end:
+                <span class="hljs-keyword">return</span> end + <span class="hljs-number">1</span>
+
+            mid = start + (end - start) // <span class="hljs-number">2</span>
+
+            <span class="hljs-keyword">if</span> preorder[start] &gt; key <span class="hljs-keyword">and</span> preorder[start - <span class="hljs-number">1</span>] &lt; key:
+                <span class="hljs-keyword">return</span> start
+
+            <span class="hljs-keyword">if</span> preorder[end] &gt; key <span class="hljs-keyword">and</span> preorder[end - <span class="hljs-number">1</span>] &lt; key:
+                <span class="hljs-keyword">return</span> end        
+
+            <span class="hljs-keyword">if</span> preorder[mid] &gt; key <span class="hljs-keyword">and</span> preorder[mid - <span class="hljs-number">1</span>] &lt; key:
+                <span class="hljs-keyword">return</span> mid
+
+            <span class="hljs-keyword">if</span> preorder[mid] &lt; key:
+                <span class="hljs-keyword">return</span> binarySearch(mid + <span class="hljs-number">1</span>, end, key)
+
+            <span class="hljs-keyword">if</span> preorder[mid] &gt; key:
+                <span class="hljs-keyword">return</span> binarySearch(start, mid - <span class="hljs-number">1</span>, key)
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">constructTree</span><span class="hljs-params">(start, end)</span> -&gt; TreeNode:</span>
+            <span class="hljs-keyword">if</span> start &gt; end:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+            node = TreeNode(preorder[start])
+
+            pivot = binarySearch(start + <span class="hljs-number">1</span>, end, preorder[start])
+            node.left = constructTree(start + <span class="hljs-number">1</span>, pivot - <span class="hljs-number">1</span>)
+            node.right = constructTree(pivot, end)
+
+            <span class="hljs-keyword">return</span> node
+
+        <span class="hljs-keyword">return</span> constructTree(<span class="hljs-number">0</span>, len(preorder) - <span class="hljs-number">1</span>)
+</code></pre>
+<h4 id="some-other-constructions">Some other constructions</h4>
+<p><a href="https://leetcode.com/problems/maximum-binary-tree/" target="_blank">https://leetcode.com/problems/maximum-binary-tree/</a></p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">constructMaximumBinaryTree</span><span class="hljs-params">(self, nums: List[int])</span> -&gt; TreeNode:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> nums:
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">construct</span><span class="hljs-params">(l, r)</span>:</span>
+            <span class="hljs-keyword">if</span> l &gt;= r:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+            max_index = l
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(l, r):
+                <span class="hljs-keyword">if</span> nums[i] &gt; nums[max_index]:
+                    max_index = i
+
+            node = TreeNode()
+            node.val = nums[max_index]
+
+            node.left = construct(l, max_index)
+            node.right = construct(max_index + <span class="hljs-number">1</span>, r)
+
+            <span class="hljs-keyword">return</span> node
+
+        <span class="hljs-keyword">return</span> construct(<span class="hljs-number">0</span>, len(nums))
+</code></pre>
+<p>Important questions: <br>
+<a href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/" target="_blank">https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/</a> <br>
+Notice how we&apos;re using a static variable for construct function. <br>
+Root is always the last unused element present in the postorder array. This element divides the inorder array in 2 parts. <br>
+<em>Make sure you construct the right subtree before the left one!!</em></p>
+<pre><code class="lang-py"><span class="hljs-comment"># Definition for a binary tree node.</span>
+<span class="hljs-comment"># class TreeNode:</span>
+<span class="hljs-comment">#     def __init__(self, val=0, left=None, right=None):</span>
+<span class="hljs-comment">#         self.val = val</span>
+<span class="hljs-comment">#         self.left = left</span>
+<span class="hljs-comment">#         self.right = right</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">buildTree</span><span class="hljs-params">(self, inorder: List[int], postorder: List[int])</span> -&gt; TreeNode:</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">construct</span><span class="hljs-params">(i_s, i_e)</span>:</span>
+            <span class="hljs-keyword">if</span> i_s &gt; i_e:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+            root = TreeNode(postorder[construct.postorder_index])
+            construct.postorder_index -= <span class="hljs-number">1</span>
+
+            pivot = <span class="hljs-number">0</span>
+            <span class="hljs-keyword">for</span> i, e <span class="hljs-keyword">in</span> enumerate(inorder):
+                <span class="hljs-keyword">if</span> e == root.val:
+                    pivot = i
+                    <span class="hljs-keyword">break</span>
+
+            root.right = construct(pivot + <span class="hljs-number">1</span>, i_e)
+            root.left = construct(i_s, pivot - <span class="hljs-number">1</span>)
+
+            <span class="hljs-keyword">return</span> root
+
+        construct.postorder_index = len(postorder) - <span class="hljs-number">1</span>
+        <span class="hljs-keyword">return</span> construct(<span class="hljs-number">0</span>, len(inorder) - <span class="hljs-number">1</span>)
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="TreeToGraph.html" class="navigation navigation-prev " aria-label="Previous page: Tree to Graph">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Graphs/" class="navigation navigation-next " aria-label="Next page: Graphs">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Construct Trees","level":"1.3.3.6","depth":3,"next":{"title":"Graphs","level":"1.3.4","depth":2,"path":"DataStructures/Graphs/README.md","ref":"DataStructures/Graphs/README.md","articles":[{"title":"Coloring","level":"1.3.4.1","depth":3,"path":"DataStructures/Graphs/Coloring.md","ref":"DataStructures/Graphs/Coloring.md","articles":[]},{"title":"Graph BFS","level":"1.3.4.2","depth":3,"path":"DataStructures/Graphs/GraphBFS.md","ref":"DataStructures/Graphs/GraphBFS.md","articles":[]},{"title":"Graph DFS","level":"1.3.4.3","depth":3,"path":"DataStructures/Graphs/GraphDFS.md","ref":"DataStructures/Graphs/GraphDFS.md","articles":[]},{"title":"Topology Sort","level":"1.3.4.4","depth":3,"path":"DataStructures/Graphs/TopologySort.md","ref":"DataStructures/Graphs/TopologySort.md","articles":[]}]},"previous":{"title":"Tree to Graph","level":"1.3.3.5","depth":3,"path":"Datastructures/Trees/TreeToGraph.md","ref":"Datastructures/Trees/TreeToGraph.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Trees/ConstructTree.md","mtime":"2020-07-27T12:43:12.536Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-10-02T06:04:24.927Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
