@@ -10,6 +10,14 @@ INT_MIN:
 INT_MIN = float('-inf')
 ```
 
+#### Sort list with a tie-breaker
+Example: https://leetcode.com/problems/remove-covered-intervals/
+Also look at `tricky sorting` in Algorithms section
+```py
+sorted(list, key = lambda x: (x[0], -x[1]))
+```
+Second element is a tie-breaker. 
+
 #### Convert list into a dictionary
 ```py
 {item[0]: item[1:] for item in list}

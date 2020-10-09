@@ -1,5 +1,30 @@
 ### Backtracking and Complete Search
 
+Basic questions: <br />
+Two choices:
+* Don't choose the element: Just make a recursive call for the next element
+* Choose the element and stay on the same if repeatition is allowed otherwise, go ahead. 
+https://leetcode.com/problems/combination-sum/
+```py
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        result = []
+        
+        def backtrack(i, bucket, current):
+            if current == target:
+                result.append(bucket[:])
+                return 
+            
+            if current > target or i == len(candidates):
+                return
+            
+            backtrack(i + 1, bucket, current)
+            backtrack(i, bucket + [candidates[i]], current + candidates[i])
+            
+        backtrack(0, [], 0)
+        return result
+```
+
 #### Exhaustive search for an answer:
 Check every possible option and see if a solution exists: (very similar to permutation problems) <br />
 https://leetcode.com/problems/jump-game <br />

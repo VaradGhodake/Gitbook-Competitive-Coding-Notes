@@ -42,6 +42,24 @@ class Solution:
 
         return arrows
 ```
+Another variation of this problem: <br />
+https://leetcode.com/problems/remove-covered-intervals/
+```py
+class Solution:
+    def removeCoveredIntervals(self, intervals: List[List[int]]) -> int:
+        # sort based on the start time and prioritize the longer interval
+        intervals = sorted(intervals, key = lambda x: (x[0], -x[1]))
+        current = intervals[0]
+        covered = 0
+        
+        for s, e in intervals[1:]:
+                if current[0] <= s and current[1] >= e:
+                    covered += 1
+                else:
+                    current = [s, e]
+        
+        return len(intervals) - covered
+```
 https://leetcode.com/problems/merge-intervals/ <br />
 In case of overlap, stretch the previous one (last one in the intervals list); do not push
 ```py
@@ -76,6 +94,8 @@ class Solution:
                 result.append([s, e])
             elif n_e < s:
                 if not pushed:
+                    # can be optimized here 
+                    # we can return 
                     result.append([n_s, n_e])
                 result.append([s, e])
             else:

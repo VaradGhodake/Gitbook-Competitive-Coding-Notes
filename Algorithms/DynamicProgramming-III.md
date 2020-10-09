@@ -1,7 +1,7 @@
 #### Combination sum and coin-change problems
 Multiple combinations possible: <br />
 All the possible ways to reach at the sum/amount: <br />
-    Unique sets: https://leetcode.com/problems/combination-sum/ <br />
+    Unique sets: https://leetcode.com/problems/combination-sum/ (Check `combinatorics` section) <br /> 
     Unique combinations: https://leetcode.com/problems/combination-sum-iv/ <br />
     Unique combinations (including unique values at indices as well): https://leetcode.com/problems/combination-sum-ii/ <br />
 Find min steps to reach at the sum/amount: https://leetcode.com/problems/coin-change/ <br />
@@ -106,26 +106,4 @@ class Solution:
             dp = dp1
             
         return sum(dp) % mod
-```
-https://leetcode.com/problems/sqrtx/
-Binary Search will take us to the closest point of the answer
-```py
-class Solution:
-    def mySqrt(self, x: int) -> int:
-        start = 0
-        end = x
-        
-        while start <= end:
-            mid = start + (end - start) // 2
-            
-            mid_sq = mid * mid
-            if mid_sq == x:
-                return mid
-            
-            if mid_sq > x:
-                end = mid - 1
-            else:
-                start = mid + 1
-        
-        return start if start * start < x else start - 1
 ```

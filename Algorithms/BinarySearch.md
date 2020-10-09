@@ -172,3 +172,25 @@ class Solution:
         
         return start
 ```
+https://leetcode.com/problems/sqrtx/ <br />
+Binary Search will take us to the closest point of the answer
+```py
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        start = 0
+        end = x
+        
+        while start <= end:
+            mid = start + (end - start) // 2
+            
+            mid_sq = mid * mid
+            if mid_sq == x:
+                return mid
+            
+            if mid_sq > x:
+                end = mid - 1
+            else:
+                start = mid + 1
+        
+        return start if start * start < x else start - 1
+```

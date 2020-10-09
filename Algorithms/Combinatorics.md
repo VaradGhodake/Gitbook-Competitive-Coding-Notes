@@ -4,33 +4,6 @@
 Reference: CC Cheat sheet book <br />
 Note the number of recursive calls made
 
-Two choices:
-* Don't choose the element: Just make a recursive call 
-* Choose the element
-    1. Select step
-    2. Go to the next depth
-    3. Pop out so that we don't have to instantiate the bucket
-
-```py
-class SolutionGenerator:
-    def solution_search(self, k : int, domain: list) -> None:
-        if (k == self.n):
-            self.powerset.append(self.subset[:])
-            return
-        self.solution_search(k + 1, domain)
-        self.subset.append(domain[k])
-        self.solution_search(k + 1, domain)
-        self.subset.pop()
-
-    def _helper_generator(self, domain: list) -> list:
-        self.powerset = []
-        self.subset = []
-        self.n = len(domain)
-        self.solution_search(0, domain)
-        return self.powerset
-```
-
-
 #### Combinations: select r out of n (nCr)
 
 * Recursion base case change (==r)
