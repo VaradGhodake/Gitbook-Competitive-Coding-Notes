@@ -1,5 +1,56 @@
 ### Tree construction questions
 
+
+#### Construct a tree from the input
+**This is for leetcode style input**
+```py
+from collections import deque
+
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
+def constructTree(tree):
+    queue = deque()
+    n = len(tree)
+
+    while constructTree.iterator < n:
+        if constructTree.iterator == 0:
+            constructTree.root = TreeNode(tree[constructTree.iterator])
+            queue.append(constructTree.root)
+            constructTree.iterator += 1
+            continue
+
+        node = queue.popleft()
+
+        if node:
+            if tree[constructTree.iterator]:
+                node.left = TreeNode(tree[constructTree.iterator])
+                queue.append(node.left)
+            else:
+                node.left = None
+
+            constructTree.iterator += 1
+
+            if tree[constructTree.iterator]:
+                node.right = TreeNode(tree[constructTree.iterator])
+                queue.append(node.right)
+            else:
+                node.right = None
+
+            constructTree.iterator += 1
+    
+    return constructTree.root
+
+constructTree.root = None
+constructTree.iterator = 0
+# tree = [1, 2, None, 3, 4, None, None, 5, 6]
+root = constructTree(tree)
+```
+
+
 #### Balanced tree construction
 https://leetcode.com/problems/balance-a-binary-search-tree/discuss/540038/python-3-easy-to-understand
 

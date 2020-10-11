@@ -9,6 +9,50 @@ Check if the target value is greater than current, go right; no need to go left.
 Also need to do the same sometimes to handle the nodes that don't have either left child or the right one. Don't forget to initialize L or R before calling postorder. Look at the solution of good leaf nodes.
 
 #### General solution:
+https://leetcode.com/problems/binary-tree-maximum-path-sum/
+```py
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxPathSum(self, root: TreeNode) -> int:
+        def postorder(node):
+            if not node:
+                # if every node has a negative val, we'd want to return 
+                # the max negative val so returning `0` doesn't really work here
+                return float('-inf')
+            
+            current = node.val
+            L = postorder(node.left)
+            R = postorder(node.right)
+            
+            # don't include if it's negative
+            if L >= 0:
+                current += L
+            
+            if R >= 0:
+                current += R
+            
+            postorder.max_sum = max(postorder.max_sum, current)
+            
+            # we can return either left, right or the node itself
+            # it won't be a path otherwise
+            return max(
+                        node.val,
+                        node.val + L,
+                        node.val + R
+                   )
+        
+        # static variable to store max
+        postorder.max_sum = float('-inf')
+        postorder(root)
+        
+        return postorder.max_sum
+```
+
 https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
 ```py
 class Solution:
