@@ -2,7 +2,7 @@
 
 
 #### Construct a tree from the input
-**This is for leetcode style input**
+###### This is for leetcode style input
 ```py
 from collections import deque
 
@@ -49,7 +49,6 @@ constructTree.iterator = 0
 # tree = [1, 2, None, 3, 4, None, None, 5, 6]
 root = constructTree(tree)
 ```
-
 
 #### Balanced tree construction
 https://leetcode.com/problems/balance-a-binary-search-tree/discuss/540038/python-3-easy-to-understand

@@ -37,10 +37,17 @@ C.most_common(n) #returns a list of top n
 Or we can just keep track of the most frequent element while going throught the list
 
 #### heapq insert with priority
-```
+```py
 import heapq
 heap = []
 heapq.heappush(heap, (priority, item))
+```
+
+#### heapq also has a merge function
+We can use this to merge sorted lists
+```py
+from heapq import merge
+merge(list1, list2)
 ```
 
 #### Efficient looping:

@@ -27,6 +27,48 @@ class Solution:
             
         return total_sum
 ```
+Another iterative: <br />
+we use to exit the loop right after we find the discrepancy <br />
+https://leetcode.com/problems/leaf-similar-trees/
+```py
+class Solution:
+    def leafSimilar(self, root1: TreeNode, root2: TreeNode) -> bool:
+        
+        def iterative(root, validation=False):
+            """
+            validation true:= add elems to leaves attr
+            validation false:= remove elems from the attr and exit if not match
+            """
+            current = root
+            stack = []
+            
+            while stack or current:
+                while current:
+                    stack.append(current)
+                    current = current.left
+                
+                current = stack.pop()
+                
+                if not current.left and not current.right:
+                    if not validation:
+                        iterative.leaves.append(current.val)
+                    else:
+                        if iterative.leaves and \
+                        current.val == iterative.leaves[0]:
+                            iterative.leaves.pop(0)
+                        else:
+                            iterative.similar = False
+                            return
+                
+                current = current.right
+        
+        iterative.leaves = []
+        iterative.similar = True
+        iterative(root1)
+        iterative(root2, validation=True)
+        
+        return iterative.similar and len(iterative.leaves) == 0
+```
 #### Recursive 
 https://leetcode.com/problems/binary-tree-paths/ <br />
 Return `False` only in the case of not satisfying the criteria, do not return `True` until the base case

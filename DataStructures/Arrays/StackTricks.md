@@ -1,6 +1,9 @@
-### Deque trick / monoqueue technique
+### Stacks / Deque trick / monoqueue technique
 
-Extremely useful to find next greater or previous greater, etc
+Main concepts here:
+###### Knuth stack-sorting (132 pattern)
+* https://leetcode.com/problems/132-pattern/
+###### deque trick
 * https://leetcode.com/problems/next-greater-element-i/
 * https://leetcode.com/problems/online-stock-span/
 * https://leetcode.com/problems/sliding-window-maximum/
@@ -12,32 +15,29 @@ We might want to add some more info (eg. location) <br />
 Each incoming element will be compared with the last element: <br />
 * Keep on popping if stack/queue and the last element is smaller than the current one
 * Go ahead and append it to the stack/queue
+* The element that displaces stack element is the next greater for the elem that got displaced
+* The stack elements at the end have no next greaters
 
-For next greater, run the loop backwards and for the sliding window question, <br />
-pop the first one if it's outside of the window boundaries (< `(i - k + 1)`)
-
+It's all a game of displacing elements in the stack and interpretation of the ones that are left in it. <br />
+Scenarios: 
+* A bigger element comes next: will displace and add their displacements.
+* Equal: will displace some; we take their displacements and add.
+* Smaller: didn't displace anything. 
 General solution: 
 ```py
-from collections import deque
-
 class StockSpanner:
 
     def __init__(self):
-        self.queue = deque()
-        self.counter = 0
+        self.stack = []
 
     def next(self, price: int) -> int:
-        self.counter += 1
-        result = self.counter
+        displaced = 1
+        while self.stack and self.stack[-1][0] <= price:
+            _, new_displacement = self.stack.pop()
+            displaced += new_displacement
         
-        while self.queue and self.queue[-1][0] <= price:
-            self.queue.pop()
-        
-        if self.queue:
-            result = self.counter - self.queue[-1][1]
-        
-        self.queue.append((price, self.counter))
-        return result
+        self.stack.append((price, displaced))
+        return displaced
 ```
 Next greater
 ```py
@@ -87,38 +87,32 @@ class RecentCounter:
         self.window.append(t)
         return len(self.window)
 ```
-Now the original question with sliding window
+Now the original question with sliding window <br />
+Always remember: <br />
+* DRY: Don't Repeat Yourself
+* Augmentation here: pop the first elem if it's out of the window
 ```py
 from collections import deque
 
 class Solution:
     def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
-        queue = deque()
+        stack = deque()
         result = []
         
-        if k == 1:
-            return nums
-        
-        if k == len(nums):
+        if len(nums) <= k:
             return [max(nums)]
         
-        for i in range(0, k):
-            while queue and nums[queue[-1]] < nums[i]:
-                queue.pop()
-            queue.append(i)
-        
-        result.append(nums[queue[0]])
-        
-        for i in range(k, len(nums)):            
-            if queue[0] < (i - k + 1):
-                queue.popleft()
-                
-            while queue and nums[queue[-1]] < nums[i]:
-                queue.pop()
-                
-            queue.append(i)
-            result.append(nums[queue[0]])
+        for i, e in enumerate(nums):
+            if stack and stack[0][1] <= (i - k):
+                stack.popleft()
             
+            while stack and stack[-1][0] <= e:
+                stack.pop()
+            
+            stack.append((e, i))
+            if i >= (k - 1):
+                result.append(stack[0][0])
+                
         return result
 ```
 https://leetcode.com/problems/largest-rectangle-in-histogram/
