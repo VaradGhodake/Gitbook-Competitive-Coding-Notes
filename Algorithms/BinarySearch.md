@@ -10,7 +10,7 @@ Decide what direction we have to go in case of equality. Minimum of such solutio
 
 One of these things should be done: <br />
 _Remember:_ we should never have a case where `start <= end` and somehow start or end do not change.
-1. (`start < end` loop) include `mid` in the next iteration. i.e. instead of `end = mid - 1`, use `end = mid`; same thing for start.
+1. (`start < end` loop) include `mid` in the next iteration. i.e. instead of `end = mid - 1`, use `end = mid`; *DO NOT do the same thing for start*. Try to find the element _after_ pivot. [Look at https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/]
 2. (`start <= end` loop) somehow get the equality thing sorted; decrement end or start: LeetCode 154
 
 Good problem set:
@@ -92,6 +92,45 @@ class Solution:
                 
         return result
 ```
+https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/
+```py
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def bstFromPreorder(self, preorder: List[int]) -> TreeNode:        
+        def find_first_greater(start, end, target):
+            while start < end:
+                mid = start + (end - start) // 2
+                
+                if preorder[mid] > target:
+                    end = mid
+                else:
+                    start = mid+1
+            return start
+        
+        def constructTree(start, end):
+            if start > end:
+                return None
+            
+            current = TreeNode(preorder[start])
+            fg = find_first_greater(start + 1, end, preorder[start])
+            
+            # there is no greater element
+            # this step is important
+            if fg >= len(preorder) or preorder[fg] <= preorder[start]:
+                fg = end + 1
+            
+            current.left = constructTree(start + 1, fg - 1)
+            current.right = constructTree(fg, end)
+            return current
+            
+        return constructTree(0, len(preorder)-1)
+```
+
 https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 ```py
 class Solution:

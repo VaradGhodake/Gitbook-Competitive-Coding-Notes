@@ -51,21 +51,34 @@ root = constructTree(tree)
 ```
 
 #### Balanced tree construction
-https://leetcode.com/problems/balance-a-binary-search-tree/discuss/540038/python-3-easy-to-understand
-
+https://leetcode.com/problems/balance-a-binary-search-tree/
 ```py
 class Solution:
-    def constructTree(arr: list) -> TreeNode:
-        if not len(list):
-            return None
-
-        mid = len(arr) // 2
+    def balanceBST(self, root: TreeNode) -> TreeNode:
+        node_vals = []
         
-        node = TreeNode(arr[mid])
-        node.left = self.constructTree(arr[:mid])
-        node.right = self.constructTree(arr[mid + 1: ])
+        def traverse(node):
+            if not node:
+                return 
+            
+            traverse(node.left)
+            node_vals.append(node.val)
+            traverse(node.right) 
+        
+        def construct_tree(start, end):
+            if start > end:
+                return None
+            
+            middle = start + (end - start) // 2
 
-        return node
+            current = TreeNode(node_vals[middle])
+            current.left = construct_tree(start, middle - 1)
+            current.right = construct_tree(middle + 1, end)
+            
+            return current            
+        
+        traverse(root)
+        return construct_tree(0, len(node_vals) - 1)
 ```
 
 ### Construction from preorder 

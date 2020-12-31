@@ -9,6 +9,7 @@
         * [Subsets](DataStructures/Arrays/Subsets.md)
         * [Triplets](DataStructures/Arrays/Triplets.md)
         * [Stack Tricks](DataStructures/Arrays/StackTricks.md)
+        * [Multiple Arrays](DataStructures/Arrays/MultipleArrays.md)
     * [Strings](DataStructures/Strings/README.md)
         * [Standard Questions](DataStructures/Strings/StandardQuestions.md)
     * [Linked Lists](DataStructures/LinkedLists/README.md)

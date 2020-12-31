@@ -1,5 +1,26 @@
 ### Two trees
 
+https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/ <br />
+Python reference equality: `is` <br />
+Compare it to the original one rather than the clone; the algorithm will take care of the result
+```py
+class Solution:
+    def getTargetCopy(self, original: TreeNode, cloned: TreeNode, target: TreeNode) -> TreeNode:
+        self.result = None
+        
+        def inorder(o: TreeNode, c: TreeNode):
+            if not o:
+                return None
+            
+            inorder(o.left, c.left)
+            if o is target:
+                self.result = c
+            inorder(o.right, c.right)
+        
+        inorder(original, cloned)
+        return self.result
+```
+
 https://leetcode.com/problems/merge-two-binary-trees/
 ```py
 class Solution:

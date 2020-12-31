@@ -6,6 +6,7 @@ Template for simple questions like: <br />
 * 252 Meeting Rooms
 * 253 Meeting Rooms II 
 * https://leetcode.com/problems/interval-list-intersections/solution/ <br />
+* https://leetcode.com/problems/partition-labels/ (secretly an interval problem; intervals are sorted automatically once you create because of the way we do them)
 
 For trivial questions, we sort based on the starting time. <br />
 https://leetcode.com/problems/non-overlapping-intervals/
@@ -110,3 +111,30 @@ https://leetcode.com/problems/course-schedule-iii/ <br>
 Sorting + max_heap <br />
 Sort based on ending times, accept courses if possible <br />
 If we can't check if we can remove something from the accepted set and select the one which makes our time compact
+
+https://leetcode.com/problems/partition-labels/
+```py
+class Solution:
+    def partitionLabels(self, S: str) -> List[int]:
+        # find intervals
+        # merge intersecting intervals
+        intervals = {}
+        LAST_INTERVAL, END = -1, 1
+        result = []
+        
+        for i, s in enumerate(S):
+            if s in intervals:
+                intervals[s][END] = i
+            else:
+                intervals[s] = [i, i]
+        
+        intervals = intervals.values()
+        
+        for s, e in intervals:
+            if not result or result[LAST_INTERVAL][END] < s:
+                result.append([s, e])
+            else:
+                result[LAST_INTERVAL][END] = max(result[LAST_INTERVAL][END], e)
+        
+        return [e-s+1 for s, e in result]
+```

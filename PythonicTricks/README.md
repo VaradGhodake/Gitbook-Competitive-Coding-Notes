@@ -10,6 +10,18 @@ INT_MIN:
 INT_MIN = float('-inf')
 ```
 
+Rather than doing all sorts of complicated stuff with `// +- 1`, just use `math` <br />
+```py
+import math
+
+math.ceil
+math.floor
+```
+
+To compare references, do it with `is` <br />
+`key` in `min/max/sorted` should get a function. You can create a lambda if required. <br />
+Make a comparison function and use it with lambda. (check Multiple Arrays section)
+
 #### Sort list with a tie-breaker
 Example: https://leetcode.com/problems/remove-covered-intervals/
 Also look at `tricky sorting` in Algorithms section

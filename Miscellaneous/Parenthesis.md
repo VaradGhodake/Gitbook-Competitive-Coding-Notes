@@ -4,6 +4,7 @@
 * https://leetcode.com/problems/generate-parentheses/
 * https://leetcode.com/problems/valid-parenthesis-string/
 * https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
+* https://leetcode.com/problems/remove-outermost-parentheses/
 
 #### Valid parenthesis <br />
 Simple idea. Push to the stack if it's an open one; pop if it's a matching closing one. <br />
@@ -64,4 +65,26 @@ class Solution:
                 current += c
                 
         return ''.join(stack) + current
+```
+https://leetcode.com/problems/remove-outermost-parentheses/
+```py
+class Solution:
+    def removeOuterParentheses(self, S: str) -> str:
+        stack = []
+        start = 0
+        result = ""
+        
+        for i, c in enumerate(S):
+            if not stack:
+                start = i
+
+            if c == '(':
+                stack.append(c)
+            else:
+                stack.pop()
+            
+            if not stack:
+                result += S[start + 1: i]
+        
+        return result            
 ```
