@@ -10,7 +10,7 @@ Decide what direction we have to go in case of equality. Minimum of such solutio
 
 One of these things should be done: <br />
 _Remember:_ we should never have a case where `start <= end` and somehow start or end do not change.
-1. (`start < end` loop) include `mid` in the next iteration. i.e. instead of `end = mid - 1`, use `end = mid`; *DO NOT do the same thing for start*. Try to find the element _after_ pivot. [Look at https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/]
+1. (`start < end` loop) include `mid` in the next iteration. i.e. use `end = mid`; *DO NOT do the same thing for start*. Try to find the element _after_ pivot. [Look at https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/]
 2. (`start <= end` loop) somehow get the equality thing sorted; decrement end or start: LeetCode 154
 
 Good problem set:

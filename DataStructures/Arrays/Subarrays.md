@@ -7,6 +7,27 @@
 There can be complex problems outside these as well
 
 ##### Find subarray size K:
+https://leetcode.com/problems/subarray-sum-equals-k/ <br />
+`k = current - prev`; so `prev = current - k` <br />
+Add all frequencies of prev to the total
+```py
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        freq = {0:1}
+        current, total = 0, 0
+        
+        for i, n in enumerate(nums):
+            current += n
+            if (current - k) in freq:
+                total += freq[(current - k)]
+            
+            if current not in freq:
+                freq[current] = 1
+            else:
+                freq[current] += 1
+        
+        return total
+```
 
 Requires all subarrays of all sizes and find all where a constraint is matched: <br />
 https://www.geeksforgeeks.org/number-subarrays-product-less-k/
@@ -17,6 +38,34 @@ Right move: everytime unless the product is more than the constraint
 
 Catch: Each addition of the element produces `(end_index - (start_index - 1))` more subarrays <br />
 Catch: Which implies -- subarray of size d produces `d * (d + 1)/2` different subarrays
+
+
+https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/ <br />
+Great question, instead of looking at the ends, find the max subarray with sum `total - x` <br />
+Corner case would be when `total == x`. Use prefix array to find that
+```py
+class Solution:
+    def minOperations(self, nums: List[int], x: int) -> int:
+        total = sum(nums)
+        target = total - x
+        sums = {0: -1}
+        current, length = 0, float('-inf')
+        
+        if target == 0:
+            return len(nums)
+        
+        for i, n in enumerate(nums):
+            current += n
+            
+            if (current - target) in sums:
+                length = max(length, i - sums[current - target])
+            
+            if current not in sums:
+                sums[current] = i
+        
+        return (len(nums)-length) if length != float('-inf') else -1
+        
+```
 
 https://www.geeksforgeeks.org/maximum-subarray-size-subarrays-size-sum-less-k/
 

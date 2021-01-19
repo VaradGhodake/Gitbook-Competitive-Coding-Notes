@@ -8,6 +8,8 @@ Optimization for BST: <br />
 Check if the target value is greater than current, go right; no need to go left. Vice versa. <br />
 Also need to do the same sometimes to handle the nodes that don't have either left child or the right one. Don't forget to initialize L or R before calling postorder. Look at the solution of good leaf nodes.
 
+Sometimes, you'd need to go down the tree and then come back up with height related data (eg. https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/)
+
 #### General solution:
 https://leetcode.com/problems/binary-tree-maximum-path-sum/
 ```py
@@ -74,7 +76,6 @@ class Solution:
         traverse(root)
         return self.lca
 ```
-
 https://leetcode.com/problems/most-frequent-subtree-sum/ <br />
 _Note:_ Recording max_count while inserting so that finding max will be easier afterwards.
 
@@ -216,4 +217,68 @@ class Solution:
         
         postorder(root)
         return self.total
+```
+https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/ <br />
+We even treat `None` nodes as leaves. Other leave nodes would obviously lower than the `None` node. <br />
+If the left and right leaves are at the same height, just return the current node as LCA otherwise just pass it on with the adjusted height.
+```py
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def lcaDeepestLeaves(self, root: TreeNode) -> TreeNode:
+        def postorder(node):
+            if not node:
+                return 0, None
+            
+            if not node.left and not node.right:
+                return 1, node
+            
+            L_H, L_lca = postorder(node.left)
+            R_H, R_lca = postorder(node.right)
+            
+            if L_H > R_H:
+                return L_H + 1, L_lca
+            
+            if R_H > L_H:
+                return R_H + 1, R_lca
+            
+            return L_H + 1, node
+        
+        _, lca = postorder(root)
+        return lca
+```
+A slightly similar problem: <br />
+https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iv/
+```py
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', nodes: 'List[TreeNode]') -> 'TreeNode':
+        target = set([i.val for i in nodes])
+        self.lca = None
+        
+        def postorder(node):
+            if not node:
+                return 0
+            
+            L = postorder(node.left)
+            R = postorder(node.right)
+            
+            found = L + R + (node.val in target)
+            if found == len(target) and not self.lca:
+                self.lca = node
+            
+            return found
+        
+        postorder(root)
+        return self.lca
 ```

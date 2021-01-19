@@ -4,6 +4,7 @@
 * https://leetcode.com/problems/generate-parentheses/
 * https://leetcode.com/problems/valid-parenthesis-string/
 * https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/
+* https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/
 * https://leetcode.com/problems/remove-outermost-parentheses/
 
 #### Valid parenthesis <br />
@@ -43,29 +44,50 @@ Top-down backtrack is very intuitive
                 memo[(i, stack)] = memo[(i, stack)] or \
                                    backtrack(i + 1, stack - 1)
 ```
-Tricky: https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/ <br />
-If it's a normal character, extend current string <br />
-If it's a `(`, push the whole thing on stack and make current an empty string <br />
-If it's a `)`, `pop one from the stack + ( + current + )`
-Return `return ''.join(stack) + current`
+https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/ <br />
+The ones that need to be removed are:
+1. close brakets that come when there was no open one before it 
+2. open ones that don't have a close one after them
+Just need to find them and replace with an empty string.
+Set is interchangable with list here because we don't care what open bracket a close one matches with; we'd just pop
 ```py
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
-        stack = []
-        current = ''
+        eq = list(s)
+        opened = set()
         
-        for c in s:
+        for i, c in enumerate(eq):
             if c == '(':
-                stack.append(current)
-                current = ''
+                opened.add(i)
             elif c == ')':
-                if stack:
-                    current = stack.pop() + '(' + current + ')'
-            else:
-                current += c
-                
-        return ''.join(stack) + current
+                if not opened:
+                    eq[i] = ''
+                else:
+                    opened.pop()
+
+        return ''.join([c if (i not in opened) else '' for i, c in enumerate(eq)])
 ```
+https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/ <br />
+A closed bracket without a corresponding opening one, can never to balanced afterwards, irrespective of what comes after <br />
+An open bracket can be matched by a closed one immediately.
+```py
+class Solution:
+    def minAddToMakeValid(self, S: str) -> int:
+        open_brackets = 0
+        closed_brackets = 0
+        
+        for i, s in enumerate(S):
+            if s == '(':
+                open_brackets += 1
+            else:
+                if not open_brackets:
+                    closed_brackets += 1
+                else:
+                    open_brackets -= 1
+        
+        return open_brackets + closed_brackets
+```
+
 https://leetcode.com/problems/remove-outermost-parentheses/
 ```py
 class Solution:
@@ -87,4 +109,61 @@ class Solution:
                 result += S[start + 1: i]
         
         return result            
+```
+https://leetcode.com/problems/remove-invalid-parentheses/ <br />
+This is a combination of two problems: first identify the number of removals required and then generate strings with backtracking <br />
+`net` is basically `number of open brackets - number of closed brackets` <br />
+Then it is just a matter of pruning the tree and finding the optimal solution
+```py
+class Solution:
+    def removeInvalidParentheses(self, s: str) -> List[str]:
+        net, removal = 0, 0
+        result = set()
+        visited = set()
+        
+        for c in s:
+            # find the minimum number of removals to be made
+            if c == '(':
+                net += 1
+            elif c == ')':
+                net -= 1
+            
+            if net == -1:
+                net = 0
+                removal += 1
+        removal += net
+        
+        def construct(index, net, string, removals):
+            if (string, removals) in visited:
+                return 
+            else:
+                visited.add((string, removals))
+            
+            if removals == -1:
+                return
+            
+            if index == len(s):
+                # we found the solution
+                if net == 0 and removals == 0:
+                    result.add(string)
+                return
+            
+            if s[index] == '(':
+                # include open bracket
+                construct(index + 1, net + 1, string + '(', removals)
+            
+            if s[index] == ')':
+                # include 
+                if net > 0:
+                    construct(index + 1, net - 1, string + ')', removals)
+            
+            if s[index] in ['(', ')']:
+                # exclude brackets
+                construct(index + 1, net, string, removals - 1)
+            else:
+                # normal character
+                construct(index + 1, net, string + s[index], removals)
+        
+        construct(0, 0, '', removal)
+        return result
 ```

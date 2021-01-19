@@ -2,7 +2,8 @@
 
 https://leetcode.com/problems/container-with-most-water/ <br /> 
 https://leetcode.com/problems/two-sum/<br />
-https://leetcode.com/problems/3sum/
+https://leetcode.com/problems/3sum/ <br/>
+https://leetcode.com/problems/boats-to-save-people/
 
 Two pointers is really an easy and effective technique which is typically used for searching pairs in an array.
  Two pointers:

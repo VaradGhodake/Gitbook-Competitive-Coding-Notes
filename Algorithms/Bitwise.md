@@ -57,3 +57,51 @@ class Solution:
 ```
 https://leetcode.com/problems/power-of-two/
 Trick: If a number is a power of 2, `n & (n - 1) == 0`
+
+https://leetcode.com/problems/add-binary/ <br />
+Keep `a` smaller by check and swap. Write a rule function. <br />
+One small check after the main loop.
+```py
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        extra = 0
+        result = ''
+        
+        def add(_a, _b, _c):
+            one = 0
+            
+            for n in [_a, _b, _c]:
+                if n == '1':
+                    one += 1
+            
+            if one == 3:
+                return '1', '1'
+            if one == 2:
+                return '1', '0'
+            if one == 1:
+                return '0', '1'
+            if one == 0:
+                return '0', '0'
+        
+        if len(a) > len(b):
+            a, b = b, a
+        
+        i = 0
+        while i < len(b):
+            if i >= len(a):
+                _a = '0'
+            else:
+                _a = a[len(a) - 1 - i]
+            
+            _b = b[len(b) - 1 - i]
+            
+            extra, num = add(_a, _b, extra)
+            result = num + result
+            
+            i += 1
+        
+        if extra == '1':
+            return '1' + result
+        
+        return result
+```

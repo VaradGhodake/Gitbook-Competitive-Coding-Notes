@@ -3,51 +3,68 @@
 
 #### Construct a tree from the input
 ###### This is for leetcode style input
+https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
 ```py
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
 from collections import deque
 
-class TreeNode:
-    def __init__(self, val):
-        self.val = val
-        self.left = None
-        self.right = None
+class Codec:
 
-def constructTree(tree):
-    queue = deque()
-    n = len(tree)
-
-    while constructTree.iterator < n:
-        if constructTree.iterator == 0:
-            constructTree.root = TreeNode(tree[constructTree.iterator])
-            queue.append(constructTree.root)
-            constructTree.iterator += 1
-            continue
-
-        node = queue.popleft()
-
-        if node:
-            if tree[constructTree.iterator]:
-                node.left = TreeNode(tree[constructTree.iterator])
+    def serialize(self, root):
+        """Encodes a tree to a single string.
+        
+        :type root: TreeNode
+        :rtype: str
+        """
+        result = ''
+        queue = deque()
+        queue.append(root)
+        
+        while queue:
+            size = len(queue)
+            
+            for _ in range(size):
+                node = queue.popleft()
+                
+                if not node:
+                    result += '#,'
+                    continue
+                
+                result += (str(node.val) + ',')
+                
                 queue.append(node.left)
-            else:
-                node.left = None
-
-            constructTree.iterator += 1
-
-            if tree[constructTree.iterator]:
-                node.right = TreeNode(tree[constructTree.iterator])
                 queue.append(node.right)
-            else:
-                node.right = None
+        
+        # ends with ','
+        return result[:len(result)-1]
 
-            constructTree.iterator += 1
-    
-    return constructTree.root
-
-constructTree.root = None
-constructTree.iterator = 0
-# tree = [1, 2, None, 3, 4, None, None, 5, 6]
-root = constructTree(tree)
+    def deserialize(self, data):
+        """Decodes your encoded data to tree.
+        
+        :type data: str
+        :rtype: TreeNode
+        """
+        nodes = [TreeNode(int(val)) if val != '#' else None for val in data.split(',')]
+        
+        child, parent = 1, 0
+        while child < len(nodes):
+            if not nodes[parent]:
+                parent += 1
+                continue
+                
+            nodes[parent].left = nodes[child]
+            child += 1
+            nodes[parent].right = nodes[child]
+            child += 1
+            parent += 1
+        
+        return nodes[0]
 ```
 
 #### Balanced tree construction
@@ -81,7 +98,7 @@ class Solution:
         return construct_tree(0, len(node_vals) - 1)
 ```
 
-### Construction from preorder 
+#### Construction from preorder 
 https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/
 ```py
 # Definition for a binary tree node.

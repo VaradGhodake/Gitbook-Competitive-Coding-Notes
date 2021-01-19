@@ -25,23 +25,19 @@ https://leetcode.com/problems/merge-two-binary-trees/
 ```py
 class Solution:
     def mergeTrees(self, t1: TreeNode, t2: TreeNode) -> TreeNode:
-        
-        def merge(node1, node2):
-            if not node1 and not node2:
-                return None
+        def preorder(node1, node2):
+            if not node2:
+                return node1
             
             if not node1:
                 return node2
             
-            if not node2:
-                return node1
-            
             node1.val += node2.val
-            node1.left = merge(node1.left, node2.left)
-            node1.right = merge(node1.right, node2.right)
+            node1.left = preorder(node1.left, node2.left)
+            node1.right = preorder(node1.right, node2.right)
             return node1
-        
-        return merge(t1, t2)
+            
+        return preorder(t1, t2)
 ```
 Keep things simple:<br />
 https://leetcode.com/problems/all-elements-in-two-binary-search-trees/

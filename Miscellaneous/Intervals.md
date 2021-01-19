@@ -5,7 +5,7 @@ Template for simple questions like: <br />
 * 56 Merge Intervals 
 * 252 Meeting Rooms
 * 253 Meeting Rooms II 
-* https://leetcode.com/problems/interval-list-intersections/solution/ <br />
+* https://leetcode.com/problems/interval-list-intersections/ <br />
 * https://leetcode.com/problems/partition-labels/ (secretly an interval problem; intervals are sorted automatically once you create because of the way we do them)
 
 For trivial questions, we sort based on the starting time. <br />
@@ -43,6 +43,30 @@ class Solution:
 
         return arrows
 ```
+https://leetcode.com/problems/meeting-rooms-ii/ <br />
+We just need events actually. If one comes, need a room if anyone leaves, required rooms decrease. <br />
+Convert into a flat list, closing times should be changed into negative. IMP: for sorting to get the events, sort based on absolute vals and tiebreaker should be a sign. <br />
+Negatives should be given a preference.
+```py
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        n = len(intervals)
+        
+        intervals = [((-1)**i) * interval[i] for interval in intervals for i in range(2)]
+        intervals = sorted(intervals, key=lambda x: (abs(x), x))
+        
+        rooms, max_rooms = 0, 1
+        
+        for event in intervals:
+            if event >= 0:
+                rooms += 1
+            else:
+                rooms -= 1
+            
+            max_rooms = max(max_rooms, rooms)
+        
+        return max_rooms
+```s
 Another variation of this problem: <br />
 https://leetcode.com/problems/remove-covered-intervals/
 ```py
@@ -79,6 +103,29 @@ class Solution:
                 result[-1][1] = max(result[-1][1], end)
                 
         return result
+```
+https://leetcode.com/problems/interval-list-intersections/
+```py
+class Solution:
+    def intervalIntersection(self, A, B):
+        i, j, START, END = 0, 0, 0, 1
+        max_start, min_end = float('-inf'), float('inf')
+        result = []
+        
+        while i < len(A) and j < len(B):
+            max_start = max(A[i][START], B[j][START])
+            min_end = min(A[i][END], B[j][END])
+            
+            if max_start <= min_end:
+                result.append([max_start, min_end])
+            
+            if A[i][END] < B[j][END]:
+                i += 1
+            else:
+                j += 1
+            
+        return result
+    
 ```
 
 https://leetcode.com/problems/insert-interval/ <br />
