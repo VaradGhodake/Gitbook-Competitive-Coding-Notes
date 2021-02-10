@@ -1,7 +1,9 @@
 ### Bitwise 
 
 Toggle j-th bit: `vowel_set ^= (1 << j)` <br />
-We can use this to store all even or imperfect dict of a set (See longest substring vowel question)
+We can use this to store all even or imperfect dict of a set (See longest substring vowel question) <br />
+Check LSB 1 or not: `n & 1` <br />
+ANDing the two numbers n and n - 1 always flips the least significant 1-bit in n to 0, and keeps all other bits the same.
 
 https://leetcode.com/explore/challenge/card/may-leetcoding-challenge/537/week-4-may-22nd-may-28th/3343/
 ```py
@@ -105,3 +107,6 @@ class Solution:
         
         return result
 ```
+https://leetcode.com/problems/number-of-1-bits/ <br />
+`n &= (n - 1)` trick <br />
+ANDing the two numbers n and n - 1 always flips the least significant 1-bit in n to 0, and keeps all other bits the same.

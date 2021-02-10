@@ -179,3 +179,61 @@ class Solution:
         
         return result
 ```
+https://leetcode.com/explore/challenge/card/january-leetcoding-challenge-2021/582/week-4-january-22nd-january-28th/3612/ <br />
+Only 3 possiblities. If length diff > 1, not able to equilize using one change. <br />
+Two loops for length diff == 1 and 0
+```py
+class Solution:
+    def isOneEditDistance(self, s: str, t: str) -> bool:
+        if abs(len(s)-len(t)) > 1:
+            return False
+        
+        if abs(len(s)-len(t)) == 1:
+            i = 0
+            while i < min(len(s), len(t)):
+                if s[i]==t[i]:
+                    i += 1
+                    continue
+                
+                return s[i:] == t[i+1:] if len(s) < len(t) else t[i:] == s[i+1:]            
+            return True
+        
+        i = 0
+        while i < len(s):
+            if s[i] == t[i]:
+                i += 1
+                continue
+            
+            return s[i+1:] == t[i+1:]
+        return False
+```
+https://leetcode.com/problems/squirrel-simulation/solution/ <br />
+Great question. Distance finding is simple. Visualize how that'll happen. <br />
+The first visit should be to the node closest to squirrel and farthest to tree <br />
+`total - dist_t[m_idx] + dist_s[m_idx] == total - m` 
+```py
+class Solution:
+    def minDistance(self, height: int, width: int, tree: List[int], squirrel: List[int], nuts: List[List[int]]) -> int:
+        # distances from squirrel
+        # distances from tree
+        # max(t[x]-s[x])
+        
+        s, t = [[0] * len(nuts)] * 2
+        m, m_idx = float('-inf'), 0
+        total = 0
+        
+        for i, n in enumerate(nuts):
+            x = n[0]
+            y = n[1]
+            
+            dist_t = abs(tree[0] - x) + abs(tree[1] - y)
+            dist_s = abs(squirrel[0] - x) + abs(squirrel[1] - y)
+            
+            total += 2 * dist_t
+            dist_diff = (dist_t-dist_s)
+            if m < dist_diff:
+                m = dist_diff
+                m_idx = i
+        
+        return total - m
+```

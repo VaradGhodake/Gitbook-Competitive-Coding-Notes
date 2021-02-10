@@ -91,3 +91,28 @@ class Solution:
         traverse(root, "")
         return result
 ```
+https://leetcode.com/problems/convert-bst-to-greater-tree/ <br />
+Augmented inorder search; right first. DO NOT EVEN THINK ABOUT USING POSTORDER HERE. <br />
+Use a static variable to keep track of the cumulative sum
+```py
+class Solution:
+    def convertBST(self, root: TreeNode) -> TreeNode:
+        if not root or not (root.left or root.right):
+            return root
+        
+        def _inorder(node):
+            if not node:
+                return None
+            
+            _inorder(node.right)
+            
+            node.val += _inorder.sum
+            _inorder.sum = node.val
+            
+            _inorder(node.left)
+            
+            return node
+        
+        _inorder.sum = 0
+        return _inorder(root)
+```

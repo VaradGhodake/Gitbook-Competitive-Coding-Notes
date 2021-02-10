@@ -1,4 +1,4 @@
-### Subsets
+### Subsets/subsquence
 
 Geeks for Geeks archives: https://www.geeksforgeeks.org/tag/subset/ <br />
 
@@ -52,4 +52,10 @@ class Solution:
             index = pre[index]
             
         return result
+```
+https://leetcode.com/problems/longest-harmonious-subsequence/
+It's a subsequence, meaning, you can drop elements you don't like. <br />
+The gotcha here is that the max length of subsequence is just `freq(x) + freq(x+1) | x E array`
+```py
+
 ```

@@ -39,6 +39,25 @@ class StockSpanner:
         self.stack.append((price, displaced))
         return displaced
 ```
+Great question:
+https://leetcode.com/problems/find-the-most-competitive-subsequence/ <br />
+We need to select k smallest nums one after another. <br />
+`additional` is the key here.
+```py
+class Solution:
+    def mostCompetitive(self, nums: List[int], k: int) -> List[int]:
+        stack = []
+        additional = len(nums)-k
+        
+        for i, n in enumerate(nums):
+            while stack and stack[-1] > n and additional > 0:
+                stack.pop()
+                additional -= 1
+            
+            stack.append(n)
+        
+        return stack[:k]
+```
 Next greater
 ```py
 from collections import defaultdict

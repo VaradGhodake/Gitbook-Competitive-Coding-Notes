@@ -2,7 +2,37 @@
 
 
 ### heap questions:
+https://leetcode.com/problems/path-with-minimum-effort/ <br />
+Djikstra. Note where we're checking the existance in `visited` set. <br />
+We'll always traverse min heuristic path because heap. (pay attention to the `heappush` call)
+```py
+import heapq
 
+class Solution:
+    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+        X, Y = len(heights), len(heights[0])
+        heap = [(0, 0, 0)] # d, x, y
+        visited = set()
+        
+        while heap:
+            d, x, y = heapq.heappop(heap)
+            
+            if (x, y) in visited:
+                continue
+            
+            if x == (X-1) and y == (Y-1):
+                return d
+            
+            visited.add((x, y))
+            
+            for _x, _y in [(x+1,y),(x-1,y),(x,y+1),(x,y-1)]:
+                if not (0 <= _x < X) or not (0 <= _y < Y):
+                    continue
+                
+                heapq.heappush(heap, (max(d, abs(heights[x][y]-heights[_x][_y])), _x, _y))
+                
+        return -1
+```
 https://leetcode.com/problems/k-closest-points-to-origin/ <br />
 Maintain a heap of size `K`
 ```py
