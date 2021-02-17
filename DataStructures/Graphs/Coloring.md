@@ -12,7 +12,35 @@ For the these, we want to see if the solution exists: (use BFS)
 
 _Tips:_ <br />
 Make sure you have a proper representation of graph <br />
-Run the first loop over all vertices so that you don't miss disconnected sections.
+Run the first loop over all vertices so that you don't miss disconnected sections. <br />
+Just validate the coloring
+
+https://leetcode.com/problems/is-graph-bipartite/
+```py
+class Solution:
+    def isBipartite(self, graph: List[List[int]]) -> bool:
+        visited = {}
+        A, B = True, False
+        
+        def dfs(index, s):
+            if index in visited:
+                return visited[index] == s
+            
+            visited[index] = s
+            
+            valid = True
+            for d in graph[index]:
+                valid = (valid and dfs(d, not s))
+            
+            return valid
+        
+        for i in range(len(graph)):
+            if i not in visited and not dfs(i, A):
+                return False
+        
+        return True
+        
+```
 
 ```py
 from collections import deque

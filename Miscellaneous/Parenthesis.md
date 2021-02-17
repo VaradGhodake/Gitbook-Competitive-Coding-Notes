@@ -167,3 +167,25 @@ class Solution:
         construct(0, 0, '', removal)
         return result
 ```
+https://leetcode.com/problems/longest-valid-parentheses/ <br />
+start from this state: `[-1]` <br />
+Only unbalanced state will empty the stack, push that index to be the boundary <br />
+```py
+class Solution:
+    def longestValidParentheses(self, s: str) -> int:
+        stack = [-1]
+        max_len = 0
+        
+        for i, c in enumerate(s):
+            if c == '(':
+                stack.append(i)
+                continue
+            
+            stack.pop()
+            if stack:
+                max_len = max(max_len, i - stack[-1])
+            else:
+                stack.append(i)
+        
+        return max_len
+```

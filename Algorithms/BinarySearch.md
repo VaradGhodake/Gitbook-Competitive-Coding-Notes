@@ -16,6 +16,34 @@ _Remember:_ we should never have a case where `start <= end` and somehow start o
 Good problem set:
 * https://leetcode.com/discuss/general-discussion/691825/binary-search-for-beginners-problems-patterns-sample-solutions
 
+https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+```py
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        if not nums or nums[-1] < target:
+            return [-1, -1]
+        
+        def binarySearch(k, start=0, end=len(nums)):
+            if nums[-1] < k:
+                return len(nums)
+            
+            while start < end:
+                mid = start + (end - start) // 2
+                
+                if nums[mid] < k:
+                    start = mid + 1
+                else:
+                    end = mid
+            
+            return start
+        
+        target_idx = binarySearch(target)
+        if nums[target_idx] != target:
+            return [-1, -1]
+        
+        target_gt_idx = binarySearch(target + 1)
+        return [target_idx, target_gt_idx-1]
+```
 https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets
 ```py
 class Solution:

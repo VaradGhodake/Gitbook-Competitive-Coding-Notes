@@ -12,42 +12,42 @@ Simple dict py-3
 
 *857:* https://leetcode.com/problems/minimum-cost-to-hire-k-workers/
 
-*295:* https://leetcode.com/problems/find-median-from-data-stream/ <br />
-We maintain 2 heaps:- One max and one min <br />
-Max heap contains smaller half nums and min one container bigger half. We keep them partially sorted this way. <br />
-Push to the max heap first, and then perform rebalacing. Max heap should have 1 extra in case there are odd number of nums <br />
-
-_remember:_ `heapq` gives us min heap by default, make it negative and push/pop from max heap
+*31:* https://leetcode.com/problems/next-permutation/ <br />
+Find the next just greater element, swap elements and reverse the remaining array <br />
+Visualize the whole array and our case
 ```py
-import heapq
-
-class MedianFinder:
-
-    def __init__(self):
+class Solution:
+    def nextPermutation(self, nums: List[int]) -> None:
         """
-        initialize your data structure here.
+        Do not return anything, modify nums in-place instead.
         """
-        self.max_heap = []
-        self.min_heap = []
-
-    def addNum(self, num: int) -> None:
-        heapq.heappush(self.max_heap, -num)
-        temp = heapq.heappop(self.max_heap)
-        heapq.heappush(self.min_heap, -temp)
-
-        if len(self.max_heap) < len(self.min_heap):
-            temp = heapq.heappop(self.min_heap)
-            heapq.heappush(self.max_heap, -temp)
-
-    def findMedian(self) -> float:
-        TOP = 0
+        n = len(nums)
+        i = n - 2
         
-        if len(self.max_heap) == len(self.min_heap):
-            return ((-1) * self.max_heap[TOP] + self.min_heap[TOP]) / 2
-        else:
-            return (-1) * self.max_heap[TOP]
+        while i >= 0 and nums[i] >= nums[i+1]:
+            i -= 1
+        
+        # non-increasing array
+        if i == -1:
+            nums.reverse()
+            return 1
+        
+        j = i + 1
+        while j < n and nums[j] > nums[i]:
+            j += 1
+        j -= 1
+        
+        nums[i], nums[j] = nums[j], nums[i]
+        
+        l = i + 1
+        r = n - 1
+        while l < r:
+            nums[l], nums[r] = nums[r], nums[l]
+            l += 1
+            r -= 1
+        
+        return 0
 ```
-
 *621:* https://leetcode.com/problems/task-scheduler/ <br />
 Make it compact. Consider all most frequency elems as a single character. <br />
 Distance b/w them? of course `n` from the first one to make it as compact as possible. <br />
@@ -236,4 +236,28 @@ class Solution:
                 m_idx = i
         
         return total - m
+```
+#### Recursion
+https://leetcode.com/problems/powx-n/ <br />
+Calculate only half and based on power's divisibility by 2, take action. <br />
+Stop when power is 0
+```py
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        if n < 0:
+            x = 1 / x
+            n = -n
+        
+        def recurse(_n):
+            if _n == 0:
+                return 1
+            
+            half_pow = recurse(_n // 2)
+            
+            if _n % 2:
+                return half_pow * half_pow * x
+            else:
+                return half_pow * half_pow
+        
+        return recurse(n)
 ```

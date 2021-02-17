@@ -30,6 +30,7 @@
         * [Graph BFS](DataStructures/Graphs/GraphBFS.md)
         * [Graph DFS](DataStructures/Graphs/GraphDFS.md)
         * [Topology Sort](DataStructures/Graphs/TopologySort.md)
+    * [Heap](DataStructures/Heap.md)
 * [Algorithms](Algorithms/README.md)
     * [Tricky Sorting](Algorithms/TrickySorting.md)
     * [DFS and BFS](Algorithms/DFSandBFS.md)

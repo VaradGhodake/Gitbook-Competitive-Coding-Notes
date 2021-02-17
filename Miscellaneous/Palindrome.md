@@ -1,4 +1,36 @@
 ### Palindrome
+
+https://leetcode.com/problems/longest-palindromic-substring/ <br />
+Expand from the center. <br /> 
+For every index, 2 palindromes possible: <br />
+1. That character being a center (odd length) <br />
+2. That character being a left center (even length) <br />
+Now, write a util function and expand with `l` and `r` until string end and as 
+long as the characters match. <br />
+`max` function also supports `key` like `sorted` function
+```py
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        result = ""
+        
+        def find_len(l, r):
+            while l >= 0 and r < len(s) and s[l] == s[r]:
+                l -= 1
+                r += 1
+            
+            return l+1, r-1
+        
+        for i in range(len(s)):
+            # odd length palindromes
+            o_start, o_end = find_len(i, i)
+            
+            # even length palindromes
+            e_start, e_end = find_len(i, i+1)
+            result = max(result, s[o_start:o_end+1], s[e_start:e_end+1], key=lambda x: len(x))
+        
+        return result
+```
+
 https://leetcode.com/problems/valid-palindrome-ii/ <br />
 Check characters one by one, if they are same, adjust `start` and `end` <br />
 If they mismatch, direct check with string slices
