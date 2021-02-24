@@ -261,3 +261,20 @@ class Solution:
         
         return recurse(n)
 ```
+https://leetcode.com/problems/broken-calculator/ <br />
+Proof: https://leetcode.com/problems/broken-calculator/discuss/236565/Detailed-Proof-Of-Correctness-Greedy-Algorithm
+```py
+class Solution:
+    def brokenCalc(self, X: int, Y: int) -> int:
+        steps = 0
+        
+        while Y > X:
+            if Y % 2:
+                Y += 1
+            else:
+                Y //= 2
+        
+            steps += 1
+        
+        return steps + (X-Y)
+```

@@ -2,3 +2,44 @@
 
 #### Brute -> Sliding Window -> Set
 https://leetcode.com/problems/longest-substring-without-repeating-characters/
+
+
+#### Subsequence
+https://leetcode.com/problems/longest-word-in-dictionary-through-deleting/ <br />
+Visualize the problem. Occurence of each letter in `s` should be after the last one and the last occurence of the same letter (we store these in `offsets` dictionary) <br />
+If the number of matched letters is the same as the length of the word, we compare with the result. <br />
+Peep the `min` function with `key=lambda`
+```py
+class Solution:
+    def findLongestWord(self, s: str, d: List[str]) -> str:
+        store = {}
+        result = ''
+        for i, c in enumerate(s):
+            store[c] = store.get(c, []) + [i]
+        
+        for word in d:
+            offsets = {}
+            last = -1
+            matched = 0
+            
+            for c in word:
+                if c not in store:
+                    break
+                
+                offset = offsets.get(c, 0)
+                
+                if offset == len(store[c]):
+                    break
+                
+                for i in range(offset, len(store[c])):
+                    if store[c][i] > last:
+                        offsets[c] = i + 1
+                        last = store[c][i]
+                        matched += 1
+                        break
+            
+            if matched == len(word):
+                result = min(result, word, key= lambda x: (-len(x), x))
+        
+        return result
+```

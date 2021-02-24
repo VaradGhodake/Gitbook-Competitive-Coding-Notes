@@ -67,6 +67,32 @@ class Codec:
         return nodes[0]
 ```
 
+#### From preorder and inorder
+https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/ <br />
+Use a static variable for preorder indexing and keep an inorder map <br />
+root divides the inorder array into left and right subtree
+class Solution:
+```py
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode:
+        
+        def construct_tree(start=0, end=len(inorder)-1):
+            if start > end:
+                return None
+            
+            root = TreeNode(preorder[construct_tree.index])
+            root_idx = node_pos[root.val]
+            construct_tree.index += 1
+            
+            root.left = construct_tree(start, root_idx-1)
+            root.right = construct_tree(root_idx+1, end)
+            
+            return root
+        
+        construct_tree.index = 0
+        node_pos = {v: i for i, v in enumerate(inorder)}
+        return construct_tree()
+```
+
 #### Balanced tree construction
 https://leetcode.com/problems/balance-a-binary-search-tree/
 ```py
@@ -101,53 +127,36 @@ class Solution:
 #### Construction from preorder 
 https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/
 ```py
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution:
     def bstFromPreorder(self, preorder: List[int]) -> TreeNode:
         
-        if not preorder:
-            return None
+        def find_first_greater(start, end, target):
+            while start < end:
+                mid = start + (end - start) // 2
+                
+                if preorder[mid] > target:
+                    end = mid
+                else:
+                    start = mid+1
+            return start
         
-        def binarySearch(start, end, key) -> int:
-            
-            if start > end:
-                return end + 1
-            
-            mid = start + (end - start) // 2
-            
-            if preorder[start] > key and preorder[start - 1] < key:
-                return start
-            
-            if preorder[end] > key and preorder[end - 1] < key:
-                return end        
-            
-            if preorder[mid] > key and preorder[mid - 1] < key:
-                return mid
-            
-            if preorder[mid] < key:
-                return binarySearch(mid + 1, end, key)
-            
-            if preorder[mid] > key:
-                return binarySearch(start, mid - 1, key)
-        
-        def constructTree(start, end) -> TreeNode:
+        def constructTree(start, end):
             if start > end:
                 return None
             
-            node = TreeNode(preorder[start])
+            current = TreeNode(preorder[start])
+            fg = find_first_greater(start + 1, end, preorder[start])
             
-            pivot = binarySearch(start + 1, end, preorder[start])
-            node.left = constructTree(start + 1, pivot - 1)
-            node.right = constructTree(pivot, end)
+            # there is no greater element
+            if fg >= len(preorder) or preorder[fg] <= preorder[start]:
+                fg = end + 1
             
-            return node
+            current.left = constructTree(start + 1, fg - 1)
+            current.right = constructTree(fg, end)
+            
+            return current
         
-        return constructTree(0, len(preorder) - 1)
+        return constructTree(0, len(preorder)-1)
 ```
 
 #### Some other constructions

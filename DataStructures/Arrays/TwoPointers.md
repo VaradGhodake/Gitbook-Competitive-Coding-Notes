@@ -1,6 +1,5 @@
 ### 2 Pointers technique
 
-https://leetcode.com/problems/container-with-most-water/ <br /> 
 https://leetcode.com/problems/two-sum/<br />
 https://leetcode.com/problems/3sum/ <br/>
 https://leetcode.com/problems/boats-to-save-people/
@@ -12,6 +11,24 @@ One faster and one slower
 Maintain subarray size of K’s props
 
 ##### General solution structure: <br />
+https://leetcode.com/problems/container-with-most-water/ <br />
+Container height is limited by smaller one, move that forward
+```py
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        l, r = 0, len(height)-1
+        water = 0
+        
+        while l < r:
+            water = max(water, (r-l) * min(height[l], height[r]))
+            
+            if height[r] < height[l]:
+                r -= 1
+            else:
+                l += 1
+        
+        return water
+```
 https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/528/week-1/3286/
 
 ```py

@@ -53,19 +53,21 @@ Set is interchangable with list here because we don't care what open bracket a c
 ```py
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
-        eq = list(s)
-        opened = set()
+        open_brackets = []
+        s_list = [c for c in s]
         
-        for i, c in enumerate(eq):
+        for i, c in enumerate(s):
             if c == '(':
-                opened.add(i)
+                open_brackets.append(i)
+                s_list[i] = ''
             elif c == ')':
-                if not opened:
-                    eq[i] = ''
+                if open_brackets:
+                    s_list[open_brackets.pop()] = '('
+                    s_list[i] = ')'
                 else:
-                    opened.pop()
-
-        return ''.join([c if (i not in opened) else '' for i, c in enumerate(eq)])
+                    s_list[i] = ''
+        
+        return ''.join(s_list)
 ```
 https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/ <br />
 A closed bracket without a corresponding opening one, can never to balanced afterwards, irrespective of what comes after <br />
