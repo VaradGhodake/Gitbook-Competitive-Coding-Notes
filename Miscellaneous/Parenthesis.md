@@ -191,3 +191,31 @@ class Solution:
         
         return max_len
 ```
+https://leetcode.com/problems/score-of-parentheses/ <br />
+It's given that it's balanced. So, if we encounter `)`, there will always be an opening bracket corresponding to it. We try to find that. Until we find it, just keep on popping and adding, then pop the opening bracket and substitute with `(2 * sum of all popped ones)` or `1` if the sum if zero.
+```py
+class Solution:
+    def scoreOfParentheses(self, S: str) -> int:
+        # [..(] )  = [..1]
+        # [.(c1 c2 c3] )  = [.2*(c1+c2+c3)]
+        
+        stack = []
+        
+        for i, c in enumerate(S):
+            if c == '(':
+                stack.append('(')
+                continue
+
+            current = 0
+            while stack[-1] != '(':
+                val = stack.pop()
+                current += val
+
+            stack.pop()
+            if current == 0:
+                stack.append(1)
+            else:
+                stack.append(current * 2)
+        
+        return sum(stack)
+```

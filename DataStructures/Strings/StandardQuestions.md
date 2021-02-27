@@ -43,3 +43,23 @@ class Solution:
         
         return result
 ```
+
+
+#### string rotation
+https://leetcode.com/problems/group-shifted-strings/ <br />
+`% 26` for circular rotation
+```py
+class Solution:
+    def groupStrings(self, strings: List[str]) -> List[List[str]]:
+        fingerprints = {}
+        
+        for string in strings:
+            fingerprint = ''
+            for i, c in enumerate(string[1:], start=1):
+                diff = (ord(string[i-1]) - ord(c))
+                fingerprint += str(diff % 26)
+            
+            fingerprints[fingerprint] = fingerprints.get(fingerprint, []) + [string]
+        
+        return fingerprints.values()
+```
