@@ -5,6 +5,8 @@ Good article: https://leetcode.com/discuss/general-discussion/786126/python-powe
 
 Iterative solutions are quicker than the recursive ones. <br />
 
+Monotonous function questions are interesting. You have to find the optimal value of a variable between min and max, not an array eg: bouquet and boat capacity questions below
+
 It's necessary to understand where BS terminates. This can answer a lot of questions. It's the start when you want to check the appropriate place for a num in sorted array <br />
 Decide what direction we have to go in case of equality. Minimum of such solutions or maximum, etc <br />
 
@@ -84,6 +86,52 @@ class Solution:
             else:
                 start = mid + 1
                 
+        return start
+```
+https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/ <br />
+min = max from array <br />
+max = sum of array <br />
+`can_ship` function is crucial
+```py
+class Solution:
+    def shipWithinDays(self, weights: List[int], D: int) -> int:
+        max_w = float('-inf')
+        sum_w = 0
+        for w in weights:
+            sum_w += w
+            max_w = max(max_w, w)
+        
+        if D == 1:
+            return sum_w
+        
+        if D == len(weights):
+            return max_w
+        
+        def can_ship(w):
+            days_left = D - 1
+            current = weights[0]
+            
+            for wg in weights[1:]:
+                if current + wg <= w:
+                    current += wg
+                else:
+                    current = wg
+                    days_left -= 1
+                    if days_left < 0:
+                        return False
+            return True
+        
+        start = max_w
+        end = sum_w
+        while start < end:
+            mid = start + (end - start) // 2
+            able = can_ship(mid)
+            
+            if able:
+                end = mid
+            else:
+                start = mid + 1
+        
         return start
 ```
 https://leetcode.com/problems/sum-of-mutated-array-closest-to-target/
@@ -200,44 +248,6 @@ class Solution:
                 end -= 1
             
         return nums[start]
-```
-https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/
-```py
-class Solution:
-    def shipWithinDays(self, weights: List[int], D: int) -> int:
-        start = float('-inf')
-        end = 0
-        
-        for i, w in enumerate(weights):
-            start = max(start, w)
-            end += w
-            
-        def can_carry(capacity):
-            current = 0
-            days = 1
-            
-            for w in weights:
-                current += w
-                if current <= capacity:
-                    continue
-                
-                days += 1
-                current = w
-                
-                if days > D:
-                    return False
-            
-            return days <= D
-        
-        while start < end:
-            mid = start + (end - start) // 2
-            
-            if can_carry(mid):
-                end = mid
-            else:
-                start = mid + 1
-        
-        return start
 ```
 https://leetcode.com/problems/sqrtx/ <br />
 Binary Search will take us to the closest point of the answer

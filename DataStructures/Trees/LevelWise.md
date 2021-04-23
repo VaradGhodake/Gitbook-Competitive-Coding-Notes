@@ -85,7 +85,7 @@ class Solution:
 https://leetcode.com/problems/binary-tree-vertical-order-traversal/ <br />
 Level order traversal guarantees vertical sorting, just need to sort horizontally. <br />
 Another brilliant idea is to store `min_x` and `max_x`. Then just return `[X[x] for x in range(min_x, max_x+1)]`.
-This works because every `x` in that range will have atlease one node. (think about it)
+This works because every `x` in that range will have atleast one node. (think about it)
 ```py
 # Definition for a binary tree node.
 # class TreeNode:
@@ -118,4 +118,39 @@ class Solution:
                     queue.append((x+1, node.right))
         
         return [X[x] for x in sorted(X)]
+```
+https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/
+Similar but slightly complicated because nodes at the same position have to be sorted by value. <br />
+Level order traversal guarantees vertical sort and left to right. For sorting, we just need to care about nodes in the same level. Create another store for each level and sort before extending the original store
+```py
+from collections import deque
+
+class Solution:
+    def verticalTraversal(self, root: TreeNode) -> List[List[int]]:
+        X = {}
+        queue = deque()
+        queue.append((0, root))
+        x_min, x_max = float('inf'), float('-inf')
+        
+        while queue:
+            size = len(queue)
+            current_row = {}
+            
+            for _ in range(size):
+                x, node = queue.popleft()
+                x_min = min(x_min, x)
+                x_max = max(x_max, x)
+                
+                current_row[x] = current_row.get(x, []) + [node.val]
+                
+                if node.left:
+                    queue.append((x-1, node.left))
+                
+                if node.right:
+                    queue.append((x+1, node.right))
+                
+            for x in current_row:
+                X[x] = X.get(x, []) + sorted(current_row[x])
+        
+        return [X[x] for x in range(x_min, x_max+1)]
 ```

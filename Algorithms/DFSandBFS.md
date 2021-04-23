@@ -18,54 +18,7 @@ Excellent questions:
 DFS is a little bit slower but gets the job done <br />
 Being greedy from the end to start works well 
 * https://leetcode.com/problems/jump-game-ii/ <br />
-* Rotten oranges <br />
-Tip: <br />
-In such problems, implied visited through input modification is faster than visited set and step through queue element is faster than looping over queue size <br />
-eg. https://leetcode.com/problems/shortest-path-in-binary-matrix/ <br />
-
-https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/
 * Water and jug problem
-```py
-from collections import deque
-
-class Solution:
-    def shortestPath(self, grid: List[List[int]], k: int) -> int:
-        X = len(grid)
-        Y = len(grid[0])
-        
-        visited = [[[-1, float('inf')] for i in range(0, Y)] for j in range(0, X)]
-        # x, y, steps, k-left
-        queue = deque([[0, 0, 0, k]])
-        
-        while queue:
-            x, y, steps, k_left = queue.popleft()
-            
-            if x < 0 or x >= X or y < 0 or y >= Y:
-                continue
-            
-            if grid[x][y]:
-                k_left -= 1
-            
-            if k_left < 0:
-                continue
-            
-            if visited[x][y][0] >= k_left and visited[x][y][1] <= steps:
-                continue
-            
-            visited[x][y][0] = k_left
-            visited[x][y][1] = steps
-            
-            if x == (X - 1) and y == (Y - 1):
-                return steps
-            
-            queue.append([x - 1, y, steps + 1, k_left])
-            queue.append([x + 1, y, steps + 1, k_left])
-            queue.append([x, y - 1, steps + 1, k_left])
-            queue.append([x, y + 1, steps + 1, k_left])
-            
-        return -1
-```
-
 https://leetcode.com/problems/water-and-jug-problem
 ```py
 from collections import deque

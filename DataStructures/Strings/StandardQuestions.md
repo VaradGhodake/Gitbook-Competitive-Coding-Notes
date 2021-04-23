@@ -63,3 +63,28 @@ class Solution:
         
         return fingerprints.values()
 ```
+https://leetcode.com/problems/count-binary-substrings/ <br />
+Modelling question. Keep it simple. Run the loop from second elem so the current and prev handling is easier.
+```py
+class Solution:
+    def countBinarySubstrings(self, s: str) -> int:
+        prev_count = 0 
+        
+        current = s[0]
+        current_count = 1
+        
+        total = 0
+        
+        for c in s[1:]:
+            if c == current:
+                current_count += 1
+            else:
+                current = c
+                prev_count = current_count
+                current_count = 1    
+            
+            if current_count <= prev_count:
+                total += 1
+        
+        return total
+```

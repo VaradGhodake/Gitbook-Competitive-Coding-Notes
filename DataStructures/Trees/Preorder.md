@@ -117,3 +117,62 @@ class Solution:
         traverse(root, [])
         return self.result
 ```
+https://leetcode.com/problems/add-one-row-to-tree/ <br />
+Decent question, almost like a linked list question
+```py
+class Solution:
+    def addOneRow(self, root: TreeNode, v: int, d: int) -> TreeNode:
+        if d == 1:
+            new = TreeNode(v)
+            new.left = root
+            return new
+        
+        def preorder(node, depth):
+            if not node or depth == d:
+                return None
+            
+            if depth == (d - 1):
+                new = TreeNode(v)
+                new.left = node.left
+                node.left = new
+                
+                new = TreeNode(v)
+                new.right = node.right
+                node.right = new
+            
+            preorder(node.left, depth + 1)
+            preorder(node.right, depth + 1)
+            
+            return node
+        
+        return preorder(root, 1)
+```
+https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/ <br />
+Just be concerned about the state at the current node. Default start should be 1 since a single node satisfies the requirement <br />
+Adjust based on the current node and then think about global max length 
+```py
+class Solution:
+    def longestConsecutive(self, root: TreeNode) -> int:
+        if not root:
+            return 0
+        
+        def preorder(node, prev, length):
+            if not node:
+                return
+            
+            if (node.val - prev) == 1:
+                length += 1
+            else:
+                length = 1
+            
+            preorder.longest = max(preorder.longest, length)
+            
+            preorder(node.left, node.val, length)
+            preorder(node.right, node.val, length)
+            
+            return
+        
+        preorder.longest = 0
+        preorder(root, float('-inf'), 0)
+        return preorder.longest
+```

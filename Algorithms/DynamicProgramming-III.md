@@ -42,13 +42,12 @@ Think from the perspective of constant amount <br />
 for all the coins, we want to take `min` or `add` <br />
 
 ```py
-        
         for i in range(1, amount + 1):
             for coin in coins:
                 if i < coin:
                     continue
                     
-                dp[i] = min(dp[i], dp[i - coin])
+                dp[i] = min(dp[i], dp[i - coin] + 1)
 ```
 For coin change 2, we need to run these loops in the reverse order as we have to eliminate duplicate combinations and we don't necessarily need to find a "complete" answer for a previous target.
 

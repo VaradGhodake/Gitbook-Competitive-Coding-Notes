@@ -65,3 +65,65 @@ class Solution:
         
         return head
 ```
+https://leetcode.com/problems/intersection-of-two-linked-lists/ <br />
+Great question. There's a similar question for Tree:LCA (`Tree/README.md`) <br />
+```py
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        if not headA or not headB:
+            return None
+        
+        A, B = headA, headB
+        resets = 2
+        
+        while not (headA is headB):
+            if headA.next:
+                headA = headA.next
+            else:
+                resets -= 1
+                if resets < 0:
+                    return None
+                headA = B
+            
+            if headB.next:
+                headB = headB.next
+            else:
+                resets -= 1
+                if resets < 0:
+                    return None
+                headB = A
+        
+        return headA
+```
+https://leetcode.com/problems/remove-nth-node-from-end-of-list/ <br />
+We need to reach to the `(n+1)th` from the last element => fast should run n first <br />
+Edge case being `fast == last_node.next` ie. `None`
+```py
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        fast = slow = head
+        
+        for _ in range(n):  
+            fast = fast.next
+        
+        if fast is None:
+            return head.next
+        
+        while fast.next:
+            slow = slow.next
+            fast = fast.next
+        
+        slow.next = slow.next.next
+        return head
+```

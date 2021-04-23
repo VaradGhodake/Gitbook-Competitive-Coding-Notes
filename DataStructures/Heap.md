@@ -4,7 +4,40 @@
 #### Min/Max k based on some metric
 If you want to find min k, use max_heap, otherwise min_heap since you want to compare the incoming element with the top of heap <br />
 Only use the heap size of required number of elems: k <br />
-If it overflows, pop. Be careful about the signs in case of max_heap
+If it overflows, pop. Be careful about the signs in case of max_heap <br />
+
+https://leetcode.com/problems/closest-binary-search-tree-value-ii/
+if the `length of heap == k`, pop if the top of `max_heap` is greater than key
+```py
+import heapq
+
+class Solution:
+    def closestKValues(self, root: TreeNode, target: float, k: int) -> List[int]:
+        heap = []
+        
+        def inorder(node):
+            if not node:
+                return
+            
+            inorder(node.left)
+            
+            if len(heap) == k and -heap[0][0] > abs(node.val - target):
+                heapq.heappop(heap)
+
+            if len(heap) < k:
+                heapq.heappush(heap, (-abs(node.val - target), node.val))
+                
+            inorder(node.right)
+        
+        inorder(root)
+        
+        result = []
+        while heap:
+            _, val = heapq.heappop(heap)
+            result.append(val)
+        
+        return result[::-1]
+```
 https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/ <br />
 ```py
 import heapq
@@ -35,6 +68,34 @@ class Solution:
         
         return result
 ```
+https://leetcode.com/problems/k-closest-points-to-origin/ <br />
+Maintain a heap of size `K`
+```py
+import heapq
+
+class Solution:
+    def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
+        heap, result = [], []
+        DISTANCE = 0
+        
+        for x, y in points:
+            current_distance = (x*x + y*y)
+            
+            if len(heap) == K and ((-1) * heap[0][DISTANCE]) < current_distance:
+                continue
+            
+            heapq.heappush(heap, (-current_distance, (x, y)))
+            
+            if len(heap) == (K + 1):
+                heapq.heappop(heap)
+        
+        while heap:
+            _, point = heapq.heappop(heap)
+            result.append(point)
+        
+        return result
+```
+
 #### Djikstra
 https://leetcode.com/problems/path-with-minimum-effort/ <br />
 Djikstra. Note where we're checking the existance in `visited` set. <br />
@@ -67,34 +128,7 @@ class Solution:
                 
         return -1
 ```
-https://leetcode.com/problems/k-closest-points-to-origin/ <br />
-Maintain a heap of size `K`
-```py
-import heapq
-
-class Solution:
-    def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
-        heap, result = [], []
-        DISTANCE = 0
-        
-        for x, y in points:
-            current_distance = (x*x + y*y)
-            
-            if len(heap) == K and ((-1) * heap[0][DISTANCE]) < current_distance:
-                continue
-            
-            heapq.heappush(heap, (-current_distance, (x, y)))
-            
-            if len(heap) == (K + 1):
-                heapq.heappop(heap)
-        
-        while heap:
-            _, point = heapq.heappop(heap)
-            result.append(point)
-        
-        return result
-```
-https://leetcode.com/problems/merge-k-sorted-lists/submissions/
+https://leetcode.com/problems/merge-k-sorted-lists/
 ```py
 import heapq
 
@@ -123,4 +157,33 @@ class Solution:
                 iterator += 1
         
         return head
+```
+https://leetcode.com/problems/cheapest-flights-within-k-stops/
+```py
+import heapq
+
+class Solution:
+    def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, K: int) -> int:
+        heap = []
+        store = {}
+        
+        for s, e, d in flights:
+            store[s] = store.get(s, []) + [(e, d)]
+        
+        heapq.heappush(heap, (0, 0, src))
+        
+        while heap:
+            price, hops, city = heapq.heappop(heap)
+            
+            # we don't need `visited` array because of this constaint
+            if hops > (K+1):
+                continue
+            
+            if city == dst:
+                return price
+            
+            for d, cost in store.get(city, []):
+                heapq.heappush(heap, (price + cost, hops + 1, d))
+        
+        return -1
 ```

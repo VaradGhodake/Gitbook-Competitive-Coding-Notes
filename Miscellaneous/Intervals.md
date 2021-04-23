@@ -185,3 +185,38 @@ class Solution:
         
         return [e-s+1 for s, e in result]
 ```
+https://leetcode.com/problems/missing-ranges/ <br />
+Interesting question. Iterate over array and compare to the prev elem, `[prev + 1:current - 1]` is the missing range. Be careful about the edge case of empty input
+```py
+class Solution:
+    def findMissingRanges(self, nums: List[int], lower: int, upper: int) -> List[str]:
+        if not nums:
+            return [str(lower)] if lower == upper else [str(lower) + "->" + str(upper)]
+        
+        
+        def addToResult(start, end):
+            if start == end:
+                result.append(str(start))
+            elif start < end:
+                result.append(str(start) + '->' + str(end))
+        
+        result = []
+        for i, n in enumerate(nums):
+            if i == 0:
+                start = lower
+                end = nums[0] - 1
+                addToResult(start, end)
+                continue
+            
+            start = nums[i-1] + 1
+            end = n - 1
+            
+            addToResult(start, end)
+        
+        start = nums[-1] + 1
+        end = upper
+        
+        addToResult(start, end)
+        
+        return result
+```

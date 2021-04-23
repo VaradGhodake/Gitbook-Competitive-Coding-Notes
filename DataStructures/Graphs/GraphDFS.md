@@ -43,7 +43,56 @@ class Solution:
                 
         return True
 ```
+https://leetcode.com/problems/parallel-courses/ <br />
+The important thing to understand is that the deepest path will require the longest sem <br />
+The question then boils down to finding this path. <br />
+We return max depth including the current node
+*Note:* Do not do normal DFS and depth tracking with a static variable. cache approach is efficient
 
+Follow up: try to simplify cycle finding and returning method
+```py
+class Solution:
+    def minimumSemesters(self, n: int, relations: List[List[int]]) -> int:
+        self.valid = True
+        visited = set()
+        prereq = {}
+        
+        for p, c in relations:
+            prereq[p] = prereq.get(p, []) + [c]
+        
+        def dfs(course):
+            if not self.valid:
+                return -1
+                        
+            if course in visited:
+                self.valid = False
+                return -1
+            
+            if course in cache:
+                return cache[course]
+            
+            visited.add(course)
+            
+            max_next = 0
+            for c in prereq.get(course, []):
+                max_next = max(max_next, dfs(c))
+            
+            visited.remove(course)
+            cache[course] = max_next + 1
+            return cache[course]
+        
+        cache = {}
+        max_depth = 0
+        for course in range(1, n + 1):
+            course_depth = dfs(course)
+            
+            if not self.valid:
+                return -1
+            
+            max_depth = max(max_depth, course_depth)
+        
+        return max_depth
+```
 https://leetcode.com/problems/reconstruct-itinerary/ <br />
 We need to store visited edges instead of visited nodes. <br />
 Edges are stored as defaultdicts because the possibility of them repeating <br />
@@ -84,8 +133,8 @@ class Solution:
 Great question: Looks like a tree question but it's not! <br />
 Realized that the edges can be bidirectional. Just needed to add `visited` array and augment the graph init loop <br />
 _Trees are just graphs minus the posibility of looping_ <br />
-Thought process similar to that of tree DFS. Fetch consolidated data from the leaves and calculate the current one (postorder).
-https://leetcode.com/contest/weekly-contest-198/problems/number-of-nodes-in-the-sub-tree-with-the-same-label/
+Thought process similar to that of tree DFS. Fetch consolidated data from the leaves and calculate the current one (postorder). <br />
+https://leetcode.com/problems/number-of-nodes-in-the-sub-tree-with-the-same-label/
 
 ```py
 from collections import defaultdict
