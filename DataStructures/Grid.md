@@ -103,3 +103,62 @@ class Solution:
         
         return islands
 ```
+https://leetcode.com/problems/shortest-bridge/ <br />
+Paint first island negative and then perform BFS to find the first positive integer <br />\
+As always, one check before pushing onto the queue and one check after popleft-ing
+```py
+from collections import deque
+
+class Solution:
+    def shortestBridge(self, A: List[List[int]]) -> int:
+        X = len(A)
+        Y = len(A[0])
+        self.result = X + Y
+        g_queue = deque()
+        
+        def paint_island(x, y):
+            queue = deque()
+            queue.append((x, y))
+            
+            while queue:
+                x, y = queue.popleft()
+                
+                if A[x][y] < 0:
+                    continue
+                
+                A[x][y] = -1
+                g_queue.append((x, y, 0))
+                
+                directions = [(x-1,y), (x,y-1), (x+1,y), (x,y+1)]
+                for _x, _y in directions:
+                    if 0 <= _x < X and 0 <= _y < Y:
+                        if A[_x][_y] > 0:
+                            queue.append((_x, _y))
+        
+        
+        def build_bridge():
+            while g_queue:
+                x, y, converted = g_queue.popleft()
+                
+                if A[x][y] == 2:
+                    continue
+                
+                if A[x][y] == 0:
+                    A[x][y] = 2
+                
+                directions = [(x-1,y), (x,y-1), (x+1,y), (x,y+1)]
+                for _x, _y in directions:
+                    if 0 <= _x < X and 0 <= _y < Y:
+                        if A[_x][_y] == 1:
+                            return converted
+                        
+                        if A[_x][_y] == 0:
+                            g_queue.append((_x, _y, converted + 1))
+        
+        for x in range(X):
+            for y in range(Y):
+                if A[x][y] == 1:
+                    paint_island(x, y)
+                    result = build_bridge()
+                    return result
+```

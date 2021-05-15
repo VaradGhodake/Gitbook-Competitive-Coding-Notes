@@ -6,11 +6,48 @@ https://leetcode.com/problems/kth-largest-element-in-an-array/
 LRU cache:  <br /> https://leetcode.com/problems/lru-cache/ <br />
 Simple dict py-3
 
+
+#### Looks simple but greedy
+https://leetcode.com/problems/non-decreasing-array/ <br />
+3 cases: (make sure to handle equality condition properly since it's "non-decreasing") <br />
+I chance to minimize something, minimize it to absolute best you can. `(i-2)` also comes into picture!
+```py
+class Solution:
+    def checkPossibility(self, nums: List[int]) -> bool:
+        changes = 1
+        
+        for i, n in enumerate(nums[1:], start=1):
+            if nums[i-1] > nums[i]:
+                
+                if changes == 0:
+                    return False
+                
+                if (i-2) < 0:
+                    nums[i-1] = nums[i]
+                elif nums[i-2] <= nums[i]:
+                    nums[i-1] = nums[i-2]
+                else:
+                    nums[i] = nums[i-1]
+                
+                changes -= 1
+            
+        return True
+```
 #### Priority queues
 *1383:* https://leetcode.com/contest/weekly-contest-180/problems/maximum-performance-of-a-team/ <br />
 *Solution:* https://leetcode.com/problems/maximum-performance-of-a-team/discuss/539797/C%2B%2BPython-Priority-Queue
 
 *857:* https://leetcode.com/problems/minimum-cost-to-hire-k-workers/
+
+*1390:* https://leetcode.com/problems/four-divisors/  <br />
+Snippet to find all divisors: `floor(sqrt(num)) + 1` part is important
+```py
+divisors = set()
+for i in range(1, floor(sqrt(num)) + 1):
+    if num % i == 0:
+        divisors.add(i)
+        divisors.add(num // i)
+```
 
 *31:* https://leetcode.com/problems/next-permutation/ <br />
 Find the next just greater element, swap elements and reverse the remaining array <br />
@@ -277,4 +314,71 @@ class Solution:
             steps += 1
         
         return steps + (X-Y)
+```
+https://leetcode.com/problems/jump-game-ii/ <br />
+Check the spread after each step. Start should be the beginning of the spread and end should be the max one can go after taking xth step.
+```py
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        n = len(nums)
+        start = end = 0
+        steps = 0
+        
+        while end < (n-1):
+            max_end = start
+            for s in range(start, end + 1):
+                max_end = max(max_end, nums[s] + s)
+            
+            start = end + 1
+            end = max_end
+            steps += 1
+        
+        return steps
+```
+https://leetcode.com/problems/jump-game/ <br />
+Similar idea to jump-game-ii, if `max_end == end` at the end of our cycle, return `False`
+```py
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        start = 0
+        end = 0
+        n = len(nums)
+        
+        if n in [0, 1]:
+            return True
+        
+        while True:
+            max_end = end
+            
+            for i in range(start, end+1):
+                max_end = max(max_end, i + nums[i])
+            
+            if max_end == end:
+                return False
+            elif max_end >= (n-1):
+                return True
+            
+            start = end + 1
+            end = max_end
+        
+        return True
+```
+https://leetcode.com/problems/number-of-equivalent-domino-pairs/ <br />
+In such cases, instead of traversing the store backwards to stop at `store_object_idx <= i`, run the loop backwards for efficiency. Makes life a lot easier. <br />
+Also, one critical edge case here is that `f==s`, one can miss that
+```py
+class Solution:
+    def numEquivDominoPairs(self, dominoes: List[List[int]]) -> int:
+        store = {}
+        pairs = 0
+
+        for f, s in dominoes[::-1]:
+            pairs += store.get((f, s), 0)
+            
+            if f != s:
+                pairs += store.get((s, f), 0)
+            
+            store[(f, s)]  = store.get((f, s), 0) + 1
+        
+        return pairs
 ```

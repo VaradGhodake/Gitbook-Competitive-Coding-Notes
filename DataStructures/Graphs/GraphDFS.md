@@ -4,6 +4,43 @@ One path at a time type questions eg. Course Scheduling <br />
 Visit the node -> process children -> unvisit it <br />
 If there's a cycle, we visit the already locally visited node again <br />
 If we have visited the node before globally, just exit with `True` as we have already checked and didn't find any cycle <br />
+https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/ <br />
+Global `visited` and local `dfs.visited` sets to not revisit nodes. <br />
+Gotcha: make sure compare an incoming node to `visited` instead of `dfs.visited` to save time
+```py
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        visited = set()
+        connected = 0
+        graph = {}
+        
+        
+        for s, e in edges:
+            graph[s] = graph.get(s, []) + [e]
+            graph[e] = graph.get(e, []) + [s]
+        
+        def dfs(index):
+            # gotcha
+            if index in visited:
+                return
+            
+            visited.add(index)
+            dfs.visited.add(index)
+            for n in graph.get(index, []):
+                if n not in dfs.visited:
+                    dfs(n)
+            
+            dfs.visited.remove(index)
+            return
+        
+        dfs.visited = set()
+        for i in range(n):
+            if i not in visited:
+                dfs(i)
+                connected += 1
+        
+        return connected
+```
 https://leetcode.com/problems/course-schedule/
 ```py
 from collections import defaultdict

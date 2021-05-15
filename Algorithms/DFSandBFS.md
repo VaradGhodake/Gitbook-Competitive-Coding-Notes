@@ -52,7 +52,37 @@ class Solution:
                 
         return False
 ```
+https://leetcode.com/problems/open-the-lock/ <br />
+```py
+from collections import deque
 
+class Solution:
+    def openLock(self, deadends: List[str], target: str) -> int:
+        s_deadends = set(deadends)
+        visited = set() 
+        queue = deque()
+        
+        queue.append(("0000", 0))
+        
+        while queue:
+            current, steps = queue.popleft()
+            
+            if (current in visited) or (current in deadends):
+                continue
+            elif current == target:
+                return steps
+            
+            visited.add(current)
+            
+            for i, s in enumerate(current):
+                wheel = int(s)
+                for direction in (-1, 1):
+                    next_comb = current[:i] + str((wheel + direction) % 10) + current[i+1:]
+                    if not (next_comb in visited or next_comb in deadends):
+                        queue.append((next_comb, steps + 1))
+        
+        return -1
+```
 #### DFS
 
 * Do not forget the visited array (you'll end up with stack limit exceeded error otherwise)

@@ -6,6 +6,33 @@ If you want to find min k, use max_heap, otherwise min_heap since you want to co
 Only use the heap size of required number of elems: k <br />
 If it overflows, pop. Be careful about the signs in case of max_heap <br />
 
+
+https://leetcode.com/problems/course-schedule-iii/ <br />
+Amazing question. We push if a new course from courses (sorted by end times) if able to be pushed. <br />
+If not, our aim to make selections as compact as possible; so we displace the one with max duration (heap comes into picture here) and update `T`
+```py
+import heapq
+
+class Solution:
+    def scheduleCourse(self, courses: List[List[int]]) -> int:
+        T = 0
+        heap = []
+        s_courses = sorted(courses, key=lambda x: (x[1], x[0]))
+        
+        for duration, last_day in s_courses:
+            t = T + duration
+            
+            if t <= last_day:
+                T = t
+                heapq.heappush(heap, -duration)
+            else:
+                if heap and -heap[0] > duration:
+                    _d = -heapq.heappop(heap)
+                    heapq.heappush(heap, -duration)
+                    T -= (_d - duration)
+        
+        return len(heap)
+```
 https://leetcode.com/problems/closest-binary-search-tree-value-ii/
 if the `length of heap == k`, pop if the top of `max_heap` is greater than key
 ```py
@@ -37,6 +64,34 @@ class Solution:
             result.append(val)
         
         return result[::-1]
+```
+https://leetcode.com/problems/furthest-building-you-can-reach/ <br />
+Great question! We allocate most diff b/w heights to ladders, obviously! (need heap to maintain that). <br />
+We only substract bricks only if heap is overflowing.
+```py
+import heapq
+
+class Solution:
+    def furthestBuilding(self, heights: List[int], bricks: int, ladders: int) -> int:
+        total = 0
+        heap, TOP = [], 0
+        bricks_left = bricks
+        
+        for i, h in enumerate(heights[1:], start=1):
+            diff = (h - heights[i-1])
+            if diff < 0:
+                continue
+            
+            heapq.heappush(heap, diff)
+            
+            if len(heap) > ladders:
+                bricks_left -= heapq.heappop(heap)
+            
+            if bricks_left < 0:
+                return i-1
+        
+        return len(heights)-1
+    
 ```
 https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/ <br />
 ```py

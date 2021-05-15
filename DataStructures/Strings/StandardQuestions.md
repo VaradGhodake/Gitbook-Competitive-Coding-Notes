@@ -88,3 +88,41 @@ class Solution:
         
         return total
 ```
+#### Remove/add one character
+https://leetcode.com/problems/strings-differ-by-one-character/ <br />
+Good question. We generate possible matches as we traverse along the dict. <br />
+Each character will be replaced with `*` so that we just have to check if the fingerprint exists
+```py
+class Solution:
+    def differByOne(self, dict: List[str]) -> bool:
+        store = set()
+        
+        for word in dict:
+            for i in range(len(word)):
+                fingerprint = word[:i] + '*' + word[i+1:]
+                if fingerprint in store:
+                    return True
+                
+                store.add(fingerprint)
+                
+        return False
+```
+https://leetcode.com/problems/longest-string-chain/ <br />
+Good question. Go backwards from the final answer. Build a store, sort based on certain criteria <br />
+Now, go backwards, update store
+```py
+class Solution:
+    def longestStrChain(self, words: List[str]) -> int:
+        words_store = {word: 1 for word in words}
+        words_sort = sorted(words, key=lambda x: len(x), reverse=True)
+        chain = 1
+        
+        for word in words_sort:
+            for i in range(len(word)):
+                new_word = word[:i] + word[i+1:]
+                if new_word in words_store:
+                    words_store[new_word] = max(words_store[new_word], words_store[word]+1)
+                    chain = max(chain, words_store[new_word])
+                    
+        return chain
+```

@@ -5,7 +5,8 @@ Template for simple questions like: <br />
 * 56 Merge Intervals 
 * 252 Meeting Rooms
 * 253 Meeting Rooms II 
-* https://leetcode.com/problems/interval-list-intersections/ <br />
+* https://leetcode.com/problems/interval-list-intersections/
+* https://leetcode.com/problems/meeting-scheduler/
 * https://leetcode.com/problems/partition-labels/ (secretly an interval problem; intervals are sorted automatically once you create because of the way we do them)
 
 For trivial questions, we sort based on the starting time. <br />
@@ -219,4 +220,30 @@ class Solution:
         addToResult(start, end)
         
         return result
+```
+https://leetcode.com/problems/meeting-scheduler/ <br />
+Just find the first intersection with enough duration width <br />
+Heap solution is also nice. Check LeetCode solutions
+```py
+class Solution:
+    def minAvailableDuration(self, slots1: List[List[int]], slots2: List[List[int]], duration: int) -> List[int]:
+        i = j = 0
+        slots1 = sorted(slots1)
+        slots2 = sorted(slots2)
+        
+        while i < len(slots1) and j < len(slots2):
+            max_start = max(slots1[i][0], slots2[j][0])
+            min_start = min(slots1[i][0], slots2[j][0])
+            min_end   = min(slots1[i][1], slots2[j][1])
+            max_end   = max(slots1[i][1], slots2[j][1])
+            
+            if (min_end - max_start) >= duration:
+                    return [max_start, max_start + duration]
+            
+            if min_end == slots1[i][1]:
+                i += 1
+            else:
+                j += 1
+        
+        return []
 ```

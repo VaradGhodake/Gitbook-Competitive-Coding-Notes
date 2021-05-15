@@ -1,4 +1,4 @@
-# Pythonic Tricks
+### Pythonic Tricks
 
 INT_MAX:
 ```py
@@ -83,3 +83,21 @@ def fib_lru_cache(n):
 
 #### list.insert(index, elem)
 The last one gets the priority
+
+### Partitioning
+1. Select last element as a `pivot` and first element as the `left_idx`
+2. Add a `runner` to loop from left to (right-1)
+3. `left_idx`to keep smaller elements at the correct places. Swap (left_idx - runner elems) if runner pointed elem is smaller than the pivot
+```py
+        def partition(_left, _right):
+            left_idx, pivot_idx = _left, _right
+            
+            for runner in range(_left, _right):
+                if nums[runner] < nums[pivot_idx]:
+                    nums[left_idx], nums[runner] = nums[runner], nums[left_idx]
+                    left_idx += 1
+                
+            
+            nums[pivot_idx], nums[left_idx] = nums[left_idx], nums[pivot_idx]
+            return left_idx
+```
