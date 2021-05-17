@@ -1,9 +1,12 @@
 1.Linear DP <br />
-https://leetcode.com/problems/climbing-stairs/
-https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
-https://leetcode.com/problems/min-cost-climbing-stairs/
-https://leetcode.com/problems/divisor-game/
-https://leetcode.com/problems/decode-ways/
+
+Don't over complicate things. <br />
+`len(dp) == (n+1)` because we want to reach `(n+1)`st stair. <br />
+`dp[i] = f(dp[i-1], dp[i-2] | cost[i-1], cost[i-2])`
+* https://leetcode.com/problems/climbing-stairs/
+* https://leetcode.com/problems/min-cost-climbing-stairs/
+-----------------------------
+https://leetcode.com/problems/decode-ways/ : Noted in Games section
 https://leetcode.com/problems/unique-binary-search-trees/
 https://leetcode.com/problems/house-robber/
 https://leetcode.com/problems/perfect-squares/
@@ -159,6 +162,7 @@ https://leetcode.com/problems/airplane-seat-assignment-probability/
 10.Classic DPs
 A.Cadane's Algorithm
 https://leetcode.com/problems/maximum-subarray/
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 https://leetcode.com/problems/maximum-product-subarray/
 https://leetcode.com/problems/bitwise-ors-of-subarrays/
 https://leetcode.com/problems/longest-turbulent-subarray/

@@ -1,6 +1,6 @@
 ### Number of solutions
 
-The key here is to add dp values of previous computations instead of doing `1 + min(dp[prev1], dp[prev2])` for other ones.
+The key here is to **add dp values of previous computations** instead of doing `1 + min(dp[prev1], dp[prev2])` for other ones.
 
 * https://leetcode.com/problems/unique-paths-ii/
 ```py
