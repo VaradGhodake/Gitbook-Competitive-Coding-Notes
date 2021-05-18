@@ -1,6 +1,8 @@
-### 1.Linear DP <br />
+#### 1. Linear DP <br />
 
-###### dp[i] = f(dp[i-a] + A . nums[i-a], dp[i-b] + B . nums[i-b], ..., dp[i-z] + C . nums[i-z])
+```js
+dp[i] = f(dp[i-a] + A . nums[i-a], dp[i-b] + B . nums[i-b], ..., dp[i-z] + C . nums[i-z])
+```
 **Single loop** <br />
 
 Don't over complicate things: `len(dp) == (n+1)` because we want to reach `(n+1)`st stair. <br />
@@ -23,7 +25,9 @@ Tricky to figure out. <br />
 Keep on generating powers of 2.
 
 
-###### dp[i] = f(dp[1], dp[2], ..., dp[i-1] or dp[i])
+```js
+dp[i] = f(dp[1], dp[2], ..., dp[i-1] or dp[i])
+```
 Here, rather than going to the previous computation, we traverse previous computations, check where we satisfy the constraint and then update `dp[i]`
 
 **Double loop** <br />
@@ -34,7 +38,9 @@ Second loop to check whether a number less than i is a divisor
 Second loop to subtract j's square from i and update `dp[i]` based on `dp[i-j]` <br />
 *NOTE:* BFS is also a valid solution
 
-###### dp[i] = f(g(j, dp[j]) * g(i-j, dp[i-j])) j E (1 < j <= i)
+```js
+dp[i] = f(g(j, dp[j]) * g(i-j, dp[i-j])) j E (1 < j <= i)
+```
 **Double loop** <br />
 * https://leetcode.com/problems/unique-binary-search-trees/
 dp[i] = number of trees possible with i nodes. <br />
