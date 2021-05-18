@@ -1,44 +1,84 @@
-1.Linear DP <br />
+### 1.Linear DP <br />
 
-Don't over complicate things. <br />
-`len(dp) == (n+1)` because we want to reach `(n+1)`st stair. <br />
-`dp[i] = f(dp[i-1], dp[i-2] | cost[i-1], cost[i-2])`
+###### dp[i] = f(dp[i-a] + A . nums[i-a], dp[i-b] + B . nums[i-b], ..., dp[i-z] + C . nums[i-z])
+**Single loop** <br />
+
+Don't over complicate things: `len(dp) == (n+1)` because we want to reach `(n+1)`st stair. <br />
 * https://leetcode.com/problems/climbing-stairs/
 * https://leetcode.com/problems/min-cost-climbing-stairs/
------------------------------
-https://leetcode.com/problems/decode-ways/ : Noted in Games section
-https://leetcode.com/problems/unique-binary-search-trees/
-https://leetcode.com/problems/house-robber/
-https://leetcode.com/problems/perfect-squares/
-https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
-https://leetcode.com/problems/coin-change/
-https://leetcode.com/problems/counting-bits/
-https://leetcode.com/problems/integer-break/
-https://leetcode.com/problems/count-numbers-with-unique-digits/
-https://leetcode.com/problems/wiggle-subsequence/
-https://leetcode.com/problems/partition-equal-subset-sum/
-https://leetcode.com/problems/maximum-length-of-pair-chain/
-https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
-https://leetcode.com/problems/delete-and-earn/
-https://leetcode.com/problems/domino-and-tromino-tiling/
-https://leetcode.com/problems/knight-dialer/
-https://leetcode.com/problems/minimum-cost-for-tickets/
-https://leetcode.com/problems/partition-array-for-maximum-sum/
-https://leetcode.com/problems/filling-bookcase-shelves/
-https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/
-https://leetcode.com/problems/greatest-sum-divisible-by-three/
-https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
-https://leetcode.com/problems/student-attendance-record-ii/
-https://leetcode.com/problems/decode-ways-ii/
-https://leetcode.com/problems/triples-with-bitwise-and-equal-to-zero/
-https://leetcode.com/problems/maximum-profit-in-job-scheduling/
-https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/
-https://leetcode.com/problems/count-all-valid-pickup-and-delivery-options/
-https://leetcode.com/problems/stone-game-iii/
-https://leetcode.com/problems/restore-the-array/
-https://leetcode.com/problems/form-largest-integer-with-digits-that-add-up-to-target/
-https://leetcode.com/problems/stone-game-iv/
-https://leetcode.com/problems/coin-change-2/
+
+* https://leetcode.com/problems/house-robber/
+* https://leetcode.com/problems/coin-change/
+Similar questions <br />
+Difference: dp array initialization: `dp[0] = nums[0] and dp[1] = max(nums[0:2])` <br />
+*NOTE:* BFS is a valid solution for coin-change: generate solutions 
+
+* https://leetcode.com/problems/decode-ways/
+Great twist. Current character influences dp values of previous ones, not desirable. We traverse backwards. Rest of the things same as climbing-stairs (some checks obv)
+
+* https://leetcode.com/problems/counting-bits/
+Tricky to figure out. <br />
+`Number of bits[i] = number of bits in the previous power of 2 ie. (1) + bits[i - previous power of 2]` <br />
+`i - previous power of 2` is obviously smaller than the previous power of 2. <br />
+Keep on generating powers of 2.
+
+
+###### dp[i] = f(dp[1], dp[2], ..., dp[i-1] or dp[i])
+Here, rather than going to the previous computation, we traverse previous computations, check where we satisfy the constraint and then update `dp[i]`
+
+**Double loop** <br />
+* https://leetcode.com/problems/divisor-game/: Noted in the `Games` section <br />
+Second loop to check whether a number less than i is a divisor
+
+* https://leetcode.com/problems/perfect-squares/
+Second loop to subtract j's square from i and update `dp[i]` based on `dp[i-j]` <br />
+*NOTE:* BFS is also a valid solution
+
+###### dp[i] = f(g(j, dp[j]) * g(i-j, dp[i-j])) j E (1 < j <= i)
+**Double loop** <br />
+* https://leetcode.com/problems/unique-binary-search-trees/
+dp[i] = number of trees possible with i nodes. <br />
+No of trees with root i becomes: `trees possible with i nodes for left * with (i-j) nodes for right` <br/>
+Sum for every `dp[i]`
+
+```py
+dp[i] += dp[j-1] * dp[i-j]
+```
+
+* https://leetcode.com/problems/integer-break/
+Great question. We can break down number i around j `(E 1 < j < i/2)`. <br />
+Now, we can chose to either: keep j as it is, break down to the best possible product, ie. `dp[j]`, same thing for the other piece, `(i-j)` <br />
+
+```py
+dp[i] = Math.max(dp[i], (Math.max(j, dp[j])) * (Math.max(i - j, dp[i - j])))
+```
+
+* https://leetcode.com/problems/partition-equal-subset-sum/
+* https://leetcode.com/problems/maximum-length-of-pair-chain/
+* https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+* https://leetcode.com/problems/delete-and-earn/
+* https://leetcode.com/problems/domino-and-tromino-tiling/
+* https://leetcode.com/problems/knight-dialer/
+* https://leetcode.com/problems/minimum-cost-for-tickets/
+* https://leetcode.com/problems/partition-array-for-maximum-sum/
+* https://leetcode.com/problems/filling-bookcase-shelves/
+* https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/
+* https://leetcode.com/problems/greatest-sum-divisible-by-three/
+* https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
+* https://leetcode.com/problems/student-attendance-record-ii/
+* https://leetcode.com/problems/decode-ways-ii/
+* https://leetcode.com/problems/triples-with-bitwise-and-equal-to-zero/
+* https://leetcode.com/problems/maximum-profit-in-job-scheduling/
+* https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/
+* https://leetcode.com/problems/count-all-valid-pickup-and-delivery-options/
+* https://leetcode.com/problems/stone-game-iii/
+* https://leetcode.com/problems/restore-the-array/
+* https://leetcode.com/problems/form-largest-integer-with-digits-that-add-up-to-target/
+* https://leetcode.com/problems/stone-game-iv/
+* https://leetcode.com/problems/coin-change-2/
+* https://leetcode.com/problems/wiggle-subsequence/
+
+---------------------------------------------------------------------------
 
 2.Knapsack <br />
 https://leetcode.com/problems/house-robber-ii/
@@ -160,9 +200,10 @@ https://leetcode.com/problems/new-21-game/
 https://leetcode.com/problems/airplane-seat-assignment-probability/
 
 10.Classic DPs
-A.Cadane's Algorithm
+A.Kadane's Algorithm
 https://leetcode.com/problems/maximum-subarray/
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
 https://leetcode.com/problems/maximum-product-subarray/
 https://leetcode.com/problems/bitwise-ors-of-subarrays/
 https://leetcode.com/problems/longest-turbulent-subarray/

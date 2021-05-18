@@ -12,4 +12,5 @@ class Solution:
 ```
 
 https://leetcode.com/problems/divisor-game/ <br />
+Needs double loops <br />
 Same idea as above. We try to bring current situation into a losing one for the opponent. Use DP for that. Calculate one by one. Iterate over `0 < j < i` in the inner loop for search for divisibles and try to find at least one false value
