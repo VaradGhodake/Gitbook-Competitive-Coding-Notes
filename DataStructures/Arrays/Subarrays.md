@@ -100,10 +100,8 @@ Pre and post array
 https://www.geeksforgeeks.org/maximum-length-of-strictly-increasing-sub-array-after-removing-at-most-one-element/
 
 #### complex subarray problems
-https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/
-
-https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters/discuss/87768/4-lines-Python
-
+https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/ <br />
+https://leetcode.com/problems/longest-substring-with-at-least-k-repeating-characters/discuss/87768/4-lines-Python <br />
 https://leetcode.com/problems/maximum-number-of-non-overlapping-subarrays-with-sum-equals-target/
 ```py
 class Solution:

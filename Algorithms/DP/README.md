@@ -10,39 +10,67 @@ Don't over complicate things: `len(dp) == (n+1)` because we want to reach `(n+1)
 * https://leetcode.com/problems/min-cost-climbing-stairs/
 
 * https://leetcode.com/problems/house-robber/
-* https://leetcode.com/problems/coin-change/
+* https://leetcode.com/problems/delete-and-earn/ <br />
+Extremely similar questions. Forget about next ones, if we take care of previous, everything automatically falls into place. `dp[i]` gives a solution for array that ends at i
+
+* https://leetcode.com/problems/coin-change/ <br />
 Similar questions <br />
 Difference: dp array initialization: `dp[0] = nums[0] and dp[1] = max(nums[0:2])` <br />
 *NOTE:* BFS is a valid solution for coin-change: generate solutions 
 
-* https://leetcode.com/problems/decode-ways/
+* https://leetcode.com/problems/decode-ways/ <br />
 Great twist. Current character influences dp values of previous ones, not desirable. We traverse backwards. Rest of the things same as climbing-stairs (some checks obv)
 
-* https://leetcode.com/problems/counting-bits/
+* https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/ <br />
+Good twist; dp has to be a dict instead of array.
+```py
+            dp[n] = dp.get(n-difference, 0) + 1
+            max_seq = max(max_seq, dp[n])
+```
+
+* https://leetcode.com/problems/counting-bits/ <br />
 Tricky to figure out. <br />
 `Number of bits[i] = number of bits in the previous power of 2 ie. (1) + bits[i - previous power of 2]` <br />
 `i - previous power of 2` is obviously smaller than the previous power of 2. <br />
 Keep on generating powers of 2.
 
+##### 0/1 Knapsack
+Include/exclude the element at hand. <br />
+1. If item repetition isn't allowed:
+```py
+for item in item:
+    # next reverse step is extremely important to remove repetitions.
+    # visualize it, the first one would only update dp[first_one] since dp[0] = positive
+    # the next one will build up on that, the next on top of that.
+    for i in range(len(dp), num-1, -1):
+        dp[small_amount] = f(dp[small_amount -item])
+```
+* https://leetcode.com/problems/partition-equal-subset-sum/
+_NOTE:_ Make sure we don't overflow; inner loop must be capped at `(num-1)`
 
 ```js
 dp[i] = f(dp[1], dp[2], ..., dp[i-1] or dp[i])
 ```
 Here, rather than going to the previous computation, we traverse previous computations, check where we satisfy the constraint and then update `dp[i]`
 
-**Double loop** <br />
 * https://leetcode.com/problems/divisor-game/: Noted in the `Games` section <br />
 Second loop to check whether a number less than i is a divisor
 
-* https://leetcode.com/problems/perfect-squares/
+* https://leetcode.com/problems/perfect-squares/ <br />
 Second loop to subtract j's square from i and update `dp[i]` based on `dp[i-j]` <br />
 *NOTE:* BFS is also a valid solution
+
+* https://leetcode.com/problems/maximum-length-of-pair-chain/ <br />
+Similar idea. Sorting by the first element is the key
+
+* https://leetcode.com/problems/partition-array-for-maximum-sum/ <br />
+Good explaination: https://leetcode.com/problems/partition-array-for-maximum-sum/discuss/299049/DP-python-commented-code. The only difference being we traverse dp array from i backwards with j. `dp[i]` stores the solution for array ending with i as usual.
 
 ```js
 dp[i] = f(g(j, dp[j]) * g(i-j, dp[i-j])) j E (1 < j <= i)
 ```
-**Double loop** <br />
-* https://leetcode.com/problems/unique-binary-search-trees/
+
+* https://leetcode.com/problems/unique-binary-search-trees/ <br />
 dp[i] = number of trees possible with i nodes. <br />
 No of trees with root i becomes: `trees possible with i nodes for left * with (i-j) nodes for right` <br/>
 Sum for every `dp[i]`
@@ -51,7 +79,7 @@ Sum for every `dp[i]`
 dp[i] += dp[j-1] * dp[i-j]
 ```
 
-* https://leetcode.com/problems/integer-break/
+* https://leetcode.com/problems/integer-break/ <br />
 Great question. We can break down number i around j `(E 1 < j < i/2)`. <br />
 Now, we can chose to either: keep j as it is, break down to the best possible product, ie. `dp[j]`, same thing for the other piece, `(i-j)` <br />
 
@@ -59,16 +87,12 @@ Now, we can chose to either: keep j as it is, break down to the best possible pr
 dp[i] = Math.max(dp[i], (Math.max(j, dp[j])) * (Math.max(i - j, dp[i - j])))
 ```
 
-* https://leetcode.com/problems/partition-equal-subset-sum/
-* https://leetcode.com/problems/maximum-length-of-pair-chain/
-* https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
-* https://leetcode.com/problems/delete-and-earn/
-* https://leetcode.com/problems/domino-and-tromino-tiling/
+#### Exhaustive solution generation
 * https://leetcode.com/problems/knight-dialer/
 * https://leetcode.com/problems/minimum-cost-for-tickets/
-* https://leetcode.com/problems/partition-array-for-maximum-sum/
-* https://leetcode.com/problems/filling-bookcase-shelves/
-* https://leetcode.com/problems/longest-arithmetic-subsequence-of-given-difference/
+* https://leetcode.com/problems/domino-and-tromino-tiling/
+
+
 * https://leetcode.com/problems/greatest-sum-divisible-by-three/
 * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
 * https://leetcode.com/problems/student-attendance-record-ii/
@@ -83,6 +107,7 @@ dp[i] = Math.max(dp[i], (Math.max(j, dp[j])) * (Math.max(i - j, dp[i - j])))
 * https://leetcode.com/problems/stone-game-iv/
 * https://leetcode.com/problems/coin-change-2/
 * https://leetcode.com/problems/wiggle-subsequence/
+* https://leetcode.com/problems/filling-bookcase-shelves/
 
 ---------------------------------------------------------------------------
 
@@ -210,6 +235,7 @@ A.Kadane's Algorithm
 https://leetcode.com/problems/maximum-subarray/
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
 https://leetcode.com/problems/maximum-product-subarray/
 https://leetcode.com/problems/bitwise-ors-of-subarrays/
 https://leetcode.com/problems/longest-turbulent-subarray/
