@@ -1,16 +1,34 @@
-### Pythonic Tricks
+### Tricks
 
-INT_MAX:
+#### Prefix array and sum calculation
 ```py
-INT_MAX = float('inf')
+        P = [0]
+        
+        for x in A: P.append(P[-1] + x)
+        def sum_and_number_of_elements(x, y):
+            # _IMP:_ x should be the start of slice+1; same for y
+            return (P[j] - P[i]), (j - i)
 ```
 
-INT_MIN:
+#### Partitioning
+1. Select last element as a `pivot` and first element as the `left_idx`
+2. Add a `runner` to loop from left to (right-1)
+3. `left_idx`to keep smaller elements at the correct places. Swap (left_idx - runner elems) if runner pointed elem is smaller than the pivot
 ```py
-INT_MIN = float('-inf')
+        def partition(_left, _right):
+            left_idx, pivot_idx = _left, _right
+            
+            for runner in range(_left, _right):
+                if nums[runner] < nums[pivot_idx]:
+                    nums[left_idx], nums[runner] = nums[runner], nums[left_idx]
+                    left_idx += 1
+                
+            
+            nums[pivot_idx], nums[left_idx] = nums[left_idx], nums[pivot_idx]
+            return left_idx
 ```
 
-Rather than doing all sorts of complicated stuff with `// +- 1`, just use `math` <br />
+#### Rather than doing all sorts of complicated stuff with `// +- 1`, just use `math` <br />
 ```py
 import math
 
@@ -70,34 +88,6 @@ for i, c in enumerate(s):
     # c is s[i]
 ```
 
-#### Memoization 
-We can use `LRU cache` to store function results <br />
-https://dbader.org/blog/python-memoization <br />
-Use `functools.lru_cache` 
-```py
-import functools
-
-@functools.lru_cache(maxsize=None)
-def fib_lru_cache(n):
-```
-
 #### list.insert(index, elem)
 The last one gets the priority
 
-### Partitioning
-1. Select last element as a `pivot` and first element as the `left_idx`
-2. Add a `runner` to loop from left to (right-1)
-3. `left_idx`to keep smaller elements at the correct places. Swap (left_idx - runner elems) if runner pointed elem is smaller than the pivot
-```py
-        def partition(_left, _right):
-            left_idx, pivot_idx = _left, _right
-            
-            for runner in range(_left, _right):
-                if nums[runner] < nums[pivot_idx]:
-                    nums[left_idx], nums[runner] = nums[runner], nums[left_idx]
-                    left_idx += 1
-                
-            
-            nums[pivot_idx], nums[left_idx] = nums[left_idx], nums[pivot_idx]
-            return left_idx
-```
