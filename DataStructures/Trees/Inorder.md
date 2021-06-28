@@ -116,3 +116,55 @@ class Solution:
         _inorder.sum = 0
         return _inorder(root)
 ```
+https://leetcode.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/ <br />
+Use a static variable to keep track of the last element. Returning the node won't work since node's right should be followed by node's parent.
+```py
+class Solution:
+    def treeToDoublyList(self, root: 'Node') -> 'Node':
+        """
+        The inorder bit is obvious.
+        
+        Now, the important thing to remember is that we are guaranteed 
+        to get references to nodes left and right if we don't update 
+        left before inorder(node.left) or before inorder(node.right)
+        
+        Setup step: 
+        last.right = node
+        node.left = last
+        
+        Rather than returning the node, just keep a static variable to keep
+        track of the last visited node. Because, node's right should 
+        be followed by the node's parent.
+        
+        If last node is not initialized, we need the first node.
+        """
+        
+        if not root:
+            return root
+        
+        def inorder(node):
+            if not node:
+                return
+            
+            inorder(node.left)
+            
+            if inorder.last:
+                inorder.last.right = node
+                node.left = inorder.last
+            else:
+                inorder.first = node
+            
+            # reference for the next element
+            inorder.last = node
+            
+            inorder(node.right)
+        
+        inorder.first = inorder.last = None
+        inorder(root)
+        
+        # make it cyclic
+        inorder.last.right = inorder.first
+        inorder.first.left = inorder.last
+        
+        return inorder.first
+```

@@ -1,0 +1,1078 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Two Pointers · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Subarrays.html" />
+    
+    
+    <link rel="prev" href="SlidingWindow.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../GeneralInstructions.html">
+            
+                <a href="../../GeneralInstructions.html">
+            
+                    
+                    General Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Data Structures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../StacksAndQueues/">
+            
+                <a href="../StacksAndQueues/">
+            
+                    
+                    Stacks and Queues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Arrays
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="SlidingWindow.html">
+            
+                <a href="SlidingWindow.html">
+            
+                    
+                    Sliding Window
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2.2" data-path="TwoPointers.html">
+            
+                <a href="TwoPointers.html">
+            
+                    
+                    Two Pointers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="Subarrays.html">
+            
+                <a href="Subarrays.html">
+            
+                    
+                    Subarrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="Subsets.html">
+            
+                <a href="Subsets.html">
+            
+                    
+                    Subsets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="Triplets.html">
+            
+                <a href="Triplets.html">
+            
+                    
+                    Triplets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="StackTricks.html">
+            
+                <a href="StackTricks.html">
+            
+                    
+                    Stack Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="MultipleArrays.html">
+            
+                <a href="MultipleArrays.html">
+            
+                    
+                    Multiple Arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="LeftAndRight.html">
+            
+                <a href="LeftAndRight.html">
+            
+                    
+                    Left and right
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../Strings/">
+            
+                <a href="../Strings/">
+            
+                    
+                    Strings
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../Strings/StandardQuestions.html">
+            
+                <a href="../Strings/StandardQuestions.html">
+            
+                    
+                    Standard Questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../LinkedLists/">
+            
+                <a href="../LinkedLists/">
+            
+                    
+                    Linked Lists
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../LinkedLists/Instructions.html">
+            
+                <a href="../LinkedLists/Instructions.html">
+            
+                    
+                    Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../Trees/">
+            
+                <a href="../Trees/">
+            
+                    
+                    Trees
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../Trees/Inorder.html">
+            
+                <a href="../Trees/Inorder.html">
+            
+                    
+                    Inorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="../Trees/Preorder.html">
+            
+                <a href="../Trees/Preorder.html">
+            
+                    
+                    Preorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="../Trees/Postorder.html">
+            
+                <a href="../Trees/Postorder.html">
+            
+                    
+                    Postorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="../Trees/LevelWise.html">
+            
+                <a href="../Trees/LevelWise.html">
+            
+                    
+                    Level-wise Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="../Trees/TreeToGraph.html">
+            
+                <a href="../Trees/TreeToGraph.html">
+            
+                    
+                    Tree to Graph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="../Trees/TwoTrees.html">
+            
+                <a href="../Trees/TwoTrees.html">
+            
+                    
+                    Two Trees
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="../Trees/ConstructTree.html">
+            
+                <a href="../Trees/ConstructTree.html">
+            
+                    
+                    Construct Trees
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="../Trees/NumTrees.html">
+            
+                <a href="../Trees/NumTrees.html">
+            
+                    
+                    Number of Trees
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../Graphs/">
+            
+                <a href="../Graphs/">
+            
+                    
+                    Graphs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../Graphs/Coloring.html">
+            
+                <a href="../Graphs/Coloring.html">
+            
+                    
+                    Coloring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../Graphs/GraphBFS.html">
+            
+                <a href="../Graphs/GraphBFS.html">
+            
+                    
+                    Graph BFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../Graphs/GraphDFS.html">
+            
+                <a href="../Graphs/GraphDFS.html">
+            
+                    
+                    Graph DFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="../Graphs/TopologySort.html">
+            
+                <a href="../Graphs/TopologySort.html">
+            
+                    
+                    Topology Sort
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../Heap.html">
+            
+                <a href="../Heap.html">
+            
+                    
+                    Heap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../Grid.html">
+            
+                <a href="../Grid.html">
+            
+                    
+                    Grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../Algorithms/">
+            
+                <a href="../../Algorithms/">
+            
+                    
+                    Algorithms
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../../Algorithms/TrickySorting.html">
+            
+                <a href="../../Algorithms/TrickySorting.html">
+            
+                    
+                    Tricky Sorting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../../Algorithms/DFSandBFS.html">
+            
+                <a href="../../Algorithms/DFSandBFS.html">
+            
+                    
+                    DFS and BFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../../Algorithms/Combinatorics.html">
+            
+                <a href="../../Algorithms/Combinatorics.html">
+            
+                    
+                    Combinatorics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../../Algorithms/Backtracking.html">
+            
+                <a href="../../Algorithms/Backtracking.html">
+            
+                    
+                    Backtracking and Complete Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../../Algorithms/BinarySearch.html">
+            
+                <a href="../../Algorithms/BinarySearch.html">
+            
+                    
+                    Binary Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../../Algorithms/BucketTrick.html">
+            
+                <a href="../../Algorithms/BucketTrick.html">
+            
+                    
+                    Bucket Trick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../../Algorithms/Games.html">
+            
+                <a href="../../Algorithms/Games.html">
+            
+                    
+                    Games
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../../Algorithms/Bitwise.html">
+            
+                <a href="../../Algorithms/Bitwise.html">
+            
+                    
+                    Bitwise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../../Algorithms/DP/">
+            
+                <a href="../../Algorithms/DP/">
+            
+                    
+                    DP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.9.1" data-path="../../Algorithms/DP/Knapsack.html">
+            
+                <a href="../../Algorithms/DP/Knapsack.html">
+            
+                    
+                    Knapsack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9.2" data-path="../../Algorithms/DP/NumSol.html">
+            
+                <a href="../../Algorithms/DP/NumSol.html">
+            
+                    
+                    Number of Solutions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../../Algorithms/DynamicProgramming-I.html">
+            
+                <a href="../../Algorithms/DynamicProgramming-I.html">
+            
+                    
+                    Dynamic Programming I
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../../Algorithms/DynamicProgramming-II.html">
+            
+                <a href="../../Algorithms/DynamicProgramming-II.html">
+            
+                    
+                    Dynamic Programming II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="../../Algorithms/DynamicProgramming-III.html">
+            
+                <a href="../../Algorithms/DynamicProgramming-III.html">
+            
+                    
+                    Dynamic Programming III
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="../../Algorithms/DynamicProgramming-IV.html">
+            
+                <a href="../../Algorithms/DynamicProgramming-IV.html">
+            
+                    
+                    Dynamic Programming IV
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../Miscellaneous/">
+            
+                <a href="../../Miscellaneous/">
+            
+                    
+                    Miscellaneous
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../../Miscellaneous/Palindrome.html">
+            
+                <a href="../../Miscellaneous/Palindrome.html">
+            
+                    
+                    Palindrome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../../Miscellaneous/Stocks.html">
+            
+                <a href="../../Miscellaneous/Stocks.html">
+            
+                    
+                    Stocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../../Miscellaneous/Intervals.html">
+            
+                <a href="../../Miscellaneous/Intervals.html">
+            
+                    
+                    Intervals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../../Miscellaneous/Parenthesis.html">
+            
+                <a href="../../Miscellaneous/Parenthesis.html">
+            
+                    
+                    Parenthesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../../Miscellaneous/AlienDictionary.html">
+            
+                <a href="../../Miscellaneous/AlienDictionary.html">
+            
+                    
+                    Alien Dictionary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../../Miscellaneous/InterestingMiscellaneous.html">
+            
+                <a href="../../Miscellaneous/InterestingMiscellaneous.html">
+            
+                    
+                    Interesting Miscellaneous
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../Tricks/">
+            
+                <a href="../../Tricks/">
+            
+                    
+                    Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../BehavioralQuestions.html">
+            
+                <a href="../../BehavioralQuestions.html">
+            
+                    
+                    Behavioral Questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Two Pointers</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="2-pointers-technique">2 Pointers technique</h3>
+<p><a href="https://leetcode.com/problems/two-sum/" target="_blank">https://leetcode.com/problems/two-sum/</a><br>
+<a href="https://leetcode.com/problems/3sum/" target="_blank">https://leetcode.com/problems/3sum/</a> <br>
+<a href="https://leetcode.com/problems/boats-to-save-people/" target="_blank">https://leetcode.com/problems/boats-to-save-people/</a></p>
+<p>Two pointers is really an easy and effective technique which is typically used for searching pairs in an array.
+ Two pointers:
+At either ends and decide which one to move
+One faster and one slower
+Maintain subarray size of K&#x2019;s props</p>
+<h5 id="general-solution-structure-">General solution structure: <br></h5>
+<p><a href="https://leetcode.com/problems/container-with-most-water/" target="_blank">https://leetcode.com/problems/container-with-most-water/</a> <br>
+Container height is limited by smaller one, move that forward</p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">maxArea</span><span class="hljs-params">(self, height: List[int])</span> -&gt; int:</span>
+        l, r = <span class="hljs-number">0</span>, len(height)<span class="hljs-number">-1</span>
+        water = <span class="hljs-number">0</span>
+
+        <span class="hljs-keyword">while</span> l &lt; r:
+            water = max(water, (r-l) * min(height[l], height[r]))
+
+            <span class="hljs-keyword">if</span> height[r] &lt; height[l]:
+                r -= <span class="hljs-number">1</span>
+            <span class="hljs-keyword">else</span>:
+                l += <span class="hljs-number">1</span>
+
+        <span class="hljs-keyword">return</span> water
+</code></pre>
+<p><a href="https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/528/week-1/3286/" target="_blank">https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/528/week-1/3286/</a></p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moveZeroes</span><span class="hljs-params">(self, nums: List[int])</span> -&gt; <span class="hljs-keyword">None</span>:</span>
+        n = len(nums)
+        z = <span class="hljs-number">0</span>
+        p = <span class="hljs-number">0</span>
+
+        <span class="hljs-keyword">while</span> (<span class="hljs-keyword">not</span> p == (n - <span class="hljs-number">1</span>)):
+            <span class="hljs-keyword">while</span> z &lt; n <span class="hljs-keyword">and</span> nums[z]:
+                z += <span class="hljs-number">1</span> 
+
+            p = z + <span class="hljs-number">1</span>
+
+            <span class="hljs-keyword">while</span> p &lt; n <span class="hljs-keyword">and</span> (<span class="hljs-keyword">not</span> nums[p]):
+                p += <span class="hljs-number">1</span>
+
+            <span class="hljs-keyword">if</span> p &gt;= n <span class="hljs-keyword">or</span> z &gt;= n:
+                <span class="hljs-keyword">break</span>
+
+            nums[z], nums[p] = nums[p], nums[z]
+
+        <span class="hljs-keyword">return</span> nums
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="SlidingWindow.html" class="navigation navigation-prev " aria-label="Previous page: Sliding Window">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Subarrays.html" class="navigation navigation-next " aria-label="Next page: Subarrays">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Two Pointers","level":"1.3.2.2","depth":3,"next":{"title":"Subarrays","level":"1.3.2.3","depth":3,"path":"DataStructures/Arrays/Subarrays.md","ref":"DataStructures/Arrays/Subarrays.md","articles":[]},"previous":{"title":"Sliding Window","level":"1.3.2.1","depth":3,"path":"DataStructures/Arrays/SlidingWindow.md","ref":"DataStructures/Arrays/SlidingWindow.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"DataStructures/Arrays/TwoPointers.md","mtime":"2021-02-18T12:42:07.061Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-27T18:59:41.346Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1136 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Backtracking and Complete Search · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="BinarySearch.html" />
+    
+    
+    <link rel="prev" href="Combinatorics.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../GeneralInstructions.html">
+            
+                <a href="../GeneralInstructions.html">
+            
+                    
+                    General Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../DataStructures/StacksAndQueues/">
+            
+                <a href="../DataStructures/StacksAndQueues/">
+            
+                    
+                    Stacks and Queues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../DataStructures/Arrays/">
+            
+                <a href="../DataStructures/Arrays/">
+            
+                    
+                    Arrays
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../DataStructures/Arrays/SlidingWindow.html">
+            
+                <a href="../DataStructures/Arrays/SlidingWindow.html">
+            
+                    
+                    Sliding Window
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../DataStructures/Arrays/TwoPointers.html">
+            
+                <a href="../DataStructures/Arrays/TwoPointers.html">
+            
+                    
+                    Two Pointers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../DataStructures/Arrays/Subarrays.html">
+            
+                <a href="../DataStructures/Arrays/Subarrays.html">
+            
+                    
+                    Subarrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../DataStructures/Arrays/Subsets.html">
+            
+                <a href="../DataStructures/Arrays/Subsets.html">
+            
+                    
+                    Subsets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../DataStructures/Arrays/Triplets.html">
+            
+                <a href="../DataStructures/Arrays/Triplets.html">
+            
+                    
+                    Triplets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="../DataStructures/Arrays/StackTricks.html">
+            
+                <a href="../DataStructures/Arrays/StackTricks.html">
+            
+                    
+                    Stack Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="../DataStructures/Arrays/MultipleArrays.html">
+            
+                <a href="../DataStructures/Arrays/MultipleArrays.html">
+            
+                    
+                    Multiple Arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="../DataStructures/Arrays/LeftAndRight.html">
+            
+                <a href="../DataStructures/Arrays/LeftAndRight.html">
+            
+                    
+                    Left and right
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../DataStructures/Strings/">
+            
+                <a href="../DataStructures/Strings/">
+            
+                    
+                    Strings
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../DataStructures/Strings/StandardQuestions.html">
+            
+                <a href="../DataStructures/Strings/StandardQuestions.html">
+            
+                    
+                    Standard Questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../DataStructures/LinkedLists/">
+            
+                <a href="../DataStructures/LinkedLists/">
+            
+                    
+                    Linked Lists
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../DataStructures/LinkedLists/Instructions.html">
+            
+                <a href="../DataStructures/LinkedLists/Instructions.html">
+            
+                    
+                    Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../DataStructures/Trees/">
+            
+                <a href="../DataStructures/Trees/">
+            
+                    
+                    Trees
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../DataStructures/Trees/Inorder.html">
+            
+                <a href="../DataStructures/Trees/Inorder.html">
+            
+                    
+                    Inorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="../DataStructures/Trees/Preorder.html">
+            
+                <a href="../DataStructures/Trees/Preorder.html">
+            
+                    
+                    Preorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="../DataStructures/Trees/Postorder.html">
+            
+                <a href="../DataStructures/Trees/Postorder.html">
+            
+                    
+                    Postorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="../DataStructures/Trees/LevelWise.html">
+            
+                <a href="../DataStructures/Trees/LevelWise.html">
+            
+                    
+                    Level-wise Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="../Datastructures/Trees/TreeToGraph.html">
+            
+                <a href="../Datastructures/Trees/TreeToGraph.html">
+            
+                    
+                    Tree to Graph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="../DataStructures/Trees/TwoTrees.html">
+            
+                <a href="../DataStructures/Trees/TwoTrees.html">
+            
+                    
+                    Two Trees
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="../DataStructures/Trees/ConstructTree.html">
+            
+                <a href="../DataStructures/Trees/ConstructTree.html">
+            
+                    
+                    Construct Trees
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="../DataStructures/Trees/NumTrees.html">
+            
+                <a href="../DataStructures/Trees/NumTrees.html">
+            
+                    
+                    Number of Trees
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../DataStructures/Graphs/">
+            
+                <a href="../DataStructures/Graphs/">
+            
+                    
+                    Graphs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../DataStructures/Graphs/Coloring.html">
+            
+                <a href="../DataStructures/Graphs/Coloring.html">
+            
+                    
+                    Coloring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../DataStructures/Graphs/GraphBFS.html">
+            
+                <a href="../DataStructures/Graphs/GraphBFS.html">
+            
+                    
+                    Graph BFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../DataStructures/Graphs/GraphDFS.html">
+            
+                <a href="../DataStructures/Graphs/GraphDFS.html">
+            
+                    
+                    Graph DFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="../DataStructures/Graphs/TopologySort.html">
+            
+                <a href="../DataStructures/Graphs/TopologySort.html">
+            
+                    
+                    Topology Sort
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../DataStructures/Heap.html">
+            
+                <a href="../DataStructures/Heap.html">
+            
+                    
+                    Heap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../DataStructures/Grid.html">
+            
+                <a href="../DataStructures/Grid.html">
+            
+                    
+                    Grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Algorithms
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="TrickySorting.html">
+            
+                <a href="TrickySorting.html">
+            
+                    
+                    Tricky Sorting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="DFSandBFS.html">
+            
+                <a href="DFSandBFS.html">
+            
+                    
+                    DFS and BFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="Combinatorics.html">
+            
+                <a href="Combinatorics.html">
+            
+                    
+                    Combinatorics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.4" data-path="Backtracking.html">
+            
+                <a href="Backtracking.html">
+            
+                    
+                    Backtracking and Complete Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="BinarySearch.html">
+            
+                <a href="BinarySearch.html">
+            
+                    
+                    Binary Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="BucketTrick.html">
+            
+                <a href="BucketTrick.html">
+            
+                    
+                    Bucket Trick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="Games.html">
+            
+                <a href="Games.html">
+            
+                    
+                    Games
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="Bitwise.html">
+            
+                <a href="Bitwise.html">
+            
+                    
+                    Bitwise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="DP/">
+            
+                <a href="DP/">
+            
+                    
+                    DP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.9.1" data-path="DP/Knapsack.html">
+            
+                <a href="DP/Knapsack.html">
+            
+                    
+                    Knapsack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9.2" data-path="DP/NumSol.html">
+            
+                <a href="DP/NumSol.html">
+            
+                    
+                    Number of Solutions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="DynamicProgramming-I.html">
+            
+                <a href="DynamicProgramming-I.html">
+            
+                    
+                    Dynamic Programming I
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="DynamicProgramming-II.html">
+            
+                <a href="DynamicProgramming-II.html">
+            
+                    
+                    Dynamic Programming II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="DynamicProgramming-III.html">
+            
+                <a href="DynamicProgramming-III.html">
+            
+                    
+                    Dynamic Programming III
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="DynamicProgramming-IV.html">
+            
+                <a href="DynamicProgramming-IV.html">
+            
+                    
+                    Dynamic Programming IV
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Miscellaneous/">
+            
+                <a href="../Miscellaneous/">
+            
+                    
+                    Miscellaneous
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Miscellaneous/Palindrome.html">
+            
+                <a href="../Miscellaneous/Palindrome.html">
+            
+                    
+                    Palindrome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Miscellaneous/Stocks.html">
+            
+                <a href="../Miscellaneous/Stocks.html">
+            
+                    
+                    Stocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../Miscellaneous/Intervals.html">
+            
+                <a href="../Miscellaneous/Intervals.html">
+            
+                    
+                    Intervals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../Miscellaneous/Parenthesis.html">
+            
+                <a href="../Miscellaneous/Parenthesis.html">
+            
+                    
+                    Parenthesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../Miscellaneous/AlienDictionary.html">
+            
+                <a href="../Miscellaneous/AlienDictionary.html">
+            
+                    
+                    Alien Dictionary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../Miscellaneous/InterestingMiscellaneous.html">
+            
+                <a href="../Miscellaneous/InterestingMiscellaneous.html">
+            
+                    
+                    Interesting Miscellaneous
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Tricks/">
+            
+                <a href="../Tricks/">
+            
+                    
+                    Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../BehavioralQuestions.html">
+            
+                <a href="../BehavioralQuestions.html">
+            
+                    
+                    Behavioral Questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Backtracking and Complete Search</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="backtracking-and-complete-search">Backtracking and Complete Search</h3>
+<p>Basic questions: <br>
+Two choices:</p>
+<ul>
+<li>Don&apos;t choose the element: Just make a recursive call for the next element</li>
+<li><p>Choose the element and stay on the same if repeatition is allowed otherwise, go ahead. 
+<a href="https://leetcode.com/problems/combination-sum/" target="_blank">https://leetcode.com/problems/combination-sum/</a></p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">combinationSum</span><span class="hljs-params">(self, candidates: List[int], target: int)</span> -&gt; List[List[int]]:</span>
+      result = []
+
+      <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">backtrack</span><span class="hljs-params">(i, bucket, current)</span>:</span>
+          <span class="hljs-keyword">if</span> current == target:
+              result.append(bucket[:])
+              <span class="hljs-keyword">return</span> 
+
+          <span class="hljs-keyword">if</span> current &gt; target <span class="hljs-keyword">or</span> i == len(candidates):
+              <span class="hljs-keyword">return</span>
+
+          backtrack(i + <span class="hljs-number">1</span>, bucket, current)
+          backtrack(i, bucket + [candidates[i]], current + candidates[i])
+
+      backtrack(<span class="hljs-number">0</span>, [], <span class="hljs-number">0</span>)
+      <span class="hljs-keyword">return</span> result
+</code></pre>
+</li>
+</ul>
+<h4 id="exhaustive-search-for-an-answer">Exhaustive search for an answer:</h4>
+<p>Check every possible option and see if a solution exists: (very similar to permutation problems) <br>
+<a href="https://leetcode.com/problems/jump-game" target="_blank">https://leetcode.com/problems/jump-game</a> <br>
+Accept one of the options at each step <br>
+Emptying the bucket is not necessary </p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>{
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canJumpFromPosition</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position, <span class="hljs-keyword">int</span>[] nums)</span> </span>{
+        <span class="hljs-keyword">if</span> (position == nums.length - <span class="hljs-number">1</span>) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+        }
+
+        <span class="hljs-keyword">int</span> furthestJump = Math.min(position + nums[position], nums.length - <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> nextPosition = position + <span class="hljs-number">1</span>; nextPosition &lt;= furthestJump; nextPosition++) {
+            <span class="hljs-keyword">if</span> (canJumpFromPosition(nextPosition, nums)) {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            }
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">canJump</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums)</span> </span>{
+        <span class="hljs-keyword">return</span> canJumpFromPosition(<span class="hljs-number">0</span>, nums);
+    }
+}
+</code></pre>
+<h4 id="grid-dfs">Grid DFS</h4>
+<p>Solution of <a href="https://leetcode.com/problems/path-with-maximum-gold/" target="_blank">https://leetcode.com/problems/path-with-maximum-gold/</a> :</p>
+<pre><code class="lang-py"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dfs</span><span class="hljs-params">(self, i: int, j: int, sum: int, seen: set)</span> -&gt; int:</span>
+    <span class="hljs-comment"># constraints</span>
+    <span class="hljs-keyword">if</span>(i &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> i &gt;= m <span class="hljs-keyword">or</span> j &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> j &gt;= n <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span> grid[i][j] <span class="hljs-keyword">or</span> (i, j) <span class="hljs-keyword">in</span> seen):
+        <span class="hljs-keyword">return</span> sum
+    <span class="hljs-comment"># add to the &apos;visited&apos; set</span>
+    seen.add((i, j))
+    <span class="hljs-comment"># update current target</span>
+    sum += grid[i][j]
+    <span class="hljs-comment"># set maximum target</span>
+    maximumSum = <span class="hljs-number">0</span>
+
+    <span class="hljs-comment"># directions to move in</span>
+    <span class="hljs-keyword">for</span> x, y <span class="hljs-keyword">in</span> ((i, j + <span class="hljs-number">1</span>), (i , j - <span class="hljs-number">1</span>), (i + <span class="hljs-number">1</span>, j), (i - <span class="hljs-number">1</span>, j)):
+    <span class="hljs-comment"># The actual recursion step</span>
+        maximumSum = max(self.dfs(x, y, sum, seen), maximumSum)
+    <span class="hljs-comment"># remove from the &apos;visited&apos; set after recursion </span>
+    seen.discard((i, j))
+    <span class="hljs-keyword">return</span> maximumSum
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">getMaximumGold</span><span class="hljs-params">(self, grid: List[List[int]])</span> -&gt; int:</span>
+    m, n = len(grid), len(grid[<span class="hljs-number">0</span>])
+    <span class="hljs-keyword">return</span> max(self.dfs(i, j, <span class="hljs-number">0</span>, set()) <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(n) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(m))
+</code></pre>
+<p><a href="https://leetcode.com/problems/2-keys-keyboard/submissions/" target="_blank">https://leetcode.com/problems/2-keys-keyboard/submissions/</a> <br>
+Return types should be taken care of. <br></p>
+<ul>
+<li>Base condition</li>
+<li>Limiting condition if required (Use INTMAX for min recursion, INTMIN for max recursion)</li>
+<li>Actual recursion</li>
+</ul>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_helperCopyPaste</span><span class="hljs-params">(self, n: int, current: int, copied: int)</span> -&gt; int:</span>
+        <span class="hljs-keyword">if</span>(current == n):
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+        <span class="hljs-keyword">if</span>(current &gt; n):
+            <span class="hljs-keyword">return</span> <span class="hljs-number">3000</span>
+        <span class="hljs-keyword">return</span> min(<span class="hljs-number">2</span> + self._helperCopyPaste(n, current + current, current),
+                   <span class="hljs-number">1</span> + self._helperCopyPaste(n, current + copied, copied))
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">minSteps</span><span class="hljs-params">(self, n: int)</span> -&gt; int:</span>
+        <span class="hljs-keyword">if</span>(n == <span class="hljs-number">1</span>):
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> + self._helperCopyPaste(n, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
+</code></pre>
+<p><a href="https://leetcode.com/problems/number-of-ways-to-wear-different-hats-to-each-other/" target="_blank">https://leetcode.com/problems/number-of-ways-to-wear-different-hats-to-each-other/</a> <br>
+For selected param, we can use bits. For memo array, we can use <code>functools.lru_cache</code> </p>
+<h4 id="generate-parentheses">Generate parentheses</h4>
+<p>Keep a count of open and closed ones. <br>
+Success cases: string length 2 <em> n and stack == 0 <br>
+Failure cases: string length 2 </em> n and stack != 0 OR stack &lt; 0 OR stack &gt; n <br>
+We just backtrack:</p>
+<pre><code class="lang-py">            backtrack(current + <span class="hljs-string">&apos;(&apos;</span>, stack + <span class="hljs-number">1</span>)
+            backtrack(current + <span class="hljs-string">&apos;)&apos;</span>, stack - <span class="hljs-number">1</span>)
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Combinatorics.html" class="navigation navigation-prev " aria-label="Previous page: Combinatorics">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="BinarySearch.html" class="navigation navigation-next " aria-label="Next page: Binary Search">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Backtracking and Complete Search","level":"1.4.4","depth":2,"next":{"title":"Binary Search","level":"1.4.5","depth":2,"path":"Algorithms/BinarySearch.md","ref":"Algorithms/BinarySearch.md","articles":[]},"previous":{"title":"Combinatorics","level":"1.4.3","depth":2,"path":"Algorithms/Combinatorics.md","ref":"Algorithms/Combinatorics.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/Backtracking.md","mtime":"2020-10-03T11:05:25.977Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-27T18:59:41.346Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

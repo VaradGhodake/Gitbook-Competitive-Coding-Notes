@@ -1,0 +1,1215 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Dynamic Programming I · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="DynamicProgramming-II.html" />
+    
+    
+    <link rel="prev" href="DP/NumSol.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../GeneralInstructions.html">
+            
+                <a href="../GeneralInstructions.html">
+            
+                    
+                    General Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../DataStructures/">
+            
+                <a href="../DataStructures/">
+            
+                    
+                    Data Structures
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../DataStructures/StacksAndQueues/">
+            
+                <a href="../DataStructures/StacksAndQueues/">
+            
+                    
+                    Stacks and Queues
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../DataStructures/Arrays/">
+            
+                <a href="../DataStructures/Arrays/">
+            
+                    
+                    Arrays
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../DataStructures/Arrays/SlidingWindow.html">
+            
+                <a href="../DataStructures/Arrays/SlidingWindow.html">
+            
+                    
+                    Sliding Window
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../DataStructures/Arrays/TwoPointers.html">
+            
+                <a href="../DataStructures/Arrays/TwoPointers.html">
+            
+                    
+                    Two Pointers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../DataStructures/Arrays/Subarrays.html">
+            
+                <a href="../DataStructures/Arrays/Subarrays.html">
+            
+                    
+                    Subarrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../DataStructures/Arrays/Subsets.html">
+            
+                <a href="../DataStructures/Arrays/Subsets.html">
+            
+                    
+                    Subsets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../DataStructures/Arrays/Triplets.html">
+            
+                <a href="../DataStructures/Arrays/Triplets.html">
+            
+                    
+                    Triplets
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="../DataStructures/Arrays/StackTricks.html">
+            
+                <a href="../DataStructures/Arrays/StackTricks.html">
+            
+                    
+                    Stack Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="../DataStructures/Arrays/MultipleArrays.html">
+            
+                <a href="../DataStructures/Arrays/MultipleArrays.html">
+            
+                    
+                    Multiple Arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="../DataStructures/Arrays/LeftAndRight.html">
+            
+                <a href="../DataStructures/Arrays/LeftAndRight.html">
+            
+                    
+                    Left and right
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../DataStructures/Strings/">
+            
+                <a href="../DataStructures/Strings/">
+            
+                    
+                    Strings
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../DataStructures/Strings/StandardQuestions.html">
+            
+                <a href="../DataStructures/Strings/StandardQuestions.html">
+            
+                    
+                    Standard Questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../DataStructures/LinkedLists/">
+            
+                <a href="../DataStructures/LinkedLists/">
+            
+                    
+                    Linked Lists
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../DataStructures/LinkedLists/Instructions.html">
+            
+                <a href="../DataStructures/LinkedLists/Instructions.html">
+            
+                    
+                    Instructions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../DataStructures/Trees/">
+            
+                <a href="../DataStructures/Trees/">
+            
+                    
+                    Trees
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../DataStructures/Trees/Inorder.html">
+            
+                <a href="../DataStructures/Trees/Inorder.html">
+            
+                    
+                    Inorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="../DataStructures/Trees/Preorder.html">
+            
+                <a href="../DataStructures/Trees/Preorder.html">
+            
+                    
+                    Preorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="../DataStructures/Trees/Postorder.html">
+            
+                <a href="../DataStructures/Trees/Postorder.html">
+            
+                    
+                    Postorder Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="../DataStructures/Trees/LevelWise.html">
+            
+                <a href="../DataStructures/Trees/LevelWise.html">
+            
+                    
+                    Level-wise Traversal
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="../Datastructures/Trees/TreeToGraph.html">
+            
+                <a href="../Datastructures/Trees/TreeToGraph.html">
+            
+                    
+                    Tree to Graph
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.6" data-path="../DataStructures/Trees/TwoTrees.html">
+            
+                <a href="../DataStructures/Trees/TwoTrees.html">
+            
+                    
+                    Two Trees
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.7" data-path="../DataStructures/Trees/ConstructTree.html">
+            
+                <a href="../DataStructures/Trees/ConstructTree.html">
+            
+                    
+                    Construct Trees
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.8" data-path="../DataStructures/Trees/NumTrees.html">
+            
+                <a href="../DataStructures/Trees/NumTrees.html">
+            
+                    
+                    Number of Trees
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../DataStructures/Graphs/">
+            
+                <a href="../DataStructures/Graphs/">
+            
+                    
+                    Graphs
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../DataStructures/Graphs/Coloring.html">
+            
+                <a href="../DataStructures/Graphs/Coloring.html">
+            
+                    
+                    Coloring
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../DataStructures/Graphs/GraphBFS.html">
+            
+                <a href="../DataStructures/Graphs/GraphBFS.html">
+            
+                    
+                    Graph BFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../DataStructures/Graphs/GraphDFS.html">
+            
+                <a href="../DataStructures/Graphs/GraphDFS.html">
+            
+                    
+                    Graph DFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="../DataStructures/Graphs/TopologySort.html">
+            
+                <a href="../DataStructures/Graphs/TopologySort.html">
+            
+                    
+                    Topology Sort
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../DataStructures/Heap.html">
+            
+                <a href="../DataStructures/Heap.html">
+            
+                    
+                    Heap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../DataStructures/Grid.html">
+            
+                <a href="../DataStructures/Grid.html">
+            
+                    
+                    Grid
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Algorithms
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="TrickySorting.html">
+            
+                <a href="TrickySorting.html">
+            
+                    
+                    Tricky Sorting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="DFSandBFS.html">
+            
+                <a href="DFSandBFS.html">
+            
+                    
+                    DFS and BFS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="Combinatorics.html">
+            
+                <a href="Combinatorics.html">
+            
+                    
+                    Combinatorics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="Backtracking.html">
+            
+                <a href="Backtracking.html">
+            
+                    
+                    Backtracking and Complete Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="BinarySearch.html">
+            
+                <a href="BinarySearch.html">
+            
+                    
+                    Binary Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="BucketTrick.html">
+            
+                <a href="BucketTrick.html">
+            
+                    
+                    Bucket Trick
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="Games.html">
+            
+                <a href="Games.html">
+            
+                    
+                    Games
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="Bitwise.html">
+            
+                <a href="Bitwise.html">
+            
+                    
+                    Bitwise
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="DP/">
+            
+                <a href="DP/">
+            
+                    
+                    DP
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.9.1" data-path="DP/Knapsack.html">
+            
+                <a href="DP/Knapsack.html">
+            
+                    
+                    Knapsack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9.2" data-path="DP/NumSol.html">
+            
+                <a href="DP/NumSol.html">
+            
+                    
+                    Number of Solutions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.10" data-path="DynamicProgramming-I.html">
+            
+                <a href="DynamicProgramming-I.html">
+            
+                    
+                    Dynamic Programming I
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="DynamicProgramming-II.html">
+            
+                <a href="DynamicProgramming-II.html">
+            
+                    
+                    Dynamic Programming II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="DynamicProgramming-III.html">
+            
+                <a href="DynamicProgramming-III.html">
+            
+                    
+                    Dynamic Programming III
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.13" data-path="DynamicProgramming-IV.html">
+            
+                <a href="DynamicProgramming-IV.html">
+            
+                    
+                    Dynamic Programming IV
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../Miscellaneous/">
+            
+                <a href="../Miscellaneous/">
+            
+                    
+                    Miscellaneous
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../Miscellaneous/Palindrome.html">
+            
+                <a href="../Miscellaneous/Palindrome.html">
+            
+                    
+                    Palindrome
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../Miscellaneous/Stocks.html">
+            
+                <a href="../Miscellaneous/Stocks.html">
+            
+                    
+                    Stocks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../Miscellaneous/Intervals.html">
+            
+                <a href="../Miscellaneous/Intervals.html">
+            
+                    
+                    Intervals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../Miscellaneous/Parenthesis.html">
+            
+                <a href="../Miscellaneous/Parenthesis.html">
+            
+                    
+                    Parenthesis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../Miscellaneous/AlienDictionary.html">
+            
+                <a href="../Miscellaneous/AlienDictionary.html">
+            
+                    
+                    Alien Dictionary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../Miscellaneous/InterestingMiscellaneous.html">
+            
+                <a href="../Miscellaneous/InterestingMiscellaneous.html">
+            
+                    
+                    Interesting Miscellaneous
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../Tricks/">
+            
+                <a href="../Tricks/">
+            
+                    
+                    Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../BehavioralQuestions.html">
+            
+                <a href="../BehavioralQuestions.html">
+            
+                    
+                    Behavioral Questions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Dynamic Programming I</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="dynamic-programming">Dynamic Programming</h3>
+<p>Dynamic programming is a technique that combines the correctness of complete search and the efficiency of greedy algorithms. Dynamic programming can be applied if the problem can be divided into overlapping subproblems that can be solved independently.</p>
+<p>We should always go: <code>recursive solution</code> -&gt; <code>memoization</code> -&gt; <code>Dynamic Programming</code> <br>
+There are a lot of memoization solved problems in leetcode -&gt; Top interview questions -&gt; DP <br>
+Memoization basically insures that we solve a particular subproblem only once to improve runtime</p>
+<p>Recursive solution: For problems with structure of <code>take or leave</code>, check how it depends on previous values and recurse conditionally: make except and include cases and take max or min. eg. coin-change, LIS, perfect squares, word break, etc  </p>
+<h4 id="half-the-problem-is-solved-once-you-figure-out-that-the-problem-is-a-dp-one">Half the problem is solved once you figure out that the problem is a DP one</h4>
+<p>Template: <a href="https://leetcode.com/discuss/general-discussion/651719/how-to-solve-dp-string-template-and-4-steps-to-be-followed" target="_blank">https://leetcode.com/discuss/general-discussion/651719/how-to-solve-dp-string-template-and-4-steps-to-be-followed</a></p>
+<p>There are two uses for dynamic programming:</p>
+<ul>
+<li>Finding an optimal solution: We want to find a solution that is as large as possible or as small as possible.</li>
+<li>Counting the number of solutions: We want to calculate the total number of possible solutions.</li>
+</ul>
+<h4 id="1-optimal-solution">1. Optimal Solution</h4>
+<p>eg. 0/1 Knapsack, partitions: exact sum, minimum sum difference, leetcode 1035</p>
+<p>Knapsack program:</p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">knapsack</span><span class="hljs-params">(self, weights, values, bag_weight)</span>:</span>
+        table = [[<span class="hljs-number">0</span>] * (bag_weight + <span class="hljs-number">1</span>)] <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> (len(values) + <span class="hljs-number">1</span>)]
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(values)+ <span class="hljs-number">1</span>):
+            <span class="hljs-keyword">for</span> weight <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, bag_weight + <span class="hljs-number">1</span>):
+                <span class="hljs-keyword">if</span>(i == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> weight == <span class="hljs-number">0</span>):
+                    table[i][weight] = <span class="hljs-number">0</span>
+                <span class="hljs-keyword">elif</span>(weight &lt; weights[i - <span class="hljs-number">1</span>]):
+                    table[i][weight] = max(
+                    weights[i - <span class="hljs-number">1</span>] + table[i - <span class="hljs-number">1</span>][w - weights[w - <span class="hljs-number">1</span>]],
+                    table[i - <span class="hljs-number">1</span>][w]
+                    )
+                <span class="hljs-keyword">else</span>:
+                    table[i][weight] = table[i - <span class="hljs-number">1</span>][weight]
+
+         <span class="hljs-keyword">return</span> table[len(values)][bag_weight]
+</code></pre>
+<h5 id="similar-problem-for-a-1d-array">Similar problem for a 1D array</h5>
+<p><a href="https://leetcode.com/problems/house-robber/" target="_blank">https://leetcode.com/problems/house-robber/</a> <br></p>
+<p>Recursive solution is intuitive</p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rob</span><span class="hljs-params">(self, nums: List[int])</span> -&gt; int:</span>
+        n = len(nums)
+        <span class="hljs-keyword">if</span> n == <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+        <span class="hljs-keyword">if</span> n == <span class="hljs-number">1</span>:
+            <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>]
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">recurse</span><span class="hljs-params">(current: int, i: int)</span> -&gt; int:</span>
+            <span class="hljs-keyword">if</span> i &gt;= n:
+                <span class="hljs-keyword">return</span> current
+
+            <span class="hljs-keyword">return</span> max(
+                recurse(current, i + <span class="hljs-number">1</span>),
+                recurse(current + nums[i], i + <span class="hljs-number">2</span>)
+            )
+
+        <span class="hljs-keyword">return</span> recurse(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+</code></pre>
+<p>Solution using DP:</p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rob</span><span class="hljs-params">(self, nums: List[int])</span> -&gt; int:</span>
+        n = len(nums)
+
+        <span class="hljs-keyword">if</span> n == <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+        <span class="hljs-keyword">if</span> n == <span class="hljs-number">1</span>:
+            <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>]
+
+        memo = [<span class="hljs-number">0</span>] * n
+        memo[<span class="hljs-number">0</span>] = nums[<span class="hljs-number">0</span>]
+        memo[<span class="hljs-number">1</span>] = max(nums[<span class="hljs-number">0</span>], nums[<span class="hljs-number">1</span>])
+
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>, n):
+            memo[i] = max(memo[i - <span class="hljs-number">1</span>], memo[i - <span class="hljs-number">2</span>] + nums[i])
+
+        <span class="hljs-keyword">return</span> memo[n - <span class="hljs-number">1</span>]
+</code></pre>
+<p>For exact sum subsets and minimum difference subsets: <br>
+<code>True</code> or <code>False</code> for each cell. Use or instead of <code>max(include, exclude)</code>
+Need to have another loop over the table to find the &apos;pivot&apos;
+For minimum difference, find a True cell and that causes the least difference 
+<code>(total_sum - 2 * cell_column)</code></p>
+<p>For the minimum number of squares required to get the sum, similar to the exact sum subarray. Rather than <code>True</code> or <code>False</code>, maintain the number of squares required for the sum</p>
+<h4 id="2-number-of-solutions">2. Number of solutions</h4>
+<p>eg. Climbing stairs (LeetCode 70), unique-paths <br>
+<a href="https://leetcode.com/problems/unique-paths/submissions/" target="_blank">https://leetcode.com/problems/unique-paths/submissions/</a> <br></p>
+<p>Recursive solution: <br></p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">uniquePaths</span><span class="hljs-params">(self, m: int, n: int)</span> -&gt; int:</span>
+        X = n
+        Y = m
+        visited = [[<span class="hljs-keyword">False</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, Y)] <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, X)]
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dfs</span><span class="hljs-params">(x: int, y: int)</span> -&gt; int:</span>
+            <span class="hljs-keyword">if</span> x &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> x &gt;= X <span class="hljs-keyword">or</span> y &lt; <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> y &gt;= Y:
+                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+            <span class="hljs-keyword">if</span> visited[x][y]:
+                <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+            <span class="hljs-keyword">if</span> x == (X - <span class="hljs-number">1</span>) <span class="hljs-keyword">and</span> y == (Y - <span class="hljs-number">1</span>):
+                <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+
+            visited[x][y] = <span class="hljs-keyword">True</span>
+
+            total = dfs(x + <span class="hljs-number">1</span>, y) + \
+                    dfs(x, y + <span class="hljs-number">1</span>) 
+
+            visited[x][y] = <span class="hljs-keyword">False</span>
+
+            <span class="hljs-keyword">return</span> total
+
+        <span class="hljs-keyword">return</span> dfs(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+</code></pre>
+<p>DP Solution: <br></p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">uniquePaths</span><span class="hljs-params">(self, m: int, n: int)</span> -&gt; int:</span>
+        X = n
+        Y = m
+
+        <span class="hljs-keyword">if</span> X == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> Y == <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+        <span class="hljs-keyword">if</span> X == <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> Y == <span class="hljs-number">1</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+
+        <span class="hljs-keyword">if</span> X == <span class="hljs-number">1</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+
+        <span class="hljs-keyword">if</span> Y == <span class="hljs-number">1</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+
+        memo = [[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, Y)] <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, X)]
+
+        <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, X):
+            <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, Y):
+                <span class="hljs-keyword">if</span> x == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> y == <span class="hljs-number">0</span>:
+                    memo[x][y] = <span class="hljs-number">1</span>
+                    <span class="hljs-keyword">continue</span>
+
+                <span class="hljs-keyword">if</span> x == <span class="hljs-number">0</span> <span class="hljs-keyword">or</span> y == <span class="hljs-number">0</span>:
+                    memo[x][y] = <span class="hljs-number">1</span>
+                    <span class="hljs-keyword">continue</span>
+
+                memo[x][y] = memo[x - <span class="hljs-number">1</span>][y] + memo[x][y - <span class="hljs-number">1</span>]
+
+        <span class="hljs-keyword">return</span> memo[X - <span class="hljs-number">1</span>][Y - <span class="hljs-number">1</span>]
+</code></pre>
+<p>Unique paths II is similar but we set count to <code>0</code> in case there is an obstruction. <br>
+For row and column cells, <code>row[i] = row[i - 1]</code> and similar to columns <br>
+Rest is similar</p>
+<h5 id="similar-problem-for-a-1d-array">Similar problem for a 1D array</h5>
+<p>Climbing stairs: <br>
+For each step, there are multiple choices, generally 2. <br>
+Brute force solution goes something like this:</p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">solution_function</span><span class="hljs-params">(self, n)</span>:</span>
+        <span class="hljs-keyword">if</span>(success_base_case):
+           <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+        <span class="hljs-keyword">if</span>(failure_base_case):
+           <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">return</span> self.solution_function(case_one, n) + self.solution_function(case_two, n)
+</code></pre>
+<p>Time Complexity: O(2^n) - tree size</p>
+<p>Check if the problem satisfies Optimal Substructure Property <br>
+Find an equation for the answer <br>
+Here,</p>
+<pre><code class="lang-py">dp[n] = dp[n  -  <span class="hljs-number">1</span>] + dp[n - <span class="hljs-number">2</span>] <span class="hljs-comment">#(climb stairs case)</span>
+
+dp = [<span class="hljs-number">0</span>] * (n + <span class="hljs-number">1</span>)
+dp[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>
+dp[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>
+dp[<span class="hljs-number">2</span>] = <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>, n):
+            dp[i] = dp[i - <span class="hljs-number">1</span>] + dp[i - <span class="hljs-number">2</span>]
+<span class="hljs-keyword">return</span> dp[n]
+</code></pre>
+<p>From Leetcode:</p>
+<blockquote>
+<p>Usually, solving and fully understanding a dynamic programming problem is a 4 step process: <br></p>
+<ol>
+<li>Start with the recursive backtracking solution</li>
+<li>Optimize by using a memoization table (top-down dynamic programming)</li>
+<li>Remove the need for recursion (bottom-up dynamic programming)</li>
+<li>Apply final tricks to reduce the time / memory complexity</li>
+</ol>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="DP/NumSol.html" class="navigation navigation-prev " aria-label="Previous page: Number of Solutions">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="DynamicProgramming-II.html" class="navigation navigation-next " aria-label="Next page: Dynamic Programming II">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Dynamic Programming I","level":"1.4.10","depth":2,"next":{"title":"Dynamic Programming II","level":"1.4.11","depth":2,"path":"Algorithms/DynamicProgramming-II.md","ref":"Algorithms/DynamicProgramming-II.md","articles":[]},"previous":{"title":"Number of Solutions","level":"1.4.9.2","depth":3,"path":"Algorithms/DP/NumSol.md","ref":"Algorithms/DP/NumSol.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/DynamicProgramming-I.md","mtime":"2020-06-27T09:09:27.296Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-06-27T18:59:41.346Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
