@@ -29,28 +29,58 @@ class Solution:
         
         return water
 ```
-https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/528/week-1/3286/
+#### Partitioning
 
+1. Select last element as a `pivot` and first element as the `left_idx`
+2. Add a `runner` to loop from left to (right-1)
+3. `left_idx`to keep smaller elements at the correct places. Swap (left_idx <-> runner elems) if runner pointed elem is smaller than the pivot
+4. Swap `left_idx` and `pivot_idx` to put pivot in the right place
+```py
+        def partition(_left, _right):
+            left_idx, pivot_idx = _left, _right
+            
+            for runner in range(_left, _right):
+                if nums[runner] < nums[pivot_idx]:
+                    nums[left_idx], nums[runner] = nums[runner], nums[left_idx]
+                    left_idx += 1
+                
+            
+            nums[pivot_idx], nums[left_idx] = nums[left_idx], nums[pivot_idx]
+            return left_idx
+```
+
+https://leetcode.com/problems/move-zeroes/
 ```py
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        left_idx = runner = 0
         n = len(nums)
-        z = 0
-        p = 0
+        
+        while runner < n:
+            if nums[runner] != 0:
+                nums[left_idx], nums[runner] = nums[runner], nums[left_idx]
+                left_idx += 1
             
-        while (not p == (n - 1)):
-            while z < n and nums[z]:
-                z += 1 
+            runner += 1
+        
+        return 0
+```
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+```py
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        left_idx, runner = 1, 1
+        n = len(nums)
+        
+        while runner < n:
+            if nums[runner] != nums[runner-1]:
+                nums[left_idx] = nums[runner]
+                left_idx += 1
             
-            p = z + 1
-
-            while p < n and (not nums[p]):
-                p += 1
-            
-            if p >= n or z >= n:
-                break
-
-            nums[z], nums[p] = nums[p], nums[z]
-            
-        return nums
+            runner += 1
+        
+        return left_idx
 ```

@@ -13,20 +13,20 @@ Add all frequencies of prev to the total
 ```py
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        freq = {0:1}
-        current, total = 0, 0
+        cont_sum, subarrays = 0, 0
+        P = {cont_sum: 1}
         
-        for i, n in enumerate(nums):
-            current += n
-            if (current - k) in freq:
-                total += freq[(current - k)]
+        for num in nums:
+            # calculate the prefix sum
+            cont_sum += num
             
-            if current not in freq:
-                freq[current] = 1
-            else:
-                freq[current] += 1
+            # cont_sum - k = P[_x]
+            subarrays += (P.get(cont_sum - k, 0))
+            
+            # update the sum store
+            P[cont_sum] = P.get(cont_sum, 0) + 1
         
-        return total
+        return subarrays
 ```
 
 Requires all subarrays of all sizes and find all where a constraint is matched: <br />
@@ -123,4 +123,200 @@ class Solution:
             sum_pos[p] = i
         
         return intervals
+```
+
+### Sliding Window
+
+Cases:
+1. Expand end pointer and update the start one according to the situation
+2. Expand until the condition is met and then contract with the start one until the condition holds
+
+https://leetcode.com/problems/longest-substring-without-repeating-characters/
+```py
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        # extend as much we can, if we encounter a letter that falls inside the current
+        # window, >= start, just update the start to start+1 otherwise just expand.
+        # Update last seen with each iteration.
+        # The window spans fron start to end, both inclusive
+        last_seen = {}
+        n = len(s)
+        start = end = 0
+        
+        max_len = 0
+        while end < n:
+            if last_seen.get(s[end], -1) < start:
+                # outside the window, no issues with expanding
+                max_len = max(max_len, end - start + 1)
+            else:
+                # inside, update start
+                start = last_seen[s[end]] + 1
+            
+            last_seen[s[end]] = end
+            end += 1
+        
+        return max_len
+```
+https://leetcode.com/problems/minimum-size-subarray-sum/ <br />
+Classic case 2 question. Expand until we meet the condition and then contract with start pointer forwarding.
+```py
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        _sum, n = 0, len(nums)
+        start = end = 0
+        
+        smallest_len = float('inf')
+        
+        while end < n:
+            _sum += nums[end]
+            
+            if _sum >= target:
+                while _sum >= target and start <= end:
+                    _sum -= nums[start]
+                    smallest_len = min(smallest_len, end - start + 1)
+                    start += 1
+            
+            end += 1
+        
+        return smallest_len if smallest_len != float('inf') else 0
+```
+https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/ <br />
+We just store the first occurance of the sum so that we always maximize the length.
+```py
+class Solution:
+    def maxSubArrayLen(self, nums: List[int], k: int) -> int:
+        current_sum, max_len = 0, float('-inf')
+        sum_store = {0: -1}
+        
+        for i, num in enumerate(nums):
+            current_sum += num
+            
+            # current_sum - prev_sum = k => current_sum - k = prev_sum
+            prev_sum = (current_sum - k)
+            if prev_sum in sum_store:
+                max_len = max(max_len, i-sum_store[prev_sum])
+            
+            # catch
+            if current_sum not in sum_store:
+                sum_store[current_sum] = i
+        
+        return max_len if max_len != float('-inf') else 0
+```
+https://leetcode.com/problems/minimum-window-substring/ <br />
+We know the target dict. We can easily maintain current window with sliding window. <br />
+For satisfy criteria, we need to know how many of the characters in target are in enough quantity. <br />
+If we hit the target count for current character(not greater, that comes by default), we found a possible solution. <br />
+Now contract the window (`start += 1`) until `found == required` character count
+```py
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        """
+        Algorithm:
+        Expand the sliding window (with end += 1 ). In every loop, try to contract it 
+        until it keeps on satisfying *(if it satifies)* the criteria (with start += 1). 
+        Keep target and current dicts to update `found` variable in O(1).
+        
+        Optimizations:
+        `found` variable to simulate O(1) time isConstraintSatified().
+        Contract as long as this condition is satisfied.
+        """
+        
+        start = end = 0
+        target, current = {}, {}
+        
+        result, START, END = [float('-inf'), float('inf')], 0, 1
+        
+        # target set for constraint
+        for c in t:
+            target[c] = target.get(c, 0) + 1 
+        
+        found, required = 0, len(target)
+        
+        while end < len(s):
+            char = s[end]
+            
+            # expand on the right side
+            if char in target:
+                current[char] = current.get(char, 0) + 1
+                if current[char] == target[char]:
+                    found += 1
+            
+            # contract until the condition is satisfied
+            while found == required:
+                # update result
+                if (result[END] - result[START] + 1) > (end - start + 1):
+                    result[START] = start
+                    result[END] = end
+                
+                char = s[start]
+                
+                if char in current:
+                    current[char] -= 1
+                    if current[char] < target[char]:
+                        found -= 1
+                
+                start += 1
+               
+            end += 1
+            
+        return s[result[START]: result[END]+1] if result[END] != float('inf') else ""
+```
+https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/ <br />
+```py
+class Solution:
+    def lengthOfLongestSubstringKDistinct(self, s: str, k: int) -> int:
+        """
+        Algo:
+        Expand the window on the right side i.e. end. In each loop, run another loop to satisfy the constraint.
+        We have contract on the start side, contract until the constraint is satisfied over the character store
+        i.e. char_store
+
+        Maintain current length and use that to update max_len.
+        """
+        start, end, n = 0, 0, len(s)
+        chars, longest = {}, 0
+        
+        while end < n:
+            char = s[end]
+            chars[char] = chars.get(char, 0) + 1
+            
+            while len(chars) > k:
+                start_char = s[start]
+                chars[start_char] -= 1
+                
+                if chars[start_char] == 0:
+                    del chars[start_char]
+                
+                start += 1
+            
+            longest = max(longest, end-start+1)
+            end += 1
+        
+        return longest
+```
+https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/ <br />
+`k == 2`
+```py
+class Solution:
+    def lengthOfLongestSubstringTwoDistinct(self, s: str) -> int:
+        start, end, n = 0, 0, len(s)
+        chars, longest = {}, 0
+        
+        while end < n:
+            char = s[end]
+            chars[char] = chars.get(char, 0) + 1
+            
+            while len(chars) > 2:
+                start_char = s[start]
+                chars[start_char] -= 1
+                
+                if chars[start_char] == 0:
+                    del chars[start_char]
+                
+                start += 1
+            
+            longest = max(longest, end-start+1)
+            end += 1
+        
+        return longest
 ```

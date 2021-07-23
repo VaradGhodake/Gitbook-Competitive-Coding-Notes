@@ -176,3 +176,41 @@ class Solution:
         preorder(root, float('-inf'), 0)
         return preorder.longest
 ```
+https://leetcode.com/problems/flatten-binary-tree-to-linked-list/ <br />
+Check a similar one in our inorder set: `tree -> double linked list`
+```py
+class Solution:
+    def flatten(self, root: TreeNode) -> None:
+        """
+        Do not return anything, modify root in-place instead.
+        """
+        if not root:
+            return root
+        
+        def helper(node):
+            if not node:
+                return
+            """
+            We have to preseve the right pointer because the node's
+            right pointer is going to be modified.
+            
+            Static variable to store the last node reference.
+            """
+            node_right = node.right
+            
+            if not helper.last:
+                helper.first = node
+            else:
+                helper.last.right = node
+                helper.last.left = None
+                
+            helper.last = node
+            
+            helper(node.left)
+            helper(node_right)
+        
+        helper.first = helper.last = None
+        helper(root)
+        
+        return helper.first
+```

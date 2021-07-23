@@ -61,31 +61,42 @@ Better approach with sorting
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums = sorted(nums)
-        n = len(nums)
-        result = set()
-        i, j, k = 0, 1, n - 1
+        n, target = len(nums), 0
+        result = []
+        i = 0
         
-        for i in range(0, n - 2):
-            # This kind of pruning is very important
-            if i > 0 and nums[i] == nums[i - 1]: 
+        while i < n-2:
+            # avoid duplicate solutions; keep i value unique
+            # do not enforce on the loop init value
+            if i > 0 and nums[i] == nums[i-1]:
+                i += 1
                 continue
-
-            j = (i + 1)
-            k = (n - 1)
+            
+            j, k = i + 1, n-1
             
             while j < k:
+                # avoid duplicate solutions; keep j value unique
+                # do not enforce on the loop init value
+                if j > (i+1) and nums[j] == nums[j-1]:
+                    j += 1
+                    continue
+                
                 tri_sum = nums[i] + nums[j] + nums[k]
-
-                if tri_sum == 0:
-                    result.add((nums[i], nums[j], nums[k]))
+                
+                # target sum found
+                if tri_sum == target:
+                    result.append([nums[i], nums[j], nums[k]])
                     j += 1
                     k -= 1
-
-                if tri_sum > 0:
-                    k -= 1
-
-                if tri_sum < 0:
+                
+                # sum smaller than target, increase j to increase tri_sum
+                if tri_sum < target:
                     j += 1
-
+                # sum greater than target, decrease j to decrease tri_sum
+                elif tri_sum > target:
+                    k -= 1
+            
+            i += 1
+                
         return result
 ```

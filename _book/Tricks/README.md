@@ -9,25 +9,6 @@
             # _IMP:_ x should be the start of slice+1; same for y
             return (P[j] - P[i]), (j - i)
 ```
-
-#### Partitioning
-1. Select last element as a `pivot` and first element as the `left_idx`
-2. Add a `runner` to loop from left to (right-1)
-3. `left_idx`to keep smaller elements at the correct places. Swap (left_idx - runner elems) if runner pointed elem is smaller than the pivot
-```py
-        def partition(_left, _right):
-            left_idx, pivot_idx = _left, _right
-            
-            for runner in range(_left, _right):
-                if nums[runner] < nums[pivot_idx]:
-                    nums[left_idx], nums[runner] = nums[runner], nums[left_idx]
-                    left_idx += 1
-                
-            
-            nums[pivot_idx], nums[left_idx] = nums[left_idx], nums[pivot_idx]
-            return left_idx
-```
-
 #### Rather than doing all sorts of complicated stuff with `// +- 1`, just use `math` <br />
 ```py
 import math
@@ -91,3 +72,21 @@ for i, c in enumerate(s):
 #### list.insert(index, elem)
 The last one gets the priority
 
+### Tricky Sorting
+
+python `sorted` function can be fed a custom comparator. <br />
+Coming up with a comparator is the most important part.
+
+`functools.cmp_to_key(comparator)` can be used as a key to make this work.
+
+https://leetcode.com/problems/largest-number/
+```py
+import functools
+
+class Solution:
+    def largestNumber(self, nums: List[int]) -> str:
+        comparator = lambda x, y: 1 if x+y > y+x else -1 if x+y < y+x else 0
+        s_nums = sorted([str(n) for n in nums], key=functools.cmp_to_key(comparator), reverse=True)
+        largest = ''.join(s_nums)
+        return str(int(largest))
+```

@@ -35,3 +35,28 @@ class Solution:
         
         return result
 ```
+https://leetcode.com/problems/merge-sorted-array/
+```py
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        m_idx, n_idx, r_idx = m-1, n-1, len(nums1)-1
+        
+        while r_idx >= 0:
+            # this is crucial; do not overflow n
+            if n_idx < 0:
+                break
+            
+            # first check is important to avoid m overflow
+            if (m_idx >= 0) and nums1[m_idx] >= nums2[n_idx]:
+                nums1[r_idx] = nums1[m_idx]
+                m_idx -= 1
+            else:
+                nums1[r_idx] = nums2[n_idx]
+                n_idx -= 1
+            
+            r_idx -= 1
+
+```

@@ -271,3 +271,7 @@ class Solution:
         return result
         
 ```
+https://leetcode.com/problems/find-k-closest-elements/
+```py
+
+```

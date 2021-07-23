@@ -8,7 +8,9 @@ Optimization for BST: <br />
 Check if the target value is greater than current, go right; no need to go left. Vice versa. <br />
 Also need to do the same sometimes to handle the nodes that don't have either left child or the right one. Don't forget to initialize L or R before calling postorder. Look at the solution of good leaf nodes.
 
-Sometimes, you'd need to go down the tree and then come back up with height related data (eg. https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/)
+Tree height questions:
+* https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/
+* https://leetcode.com/problems/find-leaves-of-binary-tree/
 
 #### General solution:
 https://leetcode.com/problems/binary-tree-maximum-path-sum/
@@ -281,4 +283,43 @@ class Solution:
         
         postorder(root)
         return self.lca
+```
+https://leetcode.com/problems/find-leaves-of-binary-tree/ <br />
+Interesting question! It indirectly asks us to group nodes with the same height together. Then, return them in increasing order of the height in question. <br />
+Postorder guaratees that we process them from ground up, so the second requirement is implemented by default. Rest is just height calculation.
+```py
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findLeaves(self, root: TreeNode) -> List[List[int]]:
+        store = {}
+        
+        def postorder(node):
+            if not node:
+                return -1
+            
+            # steps 1 and 2 can be merged in one-line
+
+            # 1. find children's heights
+            L = postorder(node.left)
+            R = postorder(node.right)
+            
+            # 2. node's height
+            H = 1 + max(L, R)
+
+            # update the store; we can also use defaultdict(list) here
+            store[H] = store.get(H, []) + [node.val]
+            
+            # return the height back to its parents
+            return H
+        
+        # trigger
+        postorder(root)
+
+        # these will be sorted by default
+        return store.values()
 ```

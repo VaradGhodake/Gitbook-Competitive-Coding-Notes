@@ -54,3 +54,27 @@ class Solution:
         
         return True
 ```
+Solution using start and end
+```py
+class Solution:
+    def validPalindrome(self, s: str) -> bool:
+        left, right = 0, len(s)-1
+        
+        def isPalindrome(start, end):
+            while start < end:
+                if s[start] != s[end]:
+                    return False
+                start += 1
+                end -= 1
+                
+            return True
+        
+        while left < right:
+            if s[left] == s[right]:
+                left += 1
+                right -= 1
+            else:
+                return isPalindrome(left+1, right) or isPalindrome(left, right-1)
+        
+        return True
+```

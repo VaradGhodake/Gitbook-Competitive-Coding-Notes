@@ -1,5 +1,23 @@
 ### Linked List
 
+
+#### Instructions
+ <br />
+ 
+* Important thing is to understand how long the loop should run. That is, until the end node or `None` after the end node. <br />
+* Using multiple pointers is common, check if that helps. Also, be sure which one of these should be your point of reference. That might make a difference. (Check _reverse linked list_ question)  <br />
+* To avoid many `if conditions`, you can declare a `None` node and use it as dummy or `prev` (merge sorted linked lists)
+* Can treat a linked list as a graph: _linked list cycle_
+
+Recursion gives us an elegant way to iterate through the nodes in reverse. For example, this algorithm will print out the values of the nodes in reverse. Given a node, the algorithm checks if it is null. If it is null, nothing happens. Otherwise, all nodes after it are processed, and then the value for the current node is printed.
+
+```py
+def print_values_in_reverse(ListNode head)
+    if head is not None:
+        print_values_in_reverse(head.next)
+        print head.val
+```
+
 ##### Sequence:
 
 * https://leetcode.com/problems/delete-node-in-a-linked-list/
@@ -31,6 +49,36 @@ class Solution:
             current = _next
         
         return prev
+```
+Recursive approach: <br />
+This is inspired from `tree -> doubly linked list` conversion question. <br />
+With recursion, we get pointers in reverse order. Static variable to keep track of the previous nodes.
+```py
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        if not head:
+            return head
+        
+        def helper(node):
+            if not node:
+                return
+            
+            # recursive call to reach the end 
+            helper(node.next)
+            
+            if not helper.last:
+                helper.first = node
+            else:
+                helper.last.next = node
+                helper.last = node
+            
+            helper.last = node
+        
+        helper.first = helper.last = None
+        helper(head)
+        
+        helper.last.next = None
+        return helper.first
 ```
 https://leetcode.com/problems/linked-list-cycle/ <br />
 Iterative:

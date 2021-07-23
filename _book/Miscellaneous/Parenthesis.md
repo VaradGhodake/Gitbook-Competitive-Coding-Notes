@@ -44,11 +44,36 @@ Top-down backtrack is very intuitive
                 memo[(i, stack)] = memo[(i, stack)] or \
                                    backtrack(i + 1, stack - 1)
 ```
+https://leetcode.com/problems/generate-parentheses/
+```py
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        result = []
+        limit = 2 * n
+        
+        def backtrack(index=0, current="", _open=0, _close=0):
+            if index == limit:
+                if _open == _close:
+                    result.append(current)
+                return
+            
+            if (_open > n) or (_close > n) or (_close > _open):
+                return
+            
+            # open bracket
+            backtrack(index+1, current + '(', _open+1, _close)
+            
+            # close bracket
+            backtrack(index+1, current + ')', _open, _close+1)
+        
+        backtrack()
+        return result
+```
 https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/ <br />
 The ones that need to be removed are:
 1. close brakets that come when there was no open one before it 
 2. open ones that don't have a close one after them
-Just need to find them and replace with an empty string.
+Just need to find them and replace with an empty string. <br />
 Set is interchangable with list here because we don't care what open bracket a close one matches with; we'd just pop
 ```py
 class Solution:
@@ -89,7 +114,6 @@ class Solution:
         
         return open_brackets + closed_brackets
 ```
-
 https://leetcode.com/problems/remove-outermost-parentheses/
 ```py
 class Solution:
