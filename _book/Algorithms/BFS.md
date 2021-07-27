@@ -9,17 +9,18 @@
 
 General solutions:
 #### BFS
-* collections.deque is extremely useful: use `apend` and `popleft` for queue operations
+* collections.deque is extremely useful: use `append` and `popleft` for queue operations
 * Run operations as long as the queue is not empty
 * visited array is an important part of the solution to avoid repetition
 
 Excellent questions:
 * https://leetcode.com/problems/jump-game/ <br />
-DFS is a little bit slower but gets the job done <br />
+BFS is a little bit slower but gets the job done <br />
 Being greedy from the end to start works well 
 * https://leetcode.com/problems/jump-game-ii/ <br />
 * Water and jug problem
 https://leetcode.com/problems/water-and-jug-problem
+
 ```py
 from collections import deque
 
@@ -91,4 +92,38 @@ class Solution:
                         queue.append((next_state, moves+1))
         
         return -1
+```
+https://leetcode.com/problems/word-ladder/ <br />
+short-hand fingerprints creation is a game changer here. Enables us to hop from one word to valid ones in O(1)
+```py
+from collections import defaultdict, deque
+
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+        wordStore = defaultdict(list)
+        
+        for word in wordList:
+            for i in range(len(word)):
+                shortVersion = word[:i]+ '*' + word[i+1:]
+                wordStore[shortVersion].append(word)
+        
+        queue = deque()
+        
+        queue.append((beginWord, 1))
+        visited = set([beginWord])
+        
+        while queue:
+            word, steps = queue.popleft()
+            
+            for i in range(len(word)):
+                shortWords = wordStore[word[:i] + '*' + word[i+1:]]
+                for next_word in shortWords:
+                    if next_word not in visited:
+                        if next_word == endWord:
+                            return steps + 1
+                        
+                        visited.add(next_word)
+                        queue.append((next_word, steps + 1))
+        
+        return 0
 ```

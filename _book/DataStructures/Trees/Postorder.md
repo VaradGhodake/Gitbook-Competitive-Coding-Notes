@@ -323,3 +323,26 @@ class Solution:
         # these will be sorted by default
         return store.values()
 ```
+https://leetcode.com/problems/binary-tree-pruning/
+```py
+class Solution:
+    def pruneTree(self, root: TreeNode) -> TreeNode:
+        
+        def postorder(node):
+            if not node:
+                return False
+            
+            L = postorder(node.left)
+            R = postorder(node.right)
+            
+            if not L:
+                node.left = None
+            
+            if not R:
+                node.right = None
+            
+            return L or R or (node.val == 1)
+        
+        return root if postorder(root) else None
+    
+```

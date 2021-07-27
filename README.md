@@ -4,8 +4,9 @@
 
 ###### Instructions:
 ```
-# Install gitbook globally
+# Install gitbook and gitbook-cli globally
 $ npm install gitbook -g
+$ npm install gitbook-cli -g
 
 # clone this repo
 $ git clone https://github.com/VaradGhodake/Gitbook-Competitive-Coding-Notes.git

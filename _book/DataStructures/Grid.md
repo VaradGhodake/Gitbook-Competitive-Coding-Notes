@@ -56,9 +56,10 @@ class Solution:
 
 #### BFS:
 * Rotten oranges <br />
-Tip: <br />
-In such problems, implied visited through input modification is faster than visited set and step through queue element is faster than looping over queue size <br />
-eg. https://leetcode.com/problems/shortest-path-in-binary-matrix/ <br />
+> **Tip:** <br />
+> In such problems, implied visited through input modification is faster than visited set 
+> Steps through queue element is faster than looping over queue size
+> eg. https://leetcode.com/problems/shortest-path-in-binary-matrix/
 
 https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/
 ```py
@@ -70,6 +71,9 @@ class Solution:
         k_left = k if grid[0][0] == 0 else k - 1
         X, Y = len(grid), len(grid[0])
         
+        if X == 1 and Y == 1:
+            return 0
+        
         cache = {}
         queue.append((0, 0, k_left))
         
@@ -80,26 +84,19 @@ class Solution:
             for _ in range(size):
                 x, y, k_left = queue.popleft()
                 
-                if k_left < 0:
-                    continue
-                
-                if x == (X-1) and y == (Y-1):
-                    return steps
-                
-                # cache for visited tracking
                 prev_steps, prev_k = cache.get((x, y), (float('inf'), -1))
                 if prev_steps <= steps and prev_k >= k_left:
                     continue
                 cache[(x, y)] = (steps, k_left)
                 
-                # directions
                 directions = [(x+1,y), (x-1,y), (x,y+1), (x,y-1)]
                 for _x, _y in directions:
-                    if not (0 <= _x < X) or not (0 <= _y < Y):
-                        continue
-                    
-                    if k_left >= 0:
-                        queue.append((_x, _y, k_left - grid[_x][_y]))
+                    if (0 <= _x < X) and (0 <= _y < Y):
+                        temp = k_left - grid[_x][_y]
+                        if temp >= 0:
+                            if _x == (X-1) and _y == (Y-1):
+                                return steps + 1
+                            queue.append((_x, _y, temp))
                 
             steps += 1
         
@@ -169,7 +166,7 @@ class Solution:
         return count
 ```
 https://leetcode.com/problems/shortest-bridge/ <br />
-Paint first island negative and then perform BFS to find the first positive integer <br />\
+Paint first island negative and then perform BFS to find the first positive integer <br />
 As always, one check before pushing onto the queue and one check after popleft-ing
 ```py
 from collections import deque

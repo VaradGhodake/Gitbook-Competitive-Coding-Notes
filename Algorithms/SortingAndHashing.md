@@ -29,3 +29,37 @@ def minimumSwaps(arr):
     
     return swaps
 ```
+
+
+#### Hashing
+
+###### Freq of freq
+
+* https://leetcode.com/problems/maximum-frequency-stack/ 
+
+https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?isFullScreen=false
+```py
+def isValid(s):
+    freq = defaultdict(int)
+    F = defaultdict(int)
+    adjustment_options = 1
+    
+    for char in s:
+        freq[char] += 1
+    
+    for _, v in freq.items():
+        F[v] += 1
+    
+    if len(F) > 2:
+        return "NO"
+    
+    if len(F) == 1:
+        return "YES"
+    
+    max_key = max(F.keys())
+    max_key_freq = F[max_key]
+    min_key = min(F.keys())
+    min_key_freq = F[min_key]
+    
+    return "YES" if ((max_key_freq == 1) and (max_key - min_key == 1)) or (min_key_freq == 1) else "NO"
+```

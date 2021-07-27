@@ -5,9 +5,12 @@
 
 ---
 
-### Algorithms
 * [📢 TO DO](Algorithms/README.md)
-* [Sorting](Algorithms/sorting.md)
+
+---
+
+### Algorithms
+* [Sorting and Hashing](Algorithms/SortingAndHashing.md)
 * [BFS](Algorithms/BFS.md)
 * [Backtracking and Complete Search](Algorithms/Backtracking.md)
 * [Binary Search](Algorithms/BinarySearch.md)
@@ -49,14 +52,17 @@
 * [Heap](DataStructures/Heap.md)
 * [Grid](DataStructures/Grid.md)
 
+---
+
 ### Miscellaneous
-* [Miscellaneous](Miscellaneous/README.md)
-    * [Palindrome](Miscellaneous/Palindrome.md)
-    * [Stocks](Miscellaneous/Stocks.md)
-    * [Intervals](Miscellaneous/Intervals.md)
-    * [Parenthesis](Miscellaneous/Parenthesis.md)
-    * [Alien Dictionary](Miscellaneous/AlienDictionary.md)
-    * [Interesting Miscellaneous](Miscellaneous/InterestingMiscellaneous.md)
+* [Palindrome](Miscellaneous/Palindrome.md)
+* [Stocks](Miscellaneous/Stocks.md)
+* [Intervals](Miscellaneous/Intervals.md)
+* [Parenthesis](Miscellaneous/Parenthesis.md)
+* [Alien Dictionary](Miscellaneous/AlienDictionary.md)
+* [Interesting Miscellaneous](Miscellaneous/InterestingMiscellaneous.md)
+
+---
 
 ### Tips
 * [Tricks](Tricks/README.md)
