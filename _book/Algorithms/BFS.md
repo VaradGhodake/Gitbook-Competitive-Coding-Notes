@@ -127,3 +127,81 @@ class Solution:
         
         return 0
 ```
+https://leetcode.com/problems/making-a-large-island/ <br />
+REALLY GOOD! We traverse through 0 cells and try to connect as many islands in four directions as possible.
+When we encounter an unvisited island, we color it with a static variable and increment the static variable for the next unencountered island. We make sure to cache the visited island's area based on its color.
+```py
+from collections import deque
+
+class Solution:
+    def largestIsland(self, grid: List[List[int]]) -> int:
+        """
+        - islands[color] = area
+        We cache this info while marking
+        
+        - mark.id
+        Color to mark the current island with
+        """
+        
+        X, Y = len(grid), len(grid[0])
+        # 0 cell is essentially an island with 
+        # area 0
+        islands = {0: 0}
+        max_area = 0
+        # edge case: all cells are 1
+        zero_cell_exists = False
+        
+        def mark(_a, _b, color):
+            queue = deque()
+            queue.append((_a, _b))
+            
+            grid[_a][_b] = color
+            # init area 1 because we temporarily mark the current
+            # 0 cell as 1
+            area = 1
+            
+            while queue:
+                x, y = queue.popleft()
+                
+                directions = [(x+1,y), (x-1,y), (x,y+1), (x,y-1)]
+                for _x, _y in directions:
+                    if (0 <= _x < X) and (0 <= _y < Y):
+                        if grid[_x][_y] == 1:
+                            grid[_x][_y] = color
+                            area += 1
+                            
+                            queue.append((_x, _y))
+            # cache this!
+            islands[color] = area
+            return
+        
+        mark.id = 2
+        for i in range(X):
+            for j in range(Y):
+                if grid[i][j] == 0:
+                    zero_cell_exists = True
+                    _area = 1
+                    # if we encounter the same island again for single 0 cell
+                    included_islands = set()
+                    
+                    # look at all the sorrounding cells and add their areas
+                    directions = [(i+1,j), (i-1,j), (i,j+1), (i,j-1)]
+                    
+                    for _i, _j in directions:
+                        if (0 <= _i < X) and (0 <= _j < Y):
+                            if grid[_i][_j] in included_islands:
+                                continue
+                            
+                            if grid[_i][_j] not in islands:
+                                mark(_i, _j, mark.id)
+                                
+                                # init for the next marking function
+                                mark.id += 1
+                            
+                            included_islands.add(grid[_i][_j])
+                            _area += islands[grid[_i][_j]]
+                            
+                    max_area = max(max_area, _area)
+        
+        return max_area if zero_cell_exists else (X * Y)
+```

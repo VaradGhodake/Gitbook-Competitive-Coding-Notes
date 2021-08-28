@@ -2,6 +2,13 @@
 
 #### To Do:
 
+READ UP: https://github.com/yangshun/tech-interview-handbook
+
+Palindrome partitioning:
+https://leetcode.com/problems/palindrome-partitioning/discuss/41973/Python-recursiveiterative-backtracking-solution <br />
+Solve P II and similar backtracking questions
+
+
 Runtimes: why heap is O(n)?
 
 Addition questions-> strings, lists, *linked lists*

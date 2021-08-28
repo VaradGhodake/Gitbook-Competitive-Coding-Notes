@@ -247,3 +247,36 @@ class Solution:
         
         return []
 ```
+https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/ <br />
+Sorting + heap <br />
+Earliest ending event available at the current time. <br />
+Two crucial steps: adding end-times and while-ing until expired events are popped out of the heap <br />
+The best explaination: https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/discuss/510262/Detailed-analysisLet-me-lead-you-to-the-solution-step-by-step
+```py
+import heapq
+
+class Solution:
+    def maxEvents(self, events: List[List[int]]) -> int:
+        events = sorted(events)
+        max_days = max(end for start, end in events)
+        n = len(events)
+        
+        day, count, event_num = 0, 0, 0
+        heap = []
+        
+        while day <= max_days:
+            while event_num < n and events[event_num][0] <= day:
+                heapq.heappush(heap, events[event_num][1])
+                event_num += 1
+            
+            while heap and heap[0] < day:
+                heapq.heappop(heap)
+            
+            if heap:
+                heapq.heappop(heap)
+                count += 1
+            
+            day += 1
+        
+        return count
+```

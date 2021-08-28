@@ -100,3 +100,32 @@ class Solution:
                 
         return result
 ```
+https://leetcode.com/problems/3sum-smaller/
+Modified version of the earlier question. Sort first. <br />
+Keep `i` constant. `j` and `k` inward traversal based on the sum value. <br />
+
+Once we find the appropriate j and k, add that interval length into the count
+```py
+class Solution:
+    def threeSumSmaller(self, nums: List[int], target: int) -> int:
+        arr = sorted(nums)
+        
+        count, n = 0, len(arr)
+        i = 0
+        
+        for i in range(0, n-2):
+            j = (i+1)
+            k = (n-1)
+            
+            while j < k:
+                current = arr[i] + arr[j] + arr[k]
+                
+                # crucial block
+                if current < target:
+                    count += (k-j)
+                    j += 1
+                else:
+                    k -= 1
+        
+        return count
+```

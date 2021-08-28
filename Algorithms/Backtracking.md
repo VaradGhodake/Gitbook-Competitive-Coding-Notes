@@ -258,3 +258,35 @@ class Solution:
         backtrack([], counter)
         return result
 ```
+https://leetcode.com/problems/subsets-ii/ <br />
+Sort + fingerprint
+```py
+class Solution:
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        # the sorting step is really important
+        # this avoids [small, big] and [big, small] repetitions
+        nums.sort()
+        
+        result, subset_store = [], set()
+        n = len(nums)
+        
+        def backtrack(index, fingerprint):
+            if index == n:
+                if fingerprint not in subset_store:
+                    result.append(backtrack.bucket[:])
+                    subset_store.add(fingerprint)
+                return
+            
+            # reject the current character
+            backtrack(index+1, fingerprint)
+            
+            # accept the current character
+            backtrack.bucket.append(nums[index])
+            backtrack(index+1, fingerprint + str(nums[index]) + " ")
+            backtrack.bucket.pop()
+        
+        backtrack.bucket = []
+        backtrack(0, "")
+        
+        return result
+```

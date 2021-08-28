@@ -765,7 +765,20 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" data-path="../BehavioralQuestions.html">
+        <li class="chapter " data-level="6.2" data-path="../OOP/designs.html">
+            
+                <a href="../OOP/designs.html">
+            
+                    
+                    OOP designs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../BehavioralQuestions.html">
             
                 <a href="../BehavioralQuestions.html">
             
@@ -956,6 +969,83 @@ short-hand fingerprints creation is a game changer here. Enables us to hop from 
 
         <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
 </code></pre>
+<p><a href="https://leetcode.com/problems/making-a-large-island/" target="_blank">https://leetcode.com/problems/making-a-large-island/</a> <br>
+REALLY GOOD! We traverse through 0 cells and try to connect as many islands in four directions as possible.
+When we encounter an unvisited island, we color it with a static variable and increment the static variable for the next unencountered island. We make sure to cache the visited island&apos;s area based on its color.</p>
+<pre><code class="lang-py"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">largestIsland</span><span class="hljs-params">(self, grid: List[List[int]])</span> -&gt; int:</span>
+        <span class="hljs-string">&quot;&quot;&quot;
+        - islands[color] = area
+        We cache this info while marking
+
+        - mark.id
+        Color to mark the current island with
+        &quot;&quot;&quot;</span>
+
+        X, Y = len(grid), len(grid[<span class="hljs-number">0</span>])
+        <span class="hljs-comment"># 0 cell is essentially an island with </span>
+        <span class="hljs-comment"># area 0</span>
+        islands = {<span class="hljs-number">0</span>: <span class="hljs-number">0</span>}
+        max_area = <span class="hljs-number">0</span>
+        <span class="hljs-comment"># edge case: all cells are 1</span>
+        zero_cell_exists = <span class="hljs-keyword">False</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mark</span><span class="hljs-params">(_a, _b, color)</span>:</span>
+            queue = deque()
+            queue.append((_a, _b))
+
+            grid[_a][_b] = color
+            <span class="hljs-comment"># init area 1 because we temporarily mark the current</span>
+            <span class="hljs-comment"># 0 cell as 1</span>
+            area = <span class="hljs-number">1</span>
+
+            <span class="hljs-keyword">while</span> queue:
+                x, y = queue.popleft()
+
+                directions = [(x+<span class="hljs-number">1</span>,y), (x<span class="hljs-number">-1</span>,y), (x,y+<span class="hljs-number">1</span>), (x,y<span class="hljs-number">-1</span>)]
+                <span class="hljs-keyword">for</span> _x, _y <span class="hljs-keyword">in</span> directions:
+                    <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> &lt;= _x &lt; X) <span class="hljs-keyword">and</span> (<span class="hljs-number">0</span> &lt;= _y &lt; Y):
+                        <span class="hljs-keyword">if</span> grid[_x][_y] == <span class="hljs-number">1</span>:
+                            grid[_x][_y] = color
+                            area += <span class="hljs-number">1</span>
+
+                            queue.append((_x, _y))
+            <span class="hljs-comment"># cache this!</span>
+            islands[color] = area
+            <span class="hljs-keyword">return</span>
+
+        mark.id = <span class="hljs-number">2</span>
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(X):
+            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(Y):
+                <span class="hljs-keyword">if</span> grid[i][j] == <span class="hljs-number">0</span>:
+                    zero_cell_exists = <span class="hljs-keyword">True</span>
+                    _area = <span class="hljs-number">1</span>
+                    <span class="hljs-comment"># if we encounter the same island again for single 0 cell</span>
+                    included_islands = set()
+
+                    <span class="hljs-comment"># look at all the sorrounding cells and add their areas</span>
+                    directions = [(i+<span class="hljs-number">1</span>,j), (i<span class="hljs-number">-1</span>,j), (i,j+<span class="hljs-number">1</span>), (i,j<span class="hljs-number">-1</span>)]
+
+                    <span class="hljs-keyword">for</span> _i, _j <span class="hljs-keyword">in</span> directions:
+                        <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> &lt;= _i &lt; X) <span class="hljs-keyword">and</span> (<span class="hljs-number">0</span> &lt;= _j &lt; Y):
+                            <span class="hljs-keyword">if</span> grid[_i][_j] <span class="hljs-keyword">in</span> included_islands:
+                                <span class="hljs-keyword">continue</span>
+
+                            <span class="hljs-keyword">if</span> grid[_i][_j] <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> islands:
+                                mark(_i, _j, mark.id)
+
+                                <span class="hljs-comment"># init for the next marking function</span>
+                                mark.id += <span class="hljs-number">1</span>
+
+                            included_islands.add(grid[_i][_j])
+                            _area += islands[grid[_i][_j]]
+
+                    max_area = max(max_area, _area)
+
+        <span class="hljs-keyword">return</span> max_area <span class="hljs-keyword">if</span> zero_cell_exists <span class="hljs-keyword">else</span> (X * Y)
+</code></pre>
 
                                 
                                 </section>
@@ -999,7 +1089,7 @@ short-hand fingerprints creation is a game changer here. Enables us to hop from 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"BFS","level":"3.2","depth":1,"next":{"title":"Backtracking and Complete Search","level":"3.3","depth":1,"path":"Algorithms/Backtracking.md","ref":"Algorithms/Backtracking.md","articles":[]},"previous":{"title":"Sorting and Hashing","level":"3.1","depth":1,"path":"Algorithms/SortingAndHashing.md","ref":"Algorithms/SortingAndHashing.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["collapsible-menu","livereload"],"pluginsConfig":{"collapsible-menu":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/BFS.md","mtime":"2021-07-25T06:04:49.670Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-27T15:37:00.475Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"BFS","level":"3.2","depth":1,"next":{"title":"Backtracking and Complete Search","level":"3.3","depth":1,"path":"Algorithms/Backtracking.md","ref":"Algorithms/Backtracking.md","articles":[]},"previous":{"title":"Sorting and Hashing","level":"3.1","depth":1,"path":"Algorithms/SortingAndHashing.md","ref":"Algorithms/SortingAndHashing.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["collapsible-menu","livereload"],"pluginsConfig":{"collapsible-menu":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/BFS.md","mtime":"2021-08-03T18:35:25.365Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-26T01:45:14.200Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

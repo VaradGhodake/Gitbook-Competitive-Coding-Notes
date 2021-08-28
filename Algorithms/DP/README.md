@@ -1,6 +1,6 @@
 ### Dynamic Programming
-https://leetcode.com/problems/target-sum/discuss/455024/DP-IS-EASY!-5-Steps-to-Think-Through-DP-Questions.
-
+https://leetcode.com/problems/target-sum/discuss/455024/DP-IS-EASY!-5-Steps-to-Think-Through-DP-Questions <br />
+https://leetcode.com/discuss/interview-question/1380561/template-for-dynamic-programming
 
 ##### 1. 0/1 Knapsack
 Include/exclude the element at hand. <br />

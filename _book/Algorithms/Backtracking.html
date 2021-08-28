@@ -765,7 +765,20 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" data-path="../BehavioralQuestions.html">
+        <li class="chapter " data-level="6.2" data-path="../OOP/designs.html">
+            
+                <a href="../OOP/designs.html">
+            
+                    
+                    OOP designs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../BehavioralQuestions.html">
             
                 <a href="../BehavioralQuestions.html">
             
@@ -1062,6 +1075,37 @@ Filter right after the loop using a helper array used for tracking <br>
         backtrack([], counter)
         <span class="hljs-keyword">return</span> result
 </code></pre>
+<p><a href="https://leetcode.com/problems/subsets-ii/" target="_blank">https://leetcode.com/problems/subsets-ii/</a> <br>
+Sort + fingerprint</p>
+<pre><code class="lang-py"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">subsetsWithDup</span><span class="hljs-params">(self, nums: List[int])</span> -&gt; List[List[int]]:</span>
+        <span class="hljs-comment"># the sorting step is really important</span>
+        <span class="hljs-comment"># this avoids [small, big] and [big, small] repetitions</span>
+        nums.sort()
+
+        result, subset_store = [], set()
+        n = len(nums)
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">backtrack</span><span class="hljs-params">(index, fingerprint)</span>:</span>
+            <span class="hljs-keyword">if</span> index == n:
+                <span class="hljs-keyword">if</span> fingerprint <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> subset_store:
+                    result.append(backtrack.bucket[:])
+                    subset_store.add(fingerprint)
+                <span class="hljs-keyword">return</span>
+
+            <span class="hljs-comment"># reject the current character</span>
+            backtrack(index+<span class="hljs-number">1</span>, fingerprint)
+
+            <span class="hljs-comment"># accept the current character</span>
+            backtrack.bucket.append(nums[index])
+            backtrack(index+<span class="hljs-number">1</span>, fingerprint + str(nums[index]) + <span class="hljs-string">&quot; &quot;</span>)
+            backtrack.bucket.pop()
+
+        backtrack.bucket = []
+        backtrack(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;&quot;</span>)
+
+        <span class="hljs-keyword">return</span> result
+</code></pre>
 
                                 
                                 </section>
@@ -1105,7 +1149,7 @@ Filter right after the loop using a helper array used for tracking <br>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Backtracking and Complete Search","level":"3.3","depth":1,"next":{"title":"Binary Search","level":"3.4","depth":1,"path":"Algorithms/BinarySearch.md","ref":"Algorithms/BinarySearch.md","articles":[]},"previous":{"title":"BFS","level":"3.2","depth":1,"path":"Algorithms/BFS.md","ref":"Algorithms/BFS.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["collapsible-menu","livereload"],"pluginsConfig":{"collapsible-menu":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/Backtracking.md","mtime":"2021-07-14T13:28:05.224Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-07-27T15:37:00.475Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Backtracking and Complete Search","level":"3.3","depth":1,"next":{"title":"Binary Search","level":"3.4","depth":1,"path":"Algorithms/BinarySearch.md","ref":"Algorithms/BinarySearch.md","articles":[]},"previous":{"title":"BFS","level":"3.2","depth":1,"path":"Algorithms/BFS.md","ref":"Algorithms/BFS.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["collapsible-menu","livereload"],"pluginsConfig":{"collapsible-menu":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Algorithms/Backtracking.md","mtime":"2021-08-04T13:32:44.597Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-08-26T01:45:14.200Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

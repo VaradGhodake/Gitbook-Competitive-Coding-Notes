@@ -66,4 +66,5 @@
 
 ### Tips
 * [Tricks](Tricks/README.md)
+* [OOP designs](OOP/designs.md)
 * [Behavioral Questions](BehavioralQuestions.md)

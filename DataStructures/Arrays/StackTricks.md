@@ -106,6 +106,7 @@ class RecentCounter:
         self.window.append(t)
         return len(self.window)
 ```
+https://leetcode.com/problems/sliding-window-maximum/ <br />
 Now the original question with sliding window <br />
 Always remember: <br />
 * DRY: Don't Repeat Yourself
